@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>machine learning on Pablo Hernandez Leal</title>
+    <link>https://pablohl.github.io/tags/machine-learning/</link>
+    <description>Recent content in machine learning on Pablo Hernandez Leal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to be a great intern?</title>
+      <link>https://pablohl.github.io/posts/great_intern/</link>
+      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/great_intern/</guid>
+      <description>Tips and suggestions to make the most of an internship in tech. I’ve worked with many talented interns at throughtout my career and I wanted to share some general suggestions that might help you to improve your internship. Note: My experience is with research internships where the final outcome could be a paper submission.
+ Expectations The first key aspect to understand are the expectations of your internship (both for you and your supervisor).</description>
+    </item>
+    
+  </channel>
+</rss>

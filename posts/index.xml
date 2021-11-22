@@ -6,17 +6,59 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 17 Nov 2020 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>How to be a great intern?</title>
+			<link>https://pablohl.github.io/posts/great_intern/</link>
+			<pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/great_intern/</guid>
+			<description>Tips and suggestions to make the most of an internship in tech. I’ve worked with many talented interns at throughtout my career and I wanted to share some general suggestions that might help you to improve your internship. Note: My experience is with research internships where the final outcome could be a paper submission.
+ Expectations The first key aspect to understand are the expectations of your internship (both for you and your supervisor).</description>
+			<content type="html"><![CDATA[<h1 id="tips-and-suggestions-to-make-the-most-of-an-internship-in-tech">Tips and suggestions to make the most of an internship in tech.</h1>
+<p>I’ve worked with many talented interns at throughtout my career and I wanted to share some general suggestions that might help you to improve your internship. Note: My experience is with <em>research</em> internships where the final outcome could be a paper submission.</p>
+<hr>
+<h3 id="expectations">Expectations</h3>
+<p>The first key aspect to understand are the <em>expectations of your internship (both for you and your supervisor)</em>. An internship <em>is not like a mini Ph.D</em>. and <em>it is not like a final project</em> in a CS course.</p>
+<p>I&rsquo;ve seen internships where the supervisor has clearly delineated a project with a problem and possible solutions, then your work it&rsquo;s probably going to be following your supervisor&rsquo;s ideas. On the other hand, it could be a very open-ended internship where you are given the freedom to work on whatever you like. <em>Which one is better? Depends on you and your goals</em>. If you get an internship after 3 years on Ph.D. you probably have a good idea of how to do research and areas of interest. However, for a more junior intern, having more concrete steps and ideas would be more beneficial.</p>
+<p>My suggestion is to understand the expectations of your internship and talk with your supervisor on what style/approach you are going to use on the project. Setting clear expectations from the beginning could help you to plan and have a better experience in your internship.</p>
+<h3 id="duration">Duration</h3>
+<p>A second highly important aspect that you need to understand is that <strong>internships are very short</strong>, 4-6 months are usually not enough to:</p>
+<ol>
+<li>Understand a new topic/problem</li>
+<li>Propose a solution</li>
+<li>Implement it</li>
+<li>Run experiments</li>
+<li>Write a paper</li>
+</ol>
+<p>Usually, <em>your supervisor</em> needs to drive and define the first two tasks (your supervisor will also help you with the paper). In contrast, <em>you will be the main driver</em> of the implementation and experimental evaluation (this means that your supervisor won&rsquo;t be checking your code).</p>
+<h3 id="documentation">Documentation</h3>
+<p>Another key element to understand is that supervisors usually have other projects as their main responsibility and doing <em>context switching is tiring and difficult</em>. You as an intern can help your supervisor by <strong>keeping a structured documentation</strong> of the research/experiments/ideas that you have performed (I’ve seen people use Google docs and markdown editors, like hackMD.io). You don’t want to spend too much time on the document but it needs to have a logical structure that makes it easier to find something. A simple approach is to sort chronologically (most recent ideas/experiments at the beginning), this would also be helpful later if you need to write a report of your internship.</p>
+<h3 id="communication">Communication</h3>
+<p>Documentation will be a starting point to have conversations and hopefully fruitful discussions. But, for this to happen you&rsquo;ll need to develop <strong>good communication with your supervisor and/or peers</strong>. Unfortunately, this will not happen on the first day. You haven&rsquo;t worked together and you don&rsquo;t know how to communicate efficiently, probably it will take some time for you to adjust and improve that. My suggestion is to build a relationship with your peers/supervisors. How to do it? well&hellip;  try to not always talk about your project or work, spend some time chitchatting. I believe it should really be the supervisor&rsquo;s work to make the effort and build a relationship but supervisors are far from perfect and they might not know how to do it, so, you can try leading this part.</p>
+<h3 id="quality-of-feedback">Quality of Feedback</h3>
+<p>A last suggestion is trying to <strong>maximize the quality of the feedback you get in your meetings</strong>. As I mentioned, your supervisor might not be checking every day on you, so use your time efficiently. If you have followed the suggestion above about keeping good documentation, <em>you can share it with your supervisor before the meeting</em>, they can take a look if they have time and they will already have a context to start with during the meeting. You can also be prepared for the meeting with a list of questions/ideas/experiments that you want to discuss further.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>In my opinion internships have a lot of <em>randomness</em> involved and usually are a hit or miss situation. I think that if you applied and got an internship position you will have amazing expectations of proposing a new algorithm, submitting a new a paper and possibly getting an offer of a job after the internship&hellip; that’s a good attitude, but you also need to accept that <em><strong>internships sometimes don’t work out and that is also fine</strong></em>. I usually tell interns that the goal that I have for the internship is that:</p>
+<ul>
+<li><strong>They should have learned something new</strong>: in a technical way, for example by reading and discussing a couple of papers, and at least implementing/testing one in more depth.</li>
+<li><strong>They should have improved a few <em>soft skills</em></strong>: at the end of the internship you should have given a couple of presentations, prepared a report (or paper) and you had to interact and exchange ideas with other peers. These skills are valuable no matter which company or job, so practice and keep improving.</li>
+</ul>
+<p>If we also get a paper submission that’s extra.</p>
+<p>A last piece of advice is that internships are a good way to get a tiny look into a company but don’t be fooled to think that you will understand every aspect of it. Enjoy your internship and try to learn as much as possible.</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Hello world</title>
 			<link>https://pablohl.github.io/posts/hello_world/</link>
-			<pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+			<pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
 			
 			<guid>https://pablohl.github.io/posts/hello_world/</guid>
-			<description>I started my blog post</description>
-			<content type="html"><![CDATA[<p>I started my blog post</p>
+			<description>I started my blog</description>
+			<content type="html"><![CDATA[<p>I started my blog</p>
 ]]></content>
 		</item>
 		
