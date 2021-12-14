@@ -6,8 +6,32 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>How to be a great supervisor (of an internship)?</title>
+			<link>https://pablohl.github.io/posts/great_supervisor/</link>
+			<pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/great_supervisor/</guid>
+			<description>In my previous post I discussed how to be a great intern, now I&amp;rsquo;ll try to provide a complementary view on how I think a great supervisor should do.
+ Trade-offs One of the most difficult parts of being a good supervisor is deciding what role you need to play during the internship to maximize both the intern&amp;rsquo;s interests and yours. For example, as a supervisor you can &amp;ldquo;force&amp;rdquo; the intern to work on your project/ideas, but if the intern is not interested it&amp;rsquo;s going to be a huge loss of time and effort (for both).</description>
+			<content type="html"><![CDATA[<p>In my previous post I discussed <a href="https://pablohl.github.io/posts/great_intern/">how to be a great intern</a>, now I&rsquo;ll try to provide a complementary view on how I think a great supervisor should do.</p>
+<hr>
+<h3 id="trade-offs">Trade-offs</h3>
+<p>One of the most difficult parts of being a good supervisor is deciding what role you need to play during the internship <strong>to maximize both the intern&rsquo;s interests and yours</strong>. For example, as a supervisor you can &ldquo;force&rdquo; the intern to work on your project/ideas, but if the intern is not interested it&rsquo;s going to be a huge loss of time and effort (for both). The opposite is being a hands-off supervisor and giving minimal guidance to the intern. This might be a good learning experience for the intern to drive his own interests, however, the probability of completing something meaningful might be lower.
+Another example of a trade-off happens when the intern &ldquo;is stuck&rdquo; (for example the intern is not sure why some experiments are giving incorrect results or the intern is not sure which experiment to try next). <strong>As a supervisor you probably have some ideas on how to solve the issue, however, you might choose not to do it right away</strong>. Why? I believe, as a supervisor <strong>you want to maximize both the outcome (and quality) of the internship project and the quality of the internship experience (i.e., how much the intern has learned).</strong> This translates into letting interns figure things out on their own in many cases. How much time to wait before actively helping the intern? That&rsquo;s the difficult part of being a good supervisor.</p>
+<h3 id="focus">Focus</h3>
+<p>You as a supervisor should know that <strong>internships are very short</strong>. So, try <strong>to be fully present</strong>. <strong>Do not think of other tasks you need to do. Do not casually check your email and slack. Devote the allocated time to focus on the internship project.</strong> What happens if there&rsquo;s no clear agenda on what to discuss? Then, you as a supervisor can ask more questions and lead the meeting. If there&rsquo;s nothing on the agenda that might be an indication that the intern might be stuck. Even if there&rsquo;s nothing else to discuss about the project (maybe you are waiting for some experiments to finish) I&rsquo;d say do not cancel the meeting or finish early. Use that allocated time to connect and try to build a relationship.</p>
+<h3 id="motivation-and-support">Motivation and support</h3>
+<p>One of the key characteristics of a good supervisor is <strong>being capable to motivate throughout the different stages of the internship</strong>. For example, at the beginning of the project a supervisor should be capable of describing some interesting problems that deserve to be studied. If the supervisor is not able to convince an intern that a problem is interesting then the intern might not want to work on that!  In contrast, at the end of the internship a supervisor should be able to describe the contribution and how the project improved previous works. This is important because when you (the intern) are close to finishing the internship you will see your work as minimal, &ldquo;not so great&rdquo; or &ldquo;just ok&rdquo;. However, probably this happens because you worked on that for some time that <em>seems</em> easy. It&rsquo;s your supervisor&rsquo;s job to convince you of the good work that you have done. Lastly, a supervisor can actively help the intern with a recommendation for a full time job. In summary, a good supervisor should support the intern at all times during the internship (and sometimes beyond that period).</p>
+<h3 id="documentation-and-feedback">Documentation and feedback</h3>
+<p>My Ph.D. supervisor said something like <strong>&ldquo;the better the quality of the document the better the quality of the feedback&rdquo;</strong>. What this means is that when you share a document/report that is not close to the final version (for example with some incoherent ideas, lack of structure, unclear sentences, etc) then it&rsquo;s very hard to give detailed feedback. The best one can provide is high-level comments like &ldquo;this paragraph is not clear&rdquo;, &ldquo;move this content to that section&rdquo;, &ldquo;organize the experiments in this way&rdquo;, etc. Once the document becomes easier to read and has sufficient structure then the feedback will change and it will be the point when the supervisor will make more &ldquo;interesting&rdquo; comments.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>I mentioned <em>a few</em> examples of what I consider makes a good supervisor. They come in different forms and people have different strengths. This means that an amazing researcher does not always equal an amazing supervisor. An amazing engineer does not always mean an amazing supervisor. I think co-supervision might be a good tactic to get better feedback as an intern and to improve/grow as a supervisor.</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>How to be a great intern?</title>

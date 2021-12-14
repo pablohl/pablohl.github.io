@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/mentoring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/mentoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to be a great supervisor (of an internship)?</title>
+      <link>https://pablohl.github.io/posts/great_supervisor/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/great_supervisor/</guid>
+      <description>In my previous post I discussed how to be a great intern, now I&amp;rsquo;ll try to provide a complementary view on how I think a great supervisor should do.
+ Trade-offs One of the most difficult parts of being a good supervisor is deciding what role you need to play during the internship to maximize both the intern&amp;rsquo;s interests and yours. For example, as a supervisor you can &amp;ldquo;force&amp;rdquo; the intern to work on your project/ideas, but if the intern is not interested it&amp;rsquo;s going to be a huge loss of time and effort (for both).</description>
+    </item>
+    
     <item>
       <title>How to be a great intern?</title>
       <link>https://pablohl.github.io/posts/great_intern/</link>
