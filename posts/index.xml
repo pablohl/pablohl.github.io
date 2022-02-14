@@ -6,8 +6,55 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Thoughts on AI and Machine Learning for prospective/current students</title>
+			<link>https://pablohl.github.io/posts/thoughts/</link>
+			<pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/thoughts/</guid>
+			<description>This blog post was motivated when I was asked some interesting questions on AI and I thought it was good to share with a larger audience.
+  Why did you choose AI? What excites you about it?
+ I think my interest in machine learning (ML) started when I was doing my undergrad and I had to take some advanced courses. I think there were two courses &amp;ldquo;Artificial Intelligence&amp;rdquo; and &amp;ldquo;Data mining&amp;rdquo;.</description>
+			<content type="html"><![CDATA[<p>This blog post was motivated when I was asked some interesting questions on AI and I thought it was good to share with a larger audience.</p>
+<hr>
+<blockquote>
+<p>Why did you choose AI? What excites you about it?</p>
+</blockquote>
+<p>I think my interest in machine learning (ML) started when I was doing my undergrad and I had to take some advanced courses. I think there were two courses &ldquo;Artificial Intelligence&rdquo; and &ldquo;Data mining&rdquo;. I remember learning about decision trees, association rules, k-means and perceptrons (I also remember using <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka</a> for the first time). Of course, they were introductory courses, but, in retrospect they made a profound impression because I wanted to understand more about AI and I went to the library to do more research on the area. I was lucky to find <a href="https://www.amazon.com/LEARNING-Mcgraw-Hill-International-Mitchell-Paperback/dp/B00HRF2H6G/ref=sr_1_2?keywords=machine+learning+tom+mitchell&amp;qid=1644523232&amp;sprefix=machine+learning+tom+%2Caps%2C95&amp;sr=8-2">Tom Mitchell</a> and <a href="https://www.amazon.com/Artificial-Intelligence-A-Modern-Approach/dp/0134610997/ref=sr_1_2?crid=E8VHAICW1A87&amp;keywords=artificial+intelligence+russell+norvig&amp;qid=1644523282&amp;sprefix=artificial+intelligent+russell+norving%2Caps%2C91&amp;sr=8-2">Russell and Norving</a> books. I didn&rsquo;t really master AI or Machine learning at that time, however, it planted the idea that AI/machine learning were interesting and I wanted to learn more. That&rsquo;s kind of why I decided to continue with my Master&rsquo;s and Ph.D. in ML, because I was really curious about the potential of computers doing something intelligent (better than humans). As of today I am still intrigued by machine learning, I am amazed by <a href="https://www.technologyreview.com/2019/01/25/1436/we-analyzed-16625-papers-to-figure-out-where-ai-is-headed-next/">all the published papers</a>, <a href="https://deepmind.com/blog/article/AlphaStar-Grandmaster-level-in-StarCraft-II-using-multi-agent-reinforcement-learning">games solved</a>, and <a href="https://copilot.github.com/">use cases</a>. <strong>I find AI/ML pretty exciting and I don&rsquo;t see this trend changing in the forseeable future</strong>.</p>
+<blockquote>
+<p>What are some ideal skills/traits of a machine learning engineer?</p>
+</blockquote>
+<p>I think <strong>the first problem is defining what a machine learning engineer is</strong>. Depending on the company you might see different job titles such as <em>ML engineer, ML researcher, researcher engineer, applied scientist, research scientist</em>. Those titles do not necessarily reflect the true nature of the job. So, <strong>the way I think about machine learning engineers is a spectrum with two ingredients, software engineering and machine learning.</strong> I think the ideal machine learning engineer should master both of them, however, <strong>just being very good at one is difficult</strong>. Mastering both it&rsquo;s unusual and I think there are very few people with such a talent (FYI, if you are one of those, you&rsquo;ll probably have a great compensation).</p>
+<p>Let&rsquo;s do a very quick questionnaire to justify my reasoning, let&rsquo;s assume you were given a task to develop a <a href="https://www.cortical.io/freetools/detect-language/">language identification/detection system</a>.</p>
+<ul>
+<li>ML1. Do you know how to model this problem as a machine learning task?</li>
+<li>ML2. What is the class to be predicted and which features would you use? How would you pre-process a given dataset?</li>
+<li>ML3. Which baselines would you define? Which metrics are you going to evaluate?</li>
+<li>SE1. Are you able to code the above model in a modular way such that it can be read and extended by other engineers?</li>
+<li>SE2. How would you determine if your model needs to be retrained? How frequently?</li>
+<li>SE3. Can you define the API of your model? Can you sketch a block diagram of the training and inference processes?</li>
+</ul>
+<p>Do you know the answer <strong>to all</strong> the above questions? I for sure have better answers for some questions than for others. That&rsquo;s why there&rsquo;s a spectrum of knowledge and every engineer might have different strengths and weaknesses.</p>
+<blockquote>
+<p>Is there anything you&rsquo;d recommend a student like me who is interested in AI?</p>
+</blockquote>
+<p>This is a hard one, many ideas come to mind but since you are early in your career <strong>my advice would be &ldquo;don&rsquo;t give up,&quot;</strong> this has at least two interpretations.</p>
+<ol>
+<li>Machine learning has become a ridiculously competitive field and therefore <strong>you will face rejection at some point</strong>, it can be that a rejection from a university, a grant, a proposal, a paper, a company. It will happen and you&rsquo;ll feel miserable, but it happens to everyone. Just keep learning and trying.</li>
+<li><strong>Machine learning moves incredibly fast</strong>. Years ago you could read surveys and grasp a good idea of the state of the art in a specific area. Nowadays, surveys are almost obsolete because by the time they are published dozens of new papers in the area had been pushed to ArXiv. It&rsquo;s no joke that when a paper is presented at a conference, there are already 3 or 4 improvements in workshops at the same conference. That&rsquo;s why my advice is to <strong>focus on the fundamentals</strong>. Spend time on building a solid background on the basics, those never change and you will use them many times throughout your career.</li>
+</ol>
+<hr>
+<p>From the above it seems a bit daunting for junior students, and certainly studying AI/ML is very different to what it was years ago. However, to leave on an optimistic tone, you should also think that AI/ML offers many rewards in the long-term:</p>
+<ul>
+<li><a href="https://www.levels.fyi">Really good compensation packages</a></li>
+<li><a href="https://deepmind.com/blog/article/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology">The opportunity to work on complex problems</a></li>
+<li><a href="https://netflixtechblog.com/artwork-personalization-c589f074ad76">Knowing that your job might reach millions of people</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>How to be a great supervisor (of an internship)?</title>

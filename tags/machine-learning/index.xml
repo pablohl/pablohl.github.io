@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thoughts on AI and Machine Learning for prospective/current students</title>
+      <link>https://pablohl.github.io/posts/thoughts/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/thoughts/</guid>
+      <description>This blog post was motivated when I was asked some interesting questions on AI and I thought it was good to share with a larger audience.
+  Why did you choose AI? What excites you about it?
+ I think my interest in machine learning (ML) started when I was doing my undergrad and I had to take some advanced courses. I think there were two courses &amp;ldquo;Artificial Intelligence&amp;rdquo; and &amp;ldquo;Data mining&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>How to be a great supervisor (of an internship)?</title>
       <link>https://pablohl.github.io/posts/great_supervisor/</link>
