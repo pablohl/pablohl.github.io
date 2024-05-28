@@ -6,8 +6,88 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Quantitative Research and Machine Learning</title>
+			<link>https://pablohl.github.io/posts/simplicity/</link>
+			<pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/simplicity/</guid>
+			<description>I think of myself as a Machine Learning (ML) person with my most recent application domain being finance. However, I&amp;rsquo;ve worked alongside &amp;ldquo;Quants&amp;rdquo;.
+ According to ChatGPT: &amp;ldquo;In finance, a &amp;ldquo;quant&amp;rdquo; (short for quantitative analyst) is a professional who uses mathematical models, statistical techniques, and computer programming to analyze financial markets and securities. Quants develop algorithms and trading strategies to identify profitable opportunities and manage risk. They often work for investment banks, hedge funds, and other financial institutions, focusing on areas such as derivatives pricing, risk management, and algorithmic trading.</description>
+			<content type="html"><![CDATA[<p>I think of myself as a Machine Learning (ML) person with my most recent application domain being finance. However, I&rsquo;ve worked alongside &ldquo;Quants&rdquo;.</p>
+<blockquote>
+<p>According to ChatGPT: &ldquo;In finance, a &ldquo;quant&rdquo; (short for quantitative analyst) is a professional who uses mathematical models, statistical techniques, and computer programming to analyze financial markets and securities. Quants develop algorithms and trading strategies to identify profitable opportunities and manage risk. They often work for investment banks, hedge funds, and other financial institutions, focusing on areas such as derivatives pricing, risk management, and algorithmic trading.&rdquo;</p>
+</blockquote>
+<p>After spending some time with them, I have noted some key differences in the way they work and how I do it. This post describes some aspects that quantitative analysts/researchers do very well that we (ML people) should keep in mind even when not dealing with financial data.</p>
+<hr>
+<h2 id="simplicity-driven">Simplicity-driven</h2>
+<p>Let&rsquo;s start with a quote from Nick Patterson who worked at <a href="https://en.wikipedia.org/wiki/Renaissance_Technologies">Rennaisance Technologies:</a></p>
+<blockquote>
+<p>&hellip;It&rsquo;s funny that I think the most important thing to do on data analysis is to do the <strong>simple things right</strong>. So, here&rsquo;s a kind of non-secret about what we did at Renaissance: in my opinion, our most important statistical tool was simple regression with one target and one independent variable. <strong>It&rsquo;s the simplest</strong> statistical model you can imagine. Any reasonably smart high school student could do it. Now we have some of the smartest people around, working in our hedge fund, we have string theorists we recruited from Harvard, and they&rsquo;re doing <strong>simple</strong> regression. Is this stupid and pointless? Should we be hiring stupider people and paying them less? And the answer is no. And the reason is nobody tells you what the variables you should be regressing [are]. What&rsquo;s the target. Should you do a nonlinear transform before you regress? What&rsquo;s the source? Should you clean your data? Do you notice when your results are obviously rubbish? And so on. And the smarter you are the less likely you are to make a stupid mistake. And that&rsquo;s why I think you often need smart people who appear to be doing something technically very easy, but actually usually not so easy. <a href="https://news.ycombinator.com/item?id=19065226">[Reference]</a></p>
+</blockquote>
+<p>Let&rsquo;s know continue with the wonderful post Eugene Yan wrote about <a href="https://eugeneyan.com/writing/simplicity/">&ldquo;Simplicity is An Advantage but Sadly Complexity Sells Better&rdquo;</a> where he articulates many Machine Learning examples concluding with <em>&ldquo;the objective should be to solve complex problems with as simple a solution as possible.&quot;</em></p>
+<p>The sad reality is that in ML, sometimes we try to overcomplicate things just because we can. Nowadays, GPUs are largely available (even you can use them for free in something like <a href="https://colab.google/">Google Colab</a>), packages like Pytorch, Keras and Scikit-learn are extremely simple to use, and data is generally abundant (maybe you don&rsquo;t know the old <a href="https://archive.ics.uci.edu/">UCI datasets</a>, but you probably know about <a href="https://www.kaggle.com/datasets">Kaggle</a>). This has led to a bias toward always overcomplicating things from the beginning without considering any additional requirements or trade-offs.</p>
+<p>In contrast, I’ve seen quants develop truly informative models with 1) a clear hypothesis (more on that later), 2) linear regression, and 3) a clean dataset.</p>
+<p>Note that I am not arguing against using state-of-the-art models, but when solving a real problem, I would be more inclined to start with something simpler while considering many other aspects (cost, scalability, constraints, etc.).</p>
+<h2 id="skepticalcynical-attitude">Skeptical/Cynical attitude</h2>
+<p>Let’s consider two quotes in the context of evaluating (backtesting) Machine Learning models for Finance:</p>
+<blockquote>
+<p>&ldquo;The large amount of data allows for multiple layers of cross-validation, which minimizes the risk of overfitting. <strong>We are not so lucky in finance. Our data are limited.</strong>&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<blockquote>
+<p>&ldquo;The most common mistake is being seduced by the data into thinking a model is better than it is.&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>I’ve seen firsthand how the nature of quants is to be skeptical. If your model seems to be doing well in most metrics, their first thought is 1) <strong>something is wrong</strong>, followed by, 2) you are <strong>overfitting</strong>.</p>
+<p>When dealing with financial data, most evaluations are performed via <em>backtesting</em>, where essentially we can replay the data/experiment. The issue is that that replay <strong>is just one trajectory of a distribution</strong>. Numerous papers and books are devoted to properly using backtesting in finance. Below are a few quotes from Marcos Lopez de Prado on the importance/dangers of overfitting:</p>
+<blockquote>
+<p>&ldquo;&hellip; Backtest overfitting is arguably the most important open problem in all of mathematical finance. It is our equivalent to “P versus NP” in computer science.&quot;<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<blockquote>
+<p>&ldquo;&hellip; ML is a great weapon in your research arsenal, and a dangerous one to be sure.&quot;<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<p>To me, the following paragraph summarizes the main problem of repeating the same evaluation over and over without additional considerations:</p>
+<blockquote>
+<p>&ldquo;One of the most pervasive mistakes in financial research is to take some data, run it through an ML algorithm, backtest the predictions, and repeat the sequence until a nice-looking backtest shows up. Academic journals are filled with such pseudo-discoveries, and even large hedge funds constantly fall into this trap. It does not matter if the backtest is a walk-forward out-of-sample. The fact that we are repeating a test over and over on the same data will likely lead to a false discovery.&quot;<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<p>Doing ML with financial data sounds rather grim… and kind of is. Most of the time, nothing works, and when it works, it’s probably because you overfit. After all, it’s very tempting (and easy) to repeat experiments until the backtest improves because it <em>seems</em> similar to hyperparameter tuning and model validation in ML, but it is not.</p>
+<h2 id="hypothesis-based">Hypothesis-based</h2>
+<p>So, now the question arises: How do quants do their analysis if they don’t trust anything? Well, they do science… They follow a <strong>scientific approach</strong> based on hypothesis-experiments-evaluation. In their setting, it is common to talk about (economic or market) hypotheses that you will test.</p>
+<blockquote>
+<p>Establish an Ex Ante Economic Foundation: A hypothesis is developed, and the empirical tests attempt to find evidence inconsistent with the hypothesis—so-called falsifiability <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Another way of dealing with the backtest problem is to slightly change the way the analysis is done. What becomes important are the features and how they change (with respect to the hypothesis).</p>
+<blockquote>
+<p>Once we have found what features are important, we can learn more by conducting a number of experiments. Are these features important all the time, or only in some specific environments? What triggers a change in importance over time? Can those regime switches be predicted? Are those important features also relevant to other related financial instruments? Are they relevant to other asset classes? What are the most relevant features across all financial instruments? What is the subset of features with the highest rank correlation across the entire investment universe? This is a much better way of researching strategies than the foolish backtest cycle.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<p>It is so important that it is stated as the first rule of backtesting:</p>
+<blockquote>
+<p>MARCOS’ FIRST LAW OF BACKTESTING—IGNORE AT YOUR OWN PERIL
+“Backtesting is not a research tool. Feature importance is.”<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<hr>
+<p>In summary, <strong>quants usually start with a hypothesis to test, use simple models, and are skeptical of their results.</strong> Those characteristics are no different from what ML practitioners <strong>should do</strong>; however, ML tends to work without clear hypotheses, leading to overcomplicated models and being overly enthusiastic about results.</p>
+<hr>
+<h3 id="something-extra">Something extra:</h3>
+<p><img src="../../img/quantvsml.png" alt="Quant vs ML"></p>
+<p>&ldquo;Differences between Quant and ML, from <a href="https://youtu.be/BhaJVZNpL4M?si=K5MmJqt6TJeIfbEs%22">https://youtu.be/BhaJVZNpL4M?si=K5MmJqt6TJeIfbEs&quot;</a></p>
+<hr>
+<p>&ndash;</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Arnott, Robert D., Campbell R. Harvey, and Harry Markowitz. &ldquo;A backtesting protocol in the era of machine learning.&rdquo; (2018).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>De Prado, Marcos Lopez. Advances in financial machine learning. John Wiley &amp; Sons, 2018.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Thoughts on AI and Machine Learning for prospective/current students</title>
