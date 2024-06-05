@@ -7,13 +7,85 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>academia</title>
+      <link>https://pablohl.github.io/tags/academia/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/academia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>applied machine learning</title>
+      <link>https://pablohl.github.io/tags/applied-machine-learning/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/applied-machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>decision-making</title>
+      <link>https://pablohl.github.io/tags/decision-making/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/decision-making/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>experiments</title>
+      <link>https://pablohl.github.io/tags/experiments/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/experiments/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>machine learning</title>
       <link>https://pablohl.github.io/tags/machine-learning/</link>
-      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://pablohl.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>financial machine learning</title>
+      <link>https://pablohl.github.io/tags/financial-machine-learning/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/financial-machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>overfitting</title>
+      <link>https://pablohl.github.io/tags/overfitting/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/overfitting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quant</title>
+      <link>https://pablohl.github.io/tags/quant/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/quant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quantitative research</title>
+      <link>https://pablohl.github.io/tags/quantitative-research/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/tags/quantitative-research/</guid>
       <description></description>
     </item>
     
@@ -23,42 +95,6 @@
       <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://pablohl.github.io/tags/internship/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mentoring</title>
-      <link>https://pablohl.github.io/tags/mentoring/</link>
-      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://pablohl.github.io/tags/mentoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>supervisor</title>
-      <link>https://pablohl.github.io/tags/supervisor/</link>
-      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://pablohl.github.io/tags/supervisor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>personal</title>
-      <link>https://pablohl.github.io/tags/personal/</link>
-      <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://pablohl.github.io/tags/personal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>index</title>
-      <link>https://pablohl.github.io/tags/index/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pablohl.github.io/tags/index/</guid>
       <description></description>
     </item>
     

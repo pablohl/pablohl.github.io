@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quantitative research on Pablo Hernandez Leal</title>
+    <link>https://pablohl.github.io/tags/quantitative-research/</link>
+    <description>Recent content in quantitative research on Pablo Hernandez Leal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/quantitative-research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantitative Research and Machine Learning</title>
+      <link>https://pablohl.github.io/posts/simplicity/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/simplicity/</guid>
+      <description>I think of myself as a Machine Learning (ML) person with my most recent application domain being finance. However, I&amp;rsquo;ve worked alongside &amp;ldquo;Quants&amp;rdquo;.
+ According to ChatGPT: &amp;ldquo;In finance, a &amp;ldquo;quant&amp;rdquo; (short for quantitative analyst) is a professional who uses mathematical models, statistical techniques, and computer programming to analyze financial markets and securities. Quants develop algorithms and trading strategies to identify profitable opportunities and manage risk. They often work for investment banks, hedge funds, and other financial institutions, focusing on areas such as derivatives pricing, risk management, and algorithmic trading.</description>
+    </item>
+    
+  </channel>
+</rss>

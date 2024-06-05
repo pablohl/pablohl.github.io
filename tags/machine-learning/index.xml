@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lessons From Six Years of Applied Machine Learning in Industry</title>
+      <link>https://pablohl.github.io/posts/industryvsacademia/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/industryvsacademia/</guid>
+      <description>It’s been more than six years since I started working in industry doing Machine Learning. I wanted to delve a bit deeper into my experience and what I have seen as differences between academic research (PhD) and applied research/data science. Below, I describe six lessons I have learned.
+ 1. I don’t have the time to do all the experiments I would like. When trying to get your research published, there are many experiments you need to perform.</description>
+    </item>
+    
+    <item>
+      <title>Quantitative Research and Machine Learning</title>
+      <link>https://pablohl.github.io/posts/simplicity/</link>
+      <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/simplicity/</guid>
+      <description>I think of myself as a Machine Learning (ML) person with my most recent application domain being finance. However, I&amp;rsquo;ve worked alongside &amp;ldquo;Quants&amp;rdquo;.
+ According to ChatGPT: &amp;ldquo;In finance, a &amp;ldquo;quant&amp;rdquo; (short for quantitative analyst) is a professional who uses mathematical models, statistical techniques, and computer programming to analyze financial markets and securities. Quants develop algorithms and trading strategies to identify profitable opportunities and manage risk. They often work for investment banks, hedge funds, and other financial institutions, focusing on areas such as derivatives pricing, risk management, and algorithmic trading.</description>
+    </item>
+    
     <item>
       <title>Thoughts on AI and Machine Learning for prospective/current students</title>
       <link>https://pablohl.github.io/posts/thoughts/</link>

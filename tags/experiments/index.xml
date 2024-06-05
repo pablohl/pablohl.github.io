@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>experiments on Pablo Hernandez Leal</title>
+    <link>https://pablohl.github.io/tags/experiments/</link>
+    <description>Recent content in experiments on Pablo Hernandez Leal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/experiments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lessons From Six Years of Applied Machine Learning in Industry</title>
+      <link>https://pablohl.github.io/posts/industryvsacademia/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/industryvsacademia/</guid>
+      <description>It’s been more than six years since I started working in industry doing Machine Learning. I wanted to delve a bit deeper into my experience and what I have seen as differences between academic research (PhD) and applied research/data science. Below, I describe six lessons I have learned.
+ 1. I don’t have the time to do all the experiments I would like. When trying to get your research published, there are many experiments you need to perform.</description>
+    </item>
+    
+  </channel>
+</rss>

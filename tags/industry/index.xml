@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>industry on Pablo Hernandez Leal</title>
+    <link>https://pablohl.github.io/tags/industry/</link>
+    <description>Recent content in industry on Pablo Hernandez Leal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/industry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>H?</title>
+      <link>https://pablohl.github.io/posts/research/</link>
+      <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/research/</guid>
+      <description> Trade-offs Conclusions </description>
+    </item>
+    
+  </channel>
+</rss>
