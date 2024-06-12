@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompting, the Wonderful Wizard (Part 1)</title>
+      <link>https://pablohl.github.io/posts/prompts/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/prompts/</guid>
+      <description>This is my first post about Large Language Models (LLMs), and given all the information available, it&amp;rsquo;s challenging to write something novel that won&amp;rsquo;t become outdated soon. I wanted to start with something &amp;ldquo;reasonably&amp;rdquo; simple: prompting. In hindsight, I&amp;rsquo;ll conclude my post by arguing that prompting is not simple. It is both underestimated and overestimated in different aspects. In this first part of the post, my goal is to answer the following questions:</description>
+    </item>
+    
     <item>
       <title>Lessons From Six Years of Applied Machine Learning in Industry</title>
       <link>https://pablohl.github.io/posts/industryvsacademia/</link>

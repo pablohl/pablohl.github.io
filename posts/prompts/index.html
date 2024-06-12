@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="Prompting, the Wonderful Wizard (Part 1)">
+<meta itemprop="description" content="Prompting is a new paradigm in LLMs with many applications but it is still not well understood"><meta itemprop="datePublished" content="2024-06-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-06-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2137">
+<meta itemprop="keywords" content="machine learning,LLMs,Prompting," /><meta property="og:title" content="Prompting, the Wonderful Wizard (Part 1)" />
+<meta property="og:description" content="Prompting is a new paradigm in LLMs with many applications but it is still not well understood" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pablohl.github.io/posts/prompts/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prompting, the Wonderful Wizard (Part 1)"/>
+<meta name="twitter:description" content="Prompting is a new paradigm in LLMs with many applications but it is still not well understood"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Prompting, the Wonderful Wizard (Part 1)</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://pablohl.github.io">Pablo Hernandez Leal</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://pablohl.github.io/about">About</a>
+				<a href="https://pablohl.github.io/posts/">Posts</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/pablohleal" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/pablo-hernandez-leal-ba3a2538/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="mailto:hleal.pablo@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://pablohl.github.io/about">About</a></li>
+			<li><a href="https://pablohl.github.io/posts/">Posts</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jun 12, 2024</span></div>
+				<h1>Prompting, the Wonderful Wizard (Part 1)</h1>
+			</header>
+			<div class="content">
+				<hr>
+<p>This is my first post about Large Language Models (LLMs), and given all the information available, it&rsquo;s challenging to write something novel that won&rsquo;t become outdated soon. I wanted to start with something &ldquo;reasonably&rdquo; simple: prompting. In hindsight, I&rsquo;ll conclude my post by arguing that prompting is not simple. It is both underestimated and overestimated in different aspects. In this first part of the post, my goal is to answer the following questions:</p>
+<ul>
+<li><a href="#how-it-started">How it started?</a>
+<ul>
+<li><a href="#in-context-learning">In-context-learning</a></li>
+</ul>
+</li>
+<li><a href="#how-has-it-evolved-and-why-is-it-important">How has it evolved, and why is it important?</a></li>
+<li><a href="#how-does-it-work">How does it work?</a>
+<ul>
+<li><a href="#idea-1-functional-approach">Functional approach</a></li>
+<li><a href="#idea-2-in-context-learning-as-a-known-learning-process">Cast as a known process</a></li>
+</ul>
+</li>
+<li><a href="#when-does-it-not-work">When does it not work?</a>
+<ul>
+<li><a href="#example-1-planning">Planning</a></li>
+<li><a href="#example-2-compositional-tasks">Compositional tasks</a></li>
+</ul>
+</li>
+</ul>
+<p>Note: I&rsquo;ll try not to overuse jargon and keep things simple.</p>
+<p><img src="../../img/termstweet.png" alt="Prompting or in context learning"></p>
+<hr>
+<h1 id="how-it-started">How It Started?<a href="#how-it-started" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<pre><code>  “What is he like?” asked the girl.
+  “That is hard to tell,” said the man thoughtfully.
+  “You see, Oz is a Great Wizard, and can take on any form he wishes.
+  So that some say he looks like a bird;
+  and some say he looks like an elephant;
+  and some say he looks like a cat.
+  To others he appears as a beautiful fairy,
+  or a brownie, or in any other form that pleases him.
+  But who the real Oz is,
+  when he is in his own form,
+  no living person can tell.”
+                                      - The Wonderful Wizard of Oz
+</code></pre>
+<p>Reading the abstract of the GPT-3 paper<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (from 2020) now feels like reading a paper that was written decades ago, since everything seems so familiar and no longer new.</p>
+<blockquote>
+<p>We demonstrate that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even becoming competitive with prior state-ofthe-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous nonsparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks
+and few-shot demonstrations specified purely via text interaction with the model.
+GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Let&rsquo;s highlight two key points from that paragraph:</p>
+<ul>
+<li>
+<ol>
+<li>The scale of the model (175 billion parameters).</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>The proposal of solving many tasks with no additional fine-tunning, instead only using few-shot demonstrations (i.e., in-context learning) on a <em>frozen</em> LLM.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>the model is given a few demonstrations of the task at inference time as conditioning, but no weights are updated. An example typically has a context and a desired completion (for example an English sentence and the French translation), and few-shot works by giving K examples of context and completion, and then one final example of context, with the model expected to provide the completion. We typically set K in the range of 10 to 100, as this is how many examples can
+fit in the model’s context window (nctx = 2048). The main advantage of few-shot is a major reduction in the need for task-specific data.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<h2 id="in-context-learning">In-context learning<a href="#in-context-learning" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><img src="../../img/icl2.png" alt="Prompting or in context learning">
+<em>Example of in context-learning, source<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></em></p>
+<p>In simple terms, the input to the LLM needs some context and examples of the task to solve, all in natural language, and <strong>that’s it</strong>. If there are no examples, it’s called zero-shot. If there’s a single example, it’s called one-shot. You get the idea.</p>
+<p>I remember when I learned about this concept of “prompting.” My initial reaction was disbelief at its power. After all, how could it be possible that just with some instructions and context it could solve complex tasks?</p>
+<h1 id="how-has-it-evolved-and-why-is-it-important">How Has It Evolved, and Why Is It Important?<a href="#how-has-it-evolved-and-why-is-it-important" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p>Naturally, the big claims of GPT-3 were further tested by researchers. Two main questions were highly relevant:</p>
+<ul>
+<li>What tasks can in-context learning solve? (testing the limits)</li>
+<li>How does in-context learning work? (improving our understanding)</li>
+</ul>
+<p>Regarding improving our understanding of in-context learning, a first attempt defined the <em>emergent abilities</em> of LLMs:</p>
+<blockquote>
+<p>The ability to perform a task via few-shot prompting is emergent when a model has random performance until a certain scale, after which performance increases to well-above random.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<blockquote>
+<p>Emergent abilities would not have been directly predicted by extrapolating a scaling law (i.e. consistent performance improvements) from small-scale models. When visualized via a scaling curve (x-axis: model scale, y-axis: performance), emergent abilities show a clear pattern—performance is near-random until a certain critical threshold of scale is reached, after which performance increases to substantially above random. This qualitative change is also known as a phase transition—a dramatic change in overall behavior that would not have been foreseen by examining smaller-scale systems.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<p>So, again we see that <em>scale</em> plays a key role in the success of in-context learning.</p>
+<p>Regarding testing the limits of in-context learning, the paper evaluated 10 abilities/tasks that LLMs were able to achieve, such as question answering, conceptual mapping, and simple arithmetic.</p>
+<p>At this point, our understanding of prompting was (and perhaps still is) not very good. We know that some abilities emerge in these LLMs, and those are quite powerful because they can solve reasonably hard tasks. In-context learning seems quite simple, so researchers continued pushing with more elaborate prompts.</p>
+<p>A notable proposal is the idea of multi-step reasoning, where a common example is the <strong>chain-of-thought prompting</strong>, as exemplified below:
+<img src="../../img/cot2.png" alt="Prompting or in context learning">
+<em>Example of in Chain of thought prompt, source<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></em></p>
+<p>The same paper studied 13 abilities that emerged with &ldquo;augmented prompts.&rdquo;</p>
+<p><img src="../../img/emergentabilities.png" alt="ResarchML">
+<em>Emergent abilities of LLMs, source<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></em></p>
+<p>In summary, prompting has shown a broad range of applicability (many tasks) and flexibility (demonstrations vary from 1 to hundreds, it can adapt to different domains, it can be augmented, etc.).</p>
+<p>Now, let&rsquo;s try to answer the question, <strong>how?</strong></p>
+<h1 id="how-does-it-work">How Does It Work?<a href="#how-does-it-work" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p>Short answer: we don&rsquo;t know yet.</p>
+<p>Long answer: researchers have tried different ideas to understand in-context learning.</p>
+<h2 id="idea-1-functional-approach">Idea #1 Functional Approach<a href="#idea-1-functional-approach" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Researchers have studied what kind of functions LLMs/transformers can learn.</p>
+<ul>
+<li>Example #1.1 Learning Linear Functions</li>
+</ul>
+<blockquote>
+<p>The building blocks for two specific procedures—gradient descent on the least-squares objective and closed-form computation of its minimizer—are implementable by transformer networks. These constructions show that, in principle, fixed transformer parameterizations are expressive enough to simulate these learning algorithms.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+</blockquote>
+<blockquote>
+<p>We showed that these models are capable in theory of implementing multiple linear regression algorithms, that they empirically implement this range of algorithms (transitioning between algorithms depending on model capacity and dataset noise), and finally that they can be probed for intermediate quantities computed by these algorithms.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+</blockquote>
+<ul>
+<li>Example #1.2 Learning Non-Linear Functions</li>
+</ul>
+<blockquote>
+<p>In this work, we formalize and study the question: can we train models that learn different classes of functions in-context? We show that Transformer models trained from scratch can in-context learn the class of linear functions, with performance comparable to the optimal least squares estimator,
+even under distribution shifts. Moreover, we show that in-context learning is also possible for sparse
+linear functions, decision trees, and two-layer neural networks; learning problems which are solved
+in practice with involved iterative algorithms such as gradient descent.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+</blockquote>
+<p>These findings suggest that Transformers can learn various classes of functions, not just linear, but also more complex ones like decision trees and two-layer neural networks.</p>
+<h2 id="idea-2-in-context-learning-as-a-known-learning-process">Idea #2 In-Context Learning as a Known Learning Process<a href="#idea-2-in-context-learning-as-a-known-learning-process" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>Example #2.1 In-context learning as gradient descent.</li>
+</ul>
+<p>This work is quite detailed and structured; it is hard to summarize, so I just decided to highlight one of the many experiments that they did.</p>
+<blockquote>
+<p>How does ICL evolve during training?
+From the given constructions, models need to arrive at very specific weights
+to be able to perform gradient descent on in-context samples, but in practice, we observe models develop, retain, and
+improve this ability over time in training when the parameters change significantly.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+</blockquote>
+<p><img src="../../img/icltraining.png" alt="ResarchML">
+<em>In context learning accuracy during training, source <sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></em></p>
+<p>This experiment evaluated the accuracy of in-context learning during training, showing that the ability is quite stable even though the parameters are not.</p>
+<ul>
+<li>Example #2.2 In-context learning as Bayesian inference</li>
+</ul>
+<blockquote>
+<p>We cast in-context learning as implicit Bayesian inference, where the pretrained LM implicitly infers a concept when making a prediction. We show that in-context learning occurs when the pretraining distribution is a mixture of HMMs.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></p>
+</blockquote>
+<p><img src="../../img/bayes2.png" alt="ResarchML">
+<em>In context learning as Bayesian inference, source <sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></em></p>
+<p>At this point, we do not have a definite answer on how ICL works.</p>
+<blockquote>
+<p>While recent work has shown that Transformers have the expressive capacity to simulate gradient-descent in their forward pass, this does not immediately imply that real-world models actually do simulate it.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+</blockquote>
+<h1 id="when-does-it-not-work">When Does It Not Work?<a href="#when-does-it-not-work" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p>It&rsquo;s safe to say that the general consensus is that LLMs are powerful and can solve diverse tasks in many domains.</p>
+<blockquote>
+<p>We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that span mathematics, coding, vision, medicine, law, psychology and more, without needing any special prompting<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>.</p>
+</blockquote>
+<p><img src="../../img/sparks0.png" alt="ResarchML">
+<img src="../../img/sparks1.png" alt="ResarchML">
+<em>Table of contents of &ldquo;Sparks of Artificial General Intelligence: Early experiments with GPT-4&rdquo; <sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></em></p>
+<p>However, prompting/LLMs have limitations. As the field has rapidly evolved, new research has shown how brittle LLMs can be in certain contexts and applications.</p>
+<h2 id="example-1-planning">Example #1: Planning<a href="#example-1-planning" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><img src="../../img/roguegpt4.png" alt="ResarchML"></p>
+<blockquote>
+<p>We conduct a systematic study by generating a suite of instances on
+domains similar to the ones employed in the International Planning Competition.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<blockquote>
+<p>Our results show that even in simple common-sense planning domains
+where humans could easily come up with plans, LLMs like GPT-3 exhibit a dismal performance.
+Even though there is an uptick in the performance by the newer GPT-4 in the blocksworld domain,
+it still fails miserably on the mystery blocksworld domain, indicating their inability to reason in an
+abstract manner.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<p>But, you might be asking, what about those &ldquo;augmented prompting&rdquo; techniques? There are recent works that
+have shown not-so-good perfomance with <a href="https://arxiv.org/abs/2405.04776">chain-of-thought</a><sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>, <a href="https://arxiv.org/abs/2402.08115">self-reflexivity</a><sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>, and <a href="https://arxiv.org/abs/2405.13966">reasoning and acting (ReAct)</a><sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>.</p>
+<p><img src="../../img/cotplan.png" alt="ResarchML">
+<em>Chain-of-thought accuracy in planning tasks, source <sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></em></p>
+<blockquote>
+<p>While the preceding discussion establishes that LLMs are not capable of generating correct plans in
+autonomous mode, there is still the possibility that they can be useful in an LLM-Modulo mode as
+idea generators for other sound external planners, verifiers or even humans-in-the-loop.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<p><img src="../../img/modulo2.png" alt="ResarchML">
+<em>LLM-Modulo, source <sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup></em></p>
+<p>If you are interested in this area, definitely check <a href="https://www.youtube.com/watch?v=hGXhFa3gzBs">this recent talk: Can LLMs Reason &amp; Plan?</a></p>
+<h2 id="example-2-compositional-tasks">Example #2: Compositional Tasks<a href="#example-2-compositional-tasks" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<blockquote>
+<p>Transformers today demonstrate undeniably powerful empirical results. Yet, our study suggests that they may have fundamental
+weaknesses in certain intellectual tasks that require true multi-step compositional operations such as
+multiplications and logic puzzles.<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup></p>
+</blockquote>
+<blockquote>
+<p>The proofs presented show that, under reasonable assumptions, the probability of incorrect predictions converges exponentially to
+≈ 1 for abstract compositional tasks. Importantly, these proofs apply to autoregressive LMs in general. Our insights indicate that the current configuration of transformers, with their reliance on a greedy process for predicting the next word, constrains their error recovery capability and
+impedes the development of a comprehensive global understanding of the task.<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup></p>
+</blockquote>
+<p>LLMs (at least the ones we have now) are not the AGI that can be used indiscriminately in any application. It is not a plug-and-play technology. LLMs are useful, and there are many applications, but it is clear that understanding more about their limits will only improve their success.</p>
+<blockquote>
+<p>To put it another way, the problem with Alchemy of yore is not that Chemistry is useless, but that people wanted to delude themselves that Chemistry –a pretty amazing discipline on its own merits– can be Nuclear Physics if you prompt it just so. The confusions regarding LLM abilities, or should we say, LLM alchemy, seems to be not that much different–oscillating between ignoring what they are good at, and ascribing them abilities they don’t have.<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup></p>
+</blockquote>
+<p><img src="../../img/encyplopedia.png" alt="ResarchML"></p>
+<hr>
+<p>Cite as:</p>
+<blockquote>
+<p>Hernandez-Leal, Pablo. (June 2024). Prompting, the Wonderful Wizard (Part 1), pablohl.github.io, <a href="https://pablohl.github.io/posts/prompts/">https://pablohl.github.io/posts/prompts/</a></p>
+</blockquote>
+<pre><code>  @article{hernandezleal2024prompting,
+    title   = &quot;Prompting, the Wonderful Wizard (Part 1)&quot;,
+    author  = &quot;Hernandez-Leal, Pablo&quot;,
+    journal = &quot;pablohl.github.io&quot;,
+    year    = &quot;2024&quot;,
+    month   = &quot;June&quot;,
+    url     = &quot;https://pablohl.github.io/posts/prompts/&quot;
+  }
+</code></pre>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf">Brown, Tom, et al. &ldquo;Language models are few-shot learners.&rdquo; (2020)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2301.00234">Dong, Qingxiu, et al. &ldquo;A survey on in-context learning.&rdquo; (2022).</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2206.07682">Wei, Jason, et al. &ldquo;Emergent abilities of large language models.&rdquo; (2022).</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9d5609613524ecf4f15af0f7b31abca4-Paper-Conference.pdf">Wei, Jason, et al. &ldquo;Chain-of-thought prompting elicits reasoning in large language models.&rdquo; (2022)</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2211.15661">Akyürek, Ekin, et al. &ldquo;What learning algorithm is in-context learning? investigations with linear models.&rdquo; (2022).</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/c529dba08a146ea8d6cf715ae8930cbe-Paper-Conference.pdf">Garg, Shivam, et al. &ldquo;What can transformers learn in-context? a case study of simple function classes.&rdquo; (2022)</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2310.08540">Shen, Lingfeng, Aayush Mishra, and Daniel Khashabi. &ldquo;Do pretrained Transformers Really Learn In-context by Gradient Descent?.&rdquo; (2023).</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2111.02080">Xie, Sang Michael, et al. &ldquo;An explanation of in-context learning as implicit bayesian inference.&rdquo; (2021).</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2303.12712">Bubeck et al. Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/efb2072a358cefb75886a315a6fcf880-Abstract-Conference.html">Valmeekam, Karthik, et al. &ldquo;On the planning abilities of large language models-a critical investigation.&quot;(2023).</a>&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p><a href="https://arxiv.org/abs/2405.04776">Stechly, Kaya, Karthik Valmeekam, and Subbarao Kambhampati. &ldquo;Chain of Thoughtlessness: An Analysis of CoT in Planning.&rdquo; (2024).</a>&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12" role="doc-endnote">
+<p><a href="https://arxiv.org/abs/2402.08115">Stechly, Kaya, Karthik Valmeekam, and Subbarao Kambhampati. &ldquo;On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks.&rdquo; (2024).</a>&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13" role="doc-endnote">
+<p><a href="https://arxiv.org/abs/2405.13966">Verma, Mudit, Siddhant Bhambri, and Subbarao Kambhampati. &ldquo;On the Brittle Foundations of ReAct Prompting for Agentic Large Language Models.&rdquo; (2024).</a>&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2402.01817">Kambhampati, Subbarao, et al. &ldquo;LLMs Can&rsquo;t Plan, But Can Help Planning in LLM-Modulo Frameworks.&rdquo; (2024).</a>&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15" role="doc-endnote">
+<p><a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/deb3c28192f979302c157cb653c15e90-Paper-Conference.pdf">Dziri, Nouha, et al. &ldquo;Faith and fate: Limits of transformers on compositionality.&rdquo; (2024).</a>&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>Pablo</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://pablohl.github.io/tags/machine-learning">machine learning</a></span><span class="tag"><a href="https://pablohl.github.io/tags/llms">LLMs</a></span><span class="tag"><a href="https://pablohl.github.io/tags/prompting">Prompting</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2137 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2024-06-11 20:00 -0400</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://pablohl.github.io/posts/industryvsacademia/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Lessons From Six Years of Applied Machine Learning in Industry</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2024 <a href="https://pablohl.github.io">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://pablohl.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
