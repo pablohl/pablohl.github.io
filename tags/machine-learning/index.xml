@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompting, the Wonderful Wizard (Part 2)</title>
+      <link>https://pablohl.github.io/posts/prompts2/</link>
+      <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/prompts2/</guid>
+      <description>This is my second post about Large Language Models (LLMs).
+In the first part I covered:
+ How it started?  In-context-learning   How has it evolved, and why is it important? How does it work?  Functional approach Cast as a known process   When does it not work?  Planning Compositional tasks    Now, let&amp;rsquo;s continue with:
+ What are the risks involved?  Hallucinations Jailbreaking Privacy and security   How to use it?</description>
+    </item>
+    
     <item>
       <title>Prompting, the Wonderful Wizard (Part 1)</title>
       <link>https://pablohl.github.io/posts/prompts/</link>

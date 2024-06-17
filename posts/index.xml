@@ -6,8 +6,255 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Mon, 17 Jun 2024 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Prompting, the Wonderful Wizard (Part 2)</title>
+			<link>https://pablohl.github.io/posts/prompts2/</link>
+			<pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/prompts2/</guid>
+			<description>This is my second post about Large Language Models (LLMs).
+In the first part I covered:
+ How it started?  In-context-learning   How has it evolved, and why is it important? How does it work?  Functional approach Cast as a known process   When does it not work?  Planning Compositional tasks    Now, let&amp;rsquo;s continue with:
+ What are the risks involved?  Hallucinations Jailbreaking Privacy and security   How to use it?</description>
+			<content type="html"><![CDATA[<hr>
+<p>This is my second post about Large Language Models (LLMs).</p>
+<p><a href="https://pablohl.github.io/posts/prompts/">In the first part I covered:</a></p>
+<ul>
+<li>How it started?
+<ul>
+<li>In-context-learning</li>
+</ul>
+</li>
+<li>How has it evolved, and why is it important?</li>
+<li>How does it work?
+<ul>
+<li>Functional approach</li>
+<li>Cast as a known process</li>
+</ul>
+</li>
+<li>When does it not work?
+<ul>
+<li>Planning</li>
+<li>Compositional tasks</li>
+</ul>
+</li>
+</ul>
+<p>Now, let&rsquo;s continue with:</p>
+<ul>
+<li><a href="#what-are-the-risks-involved">What are the risks involved?</a>
+<ul>
+<li><a href="#hallucinations">Hallucinations</a></li>
+<li><a href="#jailbreaking">Jailbreaking</a></li>
+<li><a href="#privacy-and-security">Privacy and security</a></li>
+</ul>
+</li>
+<li><a href="#how-to-use-it-tldr">How to use it? (TL;DR)</a></li>
+<li><a href="#beyond-prompting">Beyond prompting</a>
+<ul>
+<li><a href="#retrieval-augmented-generation-rag">Retrieval Augmented Generation</a></li>
+<li><a href="#multi-agent-llms">Multiagent LLMs</a></li>
+</ul>
+</li>
+<li><a href="#my-personal-take">My personal take</a></li>
+</ul>
+<h1 id="what-are-the-risks-involved">What Are the Risks Involved?</h1>
+<blockquote>
+<p>The capabilities of GPT-4 will shift perceptions on tasks that require human effort,
+potentially leading to the displacement of jobs and broader economic influences. Other implications of the
+new powers include the enablement of malevolent actors with new tools of disinformation and manipulation.
+On limitations, deficits in the reliability of the system and in the biases that it learns, can lead to problems
+given potential over-reliance and poor understanding about when the system fails or will demonstrate bias,
+potentially amplifying existing societal issues.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Clearly, there are many risks with LLMs and prompting. One classical problem is the &ldquo;hallucination&rdquo; problem, which in simpler terms means providing incorrect information without warning. Another issue is that prompting can be used to &ldquo;jailbreak&rdquo; LLMs, resulting in LLMs providing undesirable information.</p>
+<h2 id="hallucinations">Hallucinations</h2>
+<p><img src="../../img/hallucinationrant.png" alt="ResarchML"></p>
+<blockquote>
+<p>We discussed a key limitation of LLMs as their tendency to generate errors without warning,
+including mathematical, programming, attribution, and higher-level conceptual errors. Such errors are often
+referred to as hallucinations per their tendency to appear as reasonable or aligned with truthful inferences.
+Hallucinations, such as erroneous references, content, and statements, may be intertwined with correct information, and presented in a persuasive and confident manner, making their identification difficult without close
+inspection and effortful fact-checking.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>There are many examples of hallucination. It starts by being funny, but it quickly becomes apparent that it is a paramount problem to solve.</p>
+<p><img src="../../img/rocks.jpeg" alt="ResarchML"></p>
+<h2 id="jailbreaking">Jailbreaking</h2>
+<p>We have seen that giving demonstrations helps in many tasks. Exactly the same behavior can be used to &ldquo;jailbreak&rdquo; LLMs.</p>
+<blockquote>
+<p>Recent works show that even aligned LLMs are still vulnerable to adversarial attacks, typically called the jailbreak issue of LLMs.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<blockquote>
+<p>We investigate a family of simple long-context attacks on large language models: prompting with
+hundreds of demonstrations of undesirable behavior.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<p><img src="../../img/jailbreak.png" alt="ResarchML">
+<em>Jailbreaking with many-shot demonstrations, source<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></em></p>
+<blockquote>
+<p>In particular, our results corroborate the role of diversity, and further suggest that given a sufficiently long attack with sufficiently diverse demonstrations, one could potentially construct a “universal” jailbreak.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<blockquote>
+<p>These results suggest that larger models might be even more susceptible to Many-Shot Jailbreaking (MSJ) attacks. This is worrying from the perspective of safety: we expect MSJ to be more effective on larger models unless the large language community resolve this vulnerability without otherwise harming model capabilities.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<p>It sounds a bit worrysome, especially because <em>it&rsquo;s just in-context learning at scale</em> targeting some vulnerability.</p>
+<h2 id="privacy-and-security">Privacy and security</h2>
+<p>There is a vast amount of work in understanding different aspects of this area. For example, LLMs are capable of leaking personal information.</p>
+<p><img src="../../img/vulnerabilitiesLLM.png" alt="ResarchML">
+<em>Different vulnerabilities in LLMs, source<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></em></p>
+<p>Furthermore, there are cases where LLMs can not only leak information but also <em>infer</em> personal attributes.
+<img src="../../img/privacyLLM.png" alt="ResarchML">
+<em>Privacy violation in LLMs, source<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></em></p>
+<blockquote>
+<p>Our findings highlight that current LLMs can infer personal data at a previously unattainable scale. In the absence of working defenses, we advocate for a broader discussion around LLM privacy implications
+beyond memorization, striving for a wider privacy protection.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+</blockquote>
+<h1 id="how-to-use-it-tldr">How to Use It? (TL;DR)</h1>
+<p><img src="../../img/pythontweet.png" alt="ResarchML"></p>
+<p>If you&rsquo;ve made it through the background sections, you might be interested in practical tips on prompting. Here are some valuable resources to get you started:</p>
+<ul>
+<li>
+<p><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">Prompt Engineering Blogpost:</a><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> This blog post acts as a survey of the area, describing more than 25 papers on prompt engineering.</p>
+</li>
+<li>
+<p><a href="https://www.promptingguide.ai/">The Prompt Engineering Guide:</a><sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> A thorough and well-organized website with descriptions of many papers, Python examples, and information about applications, models, notebooks, and datasets<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2406.06608">The Prompt Report: A Systematic Survey of Prompting Techniques</a><sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> A 76 page survey of prompting thecniques.</p>
+</li>
+<li>
+<p><a href="https://eugeneyan.com/writing/prompting/">Prompting Fundamentals and How to Apply them Effectively:</a><sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> A discussion about system prompts, structured inputs-outputs, n-shot demonstrations, and chain-of-thought by Eugene Yan.</p>
+</li>
+<li>
+<p>Deep Dive on &ldquo;What We Learned from a Year of Building with LLMs&rdquo;:</p>
+<ul>
+<li><a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">Part 1: Tactical</a></li>
+<li><a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-ii/">Part 2: Operational</a></li>
+<li><a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-iii-strategy/">Part 3: Strategic</a></li>
+</ul>
+<p>This series is a must-read for practical advice, such as:</p>
+<blockquote>
+<p>If n is too low, the model may over-anchor on those specific examples, hurting its ability to generalize. As a rule of thumb, aim for n ≥ 5. Don’t be afraid to go as high as a few dozen.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<blockquote>
+<p>Examples should be representative of the expected input distribution. If you’re building a movie summarizer, include samples from different genres in roughly the proportion you expect to see in practice.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<blockquote>
+<p>You don’t necessarily need to provide the full input-output pairs. In many cases, examples of desired outputs are sufficient.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+<blockquote>
+<p>If you are using an LLM that supports tool use, your n-shot examples should also use the tools you want the agent to use.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://hamel.dev/">Hamel.dev blog:</a> Offers valuable hands-on coding examples and tips, including:</p>
+<ul>
+<li><a href="https://hamel.dev/blog/posts/prompt/">On LLMS tools</a></li>
+<li><a href="https://hamel.dev/blog/posts/evals/">Evaluations of LLMs</a></li>
+<li><a href="https://hamel.dev/notes/llm/">General LLMs Notes</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098156145/">Prompt Engineering for LLMs book.</a> Note: I haven&rsquo;t read the book, but I watched <a href="https://maven.com/parlance-labs/fine-tuning">his talk at this course</a> and was very informative.</p>
+</li>
+<li>
+<p><a href="https://smith.langchain.com/hub">LangChain Hub:</a> A platform to share, manage, and download prompts. It offers different filters by use case, language, and model, working seamlessly with LangChain.</p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp">Natural Language Understanding course from Stanford:</a> Provides excellent background material.</p>
+</li>
+</ul>
+<p><img src="../../img/practicalicl2.png" alt="ResarchML">
+<em>From Natural Laguage Understanding in Youtube <a href="https://youtu.be/0mXbM2j3Dzs?si=gDOUDbwFJLIoCRPB">https://youtu.be/0mXbM2j3Dzs?si=gDOUDbwFJLIoCRPB</a></em></p>
+<h1 id="beyond-prompting">Beyond Prompting</h1>
+<p><img src="../../img/tweetbull.png" alt="Tweet"></p>
+<h2 id="retrieval-augmented-generation-rag">Retrieval Augmented Generation (RAG)</h2>
+<p>While prompting is powerful, it&rsquo;s essential to consider other aspects, such as <em>how and from where</em> prompts can be generated or retrieved. There is significant interest in the intersection of NLP/LLMs and information retrieval.</p>
+<p><img src="../../img/promptcomplex.png" alt="ResarchML">
+<em>Combining LLMs and information retrieval, from <a href="https://youtu.be/K_Dh0Sxujuc?si=4S1ZWj1SL4qcZsTB">https://youtu.be/K_Dh0Sxujuc?si=4S1ZWj1SL4qcZsTB</a></em></p>
+<p>The above figure illustrates different components of a prompt: paragraph, question, answer. These could be generated by LLMs or retrieved from another source. The retrieval could be based on similarity, and the question/query itself could be rewritten by an LLM. The interplay between IR and LLMs is a compelling use case.</p>
+<h2 id="multi-agent-llms">Multi-agent LLMs</h2>
+<p>Another example is using different LLMs in a &ldquo;multi-agent&rdquo; approach. Given <a href="https://pablohl.github.io/posts/prompts/#example-1-planning">LLMs planning limitations</a>, many of these works are focusing on multi-agent <em>conversations</em> or &ldquo;agentic&rdquo; scenarios.</p>
+<p><img src="../../img/multillms.png" alt="ResarchML">
+<em>A Multiagent LLM framework, from <a href="https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat/">https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat/</a></em></p>
+<blockquote>
+<p>AutoGen2 is an open-source framework that allows developers to build LLM applications via multiple agents that can converse with each other to accomplish tasks. AutoGen agents are customizable, conversable, and can operate in various modes that employ combinations of LLMs, human inputs, and tools. Using AutoGen, developers can also flexibly define agent interaction behaviors. Both natural language and computer code can be used to program flexible conversation patterns for different applications. AutoGen serves as a generic framework for building diverse applications of various complexities and LLM capacities.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+</blockquote>
+<hr>
+<h1 id="my-personal-take">My personal take</h1>
+<p><img src="../../img/wizard_small.png" alt="Wizard"></p>
+<pre><code>  &quot;I thought Oz was a great Head,” said Dorothy.
+  “And I thought Oz was a lovely Lady,” said the Scarecrow.
+  “And I thought Oz was a terrible Beast,” said the Tin Woodman.
+  “And I thought Oz was a Ball of Fire,” exclaimed the Lion.
+  “No, you are all wrong,” said the little man meekly.
+  “I have been making believe.”
+  “Making believe!” cried Dorothy. “Are you not a Great Wizard?”
+  “Hush, my dear,” he said.
+  “Don’t speak so loud, or you will be overheard and I should be ruined.
+   I’m supposed to be a Great Wizard.”
+  “And aren’t you?” she asked.
+  “Not a bit of it, my dear; I’m just a common man.”
+                                    - The Wonderful Wizard of Oz
+</code></pre>
+<p>Like the Wizard of Oz, many people believe that LLMs have extraordinary powers. Unlike the Wizard of Oz, I don’t think that understanding the limitations and seeing the flaws of LLMs makes them less exciting. For me, it just removes the mystery and magic, making them more manageable —more like a tool that excels at certain tasks. LLMs are not perfect; they appear to have reasoning capabilities, but there is evidence that pattern-matching is at their core. LLMs make it easy to access specific knowledge, but this comes at the cost of correctness. Will every possible application work with LLMs? No. But finding the region/task where an LLM is useful requires certain knowledge and engineering to make them work. It’s not magic; it never was.</p>
+<hr>
+<p>Thanks to Anna, Bilal, Jonathan, and Kry for reading earlier versions of this post.</p>
+<p>Cite as:</p>
+<blockquote>
+<p>Hernandez-Leal, Pablo. (June 2024). Prompting, the Wonderful Wizard (Part 2), pablohl.github.io, <a href="https://pablohl.github.io/posts/prompts2/">https://pablohl.github.io/posts/prompts2/</a></p>
+</blockquote>
+<pre><code>  @article{hernandezleal2024prompting2,
+    title   = &quot;Prompting, the Wonderful Wizard (Part 2)&quot;,
+    author  = &quot;Hernandez-Leal, Pablo&quot;,
+    journal = &quot;pablohl.github.io&quot;,
+    year    = &quot;2024&quot;,
+    month   = &quot;June&quot;,
+    url     = &quot;https://pablohl.github.io/posts/prompts2/&quot;
+  }
+</code></pre>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2303.12712">Bubeck et al. Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2310.06387">Wei, Zeming, Yifei Wang, and Yisen Wang. &ldquo;Jailbreak and guard aligned language models with only few in-context demonstrations.&rdquo; (2023).</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many%5C_Shot%5C_Jailbreaking%5C_%5C_2024%5C_04%5C_02%5C_0936.pdf">Anil, Cem, et al. &ldquo;Many-shot Jailbreaking.&rdquo; Anthropic, April (2024).</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2402.00888">Das, Badhan Chandra, M. Hadi Amini, and Yanzhao Wu. &ldquo;Security and privacy challenges of large language models: A survey.&rdquo; (2024).</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2310.07298">Staab, Robin, et al. &ldquo;Beyond memorization: Violating privacy via inference with large language models.&rdquo; (2023).</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/.">Weng, Lilian. (Mar 2023). Prompt Engineering. Lil’Log.</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="https://github.com/dair-ai/Prompt-Engineering-Guide">Saravia, Elvis, Prompt Engineering Guide (2022)</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p><a href="https://arxiv.org/abs/2406.06608">Schulhoff, Sander, et al. &ldquo;The Prompt Report: A Systematic Survey of Prompting Techniques.&quot;(2024).</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p><a href="https://eugeneyan.com/writing/prompting/">Yan, Ziyou. (May 2024). Prompting Fundamentals and How to Apply them Effectively. eugeneyan.com.</a>&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p><a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p><a href="https://arxiv.org/pdf/2308.08155">AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</a>&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Prompting, the Wonderful Wizard (Part 1)</title>
@@ -42,6 +289,7 @@
 <p><img src="../../img/termstweet.png" alt="Prompting or in context learning"></p>
 <hr>
 <h1 id="how-it-started">How It Started?</h1>
+<p><img src="../../img/wizard2.png" alt="Wizard"></p>
 <pre><code>  “What is he like?” asked the girl.
   “That is hard to tell,” said the man thoughtfully.
   “You see, Oz is a Great Wizard, and can take on any form he wishes.
