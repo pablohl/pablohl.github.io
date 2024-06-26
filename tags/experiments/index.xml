@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/experiments/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/tags/experiments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</title>
+      <link>https://pablohl.github.io/posts/pommermanlessons/</link>
+      <pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pablohl.github.io/posts/pommermanlessons/</guid>
+      <description>&amp;ldquo;In theory there is no difference between theory and practice. In practice there is.&amp;rdquo; - Yogi Berra
+  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</description>
+    </item>
+    
     <item>
       <title>Lessons From Six Years of Applied Machine Learning in Industry</title>
       <link>https://pablohl.github.io/posts/industryvsacademia/</link>

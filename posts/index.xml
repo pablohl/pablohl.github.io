@@ -6,8 +6,169 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 17 Jun 2024 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Wed, 26 Jun 2024 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</title>
+			<link>https://pablohl.github.io/posts/pommermanlessons/</link>
+			<pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate>
+			
+			<guid>https://pablohl.github.io/posts/pommermanlessons/</guid>
+			<description>&amp;ldquo;In theory there is no difference between theory and practice. In practice there is.&amp;rdquo; - Yogi Berra
+  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</description>
+			<content type="html"><![CDATA[<hr>
+<p><img src="../../img/bom2.png" alt="ResarchML"></p>
+<blockquote>
+<p>&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra</p>
+</blockquote>
+<hr>
+<p>Back in 2018, <a href="https://en.wikipedia.org/wiki/Pommerman_Challenge">the Pommerman Competition</a> was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</p>
+<ul>
+<li><a href="#1-working-with-deadlines">Working with deadlines</a></li>
+<li><a href="#2-dealing-with-constraints">Dealing with constraints</a></li>
+<li><a href="#3-focusing-on-solving-problems">Focusing on solving problems</a></li>
+<li><a href="#4-understanding-trade-offs">Understanding trade-offs</a></li>
+<li><a href="#5-taking-ownership">Taking ownership</a></li>
+<li><a href="#6-building-from-scratch">Building something from scratch</a></li>
+<li><a href="#7-skin-in-the-game">Having skin in the game</a></li>
+</ul>
+<p>First, let&rsquo;s start with a short introduction to Pommerman.</p>
+<hr>
+<h1 id="what-is-pommerman">What is Pommerman?</h1>
+<blockquote>
+<p>&ldquo;Pommerman is a multi-agent environment based on the classic console game Bomberman. Pommerman consists of a set of scenarios, each having at least four players and containing both cooperative and competitive aspects. We believe that success in Pommerman will require a diverse set of tools and methods, including planning, opponent/teammate modeling, game theory, and communication, and consequently can serve well as a multi-agent benchmark.&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p><img src="../../img/pom1.png" alt="ResarchML">
+<em>A Screenshot of Pommerman, agents can place bombs that explode after some timesteps.</em></p>
+<p><a href="https://youtu.be/-uSOhlpANks?si=G69_Mq0d_lR8tpb2"><em>You can check this video, it&rsquo;s quite easy to understand the game after seeing it.</em></a></p>
+<p>The game resembles a console game, and the simulator allows you to control some of the four players (agents). Some game rules include:</p>
+<ul>
+<li>Each agent can execute one of six actions per timestep: do nothing, move in one of four cardinal directions, or drop a bomb.</li>
+<li>The board consists of passages (walkable), walls (indestructible), or wood (destructible with bombs).</li>
+<li>Maps are randomly generated.</li>
+<li>Bombs explode after 10 timesteps, destroying wood and any agents within their blast radius.</li>
+<li>There are power-ups for players.</li>
+<li>Each game episode lasts up to 800 timesteps.</li>
+<li>There is only a binary reward at the end of the game, +1 or -1.</li>
+<li>The agents only <em>see</em> a region around them, not the entire board (partially observable).</li>
+</ul>
+<p>If you want to learn more about how we addressed the technicnal challenges you can <a href="https://www.borealisai.com/research-blogs/pommerman-team-competition-or-how-we-learned-stop-worrying-and-love-battle/">check here.</a></p>
+<p>Having a background on the competition, we can go into the lessons learned.</p>
+<hr>
+<h1 id="1-working-with-deadlines">1. Working with Deadlines</h1>
+<p><img src="../../img/rickmorty.png" alt="ResarchML"></p>
+<p>When I learned about the competition, I had a conversation with my supervisor along the lines of:</p>
+<pre><code>  S: &quot;Have you seen this Pommerman competition?&quot;
+  Pablo: &quot;Yes, sounds interesting&quot;
+  S: &quot;Yeah, we should submit something&quot;
+  Pablo: &quot;Ok... but we only have like 3 months&quot;
+  S: &quot;Great! Plenty of time.
+</code></pre>
+<p>During my Ph.D., I had similar comments from previous supervisors. Conference deadlines are intense, meaning you have to work under pressure. I also thought it meant sacrificing quality.</p>
+<p>Years later, my attitude towards deadlines has changed. I’ve even seen extreme cases of having just <em>one week</em> to produce something (hackathon style?).</p>
+<p>Does it make sense to have such tight (impossible) deadlines? Maybe.</p>
+<p>Now, I try to make sense with the following arguments:</p>
+<ul>
+<li>
+<p>Setting a high bar by your manager sometimes means they believe in you. <a href="https://www.forbes.com/sites/nazbeheshti/2021/10/05/steve-jobs-believed-in-me-and-it-changed-my-life-the-power-of-believing-in-your-employees/">&ldquo;When our limits are pushed in a healthy, empowering way, it can help us fulfill our potential and provide us with the drive and motivation to excel.&quot;</a></p>
+</li>
+<li>
+<p>Even if your manager doesn’t believe in you, deadlines <em>force you</em> to take action, make decisions, have ownership, collaborate, and produce something tangible.</p>
+</li>
+</ul>
+<p>I also think that once the deadline has passed, there should be some time to take a step back and analyze the outcome.</p>
+<h1 id="2-dealing-with-constraints">2. Dealing with Constraints</h1>
+<p><img src="../../img/challenge.png" alt="ResarchML"></p>
+<blockquote>
+<p>“Frugality drives innovation, just like other constraints do. One of the only ways to get out of a tight box is to invent your way out.” — Jeff Bezos</p>
+</blockquote>
+<p>Pommerman had many distinct technical challenges: multi-agent, planning, learning, and communication, among others.</p>
+<p>Trying to solve <em>only one</em> of the issues wouldn&rsquo;t have resulted in a good agent for the competition.</p>
+<ul>
+<li>
+<p>One example to understand the challenges was the <em>&ldquo;lazy agent&rdquo;</em> problem<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. What we experienced was that when training a team of two agents, one being stronger than the other, the weaker agent tended to just avoid any actions (it was just sitting duck). The reason was that if the agent started exploring, it would probably get blasted by its own actions, affecting the reward of the entire team.</p>
+</li>
+<li>
+<p>Another example was the time limit for taking an action by the agents of <em>100 miliseconds</em>.</p>
+</li>
+</ul>
+<blockquote>
+<p>&ldquo;If an agent does not respond in an appropriate time limit for our
+competition constraints (100ms), then we will automatically
+issue them the Stop action and, if appropriate, have them
+send out the message (0, 0). This timeout is an aspect of the
+competition and not native to the game itself.&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Having multiple constraints is no different from &ldquo;real-world&rdquo; problems. You will never work on an &ldquo;easy&rdquo; problem. You will never start with perfect data. You won’t have enough time to try all the models you want. Your model/agent needs to run within certain limits (e.g., time or memory). Your training data is never complete. Inherently, you are always working with deadlines. Learning to navigate these limitations is crucial for a successful outcome.</p>
+<h1 id="3-focusing-on-solving-problems">3. Focusing on Solving Problems</h1>
+<p><img src="../../img/focus.jpeg" alt="ResarchML"></p>
+<p>NeurIPS is about <em>research papers</em>, but competitions try to foster new ideas based on solving problems. It’s a subtle difference, but one that’s closer to how industry works.</p>
+<p>One should be careful not to lose focus on the main goal. I’ve seen two examples of how focus might dissipate:</p>
+<ul>
+<li>
+<p><em>Getting Sidetracked by Too Many Experiments</em>. When you start working on a new problem, the focus is there, it’s clear. But after becoming comfortable with the problem, I tend to want more and more experiments. It’s essential to maintain focus and <em>avoid getting sidetracked</em> by too many experiments. Balance is key —push towards a complete solution without losing sight of the primary objective.</p>
+</li>
+<li>
+<p><em>Losing Sight of the Main Metric</em>. he second problem appears during evaluations and the metrics that matter. For example, in the Pommerman case, we modified the reward function of the agents and had plots of how the reward improved during training. However, the metric that really mattered was the &ldquo;win rate&rdquo; (defeating the the other team). In industry, this is similar —you have your model metrics, but there’s also a <em>business metric</em>. One needs to be careful not to forget that the business metric is what really matters.</p>
+</li>
+</ul>
+<h1 id="4-understanding-trade-offs">4. Understanding Trade-offs</h1>
+<p><img src="../../img/decisions.png" alt="ResarchML"></p>
+<blockquote>
+<p>“People who are bred, selected, and compensated to find complicated solutions do not have an incentive to implement simplified ones.” ― Nassim Taleb</p>
+</blockquote>
+<p>How do you approach a problem with many challenges and make progress in a short time? By understanding the trade-offs and making decisions.</p>
+<ul>
+<li>
+<p><em>Sometimes simple (incorrect) models are enough.</em> One example was that the environment was partially observable, meaning you could only see a small window, not the entire board. It is clear that the information from the entire board is useful (because the enemies might be somewhere in the unseen regions). The problem was how to keep memory of seen regions in the past. One common approach, which is technically correct, is to add a recurrent network. However, that complicated the training. The second option, which was technically not entirely correct, was to <em>assume</em> that the last observation would remain until a new observation arrived. The benefit was not having to implement extra modules and just keep a simple vector of data. Results were good with the second, incorrect, approach.</p>
+</li>
+<li>
+<p><em>Other times, complexity needs to be added to see real improvements.</em>  The second example is related to the training curriculum. It was difficult to select against which agents we should train. On one side, we started using <em>static</em> agents to teach the agents that blasting them was the way to win. However, in the real competition, that wouldn&rsquo;t have worked. It was too simple. This time we needed to add complexity. Chao came up with an <em>unbiased smart</em> agent. That made an incredible difference in performance.</p>
+</li>
+</ul>
+<p>The lesson is to learn about trade-offs. Given the constraints, you can never solve everything perfectly. Finding the right amount of complexity will lead to the best results.</p>
+<h1 id="5-taking-ownership">5. Taking Ownership</h1>
+<p><img src="../../img/owner.jpeg" alt="ResarchML"></p>
+<blockquote>
+<p>“If all you need to do is what you are told, then you don’t need to understand your craft. However, as your ability to make decisions increases, then you need intimate technical knowledge on which to base those decisions.”
+― L. David Marquet</p>
+</blockquote>
+<p>Every member of the team had <em>a different expertise</em>, but <em>we all knew the problem and the goal we were working towards</em>.</p>
+<ul>
+<li>We were independent in the sense that individually we had to think, implement, and validate our ideas in our specific area of expertise. We had <strong>ownership</strong>.</li>
+<li>We worked as a team because we <em>cared</em> about the result and reaching the goal. We embraced shared learnings —both things that worked and things that did not— which helped to boost trust among the team.</li>
+</ul>
+<p>In the end, we took the lessons from everyone and put them together in the agent that was submitted to the competition.</p>
+<h1 id="6-building-from-scratch">6. Building from Scratch</h1>
+<p><img src="../../img/build3.png" alt="ResarchML"></p>
+<blockquote>
+<p>&ldquo;Take a simple idea and take it seriously.&rdquo; — Charlie Munger</p>
+</blockquote>
+<p>Working on the competition was a clear, simple idea. When we started, we only had the baseline that came with the simulator. As we experimented and learned, we documented ways to continue using the simulator beyond the competition. Post-NeurIPS, we had a robust codebase, knowledge, and new ideas, setting the stage for future projects.</p>
+<p>The competition was the beginning, but later more than 5 research papers used the competition as a motivation and to perform experiments.</p>
+<h1 id="7-skin-in-the-game">7. Skin in the game</h1>
+<p><img src="../../img/skin.png" alt="ResarchML"></p>
+<blockquote>
+<p>“How much you truly &lsquo;believe&rsquo; in something can be manifested only through what you are willing to risk for it.” Nassim Taleb</p>
+</blockquote>
+<p>Before OpenReview, you could submit a paper, and if it did not get accepted, you got feedback. It could be terrible work, but still, you got feedback and no one needed to know about that terrible work you submitted. There was no penalty for submitting something incomplete. There was no skin in the game.</p>
+<p>Competitions are different — by definition, there are winners, losers, and prizes. There is more at stake. Having skin in the game makes things more interesting and helps you learn in a distinct way.</p>
+<hr>
+<p>The <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 competition track</a> is already out, I strongly suggest if you have time work on a submission, do it,  you will learn a lot.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Resnick, Cinjon, et al. &ldquo;Pommerman: A multi-agent playground.&rdquo; (2018).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Sunehag, Peter, et al. &ldquo;Value-decomposition networks for cooperative multi-agent learning.&rdquo; (2017).&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Prompting, the Wonderful Wizard (Part 2)</title>

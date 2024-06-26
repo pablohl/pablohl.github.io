@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman">
+<meta itemprop="description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
+  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:"><meta itemprop="datePublished" content="2024-06-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-06-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1734">
+<meta itemprop="keywords" content="machine learning,applied machine learning,academia,competitions,experiments," /><meta property="og:title" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman" />
+<meta property="og:description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
+  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pablohl.github.io/posts/pommermanlessons/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-26T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman"/>
+<meta name="twitter:description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
+  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://pablohl.github.io">Pablo Hernandez Leal</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://pablohl.github.io/about">About</a>
+				<a href="https://pablohl.github.io/posts/">Posts</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/pablohleal" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/pablo-hernandez-leal-ba3a2538/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="mailto:hleal.pablo@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://pablohl.github.io/about">About</a></li>
+			<li><a href="https://pablohl.github.io/posts/">Posts</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jun 26, 2024</span></div>
+				<h1>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</h1>
+			</header>
+			<div class="content">
+				<hr>
+<p><img src="../../img/bom2.png" alt="ResarchML"></p>
+<blockquote>
+<p>&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra</p>
+</blockquote>
+<hr>
+<p>Back in 2018, <a href="https://en.wikipedia.org/wiki/Pommerman_Challenge">the Pommerman Competition</a> was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</p>
+<ul>
+<li><a href="#1-working-with-deadlines">Working with deadlines</a></li>
+<li><a href="#2-dealing-with-constraints">Dealing with constraints</a></li>
+<li><a href="#3-focusing-on-solving-problems">Focusing on solving problems</a></li>
+<li><a href="#4-understanding-trade-offs">Understanding trade-offs</a></li>
+<li><a href="#5-taking-ownership">Taking ownership</a></li>
+<li><a href="#6-building-from-scratch">Building something from scratch</a></li>
+<li><a href="#7-skin-in-the-game">Having skin in the game</a></li>
+</ul>
+<p>First, let&rsquo;s start with a short introduction to Pommerman.</p>
+<hr>
+<h1 id="what-is-pommerman">What is Pommerman?<a href="#what-is-pommerman" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<blockquote>
+<p>&ldquo;Pommerman is a multi-agent environment based on the classic console game Bomberman. Pommerman consists of a set of scenarios, each having at least four players and containing both cooperative and competitive aspects. We believe that success in Pommerman will require a diverse set of tools and methods, including planning, opponent/teammate modeling, game theory, and communication, and consequently can serve well as a multi-agent benchmark.&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p><img src="../../img/pom1.png" alt="ResarchML">
+<em>A Screenshot of Pommerman, agents can place bombs that explode after some timesteps.</em></p>
+<p><a href="https://youtu.be/-uSOhlpANks?si=G69_Mq0d_lR8tpb2"><em>You can check this video, it&rsquo;s quite easy to understand the game after seeing it.</em></a></p>
+<p>The game resembles a console game, and the simulator allows you to control some of the four players (agents). Some game rules include:</p>
+<ul>
+<li>Each agent can execute one of six actions per timestep: do nothing, move in one of four cardinal directions, or drop a bomb.</li>
+<li>The board consists of passages (walkable), walls (indestructible), or wood (destructible with bombs).</li>
+<li>Maps are randomly generated.</li>
+<li>Bombs explode after 10 timesteps, destroying wood and any agents within their blast radius.</li>
+<li>There are power-ups for players.</li>
+<li>Each game episode lasts up to 800 timesteps.</li>
+<li>There is only a binary reward at the end of the game, +1 or -1.</li>
+<li>The agents only <em>see</em> a region around them, not the entire board (partially observable).</li>
+</ul>
+<p>If you want to learn more about how we addressed the technicnal challenges you can <a href="https://www.borealisai.com/research-blogs/pommerman-team-competition-or-how-we-learned-stop-worrying-and-love-battle/">check here.</a></p>
+<p>Having a background on the competition, we can go into the lessons learned.</p>
+<hr>
+<h1 id="1-working-with-deadlines">1. Working with Deadlines<a href="#1-working-with-deadlines" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/rickmorty.png" alt="ResarchML"></p>
+<p>When I learned about the competition, I had a conversation with my supervisor along the lines of:</p>
+<pre><code>  S: &quot;Have you seen this Pommerman competition?&quot;
+  Pablo: &quot;Yes, sounds interesting&quot;
+  S: &quot;Yeah, we should submit something&quot;
+  Pablo: &quot;Ok... but we only have like 3 months&quot;
+  S: &quot;Great! Plenty of time.
+</code></pre>
+<p>During my Ph.D., I had similar comments from previous supervisors. Conference deadlines are intense, meaning you have to work under pressure. I also thought it meant sacrificing quality.</p>
+<p>Years later, my attitude towards deadlines has changed. I’ve even seen extreme cases of having just <em>one week</em> to produce something (hackathon style?).</p>
+<p>Does it make sense to have such tight (impossible) deadlines? Maybe.</p>
+<p>Now, I try to make sense with the following arguments:</p>
+<ul>
+<li>
+<p>Setting a high bar by your manager sometimes means they believe in you. <a href="https://www.forbes.com/sites/nazbeheshti/2021/10/05/steve-jobs-believed-in-me-and-it-changed-my-life-the-power-of-believing-in-your-employees/">&ldquo;When our limits are pushed in a healthy, empowering way, it can help us fulfill our potential and provide us with the drive and motivation to excel.&quot;</a></p>
+</li>
+<li>
+<p>Even if your manager doesn’t believe in you, deadlines <em>force you</em> to take action, make decisions, have ownership, collaborate, and produce something tangible.</p>
+</li>
+</ul>
+<p>I also think that once the deadline has passed, there should be some time to take a step back and analyze the outcome.</p>
+<h1 id="2-dealing-with-constraints">2. Dealing with Constraints<a href="#2-dealing-with-constraints" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/challenge.png" alt="ResarchML"></p>
+<blockquote>
+<p>“Frugality drives innovation, just like other constraints do. One of the only ways to get out of a tight box is to invent your way out.” — Jeff Bezos</p>
+</blockquote>
+<p>Pommerman had many distinct technical challenges: multi-agent, planning, learning, and communication, among others.</p>
+<p>Trying to solve <em>only one</em> of the issues wouldn&rsquo;t have resulted in a good agent for the competition.</p>
+<ul>
+<li>
+<p>One example to understand the challenges was the <em>&ldquo;lazy agent&rdquo;</em> problem<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. What we experienced was that when training a team of two agents, one being stronger than the other, the weaker agent tended to just avoid any actions (it was just sitting duck). The reason was that if the agent started exploring, it would probably get blasted by its own actions, affecting the reward of the entire team.</p>
+</li>
+<li>
+<p>Another example was the time limit for taking an action by the agents of <em>100 miliseconds</em>.</p>
+</li>
+</ul>
+<blockquote>
+<p>&ldquo;If an agent does not respond in an appropriate time limit for our
+competition constraints (100ms), then we will automatically
+issue them the Stop action and, if appropriate, have them
+send out the message (0, 0). This timeout is an aspect of the
+competition and not native to the game itself.&quot;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Having multiple constraints is no different from &ldquo;real-world&rdquo; problems. You will never work on an &ldquo;easy&rdquo; problem. You will never start with perfect data. You won’t have enough time to try all the models you want. Your model/agent needs to run within certain limits (e.g., time or memory). Your training data is never complete. Inherently, you are always working with deadlines. Learning to navigate these limitations is crucial for a successful outcome.</p>
+<h1 id="3-focusing-on-solving-problems">3. Focusing on Solving Problems<a href="#3-focusing-on-solving-problems" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/focus.jpeg" alt="ResarchML"></p>
+<p>NeurIPS is about <em>research papers</em>, but competitions try to foster new ideas based on solving problems. It’s a subtle difference, but one that’s closer to how industry works.</p>
+<p>One should be careful not to lose focus on the main goal. I’ve seen two examples of how focus might dissipate:</p>
+<ul>
+<li>
+<p><em>Getting Sidetracked by Too Many Experiments</em>. When you start working on a new problem, the focus is there, it’s clear. But after becoming comfortable with the problem, I tend to want more and more experiments. It’s essential to maintain focus and <em>avoid getting sidetracked</em> by too many experiments. Balance is key —push towards a complete solution without losing sight of the primary objective.</p>
+</li>
+<li>
+<p><em>Losing Sight of the Main Metric</em>. he second problem appears during evaluations and the metrics that matter. For example, in the Pommerman case, we modified the reward function of the agents and had plots of how the reward improved during training. However, the metric that really mattered was the &ldquo;win rate&rdquo; (defeating the the other team). In industry, this is similar —you have your model metrics, but there’s also a <em>business metric</em>. One needs to be careful not to forget that the business metric is what really matters.</p>
+</li>
+</ul>
+<h1 id="4-understanding-trade-offs">4. Understanding Trade-offs<a href="#4-understanding-trade-offs" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/decisions.png" alt="ResarchML"></p>
+<blockquote>
+<p>“People who are bred, selected, and compensated to find complicated solutions do not have an incentive to implement simplified ones.” ― Nassim Taleb</p>
+</blockquote>
+<p>How do you approach a problem with many challenges and make progress in a short time? By understanding the trade-offs and making decisions.</p>
+<ul>
+<li>
+<p><em>Sometimes simple (incorrect) models are enough.</em> One example was that the environment was partially observable, meaning you could only see a small window, not the entire board. It is clear that the information from the entire board is useful (because the enemies might be somewhere in the unseen regions). The problem was how to keep memory of seen regions in the past. One common approach, which is technically correct, is to add a recurrent network. However, that complicated the training. The second option, which was technically not entirely correct, was to <em>assume</em> that the last observation would remain until a new observation arrived. The benefit was not having to implement extra modules and just keep a simple vector of data. Results were good with the second, incorrect, approach.</p>
+</li>
+<li>
+<p><em>Other times, complexity needs to be added to see real improvements.</em>  The second example is related to the training curriculum. It was difficult to select against which agents we should train. On one side, we started using <em>static</em> agents to teach the agents that blasting them was the way to win. However, in the real competition, that wouldn&rsquo;t have worked. It was too simple. This time we needed to add complexity. Chao came up with an <em>unbiased smart</em> agent. That made an incredible difference in performance.</p>
+</li>
+</ul>
+<p>The lesson is to learn about trade-offs. Given the constraints, you can never solve everything perfectly. Finding the right amount of complexity will lead to the best results.</p>
+<h1 id="5-taking-ownership">5. Taking Ownership<a href="#5-taking-ownership" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/owner.jpeg" alt="ResarchML"></p>
+<blockquote>
+<p>“If all you need to do is what you are told, then you don’t need to understand your craft. However, as your ability to make decisions increases, then you need intimate technical knowledge on which to base those decisions.”
+― L. David Marquet</p>
+</blockquote>
+<p>Every member of the team had <em>a different expertise</em>, but <em>we all knew the problem and the goal we were working towards</em>.</p>
+<ul>
+<li>We were independent in the sense that individually we had to think, implement, and validate our ideas in our specific area of expertise. We had <strong>ownership</strong>.</li>
+<li>We worked as a team because we <em>cared</em> about the result and reaching the goal. We embraced shared learnings —both things that worked and things that did not— which helped to boost trust among the team.</li>
+</ul>
+<p>In the end, we took the lessons from everyone and put them together in the agent that was submitted to the competition.</p>
+<h1 id="6-building-from-scratch">6. Building from Scratch<a href="#6-building-from-scratch" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/build3.png" alt="ResarchML"></p>
+<blockquote>
+<p>&ldquo;Take a simple idea and take it seriously.&rdquo; — Charlie Munger</p>
+</blockquote>
+<p>Working on the competition was a clear, simple idea. When we started, we only had the baseline that came with the simulator. As we experimented and learned, we documented ways to continue using the simulator beyond the competition. Post-NeurIPS, we had a robust codebase, knowledge, and new ideas, setting the stage for future projects.</p>
+<p>The competition was the beginning, but later more than 5 research papers used the competition as a motivation and to perform experiments.</p>
+<h1 id="7-skin-in-the-game">7. Skin in the game<a href="#7-skin-in-the-game" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><img src="../../img/skin.png" alt="ResarchML"></p>
+<blockquote>
+<p>“How much you truly &lsquo;believe&rsquo; in something can be manifested only through what you are willing to risk for it.” Nassim Taleb</p>
+</blockquote>
+<p>Before OpenReview, you could submit a paper, and if it did not get accepted, you got feedback. It could be terrible work, but still, you got feedback and no one needed to know about that terrible work you submitted. There was no penalty for submitting something incomplete. There was no skin in the game.</p>
+<p>Competitions are different — by definition, there are winners, losers, and prizes. There is more at stake. Having skin in the game makes things more interesting and helps you learn in a distinct way.</p>
+<hr>
+<p>The <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 competition track</a> is already out, I strongly suggest if you have time work on a submission, do it,  you will learn a lot.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Resnick, Cinjon, et al. &ldquo;Pommerman: A multi-agent playground.&rdquo; (2018).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Sunehag, Peter, et al. &ldquo;Value-decomposition networks for cooperative multi-agent learning.&rdquo; (2017).&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>Pablo</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://pablohl.github.io/tags/machine-learning">machine learning</a></span><span class="tag"><a href="https://pablohl.github.io/tags/applied-machine-learning">applied machine learning</a></span><span class="tag"><a href="https://pablohl.github.io/tags/academia">academia</a></span><span class="tag"><a href="https://pablohl.github.io/tags/competitions">competitions</a></span><span class="tag"><a href="https://pablohl.github.io/tags/experiments">experiments</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1734 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2024-06-25 20:00 -0400</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://pablohl.github.io/posts/prompts2/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Prompting, the Wonderful Wizard (Part 2)</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2024 <a href="https://pablohl.github.io">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://pablohl.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
