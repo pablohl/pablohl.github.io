@@ -1,15 +1,15 @@
 ---
-title: "When Is an Experiment Actually Done?"
+title: "When Is an Experiment Actually Done in Applied Research?"
 date: 2026-09-17
 draft: true
-description: "Why applied R&D experiments must connect evidence to product decisions."
+description: "Why synthesis is part of determining whether an applied research experiment is complete."
 tags:
   - applied research
   - decision-making
   - communication
 ---
 
-# When Is an Experiment Actually Done?
+# When Is an Experiment Actually Done in Applied Research?
 
 After spending some years doing pure research and, more recently, doing more applied research, I’ve noticed an important difference in how results need to be communicated.
 
@@ -31,11 +31,11 @@ In applied product work, I think there is another step:
 \boxed{\text{decision}}
 \]
 
-The experiment **isn't really finished until someone can understand what the result means for the product**.
+The experiment isn't really finished until it is possible to construct a defensible path from the experimental evidence to a product decision, even if the decision is that we don't know enough yet.
 
-That also means asking a question that is less common in pure research:
+That also means asking a question that becomes especially important in applied research:
 
-Who needs to make what decision from this work?
+**Who needs to make what decision from this work?**
 
 The same experiment may need very different emphasis for a researcher reviewing the methodology, an engineer deciding whether to implement a change, or someone deciding whether the change is ready for production.
 
@@ -49,7 +49,7 @@ Suppose an experiment says:
 
 That is both a useful experimental result and an incomplete product result.
 
-As a research result, there may already be something interesting here. We tested a hypothesis, established a comparison, and perhaps learned that a much smaller or cheaper model can preserve a surprising amount of performance.
+As a research result, there may already be something interesting here. We tested a hypothesis, established a comparison, and perhaps learned that a cheaper model can preserve a surprising amount of performance.
 
 But if I have to decide whether Model A should replace Model B in a product, I immediately have more questions:
 
@@ -60,33 +60,41 @@ But if I have to decide whether Model A should replace Model B in a product, I i
 
 The research result can be valid while the product question remains unanswered.
 
+And this is where the distinction becomes interesting. The missing product answer is not necessarily a communication problem. It may mean the experiment hasn't produced enough evidence to support a decision yet.
+
 ## Communication is part of applied R&D
 
 This is why I’ve started thinking differently about technical reports.
 
-I used to think of communication as something downstream of the technical work:
+I used to think of communication as downstream of the technical work:
 
 \[
-\text{do the work}
+\text{experiment}
 \rightarrow
-\text{understand the result}
+\text{analysis}
 \rightarrow
-\text{communicate it}
+\boxed{\text{done}}
+\rightarrow
+\text{communication}
 \]
 
-I think that model is incomplete for applied R&D.
+Under that model, if the report is difficult to write or the conclusion is difficult to explain, that is a communication problem. The technical work is done; it just needs to be presented better.
 
-Trying to communicate a result forces another analytical step.
+I don't think that's always true. Trying to synthesize an experiment into a product decision is itself a useful test:
 
-- Can I explain what the evidence actually establishes?
+Can we construct a defensible path from the experimental evidence to the decision?
 
-- Can I connect the result to the product question?
+Sometimes it is not possible. And sometimes the problem isn't the writing. Something is missing from the experiment itself: maybe the baseline doesn't support the comparison, an aggregate metric hides the failure mode that matters, an assumption was never tested, or the experiment answered a narrower question than the product needs answered.
 
-- Can I distinguish what I know from what I am assuming?
+In those cases:
 
-- Can I explain why the recommendation follows from the evidence?
+\[
+\text{difficulty synthesizing}
+\rightarrow
+\text{missing reasoning or evidence}
+\]
 
-If I cannot do those things clearly, the problem may not be the writing. **The analysis may not be finished.**
+The communication problem has exposed an unfinished analysis.
 
 This is also why synthesis matters.
 
@@ -100,7 +108,7 @@ One simple structure I’ve found useful is:
 \text{consequence}
 \]
 
-The claim says what we observed. The evidence shows why we believe it. The consequence is what turns the result into analysis: why does this matter, and what changes because of it?
+The claim states what we think the result establishes. The evidence shows why we believe it. The consequence turns that result into analysis: why does this matter, and what changes because of it?
 
 A good report shouldn't make the reader connect seemingly unrelated pieces of information to discover that consequence.
 
@@ -122,21 +130,15 @@ That reconstruction shouldn't be their job.
 
 And importantly, making that chain explicit is not just an exercise in presentation. **Constructing the chain is a way of testing the reasoning.**
 
-- Maybe the evidence doesn't actually support the claim.
-
-- Maybe the experiment answered a narrower question than the one the product needs answered.
-
-- Maybe there is simply not enough evidence to make the decision yet.
-
-Writing the report can expose all of those things.
-
 This doesn't mean removing the details. Quite the opposite: the methodology, assumptions, failure modes and evidence still matter.
 
 The difference is that the report has to make the relationship between them explicit.
 
-For applied R&D, the report is therefore not just a record of the experiment. **It is part of the analytical process that closes the experiment.**
+For applied R&D, the report is not just a record of the experiment. Synthesis is one of the tests of whether the experiment is actually complete.
 
-It should make five things explicit:
+If I can connect the evidence to a decision, good. If I can't, we need to know why. The answer may be more analysis, another experiment, a narrower claim, or simply an explicit conclusion that the evidence isn't sufficient yet.
+
+A good report should make five things explicit:
 
 - What did we learn?
 - What does the evidence actually support?
