@@ -6,8 +6,16 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Fri, 18 Sep 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>When Is an Experiment Actually Done in Applied Research?</title>
+			<link>https://pablohl.github.io/posts/when-is-an-experiment-actually-done/</link>
+			<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+			<guid>https://pablohl.github.io/posts/when-is-an-experiment-actually-done/</guid>
+			<description>Why synthesis is part of determining whether an applied research experiment is complete.</description>
+		</item>
+
 
 		<item>
 			<title>Sometimes You Need Kirk. Sometimes You Need Spock.</title>
@@ -16,12 +24,12 @@
 			<guid>https://pablohl.github.io/posts/kirk-spock/</guid>
 			<description>A framework for balancing adaptability, optionality, and reversibility in decision-making.</description>
 		</item>
-		
+
 		<item>
 			<title>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</title>
 			<link>https://pablohl.github.io/posts/pommermanlessons/</link>
 			<pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/pommermanlessons/</guid>
 			<description>&amp;ldquo;In theory there is no difference between theory and practice. In practice there is.&amp;rdquo; - Yogi Berra
   Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</description>
@@ -177,12 +185,12 @@ competition and not native to the game itself.&quot;<sup id="fnref:1"><a href="#
 </section>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Prompting, the Wonderful Wizard (Part 2)</title>
 			<link>https://pablohl.github.io/posts/prompts2/</link>
 			<pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/prompts2/</guid>
 			<description>This is my second post about Large Language Models (LLMs).
 In the first part I covered:
@@ -424,12 +432,12 @@ beyond memorization, striving for a wider privacy protection.<sup id="fnref:5"><
 </section>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Prompting, the Wonderful Wizard (Part 1)</title>
 			<link>https://pablohl.github.io/posts/prompts/</link>
 			<pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/prompts/</guid>
 			<description>This is my first post about Large Language Models (LLMs), and given all the information available, it&amp;rsquo;s challenging to write something novel that won&amp;rsquo;t become outdated soon. I wanted to start with something &amp;ldquo;reasonably&amp;rdquo; simple: prompting. In hindsight, I&amp;rsquo;ll conclude my post by arguing that prompting is not simple. It is both underestimated and overestimated in different aspects. In this first part of the post, my goal is to answer the following questions:</description>
 			<content type="html"><![CDATA[<hr>
@@ -691,12 +699,12 @@ impedes the development of a comprehensive global understanding of the task.<sup
 </section>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Lessons From Six Years of Applied Machine Learning in Industry</title>
 			<link>https://pablohl.github.io/posts/industryvsacademia/</link>
 			<pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/industryvsacademia/</guid>
 			<description>It’s been more than six years since I started working in industry doing Machine Learning. I wanted to delve a bit deeper into my experience and what I have seen as differences between academic research (PhD) and applied research/data science. Below, I describe six lessons I have learned.
  1. I don’t have the time to do all the experiments I would like. When trying to get your research published, there are many experiments you need to perform.</description>
@@ -782,12 +790,12 @@ rarely mention potential societal benefits.<sup id="fnref:5"><a href="#fn:5" cla
 </section>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Quantitative Research and Machine Learning</title>
 			<link>https://pablohl.github.io/posts/simplicity/</link>
 			<pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/simplicity/</guid>
 			<description>I think of myself as a Machine Learning (ML) person with my most recent application domain being finance. However, I&amp;rsquo;ve worked alongside &amp;ldquo;Quants&amp;rdquo;.
  According to ChatGPT: &amp;ldquo;In finance, a &amp;ldquo;quant&amp;rdquo; (short for quantitative analyst) is a professional who uses mathematical models, statistical techniques, and computer programming to analyze financial markets and securities. Quants develop algorithms and trading strategies to identify profitable opportunities and manage risk. They often work for investment banks, hedge funds, and other financial institutions, focusing on areas such as derivatives pricing, risk management, and algorithmic trading.</description>
@@ -862,12 +870,12 @@ rarely mention potential societal benefits.<sup id="fnref:5"><a href="#fn:5" cla
 </section>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Thoughts on AI and Machine Learning for prospective/current students</title>
 			<link>https://pablohl.github.io/posts/thoughts/</link>
 			<pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/thoughts/</guid>
 			<description>This blog post was motivated when I was asked some interesting questions on AI and I thought it was good to share with a larger audience.
   Why did you choose AI? What excites you about it?
@@ -909,12 +917,12 @@ rarely mention potential societal benefits.<sup id="fnref:5"><a href="#fn:5" cla
 </ul>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>How to be a great supervisor (of an internship)?</title>
 			<link>https://pablohl.github.io/posts/great_supervisor/</link>
 			<pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/great_supervisor/</guid>
 			<description>In my previous post I discussed how to be a great intern, now I&amp;rsquo;ll try to provide a complementary view on what I think a great supervisor should do.
  Trade-offs One of the most difficult parts of being a good supervisor is deciding what role you need to play during the internship to maximize both the intern&amp;rsquo;s interests and yours. For example, as a supervisor you can &amp;ldquo;force&amp;rdquo; the intern to work on your project/ideas, but if the intern is not interested it&amp;rsquo;s going to be a huge loss of time and effort (for both).</description>
@@ -933,12 +941,12 @@ Another example of a trade-off happens when the intern &ldquo;is stuck&rdquo; (f
 <p>I mentioned <em>a few</em> examples of what I consider makes a good supervisor. They come in different forms and people have different strengths. This means that an amazing researcher does not always equal an amazing supervisor. An amazing engineer does not always mean an amazing supervisor. I think co-supervision might be a good tactic to get better feedback as an intern and to improve/grow as a supervisor.</p>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>How to be a great intern?</title>
 			<link>https://pablohl.github.io/posts/great_intern/</link>
 			<pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/great_intern/</guid>
 			<description>Tips and suggestions to make the most of an internship in tech. I’ve worked with many talented interns at throughtout my career and I wanted to share some general suggestions that might help you to improve your internship. Note: My experience is with research internships where the final outcome could be a paper submission.
  Expectations The first key aspect to understand are the expectations of your internship (both for you and your supervisor).</description>
@@ -975,17 +983,17 @@ Another example of a trade-off happens when the intern &ldquo;is stuck&rdquo; (f
 <p>A last piece of advice is that internships are a good way to get a tiny look into a company but don’t be fooled to think that you will understand every aspect of it. Enjoy your internship and try to learn as much as possible.</p>
 ]]></content>
 		</item>
-		
+
 		<item>
 			<title>Hello world</title>
 			<link>https://pablohl.github.io/posts/hello_world/</link>
 			<pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
-			
+
 			<guid>https://pablohl.github.io/posts/hello_world/</guid>
 			<description>I started my blog</description>
 			<content type="html"><![CDATA[<p>I started my blog</p>
 ]]></content>
 		</item>
-		
+
 	</channel>
 </rss>
