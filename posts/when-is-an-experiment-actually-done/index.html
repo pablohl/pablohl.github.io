@@ -30,6 +30,36 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	<title>When Is an Experiment Actually Done in Applied Research?</title>
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.reasoning-flow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.7rem;
+			margin: 1.5rem 0;
+			padding: 1.25rem;
+			overflow-x: auto;
+			border-radius: 0.4rem;
+			background: #30465b;
+			font-family: monospace;
+			font-size: 1.05rem;
+			white-space: nowrap;
+		}
+		.reasoning-flow .flow-arrow {
+			font-size: 1.35em;
+			opacity: 0.8;
+		}
+		.reasoning-flow .flow-result {
+			padding: 0.15rem 0.45rem;
+			border: 2px solid currentColor;
+		}
+		@media (max-width: 680px) {
+			.reasoning-flow {
+				justify-content: flex-start;
+				font-size: 0.9rem;
+			}
+		}
+	</style>
 </head>
 <body id="page">
 	<header id="site-header" class="animated slideInUp">
@@ -60,12 +90,13 @@
 <p>Here is the question, the methodology, the result, and what we learned.</p>
 </blockquote>
 <p>In applied product work, I think there is another step:</p>
-<pre><code class="language-text">question
-→ experiment
-→ result
-→ interpretation
-→ decision
-</code></pre>
+<div class="reasoning-flow" role="img" aria-label="Question leads to experiment, then result, interpretation, and decision">
+	<span>question</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>experiment</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>result</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>interpretation</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span class="flow-result">decision</span>
+</div>
 <p>The experiment isn&#39;t really finished until it is possible to construct a defensible path from the experimental evidence to a product decision, even if the decision is that we don&#39;t know enough yet.</p>
 <p>That also means asking a question that becomes especially important in applied research:</p>
 <p><strong>Who needs to make what decision from this work?</strong></p>
@@ -90,35 +121,39 @@
 <h2 id="communication-is-part-of-applied-randd">Communication is part of applied R&amp;D<a href="#communication-is-part-of-applied-randd" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>This is why I’ve started thinking differently about technical reports.</p>
 <p>I used to think of communication as downstream of the technical work:</p>
-<pre><code class="language-text">experiment
-→ analysis
-→ done
-→ communication
-</code></pre>
+<div class="reasoning-flow" role="img" aria-label="Experiment leads to analysis, then done, then communication">
+	<span>experiment</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>analysis</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span class="flow-result">done</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>communication</span>
+</div>
 <p>Under that model, if the report is difficult to write or the conclusion is difficult to explain, that is a communication problem. The technical work is done; it just needs to be presented better.</p>
 <p>I don&#39;t think that&#39;s always true. Trying to synthesize an experiment into a product decision is itself a useful test:</p>
 <p>Can we construct a defensible path from the experimental evidence to the decision?</p>
 <p>Sometimes it is not possible. And sometimes the problem isn&#39;t the writing. Something is missing from the experiment itself: maybe the baseline doesn&#39;t support the comparison, an aggregate metric hides the failure mode that matters, an assumption was never tested, or the experiment answered a narrower question than the product needs answered.</p>
 <p>In those cases:</p>
-<pre><code class="language-text">difficulty synthesizing
-→ missing reasoning or evidence
-</code></pre>
+<div class="reasoning-flow" role="img" aria-label="Difficulty synthesizing points to missing reasoning or evidence">
+	<span>difficulty synthesizing</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>missing reasoning or evidence</span>
+</div>
 <p>The communication problem has exposed an unfinished analysis.</p>
 <p>This is also why synthesis matters.</p>
 <p>One simple structure I’ve found useful is:</p>
-<pre><code class="language-text">claim
-→ evidence
-→ consequence
-</code></pre>
+<div class="reasoning-flow" role="img" aria-label="Claim leads to evidence and then consequence">
+	<span>claim</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>evidence</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>consequence</span>
+</div>
 <p>The claim states what we think the result establishes. The evidence shows why we believe it. The consequence turns that result into analysis: why does this matter, and what changes because of it?</p>
 <p>A good report shouldn&#39;t make the reader connect seemingly unrelated pieces of information to discover that consequence.</p>
 <p>If the baseline is in one section, the metric in another, an important failure mode five pages later, and the recommendation at the end, all the information may technically be there.</p>
 <p>But the reader has to reconstruct:</p>
-<pre><code class="language-text">claim
-→ evidence
-→ implication
-→ decision
-</code></pre>
+<div class="reasoning-flow" role="img" aria-label="Claim leads to evidence, implication, and decision">
+	<span>claim</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>evidence</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>implication</span><span class="flow-arrow" aria-hidden="true">→</span>
+	<span>decision</span>
+</div>
 <p>That reconstruction shouldn&#39;t be their job.</p>
 <p>And importantly, making that chain explicit is not just an exercise in presentation. <strong>Constructing the chain is a way of testing the reasoning.</strong></p>
 <p>This doesn&#39;t mean removing the details. Quite the opposite: the methodology, assumptions, failure modes and evidence still matter.</p>
