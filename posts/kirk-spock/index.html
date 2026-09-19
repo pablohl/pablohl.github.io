@@ -30,6 +30,13 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	<title>Sometimes You Need Kirk. Sometimes You Need Spock.</title>
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.decision-visual { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin: 1.5rem 0; padding: 1.25rem; overflow-x: auto; border-radius: 0.4rem; background: #30465b; font-family: monospace; font-size: 1.05rem; white-space: nowrap; }
+		.decision-visual .visual-arrow, .decision-visual .visual-plus { font-size: 1.35em; opacity: 0.8; }
+		.decision-visual.comparison { gap: 1rem; }
+		.decision-visual .versus { padding: 0.2rem 0.55rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.8em; text-transform: uppercase; opacity: 0.8; }
+		@media (max-width: 680px) { .decision-visual { justify-content: flex-start; font-size: 0.9rem; } }
+	</style>
 </head>
 <body id="page">
 	<header id="site-header" class="animated slideInUp">
@@ -68,7 +75,7 @@
 				<h2 id="kirk-make-the-best-move-then-recompute">Kirk: make the best move, then recompute</h2>
 				<p>Kirk’s advantage is not that he ignores the future. It is that he has confidence in his ability to adapt to it.</p>
 				<p>His strategy is approximately:</p>
-				<pre><code>observe → act → learn → recompute</code></pre>
+				<div class="decision-visual" role="img" aria-label="Observe, then act, learn, and recompute"><span>observe</span><span class="visual-arrow" aria-hidden="true">→</span><span>act</span><span class="visual-arrow" aria-hidden="true">→</span><span>learn</span><span class="visual-arrow" aria-hidden="true">→</span><span>recompute</span></div>
 				<p>If tomorrow will give you better information than you have today, there is a strong argument for not spending too much today optimizing for tomorrow.</p>
 				<p>This is particularly powerful in startups and R&amp;D.</p>
 				<p>You can spend weeks designing for a problem you think you will have in two years. Or you can solve the problem in front of you, wait for new information, and discover that your imagined problem never existed.</p>
@@ -84,12 +91,10 @@
 				<p>But:</p>
 				<blockquote><p>What does this decision make possible or impossible afterward?</p></blockquote>
 				<p>Suppose we have two choices:</p>
-				<pre><code>V(A) = 10
-V(B) = 8</code></pre>
+				<div class="decision-visual comparison" role="img" aria-label="The value of A is 10, compared with the value of B at 8"><span>V(A) = 10</span><span class="versus">vs</span><span>V(B) = 8</span></div>
 				<p>If we only care about the next state, A is obvious.</p>
 				<p>But imagine the transition structure looks like this:</p>
-				<pre><code>A → {11, 12}
-B → {9, 11, 15, 20}</code></pre>
+				<div class="decision-visual comparison" role="img" aria-label="A leads to 11 or 12, while B leads to 9, 11, 15, or 20"><span>A → {11, 12}</span><span class="versus">vs</span><span>B → {9, 11, 15, 20}</span></div>
 				<p>The important part is that we don’t actually need much predictive power here.</p>
 				<p>I don’t need to claim that 20 will happen. I don’t even need to know which of those future states is most likely.</p>
 				<p>I only need enough structural knowledge to see that choosing A gives us +2 today at the cost of removing several future paths.</p>
@@ -99,10 +104,10 @@ B → {9, 11, 15, 20}</code></pre>
 				<h2 id="the-important-variable-is-reversibility">The important variable is reversibility</h2>
 				<p>If a decision is cheap to reverse, Kirk is clearly a good approach.</p>
 				<p>Build it. Try it. Learn. Change it.</p>
-				<pre><code>C(reverse) ≈ 0</code></pre>
+				<div class="decision-visual" role="img" aria-label="The cost of reversing is approximately zero"><span>C(reverse) ≈ 0</span></div>
 				<p>Then extensive analysis of hypothetical futures can easily become wasted work.</p>
 				<p>But some choices change the cost of every subsequent choice: architecture, security assumptions, data models, customer commitments, enterprise integrations, pricing precedents, regulatory decisions.</p>
-				<pre><code>As C(reverse) → large</code></pre>
+				<div class="decision-visual" role="img" aria-label="As the cost of reversing becomes large"><span>As C(reverse) → large</span></div>
 				<p>Spock’s question becomes increasingly important.</p>
 				<p>The argument is no longer:</p>
 				<blockquote><p>I think this bad thing will happen.</p></blockquote>
@@ -115,11 +120,7 @@ B → {9, 11, 15, 20}</code></pre>
 				<p>The future state has a small chance of occurring.</p>
 				<p>Even if the risk has been correctly identified, protecting against it may still be a terrible decision.</p>
 				<p>Very roughly, the comparison is something like:</p>
-				<pre><code>P(future state) × C(being constrained)
-
-versus
-
-C(protecting against it today)</code></pre>
+				<div class="decision-visual comparison" role="img" aria-label="Probability of the future state times the cost of being constrained, compared with the cost of protecting against it today"><span>P(future state) × C(being constrained)</span><span class="versus">vs</span><span>C(protecting against it today)</span></div>
 				<p>This is where Spock can fail.</p>
 				<p>A sophisticated model of an uncertain future can make that future feel more real than it actually is.</p>
 				<p>You can spend enormous amounts of time preserving options you will never exercise.</p>
@@ -157,10 +158,7 @@ C(protecting against it today)</code></pre>
 				<p><strong>Is this uncertainty something we need to reason about, or something we can reduce with evidence?</strong></p>
 				<p>The best strategy may therefore be neither pure improvisation nor an attempt to model the entire landscape.</p>
 				<p>It may be closer to:</p>
-				<pre><code>move
-+ preserve important options
-+ learn
-+ recompute</code></pre>
+				<div class="decision-visual" role="img" aria-label="Move, preserve important options, learn, and recompute"><span>move</span><span class="visual-plus" aria-hidden="true">+</span><span>preserve important options</span><span class="visual-plus" aria-hidden="true">+</span><span>learn</span><span class="visual-plus" aria-hidden="true">+</span><span>recompute</span></div>
 				<p>Think far enough ahead to avoid unnecessarily expensive traps.</p>
 				<p>But not so far ahead that you start optimizing an imaginary world.</p>
 				<p>Kirk needs Spock because adaptability has limits.</p>
