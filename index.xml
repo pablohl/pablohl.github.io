@@ -7,7 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 18 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<item>
+		<title>“This Feels Wrong” Is the Beginning, Not the Argument</title>
+		<link>https://pablohl.github.io/posts/this-feels-wrong/</link>
+		<pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/this-feels-wrong/</guid>
+		<description>Turning intuition into reasoning, synthesis, and shared understanding across a startup team.</description>
+	</item>
 		<item>
 			<title>When Is an Experiment Actually Done in Applied Research?</title>
 			<link>https://pablohl.github.io/posts/when-is-an-experiment-actually-done/</link>
