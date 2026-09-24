@@ -6,8 +6,15 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Problems at the Boundary</title>
+			<link>https://pablohl.github.io/posts/problems-at-the-boundary/</link>
+			<pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+			<guid>https://pablohl.github.io/posts/problems-at-the-boundary/</guid>
+			<description>Why cross-functional problems emerge between domains, even when capable people communicate regularly.</description>
+		</item>
 		<item>
 			<title>“This Feels Wrong” Is the Beginning, Not the Argument</title>
 			<link>https://pablohl.github.io/posts/this-feels-wrong/</link>
