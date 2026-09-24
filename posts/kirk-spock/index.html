@@ -35,6 +35,9 @@
 		.decision-visual .visual-arrow, .decision-visual .visual-plus { font-size: 1.35em; opacity: 0.8; }
 		.decision-visual.comparison { justify-content: safe center; gap: 1rem; }
 		.decision-visual .versus { padding: 0.2rem 0.55rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.8em; text-transform: uppercase; opacity: 0.8; }
+		.optionality-figure { margin: 1.75rem 0; }
+		.optionality-figure img { display: block; width: 100%; height: auto; border-radius: 0.4rem; }
+		.optionality-figure figcaption { margin-top: 0.65rem; text-align: center; font-size: 0.9rem; opacity: 0.75; }
 		@media (max-width: 680px) { .decision-visual { justify-content: flex-start; font-size: 0.9rem; } }
 	</style>
 </head>
@@ -95,6 +98,10 @@
 				<p>If we only care about the next state, A is obvious.</p>
 				<p>But imagine the transition structure looks like this:</p>
 				<div class="decision-visual comparison" role="img" aria-label="A leads to 11 or 12, while B leads to 9, 11, 15, or 20"><span>A → {11, 12}</span><span class="versus">vs</span><span>B → {9, 11, 15, 20}</span></div>
+				<figure class="optionality-figure">
+					<img src="/img/posts/kirk-spock-optionality.webp" alt="Two paths diverge from the same starting point: one reaches a bright immediate reward but only two future destinations, while the other preserves several branching possibilities." width="1672" height="941" loading="lazy">
+					<figcaption>A larger immediate reward can be less valuable if it closes paths we may need later.</figcaption>
+				</figure>
 				<p>The important part is that we don’t actually need much predictive power here.</p>
 				<p>I don’t need to claim that 20 will happen. I don’t even need to know which of those future states is most likely.</p>
 				<p>I only need enough structural knowledge to see that choosing A gives us +2 today at the cost of removing several future paths.</p>
