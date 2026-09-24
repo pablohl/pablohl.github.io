@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#494f5c">
+	<meta itemprop="name" content="Problems at the Boundary">
+	<meta itemprop="description" content="Why cross-functional problems emerge between domains, even when capable people communicate regularly.">
+	<meta itemprop="datePublished" content="2026-09-24T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:00:00+00:00">
+	<meta property="og:title" content="Problems at the Boundary">
+	<meta property="og:description" content="Why cross-functional problems emerge between domains, even when capable people communicate regularly.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://pablohl.github.io/posts/problems-at-the-boundary/">
+	<meta property="article:section" content="posts">
+	<meta property="article:published_time" content="2026-09-24T00:00:00+00:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Problems at the Boundary">
+	<meta name="twitter:description" content="Why cross-functional problems emerge between domains, even when capable people communicate regularly.">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>Problems at the Boundary</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.boundary-visual { display: flex; align-items: center; justify-content: safe center; gap: .75rem; margin: 1.5rem 0; padding: 1.25rem; overflow-x: auto; border-radius: .4rem; background: #30465b; font-family: monospace; font-size: 1.05rem; white-space: nowrap; }
+		.boundary-visual .arrow, .boundary-visual .operator { font-size: 1.3em; opacity: .8; }
+		@media (max-width: 680px) { .boundary-visual { justify-content: flex-start; font-size: .9rem; } }
+	</style>
+</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp"><div class="hdr-wrapper section-inner"><div class="hdr-left"><div class="site-branding"><a href="https://pablohl.github.io">Pablo Hernandez Leal</a></div><nav class="site-nav hide-in-mobile"><a href="https://pablohl.github.io/about">About</a><a href="https://pablohl.github.io/posts/">Posts</a></nav></div><div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div></div></header>
+	<div id="mobile-menu" class="animated fast"><ul><li><a href="https://pablohl.github.io/about">About</a></li><li><a href="https://pablohl.github.io/posts/">Posts</a></li></ul></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header"><div class="post-meta"><span>Sep 24, 2026</span></div><h1>Problems at the Boundary</h1></header>
+			<div class="content">
+				<p>I’ve been thinking about a particular type of disagreement that happens when people or teams with different expertise work together.</p>
+				<p>Inside our own area, we have a reasonably good idea of what to ask. An engineer knows which technical questions are suspicious. Someone working with customers knows which comments in a meeting might matter. A security expert notices risks that other people probably don’t even see.</p>
+				<p>The interesting problems happen at the boundary.</p>
+				<p>A decision is partially technical and partially commercial. A customer request affects architecture. An implementation decision changes what can be promised later.</p>
+				<p>Then something strange can happen.</p>
+				<p>Two people can both be competent, both have relevant information, communicate regularly, and still miss something that looks completely obvious afterward.</p>
+				<p>I’ve started noticing several versions of this problem.</p>
+
+				<h2 id="what-is-obvious">1. What is obvious depends on where you are standing</h2>
+				<p>Imagine two specialists working on the same problem.</p>
+				<p>Person A knows:</p>
+				<div class="boundary-visual" role="img" aria-label="Person A knows X"><span>X</span></div>
+				<p>Person B knows:</p>
+				<div class="boundary-visual" role="img" aria-label="Person B knows Y"><span>Y</span></div>
+				<p>And together:</p>
+				<div class="boundary-visual" role="img" aria-label="X plus Y leads to the problem"><span>X</span><span class="operator" aria-hidden="true">+</span><span>Y</span><span class="arrow" aria-hidden="true">→</span><span>problem</span></div>
+				<p>The difficulty is that neither necessarily knows that the other person’s information is relevant.</p>
+				<p>After the problem appears, the missing conversation looks obvious.</p>
+				<p>A might say:</p>
+				<blockquote><p><em>Why didn’t you tell me about Y?</em></p></blockquote>
+				<p>B might respond:</p>
+				<blockquote><p><em>Why didn’t you tell me about X?</em></p></blockquote>
+				<p>Both can be reasonable questions.</p>
+				<p>The uncomfortable part is that before the problem appeared, neither person necessarily knew what they needed to ask.</p>
+				<p>This is different from someone withholding information or failing to communicate something they knew was important. It also means the usual solution — “communicate more” — doesn’t completely solve it.</p>
+				<p>You can ask:</p>
+				<blockquote><p><em>Is there anything you need from me?</em></p></blockquote>
+				<p>and get an honest:</p>
+				<blockquote><p><em>No.</em></p></blockquote>
+				<p>The problem is not always the answer.</p>
+				<p>Sometimes the missing piece is the question.</p>
+				<p>And after the fact, each side can find the other’s failure almost incomprehensible because the missing fact was obvious from inside their own world.</p>
+				<p>That is one kind of problem at the boundary.</p>
+				<p>But there is another version. Even when two people are looking at exactly the same thing, expertise can make them see different problems.</p>
+
+				<h2 id="expertise-changes-the-problem">2. Expertise changes what looks like the same problem</h2>
+				<p>Consider something outside work.</p>
+				<p>Someone without children might suggest:</p>
+				<blockquote><p><em>Why don’t you just stay another hour?</em></p></blockquote>
+				<p>From the outside, one hour is one hour.</p>
+				<p>The difference between leaving at 7:00 and leaving at 8:00 may seem almost irrelevant.</p>
+				<p>A parent of a young child may see a completely different problem.</p>
+				<p>7:00 might mean getting home before the child is exhausted, having enough time for the normal bedtime routine, and ending the day relatively peacefully.</p>
+				<p>8:00 might mean the child falls asleep in the car, wakes up when carried inside, refuses to go back to sleep, and turns one extra hour at dinner into a night of chaos.</p>
+				<p>To the person making the suggestion:</p>
+				<div class="boundary-visual" role="img" aria-label="Seven o'clock is approximately equal to eight o'clock"><span>7:00</span><span class="operator">≈</span><span>8:00</span></div>
+				<p>To the parent:</p>
+				<div class="boundary-visual" role="img" aria-label="Seven o'clock is not equal to eight o'clock"><span>7:00</span><span class="operator">≠</span><span>8:00</span></div>
+				<p>Neither person is necessarily being unreasonable.</p>
+				<p>One person sees an additional hour.</p>
+				<p>The other sees everything that hour interacts with.</p>
+				<p>That knowledge is rarely written down anywhere. Parents accumulate it by repeatedly seeing what happens when routines, sleep, hunger, transitions, and timing interact.</p>
+				<p>After enough experience, some apparently small changes become associated with much larger consequences.</p>
+				<p>They become obvious.</p>
+				<p>And because they are obvious, it can be surprisingly difficult to remember that they are not obvious to everyone else.</p>
+				<p>The same thing happens in professional expertise. After seeing enough failures, dependencies, and edge cases, some differences become immediately meaningful.</p>
+				<p>The danger is forgetting that the meaning came from experience, not from the object itself.</p>
+				<p>An engineer may decompose a problem into different structures, validation requirements, evidence requirements, and failure modes.</p>
+				<p>Someone closer to the customer may simply see different instances of the same problem.</p>
+				<p>Both views can be useful.</p>
+				<p>If we are estimating engineering effort, the differences matter enormously.</p>
+				<p>If we are understanding the customer’s problem, treating every instance as an unrelated technical system may cause us to miss the common workflow they are actually trying to solve.</p>
+				<p>Expertise doesn’t only give us more knowledge.</p>
+				<p>It changes which differences we consider important.</p>
+				<p>One person sees four instances of the same thing. Another sees four different problems.</p>
+				<p>And both representations can be useful.</p>
+				<p>The question is: useful for what?</p>
+
+				<h2 id="apparent-size">3. Expertise changes the apparent size of a problem</h2>
+				<p>The same thing happens with apparently small changes.</p>
+				<p>Someone asks:</p>
+				<blockquote><p><em>Can we add one field?</em></p></blockquote>
+				<p>From the outside, the change is one field.</p>
+				<p>And again, that isn’t an unreasonable description.</p>
+				<p>But inside the implementation, that field might touch:</p>
+				<div class="boundary-visual" role="img" aria-label="Data model leads to API, UI, existing records, and migration"><span>data model</span><span class="arrow" aria-hidden="true">→</span><span>API</span><span class="arrow" aria-hidden="true">→</span><span>UI</span><span class="arrow" aria-hidden="true">→</span><span>existing records</span><span class="arrow" aria-hidden="true">→</span><span>migration</span></div>
+				<p>This creates a familiar conversation:</p>
+				<blockquote><p><em>It’s just one field.</em></p></blockquote>
+				<p>versus:</p>
+				<blockquote><p><em>It’s not just one field.</em></p></blockquote>
+				<p>I increasingly think both statements can be true.</p>
+				<p>At the product interface, it may literally be one field.</p>
+				<p>Inside the system, it may create additional dependencies.</p>
+				<p>The mistake is assuming that because something is small in one representation, it must also be small in another.</p>
+				<p>And the reverse happens too.</p>
+				<p>Engineers can spend considerable effort on an architectural improvement that is genuinely sophisticated and difficult, while from the user’s perspective almost nothing has changed.</p>
+				<p>Technical complexity does not automatically create equivalent product value.</p>
+				<p>So expertise affects more than what looks different.</p>
+				<p>It can also affect what looks large.</p>
+				<p>In 2025, Cloudflare made a change to permissions in one of its database systems. The change altered the results of a metadata query elsewhere in the system, which changed a configuration file used for bot detection. That file was automatically distributed across Cloudflare’s network, where it exceeded a limit in the software processing web traffic and contributed to a major outage.</p>
+				<p>At the point where the change was made, it was a database permissions change.</p>
+				<p>At the level of the system, it changed an assumption several layers away.</p>
+				<p>The size of a change is not determined only by what was changed.</p>
+				<p>It also depends on everything downstream that assumed the old behaviour would remain true.</p>
+
+				<h2 id="the-boundary">The boundary is the interesting part</h2>
+				<p>I used to think about some of these situations mostly as communication problems.</p>
+				<p>Someone needs to explain the technical issue more clearly.</p>
+				<p>Someone needs to provide better business context.</p>
+				<p>Both are useful.</p>
+				<p>But I think there is something deeper happening.</p>
+				<p>Specialization doesn’t simply mean that two people know different facts.</p>
+				<p>It means they have spent years learning:</p>
+				<ul><li>which differences matter;</li><li>which things can safely be treated as equivalent;</li><li>which questions are worth asking;</li><li>which consequences are likely to appear later; and</li><li>which apparently small details are signals of a much larger problem.</li></ul>
+				<p>That knowledge changes perception.</p>
+				<p>This is why an expert can look at something and immediately say:</p>
+				<blockquote><p><em>Those are not the same thing.</em></p></blockquote>
+				<p>while someone from another field looks at exactly the same objects and asks:</p>
+				<blockquote><p><em>Why aren’t they?</em></p></blockquote>
+				<p>Neither perspective necessarily contains the entire problem.</p>
+
+				<h2 id="addressing-boundary-problems">4. How do we address these problems?</h2>
+				<p>I later found some useful research on knowledge boundaries.</p>
+				<p>Paul Carlile describes specialized knowledge as becoming localized around the problems that different groups repeatedly solve. That specialization is valuable, but when groups depend on each other it can also create boundaries: what is obvious, relevant, or consequential in one function may not be obvious in another.</p>
+				<p>Another related idea is <em>interactional expertise</em>, from Harry Collins and colleagues. Roughly, it means becoming fluent enough in another specialist’s language to interact intelligently with people in that field without becoming capable of doing their job yourself.</p>
+				<p>That distinction matters.</p>
+				<p>The solution cannot be:</p>
+				<div class="boundary-visual" role="img" aria-label="Everyone learns everything"><span>everyone learns everything</span></div>
+				<p>The whole reason specialization exists is that this is impossible and inefficient.</p>
+				<p>The more realistic goal is something like:</p>
+				<div class="boundary-visual" role="img" aria-label="Deep expertise in my domain plus enough understanding of yours to recognize the boundary"><span>deep expertise in my domain</span><span class="operator" aria-hidden="true">+</span><span>enough understanding of yours to recognize the boundary</span></div>
+				<p>That second part is harder than it sounds.</p>
+				<p>It means learning enough to occasionally think:</p>
+				<blockquote><p><em>There may be something here that I don’t see.</em></p></blockquote>
+				<p>Or:</p>
+				<blockquote><p><em>This looks simple to me, but is it simple from your side?</em></p></blockquote>
+				<p>Or:</p>
+				<blockquote><p><em>These look completely different to me. Is there a reason they look like the same problem to you?</em></p></blockquote>
+				<p>Those are much better questions than trying to guess the answer from the other person’s domain.</p>
+				<p>And once the boundary is visible, we can do something with it.</p>
+				<p>We can draw the architecture. Map the workflow. Compare the documents. Write down assumptions. Build a prototype.</p>
+				<p>These things are useful not simply because they contain information.</p>
+				<p>They are useful when they expose differences and dependencies that were previously visible to only one side.</p>
+				<p>So perhaps the useful question for a cross-functional artifact is:</p>
+				<blockquote><p><em>Does this expose the differences and dependencies that matter to the decision?</em></p></blockquote>
+				<p>That may be the part I want to keep from all of this.</p>
+				<p>The goal of cross-functional work isn’t to eliminate different perspectives. Those perspectives exist because specialization is useful.</p>
+				<p>The goal is to get better at recognizing when a problem sits between them.</p>
+				<p>Sometimes the other person knows something I don’t.</p>
+				<p>Sometimes I know something they don’t.</p>
+				<p>And sometimes the real problem is neither of those things.</p>
+				<p>It is that neither of us realizes yet that the two things need to be connected.</p>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info"><p>Pablo</p><p>Sep 24, 2026</p></footer>
+		</article>
+		<div class="post-nav thin"><a class="prev-post" href="https://pablohl.github.io/posts/this-feels-wrong/">Older: “This Feels Wrong” Is the Beginning, Not the Argument</a></div>
+	</main>
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="https://pablohl.github.io">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+</body>
+</html>
