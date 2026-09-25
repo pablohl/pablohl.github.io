@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#494f5c">
+	<meta itemprop="name" content="The Metric Can Be Right and the Decision Can Still Be Wrong">
+	<meta itemprop="description" content="Why a correctly calculated metric can still support the wrong product decision when it measures only part of the system.">
+	<meta itemprop="datePublished" content="2026-09-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-25T00:00:00+00:00">
+	<meta property="og:title" content="The Metric Can Be Right and the Decision Can Still Be Wrong">
+	<meta property="og:description" content="Why a correctly calculated metric can still support the wrong product decision when it measures only part of the system.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://pablohl.github.io/posts/the-metric-can-be-right/">
+	<meta property="article:section" content="posts">
+	<meta property="article:published_time" content="2026-09-25T00:00:00+00:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="The Metric Can Be Right and the Decision Can Still Be Wrong">
+	<meta name="twitter:description" content="Why a correctly calculated metric can still support the wrong product decision when it measures only part of the system.">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>The Metric Can Be Right and the Decision Can Still Be Wrong</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.metric-flow { display: flex; align-items: center; justify-content: safe center; gap: .65rem; margin: 1.5rem 0; padding: 1.25rem; overflow-x: auto; border-radius: .4rem; background: #30465b; font-family: monospace; font-size: 1rem; white-space: nowrap; }
+		.metric-flow .operator { font-size: 1.2em; opacity: .8; }
+		.metric-flow .result { padding: .15rem .45rem; border: 2px solid currentColor; border-radius: .25rem; }
+		@media (max-width: 680px) { .metric-flow { justify-content: flex-start; } }
+	</style>
+</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp"><div class="hdr-wrapper section-inner"><div class="hdr-left"><div class="site-branding"><a href="https://pablohl.github.io">Pablo Hernandez Leal</a></div><nav class="site-nav hide-in-mobile"><a href="https://pablohl.github.io/about">About</a><a href="https://pablohl.github.io/posts/">Posts</a></nav></div><div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div></div></header>
+	<div id="mobile-menu" class="animated fast"><ul><li><a href="https://pablohl.github.io/about">About</a></li><li><a href="https://pablohl.github.io/posts/">Posts</a></li></ul></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header"><div class="post-meta"><span>Sep 25, 2026</span></div><h1>The Metric Can Be Right and the Decision Can Still Be Wrong</h1></header>
+			<div class="content">
+				<p>Suppose we are evaluating two models for a task.</p>
+				<p>Model A is substantially cheaper than Model B. We run an experiment and Model A also has slightly better measured accuracy.</p>
+				<p>That seems like a fairly easy decision.</p>
+				<div class="metric-flow" role="img" aria-label="Lower cost plus higher accuracy leads to a better model"><span>lower cost</span><span class="operator" aria-hidden="true">+</span><span>higher accuracy</span><span class="operator" aria-hidden="true">→</span><span class="result">better model</span></div>
+				<p>Except there is something hidden in that conclusion.</p>
+				<p>We are assuming that cost and accuracy capture what matters.</p>
+				<p>Maybe they do. But the experiment hasn’t actually established that. That may not matter for the experiment itself. It matters when we use the experiment to make a product decision.</p>
+				<p>A metric can be completely correct about what it measures and still give us an incomplete picture of what we are trying to optimize.</p>
+
+				<h2 id="metric-is-not-objective">1. The metric is not the objective</h2>
+				<p>Suppose two models both have 95% accuracy.</p>
+				<p>That is useful information.</p>
+				<p>But what does the other 5% look like?</p>
+				<p>One model might mostly fail by abstaining: it gives no answer.</p>
+				<p>The other might almost never abstain. It always provides an answer, but sometimes that answer is wrong.</p>
+				<p>If the metric treats both cases simply as:</p>
+				<div class="metric-flow" role="img" aria-label="Correct or incorrect"><span>correct</span><span class="operator" aria-hidden="true">or</span><span>incorrect</span></div>
+				<p>then both types of failure count the same.</p>
+				<p>But from the perspective of someone using the product, they may be very different.</p>
+				<p>A blank answer and a plausible but incorrect answer create different problems.</p>
+				<p>So both systems can honestly have:</p>
+				<div class="metric-flow" role="img" aria-label="Ninety-five percent accuracy"><span class="result">95% accuracy</span></div>
+				<p>while creating very different experiences for the person using them.</p>
+				<p>The metric is not wrong. It is answering a narrower question.</p>
+				<p>Metrics compress information.</p>
+				<p>A large set of experimental results becomes:</p>
+				<blockquote><p>94.7% accuracy.</p></blockquote>
+				<p>A complicated process becomes:</p>
+				<blockquote><p>18 minutes average completion time.</p></blockquote>
+				<p>Thousands of customer interactions become:</p>
+				<blockquote><p>52 seconds average wait time.</p></blockquote>
+				<p>That compression is the reason metrics are useful. I don’t want to inspect thousands of individual cases every time I need to make a decision.</p>
+				<p>But something is necessarily lost in the compression.</p>
+				<ul><li>An average hides the distribution.</li><li>Accuracy hides the types of errors.</li><li>Model cost may hide the work created somewhere else.</li></ul>
+				<p>So there is another question that I’ve found useful:</p>
+				<blockquote><p>What information did we throw away when we created this metric?</p></blockquote>
+				<p>Most of the time, that information probably doesn’t matter.</p>
+				<p>The point is not to keep adding metrics forever.</p>
+				<p>The more interesting question is:</p>
+				<blockquote><p>Could any of the information we removed change the decision?</p></blockquote>
+				<p>If the answer is no, great.</p>
+				<p>If the answer is yes, then perhaps we are measuring the wrong boundary of the problem.</p>
+
+				<h2 id="model-is-not-system">2. The model may not be the system we care about</h2>
+				<p>This becomes particularly important for AI products where a person handles the output.</p>
+				<p>It is easy to think of the experiment as:</p>
+				<div class="metric-flow" role="img" aria-label="Input leads to model, which leads to output"><span>input</span><span class="operator" aria-hidden="true">→</span><span class="result">model</span><span class="operator" aria-hidden="true">→</span><span>output</span></div>
+				<p>We compare accuracy, cost, latency, maybe other quality metrics, and decide which model is better.</p>
+				<p>But that may not be the actual product.</p>
+				<p>The real workflow might be:</p>
+				<div class="metric-flow" role="img" aria-label="Input leads to model, output, human effort, and decision"><span>input</span><span class="operator" aria-hidden="true">→</span><span>model</span><span class="operator" aria-hidden="true">→</span><span>output</span><span class="operator" aria-hidden="true">→</span><span>human effort</span><span class="operator" aria-hidden="true">→</span><span class="result">decision</span></div>
+				<p>The model is only one component of that system.</p>
+				<p>An improvement in the model-level metrics does not necessarily mean that everything downstream also improved.</p>
+
+				<h2 id="review-effort">3. Review effort can be part of model quality</h2>
+				<p>So, what does “better” mean in a human-in-the-loop system?</p>
+				<p>One approach is:</p>
+				<div class="metric-flow" role="img" aria-label="Accuracy plus cost"><span>accuracy</span><span class="operator" aria-hidden="true">+</span><span>cost</span></div>
+				<p>But there may be other dimensions that matter.</p>
+				<p>A model can be cheaper to run while being more expensive to verify.</p>
+				<p>That verification cost can be time. It can be the number of times someone needs to go back to the source material. It can be the attention or effort spent deciding whether an output can actually be trusted.</p>
+				<p>It can be the difference between immediately seeing that something failed and spending thirty seconds deciding whether an answer is correct.</p>
+				<p>So maybe what we care about is closer to:</p>
+				<div class="metric-flow" role="img" aria-label="A function of correctness, review effort, cost, and risk"><span>f(</span><span>correctness</span><span class="operator">,</span><span>review effort</span><span class="operator">,</span><span>cost</span><span class="operator">,</span><span>risk</span><span>)</span></div>
+				<p>The exact function isn’t important.</p>
+				<p>“Better” was multidimensional from the beginning.</p>
+				<p>We just compressed it into the dimensions that were easiest to measure first.</p>
+
+				<h2 id="choosing-the-metric">4. Choosing the metric is part of the experiment</h2>
+				<p>Metrics often look extremely objective.</p>
+				<div class="metric-flow" role="img" aria-label="Model A is 94.7 percent and Model B is 93.9 percent"><span>A = 94.7%</span><span class="operator" aria-hidden="true">|</span><span>B = 93.9%</span></div>
+				<p>There is nothing ambiguous about the arithmetic.</p>
+				<p>But before those numbers existed, someone decided:</p>
+				<ul><li>what counts as correct;</li><li>which cases belong in the evaluation;</li><li>whether different types of errors count the same;</li><li>whether human review matters; and</li><li>where the system being evaluated begins and ends.</li></ul>
+				<p>Once those decisions are made, the calculation can be perfectly reproducible.</p>
+				<p>But choosing what to calculate is part of the experiment.</p>
+				<p>I think this is why I’ve become more careful when a metric and what I observe seem to disagree.</p>
+				<p>Sometimes the answer is that the metric is wrong.</p>
+				<p>Sometimes the observation is misleading.</p>
+				<p>And sometimes both are right.</p>
+				<p>The metric is accurately measuring one part of the system, while the observation is pointing to something outside the boundary we originally chose.</p>
+
+				<h2 id="metric-can-still-be-right">The metric can still be right</h2>
+				<p>None of this means that an evaluation needs to measure everything.</p>
+				<p>That would make experimentation almost impossible.</p>
+				<p>If accuracy and cost are enough to make the decision, then they are enough.</p>
+				<p>The question is whether we know that.</p>
+				<p>A useful sequence for me is becoming:</p>
+				<blockquote><p>Is the metric calculated correctly?</p></blockquote>
+				<p>Then:</p>
+				<blockquote><p>What information did we throw away when we created it?</p></blockquote>
+				<p>And finally:</p>
+				<blockquote><p>Could any of that information change the decision?</p></blockquote>
+				<p>If not, move on.</p>
+				<p>If yes, maybe the experiment needs to expand.</p>
+				<p>The dangerous metric is not necessarily one that was calculated incorrectly.</p>
+				<p>It can be completely right.</p>
+				<p>We may simply have asked it a smaller question than the decision required.</p>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info"><p>Pablo</p><p>Sep 25, 2026</p></footer>
+		</article>
+		<div class="post-nav thin"><a class="prev-post" href="https://pablohl.github.io/posts/problems-at-the-boundary/">Older: Problems at the Boundary</a></div>
+	</main>
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+</body>
+</html>
