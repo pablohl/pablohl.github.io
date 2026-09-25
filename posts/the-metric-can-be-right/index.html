@@ -27,6 +27,9 @@
 		.metric-flow { display: flex; align-items: center; justify-content: safe center; gap: .65rem; margin: 1.5rem 0; padding: 1.25rem; overflow-x: auto; border-radius: .4rem; background: #30465b; font-family: monospace; font-size: 1rem; white-space: nowrap; }
 		.metric-flow .operator { font-size: 1.2em; opacity: .8; }
 		.metric-flow .result { padding: .15rem .45rem; border: 2px solid currentColor; border-radius: .25rem; }
+		.metric-figure { margin: 1.75rem 0; }
+		.metric-figure img { display: block; width: 100%; height: auto; border-radius: .4rem; }
+		.metric-figure figcaption { margin-top: .65rem; text-align: center; font-size: .9rem; opacity: .75; }
 		@media (max-width: 680px) { .metric-flow { justify-content: flex-start; } }
 	</style>
 </head>
@@ -39,6 +42,10 @@
 			<div class="content">
 				<p>Suppose we are evaluating two models for a task.</p>
 				<p>Model A is substantially cheaper than Model B. We run an experiment and Model A also has slightly better measured accuracy.</p>
+				<figure class="metric-figure">
+					<img src="/img/posts/the-metric-can-be-right.webp" alt="Two three-dimensional forms share the same measured height and width, while one extends much farther in an unmeasured depth." width="1672" height="941">
+					<figcaption>Two alternatives can look equivalent when the dimension that separates them is not being measured.</figcaption>
+				</figure>
 				<p>That seems like a fairly easy decision.</p>
 				<div class="metric-flow" role="img" aria-label="Lower cost plus higher accuracy leads to a better model"><span>lower cost</span><span class="operator" aria-hidden="true">+</span><span>higher accuracy</span><span class="operator" aria-hidden="true">→</span><span class="result">better model</span></div>
 				<p>Except there is something hidden in that conclusion.</p>
