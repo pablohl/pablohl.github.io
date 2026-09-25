@@ -27,6 +27,17 @@
 	<title>Posts</title>
 	<link rel="alternate" type="application/rss+xml" href="https://pablohl.github.io/posts/index.xml" title="Posts" />
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.posts-list .post-item.post-card > a { display: block; padding: 1rem 0; }
+		.post-card .post-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+		.post-card .post-title { line-height: 1.35; }
+		.post-card .post-day { flex: 0 0 auto; }
+		.post-summary { display: block; margin: .35rem 0 .55rem; color: rgba(255, 255, 255, .72); font-size: .95rem; line-height: 1.5; }
+		.post-details { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; color: rgba(255, 255, 255, .58); font-size: .78rem; }
+		.post-topic { padding: .12rem .45rem; border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; }
+		.read-time { margin-left: .15rem; }
+		@media (max-width: 520px) { .post-card .post-heading { align-items: flex-start; } }
+	</style>
 </head>
 
 <body id="page">
@@ -62,28 +73,32 @@
 		<div class="posts-group">
 			<div class="post-year" id="2026">2026</div>
 			<ul class="posts-list">
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/problems-at-the-boundary/">
-						<span class="post-title">Problems at the Boundary</span>
-						<span class="post-day">Sep 24</span>
+						<span class="post-heading"><span class="post-title">Problems at the Boundary</span><span class="post-day">Sep 24</span></span>
+						<span class="post-summary">Why capable specialists can miss problems that exist between their domains.</span>
+						<span class="post-details"><span class="post-topic">Cross-functional work</span><span class="post-topic">Decision-making</span><span class="read-time">8 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/this-feels-wrong/">
-						<span class="post-title">“This Feels Wrong” Is the Beginning, Not the Argument</span>
-						<span class="post-day">Sep 21</span>
+						<span class="post-heading"><span class="post-title">“This Feels Wrong” Is the Beginning, Not the Argument</span><span class="post-day">Sep 21</span></span>
+						<span class="post-summary">Turning professional intuition into reasoning that other people can inspect.</span>
+						<span class="post-details"><span class="post-topic">Communication</span><span class="post-topic">Decision-making</span><span class="read-time">8 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/when-is-an-experiment-actually-done/">
-						<span class="post-title">When Is an Experiment Actually Done in Applied Research?</span>
-						<span class="post-day">Sep 18</span>
+						<span class="post-heading"><span class="post-title">When Is an Experiment Actually Done in Applied Research?</span><span class="post-day">Sep 18</span></span>
+						<span class="post-summary">Why synthesis and communication are part of completing an applied experiment.</span>
+						<span class="post-details"><span class="post-topic">Applied research</span><span class="post-topic">Decision-making</span><span class="read-time">5 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/kirk-spock/">
-						<span class="post-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span>
-						<span class="post-day">Sep 17</span>
+						<span class="post-heading"><span class="post-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span><span class="post-day">Sep 17</span></span>
+						<span class="post-summary">A framework for balancing adaptability, optionality, and reversibility in decisions.</span>
+						<span class="post-details"><span class="post-topic">Decision-making</span><span class="post-topic">Leadership</span><span class="read-time">5 min read</span></span>
 					</a>
 				</li>
 			</ul>
@@ -91,34 +106,39 @@
 		<div class="posts-group">
 			<div class="post-year" id="2024">2024</div>
 			<ul class="posts-list">
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/pommermanlessons/">
-						<span class="post-title">From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</span>
-						<span class="post-day">Jun 26</span>
+						<span class="post-heading"><span class="post-title">From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</span><span class="post-day">Jun 26</span></span>
+						<span class="post-summary">Lessons about deadlines, constraints, trade-offs, and ownership from an AI competition.</span>
+						<span class="post-details"><span class="post-topic">Applied ML</span><span class="post-topic">Research</span><span class="read-time">9 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/prompts2/">
-						<span class="post-title">Prompting, the Wonderful Wizard (Part 2)</span>
-						<span class="post-day">Jun 17</span>
+						<span class="post-heading"><span class="post-title">Prompting, the Wonderful Wizard (Part 2)</span><span class="post-day">Jun 17</span></span>
+						<span class="post-summary">The risks of prompting, practical guidance, and what comes after prompt engineering.</span>
+						<span class="post-details"><span class="post-topic">LLMs</span><span class="post-topic">Prompting</span><span class="read-time">8 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/prompts/">
-						<span class="post-title">Prompting, the Wonderful Wizard (Part 1)</span>
-						<span class="post-day">Jun 12</span>
+						<span class="post-heading"><span class="post-title">Prompting, the Wonderful Wizard (Part 1)</span><span class="post-day">Jun 12</span></span>
+						<span class="post-summary">How prompting emerged, why it works, and where in-context learning breaks down.</span>
+						<span class="post-details"><span class="post-topic">LLMs</span><span class="post-topic">Prompting</span><span class="read-time">11 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/industryvsacademia/">
-						<span class="post-title">Lessons From Six Years of Applied Machine Learning in Industry</span>
-						<span class="post-day">Jun 4</span>
+						<span class="post-heading"><span class="post-title">Lessons From Six Years of Applied Machine Learning in Industry</span><span class="post-day">Jun 4</span></span>
+						<span class="post-summary">How applied machine learning changes when time, data, priorities, and impact become real constraints.</span>
+						<span class="post-details"><span class="post-topic">Applied ML</span><span class="post-topic">Research</span><span class="read-time">9 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/simplicity/">
-						<span class="post-title">Quantitative Research and Machine Learning</span>
-						<span class="post-day">May 26</span>
+						<span class="post-heading"><span class="post-title">Quantitative Research and Machine Learning</span><span class="post-day">May 26</span></span>
+						<span class="post-summary">Why simplicity, skepticism, and hypothesis-driven work matter in quantitative research.</span>
+						<span class="post-details"><span class="post-topic">Quantitative research</span><span class="post-topic">Machine learning</span><span class="read-time">7 min read</span></span>
 					</a>
 				</li>
 			</ul>
@@ -126,10 +146,11 @@
 		<div class="posts-group">
 			<div class="post-year" id="2022">2022</div>
 			<ul class="posts-list">
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/thoughts/">
-						<span class="post-title">Thoughts on AI and Machine Learning for prospective/current students</span>
-						<span class="post-day">Feb 13</span>
+						<span class="post-heading"><span class="post-title">Thoughts on AI and Machine Learning for prospective/current students</span><span class="post-day">Feb 13</span></span>
+						<span class="post-summary">Practical perspective for students deciding how to learn and work in AI and machine learning.</span>
+						<span class="post-details"><span class="post-topic">Machine learning</span><span class="post-topic">Careers</span><span class="read-time">5 min read</span></span>
 					</a>
 				</li>
 			</ul>
@@ -137,22 +158,25 @@
 		<div class="posts-group">
 			<div class="post-year" id="2021">2021</div>
 			<ul class="posts-list">
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/great_supervisor/">
-						<span class="post-title">How to be a great supervisor (of an internship)?</span>
-						<span class="post-day">Dec 13</span>
+						<span class="post-heading"><span class="post-title">How to be a great supervisor (of an internship)?</span><span class="post-day">Dec 13</span></span>
+						<span class="post-summary">Practical ways to give interns direction, context, feedback, and room to grow.</span>
+						<span class="post-details"><span class="post-topic">Mentoring</span><span class="post-topic">Leadership</span><span class="read-time">4 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/great_intern/">
-						<span class="post-title">How to be a great intern?</span>
-						<span class="post-day">Nov 22</span>
+						<span class="post-heading"><span class="post-title">How to be a great intern?</span><span class="post-day">Nov 22</span></span>
+						<span class="post-summary">Suggestions for learning quickly, communicating well, and making the most of a technical internship.</span>
+						<span class="post-details"><span class="post-topic">Mentoring</span><span class="post-topic">Careers</span><span class="read-time">5 min read</span></span>
 					</a>
 				</li>
-				<li class="post-item">
+				<li class="post-item post-card">
 					<a href="https://pablohl.github.io/posts/hello_world/">
-						<span class="post-title">Hello world</span>
-						<span class="post-day">Nov 17</span>
+						<span class="post-heading"><span class="post-title">Hello world</span><span class="post-day">Nov 17</span></span>
+						<span class="post-summary">A short introduction to the blog.</span>
+						<span class="post-details"><span class="post-topic">Personal</span><span class="read-time">1 min read</span></span>
 					</a>
 				</li>
 			</ul>
