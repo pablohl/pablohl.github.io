@@ -31,7 +31,7 @@ There are good reasons not to act immediately.
 - Important information may be about to arrive.
 - Waiting may cost almost nothing while acting commits us to something expensive.
 
-In those situations, waiting preserves flexibility.
+In those situations, waiting can preserve flexibility.
 
 ***The value of waiting comes partly from what you expect to learn.***
 
