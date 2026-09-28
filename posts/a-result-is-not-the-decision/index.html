@@ -25,10 +25,8 @@
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
 	<style>
 		.post-subtitle { margin-top: .5rem; color: rgba(255,255,255,.7); font-size: 1.1rem; font-style: italic; }
-		.result-table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; }
-		.result-table th, .result-table td { padding: .6rem .8rem; border-bottom: 1px solid rgba(255,255,255,.14); }
-		.result-table th { text-align: left; }
-		.result-table td:last-child, .result-table th:last-child { text-align: right; }
+		.result-values { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; margin: 1.25rem 0; font-family: monospace; }
+		.result-values span { white-space: nowrap; }
 		.result-sequence { margin: 1.5rem 0; padding: 1.1rem 1.25rem; overflow-x: auto; border-radius: .4rem; background: #30465b; font-family: monospace; font-size: 1.05rem; letter-spacing: .12em; text-align: center; white-space: nowrap; }
 	</style>
 </head>
@@ -43,11 +41,11 @@
 				<p>My manager was a trader. He knew probability and statistics extremely well, but he was not particularly interested in sophisticated ML for its own sake. He was open to trying it, and we used different models, features, and approaches.</p>
 				<p>But his questions about experiments were usually very simple.</p>
 				<p>Suppose we ran a set of experiments over some parameter and got something like this:</p>
-				<table class="result-table"><thead><tr><th>Parameter</th><th>Result</th></tr></thead><tbody><tr><td>4</td><td>51</td></tr><tr><td>5</td><td>52</td></tr><tr><td>6</td><td><strong>73</strong></td></tr><tr><td>7</td><td>50</td></tr><tr><td>8</td><td>52</td></tr></tbody></table>
+				<p class="result-values" aria-label="Parameter and result pairs"><span>4 → 51</span><span>5 → 52</span><span><strong>6 → 73</strong></span><span>7 → 50</span><span>8 → 52</span></p>
 				<p>The obvious result is 6.</p>
 				<p>But that was not necessarily the result he trusted. He cared about what happened around it.</p>
 				<p>Compare it with:</p>
-				<table class="result-table"><thead><tr><th>Parameter</th><th>Result</th></tr></thead><tbody><tr><td>4</td><td>51</td></tr><tr><td>5</td><td>64</td></tr><tr><td>6</td><td><strong>69</strong></td></tr><tr><td>7</td><td>67</td></tr><tr><td>8</td><td>63</td></tr></tbody></table>
+				<p class="result-values" aria-label="Parameter and result pairs"><span>4 → 51</span><span>5 → 64</span><span><strong>6 → 69</strong></span><span>7 → 67</span><span>8 → 63</span></p>
 				<p>The maximum is lower.</p>
 				<p>But the second set of results tells a different story.</p>
 				<p>There appears to be a region where something consistently works.</p>
