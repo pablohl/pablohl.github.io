@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#494f5c">
+	<meta itemprop="name" content="A Result Is Not the Decision">
+	<meta itemprop="description" content="Why the structure surrounding an experimental result matters when deciding whether the evidence is strong enough to act on.">
+	<meta itemprop="datePublished" content="2026-09-28T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-28T00:00:00+00:00">
+	<meta property="og:title" content="A Result Is Not the Decision">
+	<meta property="og:description" content="Why the structure surrounding an experimental result matters when deciding whether the evidence is strong enough to act on.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://pablohl.github.io/posts/a-result-is-not-the-decision/">
+	<meta property="article:section" content="posts">
+	<meta property="article:published_time" content="2026-09-28T00:00:00+00:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="A Result Is Not the Decision">
+	<meta name="twitter:description" content="Why the structure surrounding an experimental result matters when deciding whether the evidence is strong enough to act on.">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>A Result Is Not the Decision</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.post-subtitle { margin-top: .5rem; color: rgba(255,255,255,.7); font-size: 1.1rem; font-style: italic; }
+		.result-values { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; margin: 1.25rem 0; font-family: monospace; }
+		.result-values span { white-space: nowrap; }
+		.result-sequence { margin: 1.5rem 0; padding: 1.1rem 1.25rem; overflow-x: auto; border-radius: .4rem; background: #30465b; font-family: monospace; font-size: 1.05rem; letter-spacing: .12em; text-align: center; white-space: nowrap; }
+		.evidence-figure { margin: 1.75rem 0; }
+		.evidence-figure img { display: block; width: 100%; height: auto; border-radius: .4rem; }
+		.evidence-figure figcaption { margin-top: .65rem; text-align: center; font-size: .9rem; opacity: .75; }
+	</style>
+</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp"><div class="hdr-wrapper section-inner"><div class="hdr-left"><div class="site-branding"><a href="https://pablohl.github.io">Pablo Hernandez Leal</a></div><nav class="site-nav hide-in-mobile"><a href="https://pablohl.github.io/about">About</a><a href="https://pablohl.github.io/posts/">Writing</a><a href="https://pablohl.github.io/about/#research">Research</a></nav></div><div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div></div></header>
+	<div id="mobile-menu" class="animated fast"><ul><li><a href="https://pablohl.github.io/about">About</a></li><li><a href="https://pablohl.github.io/posts/">Writing</a></li><li><a href="https://pablohl.github.io/about/#research">Research</a></li></ul></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header"><div class="post-meta"><span>Sep 28, 2026</span></div><h1>A Result Is Not the Decision</h1><p class="post-subtitle">The Shape of the Evidence</p></header>
+			<div class="content">
+				<p>Years ago, I worked on machine learning for quantitative trading.</p>
+				<p>My manager was a trader. He knew probability and statistics extremely well, but he was not particularly interested in sophisticated ML for its own sake. He was open to trying it, and we used different models, features, and approaches.</p>
+				<p>But his questions about experiments were usually very simple.</p>
+				<p>Suppose we ran a set of experiments over some parameter and got something like this:</p>
+				<p class="result-values" aria-label="Parameter and result pairs"><span>4 → 51</span><span>5 → 52</span><span><strong>6 → 73</strong></span><span>7 → 50</span><span>8 → 52</span></p>
+				<p>The obvious result is 6.</p>
+				<p>But that was not necessarily the result he trusted. He cared about what happened around it.</p>
+				<p>Compare it with:</p>
+				<p class="result-values" aria-label="Parameter and result pairs"><span>4 → 51</span><span>5 → 64</span><span><strong>6 → 69</strong></span><span>7 → 67</span><span>8 → 63</span></p>
+				<p>The maximum is lower.</p>
+				<p>But the second set of results tells a different story.</p>
+				<p>There appears to be a region where something consistently works.</p>
+				<figure class="evidence-figure">
+					<img src="/img/posts/a-result-is-not-the-decision.webp" alt="A tall golden form balances on an unstable stack of stones, while a smaller matte form stands securely on a broad, coherent foundation." width="1672" height="941" loading="lazy">
+					<figcaption>The most impressive result may not rest on the strongest evidence.</figcaption>
+				</figure>
+				<p>At the time, I mostly interpreted this as caution about overfitting.</p>
+				<p>That is part of it.</p>
+				<p>But the parameter example is only one case. The broader question is what structure around a result makes the conclusion believable enough to act on.</p>
+
+				<h2 id="result-is-only-the-beginning">The result is only the beginning</h2>
+				<p>An experiment gives us some numbers.</p>
+				<p>But eventually someone has to make a decision: use the model, ship the feature, change the system, allocate more capital, move something into production.</p>
+				<p>So the question is, how do we get from:</p>
+				<blockquote><p>This experiment produced a better result.</p></blockquote>
+				<p>to:</p>
+				<blockquote><p>We should act on it.</p></blockquote>
+				<p>Of course, the magnitude of the improvement matters, but <strong><em>is that enough?</em></strong></p>
+				<p><strong><em>What if the experiment was repeated 100 times and this was the single best run?</em></strong></p>
+				<p><strong><em>What if the improvement disappears under a very small parameter change?</em></strong></p>
+				<p><strong><em>What if the new component performs well independently but behaves badly with something already in the system?</em></strong></p>
+				<p><strong><em>What if we cannot explain the underlying behavior that produced the new result?</em></strong></p>
+				<p><strong><em>What if the person running the experiment has a long history of reliable results and we trust their judgment?</em></strong></p>
+				<p>None of these questions changes the reported number.</p>
+				<p>But all of them inform the decision.</p>
+
+				<h2 id="surrounding-results">The surrounding results are also evidence</h2>
+				<p>Take the two parameter examples again.</p>
+				<p>In the first:</p>
+				<div class="result-sequence" role="img" aria-label="Results 51, 52, 73, 50, and 52">51&nbsp;&nbsp;52&nbsp;&nbsp;<strong>73</strong>&nbsp;&nbsp;50&nbsp;&nbsp;52</div>
+				<p>In the second:</p>
+				<div class="result-sequence" role="img" aria-label="Results 51, 64, 69, 67, and 63">51&nbsp;&nbsp;64&nbsp;&nbsp;<strong>69</strong>&nbsp;&nbsp;67&nbsp;&nbsp;63</div>
+				<p>If I only ask which experiment performed best, the answer is obvious.</p>
+				<p>But if I ask which result gives me more confidence that I am seeing something that may survive outside the experiment, the answer might be different.</p>
+				<p>The neighboring results matter.</p>
+				<p>Not because a smooth region is automatically correct.</p>
+				<p>Real phenomena can have sharp thresholds. Complex systems can behave discontinuously.</p>
+				<p><strong>But if I claim that parameter 6, the one with the highest value, is capturing a robust underlying phenomenon, then the fact that nearby parameters 5 and 7 behave completely differently is information I need to explain.</strong></p>
+				<p>The shape of the surrounding experimental results is additional evidence that itself needs an explanation.</p>
+
+				<h2 id="more-than-one-dimension">This happens in more than one dimension</h2>
+				<p>The same idea shows up in different forms.</p>
+				<p>If I claim a parameter captures a robust phenomenon:</p>
+				<p><strong>What happens around it?</strong></p>
+				<p>If I claim two strategies diversify risk:</p>
+				<p><strong>How do they behave relative to one another?</strong></p>
+				<p>If both make money independently but fail under the same event, I may not have two strategies in the sense that matters. I may have the same underlying exposure twice.</p>
+				<p>If I claim an accuracy number represents quality:</p>
+				<p><strong>What kinds of cases constitute that accuracy?</strong></p>
+				<p>A single aggregate can hide very different kinds of errors.</p>
+				<p>If I claim something generalizes:</p>
+				<p><strong>How did seeing earlier results change what I tried next?</strong></p>
+				<p>The final experiment may be clean while the path used to arrive at it was heavily influenced by previous results.</p>
+				<p>In each case, the number is real.</p>
+				<p>The problem is deciding what the number allows us to conclude.</p>
+
+				<h2 id="not-just-statistical-significance">This is not just statistical significance</h2>
+				<p>There are formal ways to reason about repeated experiments, multiple comparisons, uncertainty, variance, and sensitivity. Those still matter, but I think the practical question is broader.</p>
+				<p>A result should have structure consistent with the explanation you are giving for it.</p>
+				<p><strong><em>If I say there is a stable effect, I should expect some form of stability.</em></strong></p>
+				<p><strong><em>If I say two systems are independent, I should see evidence that they fail differently.</em></strong></p>
+				<p><strong><em>If I say a metric captures quality, I should understand what cases make up that metric and what important behavior it excludes.</em></strong></p>
+				<p><strong><em>If I say a result should generalize, I should understand how much of my research process has already adapted to the historical data.</em></strong></p>
+				<p>This does not give a mechanical rule for making the decision.</p>
+				<p>It gives more dimensions along which to understand the uncertainty.</p>
+
+				<h2 id="same-questions-later">I have noticed myself asking the same questions later</h2>
+				<p>Years later, while reviewing ML experiments, I noticed myself asking questions that sounded very similar.</p>
+				<p>The headline metric looked good.</p>
+				<p>But something about the observed behavior did not quite fit the conclusion.</p>
+				<p>The useful questions became:</p>
+				<ul><li>What cases make up this number?</li><li>What does the metric fail to capture?</li><li>What assumptions are embedded in the evaluation?</li><li>What would I expect to see if our explanation were actually right?</li></ul>
+				<p>I realized I had started asking some of the same annoyingly simple questions that had once been asked of me.</p>
+				<p>The point was not that the number was wrong.</p>
+				<p>The point was that the number was not the decision.</p>
+
+				<h2 id="decisions-under-uncertainty">Decisions are made under uncertainty</h2>
+				<p>Maybe the simplest version of this is that moving an experiment into production is a choice under uncertainty.</p>
+				<p>We never know everything.</p>
+				<p>Repeating the experiment 1,000 times does not eliminate every unknown.</p>
+				<p>Understanding the mechanism does not guarantee the future will behave like the past.</p>
+				<p>A stable region can still fail.</p>
+				<p>An expert can still be wrong.</p>
+				<p>So the objective cannot be certainty.</p>
+				<p>The objective is to understand the uncertainty well enough to distinguish:</p>
+				<p><strong>what we know,</strong></p>
+				<p><strong>what we think we know,</strong></p>
+				<p><strong>what we do not know,</strong></p>
+				<p>and <strong>which of those unknowns actually matter to the decision.</strong></p>
+				<p>The result matters, but it is just the starting point.</p>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info"><p>Pablo</p><p>Sep 28, 2026</p></footer>
+		</article>
+		<div class="post-nav thin"><a class="prev-post" href="https://pablohl.github.io/posts/the-metric-can-be-right/">Older: The Metric Can Be Right and the Decision Can Still Be Wrong</a></div>
+	</main>
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+</body>
+</html>
