@@ -1,0 +1,882 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "title": "Decision Heuristics Toolbox",
+    "version": "v1",
+    "conversation_id": "6abd9b5a-4000-83ea-9627-364f64097744",
+    "post_inventory_url": "https://pablohl.github.io/posts/",
+    "notes": [
+      "The conversation labels its table as 13 candidate tools, but the table defines 14. All 14 are preserved.",
+      "Tool wording, categories, sources, and primary/supporting relationships follow the final conversation table. Source aliases are normalized; problem descriptions and post summaries are editorial descriptions.",
+      "All 14 launch tools were approved for publication on 2026-09-30. The example JSON's featured selection (Shape of the Evidence) is retained, and random_enabled defaults to true. Consumers should filter status=published before public display.",
+      "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
+      "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
+      "Future ideas such as Two Clocks and The Right Level of Reasoning are excluded because they were not defined in the candidate table."
+    ]
+  },
+  "problems": [
+    {
+      "id": "decisions",
+      "name": "Decisions",
+      "description": "Choosing what to do when the answer is unclear."
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence",
+      "description": "Deciding what conclusions the available evidence actually supports."
+    },
+    {
+      "id": "timing",
+      "name": "Timing",
+      "description": "Deciding when to act or wait."
+    },
+    {
+      "id": "people",
+      "name": "People",
+      "description": "Supporting and working with other people."
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "description": "Making reasoning, concerns, and perspectives understandable."
+    },
+    {
+      "id": "strategy",
+      "name": "Strategy",
+      "description": "Choosing approaches under constraints and preserving future possibilities."
+    },
+    {
+      "id": "learning",
+      "name": "Learning",
+      "description": "Learning from experiments, experience, and feedback."
+    }
+  ],
+  "sources": [
+    {
+      "id": "quantitative-trading",
+      "name": "Quantitative trading",
+      "type": "work"
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine learning",
+      "type": "research"
+    },
+    {
+      "id": "ml-evaluation",
+      "name": "ML evaluation",
+      "type": "research"
+    },
+    {
+      "id": "product-work",
+      "name": "Product work",
+      "type": "work"
+    },
+    {
+      "id": "startups",
+      "name": "Startups",
+      "type": "work"
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "type": "work"
+    },
+    {
+      "id": "parenting",
+      "name": "Parenting",
+      "type": "life"
+    },
+    {
+      "id": "knowledge-boundary-research",
+      "name": "Knowledge-boundary research",
+      "type": "academic-idea"
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "type": "research"
+    },
+    {
+      "id": "technical-judgment",
+      "name": "Technical judgment",
+      "type": "work"
+    },
+    {
+      "id": "academic-research-to-applied-r-and-d",
+      "name": "Academic research → applied R&D",
+      "type": "research"
+    },
+    {
+      "id": "research-and-development",
+      "name": "Research and development",
+      "type": "work"
+    },
+    {
+      "id": "star-trek",
+      "name": "Star Trek",
+      "type": "film-fiction"
+    },
+    {
+      "id": "applied-machine-learning",
+      "name": "Applied machine learning",
+      "type": "work"
+    },
+    {
+      "id": "quantitative-research",
+      "name": "Quantitative research",
+      "type": "research"
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "type": "work"
+    },
+    {
+      "id": "pommerman",
+      "name": "Pommerman",
+      "type": "game"
+    },
+    {
+      "id": "competitions",
+      "name": "Competitions",
+      "type": "research"
+    },
+    {
+      "id": "mentoring",
+      "name": "Mentoring",
+      "type": "work"
+    },
+    {
+      "id": "supervision",
+      "name": "Supervision",
+      "type": "work"
+    },
+    {
+      "id": "phd-supervision",
+      "name": "PhD supervision",
+      "type": "research"
+    },
+    {
+      "id": "internships",
+      "name": "Internships",
+      "type": "work"
+    },
+    {
+      "id": "writing",
+      "name": "Writing",
+      "type": "work"
+    }
+  ],
+  "posts": [
+    {
+      "id": "a-result-is-not-the-decision",
+      "title": "A Result Is Not the Decision",
+      "subtitle": "The Shape of the Evidence",
+      "date": "2026-09-28",
+      "url": "https://pablohl.github.io/posts/a-result-is-not-the-decision/",
+      "summary": "Experimental context informs whether a result supports action.",
+      "topics": [
+        "experimentation",
+        "decision-making"
+      ],
+      "tools": [
+        "shape-of-the-evidence"
+      ]
+    },
+    {
+      "id": "the-metric-can-be-right",
+      "title": "The Metric Can Be Right and the Decision Can Still Be Wrong",
+      "subtitle": null,
+      "date": "2026-09-25",
+      "url": "https://pablohl.github.io/posts/the-metric-can-be-right/",
+      "summary": "Metrics can omit information needed for a decision.",
+      "topics": [
+        "ai-evaluation",
+        "decision-making"
+      ],
+      "tools": [
+        "what-did-the-metric-throw-away"
+      ]
+    },
+    {
+      "id": "problems-at-the-boundary",
+      "title": "Problems at the Boundary",
+      "subtitle": null,
+      "date": "2026-09-24",
+      "url": "https://pablohl.github.io/posts/problems-at-the-boundary/",
+      "summary": "Specialists can overlook dependencies between their domains.",
+      "topics": [
+        "cross-functional-work",
+        "decision-making"
+      ],
+      "tools": [
+        "look-at-the-boundary",
+        "change-the-representation"
+      ]
+    },
+    {
+      "id": "this-feels-wrong",
+      "title": "“This Feels Wrong” Is the Beginning, Not the Argument",
+      "subtitle": null,
+      "date": "2026-09-21",
+      "url": "https://pablohl.github.io/posts/this-feels-wrong/",
+      "summary": "Make intuition available for inspection through explicit reasoning.",
+      "topics": [
+        "communication",
+        "decision-making"
+      ],
+      "tools": [
+        "from-intuition-to-argument"
+      ]
+    },
+    {
+      "id": "when-is-an-experiment-actually-done",
+      "title": "When Is an Experiment Actually Done in Applied Research?",
+      "subtitle": null,
+      "date": "2026-09-18",
+      "url": "https://pablohl.github.io/posts/when-is-an-experiment-actually-done/",
+      "summary": "Applied experiments require synthesis and communication.",
+      "topics": [
+        "applied-research",
+        "decision-making"
+      ],
+      "tools": [
+        "decision-complete"
+      ]
+    },
+    {
+      "id": "kirk-spock",
+      "title": "Sometimes You Need Kirk. Sometimes You Need Spock.",
+      "subtitle": null,
+      "date": "2026-09-17",
+      "url": "https://pablohl.github.io/posts/kirk-spock/",
+      "summary": "Consider adaptability, future options, and reversal costs.",
+      "topics": [
+        "decision-making",
+        "leadership"
+      ],
+      "tools": [
+        "preserve-the-option"
+      ]
+    },
+    {
+      "id": "pommerman",
+      "title": "From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman",
+      "subtitle": null,
+      "date": "2024-06-26",
+      "url": "https://pablohl.github.io/posts/pommermanlessons/",
+      "summary": "Competition experience reveals practical constraints and trade-offs.",
+      "topics": [
+        "applied-ml",
+        "research"
+      ],
+      "tools": [
+        "what-did-the-metric-throw-away",
+        "start-simple",
+        "solve-the-constrained-problem"
+      ]
+    },
+    {
+      "id": "prompting-part-2",
+      "title": "Prompting, the Wonderful Wizard (Part 2)",
+      "subtitle": null,
+      "date": "2024-06-17",
+      "url": "https://pablohl.github.io/posts/prompts2/",
+      "summary": "Prompting risks, practical use, and subsequent developments.",
+      "topics": [
+        "llms",
+        "prompting"
+      ],
+      "tools": []
+    },
+    {
+      "id": "prompting-part-1",
+      "title": "Prompting, the Wonderful Wizard (Part 1)",
+      "subtitle": null,
+      "date": "2024-06-12",
+      "url": "https://pablohl.github.io/posts/prompts/",
+      "summary": "An explanation of prompting and in-context learning.",
+      "topics": [
+        "llms",
+        "prompting"
+      ],
+      "tools": []
+    },
+    {
+      "id": "six-years-of-applied-ml",
+      "title": "Lessons From Six Years of Applied Machine Learning in Industry",
+      "subtitle": null,
+      "date": "2024-06-04",
+      "url": "https://pablohl.github.io/posts/industryvsacademia/",
+      "summary": "Industrial ML operates under constraints on time, data, and priorities.",
+      "topics": [
+        "applied-ml",
+        "research"
+      ],
+      "tools": [
+        "decision-complete",
+        "preserve-the-option",
+        "explore-then-exploit",
+        "look-before-you-model"
+      ]
+    },
+    {
+      "id": "quantitative-research-and-machine-learning",
+      "title": "Quantitative Research and Machine Learning",
+      "subtitle": null,
+      "date": "2024-05-26",
+      "url": "https://pablohl.github.io/posts/simplicity/",
+      "summary": "Quantitative research benefits from simple, skeptical, hypothesis-driven experiments.",
+      "topics": [
+        "quantitative-research",
+        "machine-learning"
+      ],
+      "tools": [
+        "shape-of-the-evidence",
+        "start-simple",
+        "start-with-a-hypothesis"
+      ]
+    },
+    {
+      "id": "thoughts-on-ai-and-machine-learning-for-students",
+      "title": "Thoughts on AI and Machine Learning for prospective/current students",
+      "subtitle": null,
+      "date": "2022-02-13",
+      "url": "https://pablohl.github.io/posts/thoughts/",
+      "summary": "Perspectives on studying and working in AI.",
+      "topics": [
+        "machine-learning",
+        "careers"
+      ],
+      "tools": []
+    },
+    {
+      "id": "how-to-be-a-great-supervisor",
+      "title": "How to be a great supervisor (of an internship)?",
+      "subtitle": null,
+      "date": "2021-12-13",
+      "url": "https://pablohl.github.io/posts/great_supervisor/",
+      "summary": "Supporting interns through guidance, feedback, and independence.",
+      "topics": [
+        "mentoring",
+        "leadership"
+      ],
+      "tools": [
+        "productive-struggle",
+        "raise-the-resolution-of-feedback"
+      ]
+    },
+    {
+      "id": "how-to-be-a-great-intern",
+      "title": "How to be a great intern?",
+      "subtitle": null,
+      "date": "2021-11-22",
+      "url": "https://pablohl.github.io/posts/great_intern/",
+      "summary": "Learning and communicating during a technical internship.",
+      "topics": [
+        "mentoring",
+        "careers"
+      ],
+      "tools": [
+        "raise-the-resolution-of-feedback"
+      ]
+    },
+    {
+      "id": "hello-world",
+      "title": "Hello world",
+      "subtitle": null,
+      "date": "2021-11-17",
+      "url": null,
+      "summary": "Introduction to the blog.",
+      "topics": [
+        "personal"
+      ],
+      "tools": []
+    }
+  ],
+  "tools": [
+    {
+      "id": "shape-of-the-evidence",
+      "name": "The Shape of the Evidence",
+      "question": "What would I expect to see around this result if my explanation were actually right?",
+      "situation": "One result looks substantially better than the alternatives.",
+      "observation": "A result is more convincing when the surrounding evidence has a structure consistent with the explanation. An isolated maximum may be real, but it demands explanation.",
+      "problems": [
+        "evidence",
+        "decisions"
+      ],
+      "sources": [
+        "quantitative-trading",
+        "machine-learning"
+      ],
+      "use_when": [
+        "Experiments",
+        "benchmarks",
+        "model selection",
+        "vendor comparisons",
+        "apparently exceptional results"
+      ],
+      "watch_for": "Real phenomena can have thresholds and discontinuities; smoothness is evidence, not proof.",
+      "example": "A model performs best at one exact parameter value while nearby configurations perform poorly. Before selecting it, ask whether the spike represents a real phenomenon or experimental noise.",
+      "posts": {
+        "primary": "a-result-is-not-the-decision",
+        "supporting": [
+          "quantitative-research-and-machine-learning"
+        ]
+      },
+      "related_tools": [],
+      "lineage": "Skepticism about unusually good quantitative research results developed into examining the structure of surrounding evidence.",
+      "status": "published",
+      "featured": true,
+      "random_enabled": true
+    },
+    {
+      "id": "what-did-the-metric-throw-away",
+      "name": "What Did the Metric Throw Away?",
+      "question": "Could information removed by this metric change the decision?",
+      "situation": "A metric appears to give a clear answer, but observations or experience don't quite agree.",
+      "observation": "Metrics are compression. They can be perfectly correct while excluding distinctions that matter to the actual decision.",
+      "problems": [
+        "evidence",
+        "decisions"
+      ],
+      "sources": [
+        "ml-evaluation",
+        "product-work"
+      ],
+      "use_when": [
+        "Model evaluation",
+        "KPIs",
+        "averages",
+        "rankings",
+        "performance comparisons"
+      ],
+      "watch_for": "Don't respond by measuring everything. Missing information matters only if it could alter the decision.",
+      "example": null,
+      "posts": {
+        "primary": "the-metric-can-be-right",
+        "supporting": [
+          "pommerman"
+        ]
+      },
+      "related_tools": [],
+      "lineage": "Pommerman's distinction between training reward and winning developed into asking which decision-relevant information a metric removes.",
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "look-at-the-boundary",
+      "name": "Look at the Boundary",
+      "question": "What might be visible from the other domain that isn't visible from mine?",
+      "situation": "Capable people from different specialties disagree or unexpectedly miss something.",
+      "observation": "Expertise changes which differences, dependencies and consequences appear important. The missing information may exist in the connection rather than inside either person's domain.",
+      "problems": [
+        "communication",
+        "people"
+      ],
+      "sources": [
+        "startups",
+        "engineering",
+        "parenting",
+        "knowledge-boundary-research"
+      ],
+      "use_when": [
+        "Cross-functional decisions",
+        "customer/engineering disagreements",
+        "handoffs",
+        "architecture/business decisions"
+      ],
+      "watch_for": "The goal isn't for everyone to understand everything or to defer automatically to another expert.",
+      "example": null,
+      "posts": {
+        "primary": "problems-at-the-boundary",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "change-the-representation",
+      "name": "Change the Representation",
+      "question": "Is this actually small, or does it only look small in the representation I'm using?",
+      "situation": "Two people describe the same change as radically different in size or complexity.",
+      "observation": "Something can be small at one interface and large inside the system—or technically difficult while almost irrelevant to the user.",
+      "problems": [
+        "communication",
+        "decisions"
+      ],
+      "sources": [
+        "engineering",
+        "product-work"
+      ],
+      "use_when": [
+        "Estimation",
+        "scope discussions",
+        "product vs engineering disagreement",
+        "dependency analysis"
+      ],
+      "watch_for": "A more complicated representation isn't automatically the more relevant one. Ask which representation matters for the decision.",
+      "example": null,
+      "posts": {
+        "primary": "problems-at-the-boundary",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "from-intuition-to-argument",
+      "name": "From Intuition to Argument",
+      "question": "What exactly is my intuition noticing, and why does it matter to this decision?",
+      "situation": "Something feels wrong, but you cannot yet explain the concern clearly.",
+      "observation": "Intuition can be compressed experience, but it is a private signal. Turning it into explicit reasoning tests the intuition before asking others to accept it.",
+      "problems": [
+        "communication",
+        "people",
+        "decisions"
+      ],
+      "sources": [
+        "research",
+        "startups",
+        "technical-judgment"
+      ],
+      "use_when": [
+        "Disagreements",
+        "architecture reviews",
+        "risk concerns",
+        "expert intuition"
+      ],
+      "watch_for": "Don't use reasoning merely to rationalize the initial reaction. Investigation may show that the intuition was wrong.",
+      "example": null,
+      "posts": {
+        "primary": "this-feels-wrong",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "decision-complete",
+      "name": "Decision-Complete",
+      "question": "Can I construct a defensible path from the evidence to the decision?",
+      "situation": "The analysis or experiment looks finished, but its practical implication is difficult to state.",
+      "observation": "Difficulty synthesizing a result may expose missing evidence or reasoning rather than poor writing. Applied work is not complete merely because an experiment produced an answer.",
+      "problems": [
+        "evidence",
+        "decisions",
+        "communication"
+      ],
+      "sources": [
+        "academic-research-to-applied-r-and-d"
+      ],
+      "use_when": [
+        "Experiments",
+        "technical reports",
+        "recommendations",
+        "research handoffs"
+      ],
+      "watch_for": "Sometimes the defensible conclusion really is “we don't know yet.” Don't force a recommendation.",
+      "example": null,
+      "posts": {
+        "primary": "when-is-an-experiment-actually-done",
+        "supporting": [
+          "six-years-of-applied-ml"
+        ]
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "preserve-the-option",
+      "name": "Preserve the Option",
+      "question": "What does this decision make possible or impossible afterward?",
+      "situation": "One option is better now, but choices may constrain future responses.",
+      "observation": "Immediate value isn't the only consequence of a choice. Some decisions alter the future option set and the cost of responding to new information.",
+      "problems": [
+        "decisions",
+        "timing",
+        "strategy"
+      ],
+      "sources": [
+        "startups",
+        "research-and-development",
+        "star-trek"
+      ],
+      "use_when": [
+        "Architecture",
+        "customer commitments",
+        "pricing",
+        "security",
+        "integrations",
+        "difficult-to-reverse choices"
+      ],
+      "watch_for": "Preserving optionality has a cost. Don't spend heavily protecting against every imaginable future.",
+      "example": null,
+      "posts": {
+        "primary": "kirk-spock",
+        "supporting": [
+          "six-years-of-applied-ml"
+        ]
+      },
+      "related_tools": [],
+      "lineage": "Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.",
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "explore-then-exploit",
+      "name": "Explore, Then Exploit",
+      "question": "Do I know where the gains are likely to be, or am I already optimizing one path?",
+      "situation": "A problem has many possible places to intervene and no obvious starting point.",
+      "observation": "Early experiments should sometimes maximize diversity of learning rather than incremental performance. Once a promising region appears, deeper optimization becomes more useful.",
+      "problems": [
+        "learning",
+        "strategy",
+        "decisions"
+      ],
+      "sources": [
+        "applied-machine-learning",
+        "research"
+      ],
+      "use_when": [
+        "New products",
+        "ambiguous technical problems",
+        "optimization",
+        "experimentation"
+      ],
+      "watch_for": "Exploration can become endless experimentation. Shift modes once enough structure appears.",
+      "example": null,
+      "posts": {
+        "primary": "six-years-of-applied-ml",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "look-before-you-model",
+      "name": "Look Before You Model",
+      "question": "What can I learn about the problem before choosing the solution?",
+      "situation": "You are tempted to begin with a technique, architecture or tool.",
+      "observation": "Understanding the raw problem can reveal structure, noise, constraints and opportunities that determine what kind of solution is appropriate.",
+      "problems": [
+        "learning",
+        "evidence",
+        "strategy"
+      ],
+      "sources": [
+        "applied-machine-learning"
+      ],
+      "use_when": [
+        "ML/data problems",
+        "product discovery",
+        "technical design",
+        "choosing tools"
+      ],
+      "watch_for": "Inspection can itself become analysis paralysis. The objective is better hypotheses, not perfect understanding.",
+      "example": null,
+      "posts": {
+        "primary": "six-years-of-applied-ml",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "start-simple",
+      "name": "Start Simple",
+      "question": "What is the simplest approach that would teach me whether the core idea works?",
+      "situation": "Sophisticated approaches are available before the basic problem is understood.",
+      "observation": "Technical sophistication and problem-solving value are different. A simple model can isolate assumptions, create a baseline and expose where complexity is actually needed.",
+      "problems": [
+        "learning",
+        "strategy",
+        "decisions"
+      ],
+      "sources": [
+        "quantitative-research",
+        "machine-learning"
+      ],
+      "use_when": [
+        "Early experiments",
+        "architecture",
+        "prototypes",
+        "selecting models"
+      ],
+      "watch_for": "Simplicity is a starting strategy, not a belief that simple solutions are always sufficient.",
+      "example": null,
+      "posts": {
+        "primary": "quantitative-research-and-machine-learning",
+        "supporting": [
+          "pommerman"
+        ]
+      },
+      "related_tools": [
+        {
+          "id": "explore-then-exploit",
+          "relationship": "contrasts"
+        }
+      ],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "start-with-a-hypothesis",
+      "name": "Start With a Hypothesis",
+      "question": "What did I expect to observe before I saw the result?",
+      "situation": "Repeated experimentation is producing increasingly good-looking results.",
+      "observation": "When observations repeatedly determine the next experiment, it becomes easier to discover patterns that exist only in the data already seen. An explicit prior hypothesis constrains what counts as evidence.",
+      "problems": [
+        "evidence",
+        "learning"
+      ],
+      "sources": [
+        "quantitative-research",
+        "finance",
+        "machine-learning"
+      ],
+      "use_when": [
+        "Backtesting",
+        "repeated experiments",
+        "feature discovery",
+        "exploratory analysis"
+      ],
+      "watch_for": "Not all discovery should be hypothesis-first. Exploration can legitimately generate hypotheses; just distinguish discovery from confirmation.",
+      "example": null,
+      "posts": {
+        "primary": "quantitative-research-and-machine-learning",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "solve-the-constrained-problem",
+      "name": "Solve the Constrained Problem",
+      "question": "What solution works under the constraints that actually exist?",
+      "situation": "The theoretically correct solution is expensive, slow or incompatible with real constraints.",
+      "observation": "Real problems are defined partly by deadlines, latency, resources, incomplete data and other constraints. A theoretically imperfect approximation may solve the actual problem better.",
+      "problems": [
+        "strategy",
+        "decisions"
+      ],
+      "sources": [
+        "pommerman",
+        "competitions",
+        "applied-machine-learning"
+      ],
+      "use_when": [
+        "Engineering trade-offs",
+        "deadlines",
+        "prototypes",
+        "resource constraints"
+      ],
+      "watch_for": "“Pragmatic” shouldn't become an excuse for ignoring requirements that genuinely determine success. Sometimes complexity really is necessary.",
+      "example": null,
+      "posts": {
+        "primary": "pommerman",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "productive-struggle",
+      "name": "Productive Struggle",
+      "question": "Will helping now improve the immediate outcome but reduce the learning?",
+      "situation": "Someone you're mentoring is stuck and you know how to solve the problem.",
+      "observation": "Optimizing the work product and optimizing someone's development are not always the same objective. Sometimes temporarily withholding the answer creates useful learning.",
+      "problems": [
+        "people",
+        "learning"
+      ],
+      "sources": [
+        "mentoring",
+        "supervision"
+      ],
+      "use_when": [
+        "Mentoring",
+        "parenting",
+        "delegation",
+        "onboarding",
+        "teaching"
+      ],
+      "watch_for": "Struggle is only productive while the learner has a reasonable path forward. Withholding help indefinitely isn't development.",
+      "example": null,
+      "posts": {
+        "primary": "how-to-be-a-great-supervisor",
+        "supporting": []
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "raise-the-resolution-of-feedback",
+      "name": "Raise the Resolution of Feedback",
+      "question": "Have I made the work concrete enough for someone to give me the kind of feedback I want?",
+      "situation": "Feedback remains vague or high-level.",
+      "observation": "The quality of feedback is partly constrained by the resolution of the artifact being reviewed. Rough work often permits only structural feedback; clearer work exposes deeper issues.",
+      "problems": [
+        "communication",
+        "learning"
+      ],
+      "sources": [
+        "phd-supervision",
+        "internships",
+        "writing"
+      ],
+      "use_when": [
+        "Drafts",
+        "designs",
+        "research reviews",
+        "mentoring",
+        "asking experts for help"
+      ],
+      "watch_for": "Don't polish prematurely when what you actually need is early directional feedback. Match artifact maturity to the feedback sought.",
+      "example": null,
+      "posts": {
+        "primary": "how-to-be-a-great-supervisor",
+        "supporting": [
+          "how-to-be-a-great-intern"
+        ]
+      },
+      "related_tools": [],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    }
+  ]
+}
