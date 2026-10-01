@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pablohl.github.io/posts/the-right-level-of-reasoning/</loc>
+    <lastmod>2026-09-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://pablohl.github.io/posts/two-clocks/</loc>
     <lastmod>2026-09-30T00:00:00+00:00</lastmod>
   </url>
@@ -124,6 +128,7 @@
   <url><loc>https://pablohl.github.io/toolbox/explore-then-exploit/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/look-before-you-model/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/start-simple/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/toolbox/right-level-of-reasoning/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/start-with-a-hypothesis/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/solve-the-constrained-problem/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/productive-struggle/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>

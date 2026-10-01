@@ -66,6 +66,12 @@ window.toolboxLenses = [
     "url": "/toolbox/start-simple/"
   },
   {
+    "id": "right-level-of-reasoning",
+    "name": "The Right Level of Reasoning",
+    "question": "How much strategic reasoning does the evidence justify here?",
+    "url": "/toolbox/right-level-of-reasoning/"
+  },
+  {
     "id": "start-with-a-hypothesis",
     "name": "Start With a Hypothesis",
     "question": "What did I expect to observe before I saw the result?",
