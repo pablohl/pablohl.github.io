@@ -10,9 +10,10 @@
       "Tool wording, categories, sources, and primary/supporting relationships follow the final conversation table. Source aliases are normalized; problem descriptions and post summaries are editorial descriptions.",
       "All 14 launch tools were approved for publication on 2026-09-30. The example JSON's featured selection (Shape of the Evidence) is retained, and random_enabled defaults to true. Consumers should filter status=published before public display.",
       "Two Clocks was added as a fifteenth published tool on 2026-09-30.",
+      "The Right Level of Reasoning was added as a sixteenth published tool on 2026-09-30.",
       "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
-      "The Right Level of Reasoning is published essay content but does not yet define a toolbox entry. Two Clocks was added when it was published and is linked as supporting material for Preserve the Option."
+      "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option."
     ]
   },
   "problems": [
@@ -164,6 +165,26 @@
       "type": "work"
     },
     {
+      "id": "game-theory",
+      "name": "Game theory",
+      "type": "academic-idea"
+    },
+    {
+      "id": "multi-agent-learning",
+      "name": "Multi-agent learning",
+      "type": "research"
+    },
+    {
+      "id": "the-prestige",
+      "name": "The Prestige",
+      "type": "film-fiction"
+    },
+    {
+      "id": "succession",
+      "name": "Succession",
+      "type": "film-fiction"
+    },
+    {
       "id": "writing",
       "name": "Writing",
       "type": "work"
@@ -176,12 +197,15 @@
       "subtitle": "Sometimes It’s Not That Simple",
       "date": "2026-09-30",
       "url": "https://pablohl.github.io/posts/the-right-level-of-reasoning/",
-      "summary": "Strategic sophistication depends on matching the depth of reasoning to the situation.",
+      "summary": "Choosing how much strategic reasoning another person's behavior warrants, and when another observation is more useful than a more elaborate explanation.",
       "topics": [
-        "strategic-reasoning",
-        "decision-making"
+        "decision-making",
+        "game-theory",
+        "multi-agent-learning"
       ],
-      "tools": []
+      "tools": [
+        "right-level-of-reasoning"
+      ]
     },
     {
       "id": "two-clocks",
@@ -805,9 +829,54 @@
         {
           "id": "explore-then-exploit",
           "relationship": "contrasts"
+        },
+        {
+          "id": "right-level-of-reasoning",
+          "relationship": "complements"
         }
       ],
       "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "right-level-of-reasoning",
+      "name": "The Right Level of Reasoning",
+      "question": "How much strategic reasoning does the evidence justify here?",
+      "situation": "Several explanations for someone's behavior seem plausible, ranging from ordinary circumstances to deliberate strategic interaction.",
+      "observation": "More sophisticated explanations of other people's behavior are not necessarily more accurate. Useful reasoning moves between simple and strategic models as the evidence warrants; another observation may distinguish them better than another layer of speculation.",
+      "problems": [
+        "people",
+        "evidence",
+        "strategy"
+      ],
+      "sources": [
+        "game-theory",
+        "multi-agent-learning",
+        "the-prestige",
+        "succession"
+      ],
+      "use_when": [
+        "Interpreting a customer's silence",
+        "Preparing for a negotiation",
+        "Understanding a colleague's disagreement",
+        "Responding to a competitor's actions",
+        "Assessing whether stated intentions predict behavior"
+      ],
+      "watch_for": "Neither simplicity nor sophistication proves an explanation correct. Avoid assuming hidden motives without evidence, but do not dismiss strategic behavior when observations support it.",
+      "example": "A customer says they are interested but stops replying. Before constructing a bargaining explanation, ask whether they will schedule a concrete next meeting. Their response provides evidence, even if it does not establish their motive.",
+      "posts": {
+        "primary": "the-right-level-of-reasoning",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "start-simple",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": "Draws on research into how learning agents model other agents, using The Prestige and Succession to illustrate the risks of both excessive and insufficient strategic reasoning.",
       "status": "published",
       "featured": false,
       "random_enabled": true
