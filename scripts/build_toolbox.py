@@ -18,6 +18,7 @@ GLOBAL_CSS = f"{SITE_URL}/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a755247
 GLOBAL_CSS_INTEGRITY = "sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs="
 BUNDLE_JS = f"{SITE_URL}/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js"
 BUNDLE_JS_INTEGRITY = "sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg="
+TOOLBOX_CSS = "/css/toolbox.css?v=20260930"
 
 
 def esc(value: object) -> str:
@@ -115,7 +116,7 @@ def site_head(title: str, description: str, url: str) -> str:
   <link rel="manifest" href="/site.webmanifest">
   <title>{esc(title)}</title>
   <link rel="stylesheet" href="{GLOBAL_CSS}" integrity="{GLOBAL_CSS_INTEGRITY}" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/toolbox.css">
+  <link rel="stylesheet" href="{TOOLBOX_CSS}">
 </head>"""
 
 
@@ -365,11 +366,15 @@ def update_essay_pages(data: dict, published_tools: dict[str, dict], resolved_po
         source = insert_toolbox_nav(path.read_text())
         path.write_text(source)
 
-    style_link = '<link rel="stylesheet" href="/css/toolbox.css">'
+    style_link = f'<link rel="stylesheet" href="{TOOLBOX_CSS}">'
     for post_id, tools_for_post in post_tools.items():
         post = resolved_posts[post_id]
         path = post["local_path"]
         source = path.read_text()
+        source = source.replace(
+            '<link rel="stylesheet" href="/css/toolbox.css">',
+            style_link,
+        )
         if style_link not in source:
             source = source.replace("</head>", f"\t{style_link}\n</head>")
         source = re.sub(

@@ -137,7 +137,8 @@
 
 .tool-card > a {
   display: flex;
-  min-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
   flex-direction: column;
   padding: 1.35rem;
   color: inherit;
