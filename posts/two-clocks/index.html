@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#494f5c">
+	<meta itemprop="name" content="Two Clocks">
+	<meta itemprop="description" content="A way to think about delayed decisions by comparing how quickly information improves with how quickly an option changes.">
+	<meta itemprop="datePublished" content="2026-09-30T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-30T00:00:00+00:00">
+	<meta property="og:title" content="Two Clocks">
+	<meta property="og:description" content="A way to think about delayed decisions by comparing how quickly information improves with how quickly an option changes.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://pablohl.github.io/posts/two-clocks/">
+	<meta property="article:section" content="posts">
+	<meta property="article:published_time" content="2026-09-30T00:00:00+00:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Two Clocks">
+	<meta name="twitter:description" content="A way to think about delayed decisions by comparing how quickly information improves with how quickly an option changes.">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>Two Clocks</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<style>
+		.clock-question { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border: 1px solid rgba(255,255,255,.14); border-radius: .4rem; background: #30465b; font-size: 1.08rem; text-align: center; }
+		.trajectory-equation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; margin: 1.5rem 0; padding: 1.1rem 1.25rem; border: 1px solid rgba(255,255,255,.14); border-radius: .4rem; background: #30465b; font-size: 1.08rem; text-align: center; }
+		.trajectory-equation .not-equal { color: #d7a36a; font-size: 1.4rem; }
+		.two-clocks-figure { margin: 1.75rem 0; }
+		.two-clocks-figure img { display: block; width: 100%; height: auto; border-radius: .4rem; }
+		.two-clocks-figure figcaption { margin-top: .65rem; text-align: center; font-size: .9rem; opacity: .75; }
+		@media (max-width: 520px) { .trajectory-equation { grid-template-columns: 1fr; gap: .3rem; } }
+	</style>
+	<link rel="stylesheet" href="/css/toolbox.css?v=20260930">
+</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp"><div class="hdr-wrapper section-inner"><div class="hdr-left"><div class="site-branding"><a href="https://pablohl.github.io">Pablo Hernandez Leal</a></div><nav class="site-nav hide-in-mobile"><a href="https://pablohl.github.io/about">About</a><a href="https://pablohl.github.io/toolbox/">Toolbox</a>
+					<a href="https://pablohl.github.io/posts/">Writing</a><a href="https://pablohl.github.io/about/#research">Research</a></nav></div><div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div></div></header>
+	<div id="mobile-menu" class="animated fast"><ul><li><a href="https://pablohl.github.io/about">About</a></li><li><a href="https://pablohl.github.io/toolbox/">Toolbox</a></li><li><a href="https://pablohl.github.io/posts/">Writing</a></li><li><a href="https://pablohl.github.io/about/#research">Research</a></li></ul></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header"><div class="post-meta"><span>Sep 30, 2026</span></div><h1>Two Clocks</h1></header>
+			<div class="content">
+				<p>Startups are told to act fast. Usually for good reasons.</p>
+				<p>Speed creates learning. Waiting has costs. Customers lose interest, competitors move, and a decision that takes three months may be worse than an imperfect decision made today.</p>
+				<p>I generally agree with that. But not always.</p>
+				<p>Sometimes waiting is useful because, if I wait, I may know more.</p>
+				<p>That creates a question I think “act fast” hides:</p>
+				<blockquote><p>What happens to the decision while I’m waiting?</p></blockquote>
+
+				<h2 id="waiting-has-value">1. Waiting has value</h2>
+				<p>There are good reasons not to act immediately.</p>
+				<ul>
+					<li>Some decisions are hard to reverse.</li>
+					<li>Important information may be about to arrive.</li>
+					<li>Waiting may cost almost nothing while acting commits us to something expensive.</li>
+				</ul>
+				<p>In those situations, waiting can preserve flexibility.</p>
+				<p><strong><em>The value of waiting comes partly from what you expect to learn.</em></strong></p>
+				<p>If tomorrow I will know much more and nothing important disappears overnight, acting today may be unnecessarily expensive.</p>
+
+				<h2 id="option-is-moving">2. But the option is moving too</h2>
+				<p>The other side is that <strong><em>doing nothing does not freeze the world</em></strong>.</p>
+				<p>While I wait, I may gain information. But the opportunity may become more expensive, a deadline may get closer, or I may make other commitments that are difficult to unwind.</p>
+				<p>The option may still technically exist, but it may no longer be the same option.</p>
+
+				<h2 id="two-clocks">3. Two clocks</h2>
+				<p>So maybe every delayed decision has two clocks running.</p>
+				<figure class="two-clocks-figure">
+					<img src="/img/posts/two-clocks.webp" alt="Two parallel sequences of stone rings move toward the same horizon, one emerging from haze while the other narrows." width="1774" height="887" loading="lazy">
+					<figcaption>What we know changes while what we can still do changes too.</figcaption>
+				</figure>
+				<p>The first is:</p>
+				<div class="clock-question" role="img" aria-label="How quickly am I learning?">How quickly am I learning?</div>
+				<p>If I can wait a little, learn a lot, and lose almost nothing, patience probably makes sense.</p>
+				<p>The second is:</p>
+				<div class="clock-question" role="img" aria-label="How quickly is the option changing?">How quickly is the option changing?</div>
+				<p>If I am unlikely to learn much more while the opportunity becomes more expensive or disappears, speed probably makes sense.</p>
+				<p><strong><em>The difficult case is when both clocks are moving quickly: I am becoming more informed while also becoming less free to act.</em></strong></p>
+				<p>The more useful question may be:</p>
+				<blockquote><p><strong><em>Which is changing faster: what I know, or what I can still do?</em></strong></p></blockquote>
+
+				<h2 id="doing-nothing-has-a-trajectory">Doing nothing has a trajectory</h2>
+				<p>Acting creates a visible consequence. Waiting feels like leaving things as they are.</p>
+				<p>But:</p>
+				<div class="trajectory-equation" role="img" aria-label="Doing nothing does not mean nothing changes"><span>do nothing</span><span class="not-equal" aria-hidden="true">≠</span><span>nothing changes</span></div>
+				<p>Waiting moves us into another state too.</p>
+				<p>Sometimes that state is better. Sometimes it is worse.</p>
+				<p><strong><em>Waiting has value, and that value changes over time.</em></strong></p>
+				<p>So before acting—or waiting—maybe the useful questions are:</p>
+				<blockquote><p>What am I likely to learn by waiting?</p></blockquote>
+				<blockquote><p>What becomes harder, more expensive, or impossible while I wait?</p></blockquote>
+				<blockquote><p>Will I still be making the same decision later?</p></blockquote>
+				<p>I still think startups should move quickly.</p>
+				<p>But not because speed is always good.</p>
+				<p>Sometimes acting early is valuable because the option is deteriorating faster than our information is improving.</p>
+				<p>Sometimes waiting is valuable because information is improving while the option remains intact.</p>
+				<p>The difficult part is knowing which clock is moving faster.</p>
+			</div>
+			<!-- toolbox-callout:start -->
+<section class="toolbox-callout" aria-labelledby="toolbox-callout-title">
+  <h2 id="toolbox-callout-title">In the toolbox</h2>
+  <a class="essay-tool-link" href="/toolbox/two-clocks/"><strong>Two Clocks</strong><span class="essay-tool-question">Try asking: What happens to the decision while I’m waiting?</span><span class="essay-tool-action">Open tool →</span></a>
+</section>
+<!-- toolbox-callout:end -->
+			<hr class="post-end">
+			<footer class="post-info"><p>Pablo</p><p>Sep 30, 2026</p></footer>
+		</article>
+		<div class="post-nav thin"><a class="prev-post" href="https://pablohl.github.io/posts/a-result-is-not-the-decision/">Older: A Result Is Not the Decision</a></div>
+	</main>
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+</body>
+</html>

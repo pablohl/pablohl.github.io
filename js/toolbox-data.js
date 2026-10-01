@@ -42,6 +42,12 @@ window.toolboxLenses = [
     "url": "/toolbox/preserve-the-option/"
   },
   {
+    "id": "two-clocks",
+    "name": "Two Clocks",
+    "question": "What happens to the decision while I’m waiting?",
+    "url": "/toolbox/two-clocks/"
+  },
+  {
     "id": "explore-then-exploit",
     "name": "Explore, Then Exploit",
     "question": "Do I know where the gains are likely to be, or am I already optimizing one path?",

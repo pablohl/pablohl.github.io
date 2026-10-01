@@ -9,9 +9,10 @@
       "The conversation labels its table as 13 candidate tools, but the table defines 14. All 14 are preserved.",
       "Tool wording, categories, sources, and primary/supporting relationships follow the final conversation table. Source aliases are normalized; problem descriptions and post summaries are editorial descriptions.",
       "All 14 launch tools were approved for publication on 2026-09-30. The example JSON's featured selection (Shape of the Evidence) is retained, and random_enabled defaults to true. Consumers should filter status=published before public display.",
+      "Two Clocks was added as a fifteenth published tool on 2026-09-30.",
       "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
-      "Future ideas such as Two Clocks and The Right Level of Reasoning are excluded because they were not defined in the candidate table."
+      "The Right Level of Reasoning remains future content because it was not defined in the candidate table. Two Clocks was added when it was published and is linked as supporting material for Preserve the Option."
     ]
   },
   "problems": [
@@ -170,6 +171,21 @@
   ],
   "posts": [
     {
+      "id": "two-clocks",
+      "title": "Two Clocks",
+      "subtitle": null,
+      "date": "2026-09-30",
+      "url": "https://pablohl.github.io/posts/two-clocks/",
+      "summary": "Delayed decisions depend on how quickly information improves and how quickly an option changes.",
+      "topics": [
+        "timing",
+        "decision-making"
+      ],
+      "tools": [
+        "two-clocks"
+      ]
+    },
+    {
       "id": "a-result-is-not-the-decision",
       "title": "A Result Is Not the Decision",
       "subtitle": "The Shape of the Evidence",
@@ -257,7 +273,8 @@
         "leadership"
       ],
       "tools": [
-        "preserve-the-option"
+        "preserve-the-option",
+        "two-clocks"
       ]
     },
     {
@@ -634,6 +651,45 @@
       },
       "related_tools": [],
       "lineage": "Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.",
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "two-clocks",
+      "name": "Two Clocks",
+      "question": "What happens to the decision while I’m waiting?",
+      "situation": "Waiting may bring useful information, but the available options may change before it arrives.",
+      "observation": "Delaying a decision changes both what we know and what we can still do. Waiting is useful when the information we expect to gain justifies the costs and changes to our options.",
+      "problems": [
+        "timing",
+        "decisions",
+        "strategy"
+      ],
+      "sources": [
+        "startups"
+      ],
+      "use_when": [
+        "Waiting for customer requirements",
+        "Delaying a difficult-to-reverse commitment",
+        "Deciding whether to run another experiment",
+        "Acting before an opportunity expires"
+      ],
+      "watch_for": "Time alone does not produce useful information. The two clocks are a metaphor, not directly comparable rates; ask whether the expected learning could change the decision and justify the cost of waiting.",
+      "example": null,
+      "posts": {
+        "primary": "two-clocks",
+        "supporting": [
+          "kirk-spock"
+        ]
+      },
+      "related_tools": [
+        {
+          "id": "preserve-the-option",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": "Builds on the discussion of optionality and reversibility in Kirk/Spock by examining how information and available options change while a decision is delayed.",
       "status": "published",
       "featured": false,
       "random_enabled": true
