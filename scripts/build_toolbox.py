@@ -19,6 +19,14 @@ GLOBAL_CSS_INTEGRITY = "sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs="
 BUNDLE_JS = f"{SITE_URL}/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js"
 BUNDLE_JS_INTEGRITY = "sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg="
 TOOLBOX_CSS = "/css/toolbox.css?v=20260930"
+SOURCE_TYPE_LABELS = {
+    "work": "Work",
+    "research": "Research",
+    "academic-idea": "Academic ideas",
+    "film-fiction": "Film & fiction",
+    "life": "Life",
+    "game": "Games",
+}
 
 
 def esc(value: object) -> str:
@@ -161,9 +169,9 @@ def problem_tags(tool: dict, problems: dict[str, dict]) -> str:
 
 def tool_card(tool: dict, problems: dict[str, dict], sources: dict[str, dict]) -> str:
     source_names = ", ".join(sources[item]["name"] for item in tool["sources"])
-    return f"""<article class="tool-card" data-tool-card data-problems="{esc(' '.join(tool['problems']))}" data-sources="{esc(' '.join(tool['sources']))}">
+    source_types = dict.fromkeys(sources[item]["type"] for item in tool["sources"])
+    return f"""<article class="tool-card" data-tool-card data-problems="{esc(' '.join(tool['problems']))}" data-sources="{esc(' '.join(source_types))}">
   <a href="/toolbox/{esc(tool['id'])}/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>{esc(tool['name'])}</h2>
     <p class="tool-question">{esc(tool['question'])}</p>
     <div class="tool-meta">{problem_tags(tool, problems)}</div>
@@ -173,17 +181,21 @@ def tool_card(tool: dict, problems: dict[str, dict], sources: dict[str, dict]) -
 
 
 def render_catalogue(data: dict, published: list[dict], problems: dict, sources: dict) -> None:
-    used_source_ids = {source for tool in published for source in tool["sources"]}
+    used_source_types = {
+        sources[source]["type"] for tool in published for source in tool["sources"]
+    }
     source_options = "\n".join(
-        f'<option value="{esc(source["id"])}">{esc(source["name"])}</option>'
-        for source in data["sources"]
-        if source["id"] in used_source_ids
+        f'<option value="{esc(source_type)}">{esc(label)}</option>'
+        for source_type, label in SOURCE_TYPE_LABELS.items()
+        if source_type in used_source_types
     )
     problem_buttons = "\n".join(
         f'<button type="button" data-problem-filter="{esc(problem["id"])}" aria-pressed="false">{esc(problem["name"])}</button>'
         for problem in data["problems"]
     )
     cards = "\n".join(tool_card(tool, problems, sources) for tool in published)
+    initial_lens = next(tool for tool in published if tool["random_enabled"])
+    initial_sources = ", ".join(sources[item]["name"] for item in initial_lens["sources"])
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
@@ -196,6 +208,18 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     <h1>Toolbox</h1>
     <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
   </header>
+  <aside class="catalogue-lens" data-random-lens data-initial-lens="{esc(initial_lens['id'])}" aria-labelledby="catalogue-lens-title">
+    <span class="tool-eyebrow">Give me a lens</span>
+    <p class="lens-question" data-lens-question>{esc(initial_lens['question'])}</p>
+    <div class="lens-context">
+      <strong id="catalogue-lens-title" data-lens-name>{esc(initial_lens['name'])}</strong>
+      <span data-lens-source>From: {esc(initial_sources)}</span>
+    </div>
+    <div class="lens-actions">
+      <button class="lens-refresh" type="button" data-lens-refresh>Another lens</button>
+      <a class="lens-open" href="/toolbox/{esc(initial_lens['id'])}/" data-lens-link>Open tool →</a>
+    </div>
+  </aside>
   <section class="toolbox-filters" aria-label="Filter the toolbox" id="problems">
     <div class="filter-group">
       <span class="filter-label">What are you dealing with?</span>
@@ -205,9 +229,9 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
       </div>
     </div>
     <div class="filter-group">
-      <label class="filter-label" for="source-filter">Or explore by source</label>
+      <label class="filter-label" for="source-filter">Or explore by source type</label>
       <select id="source-filter" class="source-filter" data-source-filter>
-        <option value="all">All sources</option>
+        <option value="all">All source types</option>
         {source_options}
       </select>
     </div>
@@ -222,6 +246,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
   <p class="empty-state" data-empty-state hidden>No tools match both filters. Try another problem or source.</p>
 </main>
 {site_footer()}
+<script src="/js/toolbox-data.js"></script>
 <script src="/js/toolbox.js"></script>
 </body>
 </html>
@@ -248,11 +273,11 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
     optional_sections = []
     if tool.get("example"):
         optional_sections.append(
-            f'<section class="tool-section wide"><h2>Example</h2><p>{esc(tool["example"])}</p></section>'
+            f'<section class="tool-section"><h2>Example</h2><p>{esc(tool["example"])}</p></section>'
         )
     if tool.get("lineage"):
         optional_sections.append(
-            f'<section class="tool-section wide"><h2>Lineage</h2><p>{esc(tool["lineage"])}</p></section>'
+            f'<section class="tool-section"><h2>Lineage</h2><p>{esc(tool["lineage"])}</p></section>'
         )
     if tool["related_tools"]:
         related = []
@@ -264,7 +289,7 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
                 f'<span>{esc(relation["relationship"].capitalize())}</span></a>'
             )
         optional_sections.append(
-            f'<section class="tool-section wide"><h2>Related tools</h2>{"".join(related)}</section>'
+            f'<section class="tool-section"><h2>Related tools</h2>{"".join(related)}</section>'
         )
 
     description = tool["observation"]
@@ -278,14 +303,15 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
   <div class="tool-tags">{problem_tags(tool, problems)}</div>
   <h1>{esc(tool['name'])}</h1>
   <blockquote class="tool-question-lead">{esc(tool['question'])}</blockquote>
-  <div class="tool-sections">
+  <article class="tool-narrative">
+    <section class="tool-explanation">
+      <h2>The idea</h2>
+      <p>{esc(tool['observation'])}</p>
+    </section>
+    <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>
       <p>{esc(tool['situation'])}</p>
-    </section>
-    <section class="tool-section">
-      <h2>The idea</h2>
-      <p>{esc(tool['observation'])}</p>
     </section>
     <section class="tool-section">
       <h2>Useful when</h2>
@@ -295,16 +321,17 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
       <h2>Watch for</h2>
       <p>{esc(tool['watch_for'])}</p>
     </section>
-    <section class="tool-section wide">
+    <section class="tool-section">
       <h2>Where this came from</h2>
       <p>{esc(source_names)}</p>
     </section>
     {''.join(optional_sections)}
-    <section class="tool-section wide">
+    <section class="tool-section">
       <h2>Read the reasoning</h2>
       {''.join(post_links)}
     </section>
-  </div>
+    </div>
+  </article>
 </main>
 {site_footer()}
 </body>
@@ -400,12 +427,13 @@ def update_essay_pages(data: dict, published_tools: dict[str, dict], resolved_po
         path.write_text(source)
 
 
-def write_lens_data(published: list[dict]) -> None:
+def write_lens_data(published: list[dict], sources: dict[str, dict]) -> None:
     lenses = [
         {
             "id": tool["id"],
             "name": tool["name"],
             "question": tool["question"],
+            "source": ", ".join(sources[item]["name"] for item in tool["sources"]),
             "url": f"/toolbox/{tool['id']}/",
         }
         for tool in published
@@ -453,7 +481,7 @@ def main() -> None:
             render_tool_page(tool, problems, sources, resolved_posts, published_tools)
         )
     update_essay_pages(data, published_tools, resolved_posts)
-    write_lens_data(published)
+    write_lens_data(published, sources)
     update_sitemap(published)
     print(f"Built {len(published)} tool pages and updated essay relationships.")
 

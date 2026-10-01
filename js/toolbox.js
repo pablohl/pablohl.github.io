@@ -93,6 +93,7 @@
 
     var question = root.querySelector("[data-lens-question]");
     var name = root.querySelector("[data-lens-name]");
+    var source = root.querySelector("[data-lens-source]");
     var link = root.querySelector("[data-lens-link]");
     var button = root.querySelector("[data-lens-refresh]");
     var currentId = root.dataset.initialLens || "";
@@ -101,6 +102,7 @@
       currentId = lens.id;
       question.textContent = lens.question;
       name.textContent = lens.name;
+      if (source) source.textContent = "From: " + lens.source;
       link.href = lens.url;
       try { window.sessionStorage.setItem("toolbox-last-lens", lens.id); } catch (error) {}
     }
