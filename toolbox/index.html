@@ -50,6 +50,18 @@
     <h1>Toolbox</h1>
     <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
   </header>
+  <aside class="catalogue-lens" data-random-lens data-initial-lens="shape-of-the-evidence" aria-labelledby="catalogue-lens-title">
+    <span class="tool-eyebrow">Give me a lens</span>
+    <p class="lens-question" data-lens-question>What would I expect to see around this result if my explanation were actually right?</p>
+    <div class="lens-context">
+      <strong id="catalogue-lens-title" data-lens-name>The Shape of the Evidence</strong>
+      <span data-lens-source>From: Quantitative trading, Machine learning</span>
+    </div>
+    <div class="lens-actions">
+      <button class="lens-refresh" type="button" data-lens-refresh>Another lens</button>
+      <a class="lens-open" href="/toolbox/shape-of-the-evidence/" data-lens-link>Open tool →</a>
+    </div>
+  </aside>
   <section class="toolbox-filters" aria-label="Filter the toolbox" id="problems">
     <div class="filter-group">
       <span class="filter-label">What are you dealing with?</span>
@@ -65,36 +77,15 @@
       </div>
     </div>
     <div class="filter-group">
-      <label class="filter-label" for="source-filter">Or explore by source</label>
+      <label class="filter-label" for="source-filter">Or explore by source type</label>
       <select id="source-filter" class="source-filter" data-source-filter>
-        <option value="all">All sources</option>
-        <option value="quantitative-trading">Quantitative trading</option>
-<option value="machine-learning">Machine learning</option>
-<option value="ml-evaluation">ML evaluation</option>
-<option value="product-work">Product work</option>
-<option value="startups">Startups</option>
-<option value="engineering">Engineering</option>
-<option value="parenting">Parenting</option>
-<option value="knowledge-boundary-research">Knowledge-boundary research</option>
+        <option value="all">All source types</option>
+        <option value="work">Work</option>
 <option value="research">Research</option>
-<option value="technical-judgment">Technical judgment</option>
-<option value="academic-research-to-applied-r-and-d">Academic research → applied R&amp;D</option>
-<option value="research-and-development">Research and development</option>
-<option value="star-trek">Star Trek</option>
-<option value="applied-machine-learning">Applied machine learning</option>
-<option value="quantitative-research">Quantitative research</option>
-<option value="finance">Finance</option>
-<option value="pommerman">Pommerman</option>
-<option value="competitions">Competitions</option>
-<option value="mentoring">Mentoring</option>
-<option value="supervision">Supervision</option>
-<option value="phd-supervision">PhD supervision</option>
-<option value="internships">Internships</option>
-<option value="game-theory">Game theory</option>
-<option value="multi-agent-learning">Multi-agent learning</option>
-<option value="the-prestige">The Prestige</option>
-<option value="succession">Succession</option>
-<option value="writing">Writing</option>
+<option value="academic-idea">Academic ideas</option>
+<option value="film-fiction">Film &amp; fiction</option>
+<option value="life">Life</option>
+<option value="game">Games</option>
       </select>
     </div>
   </section>
@@ -103,144 +94,128 @@
     <button class="clear-filters" type="button" data-clear-filters>Clear filters</button>
   </div>
   <section class="tool-grid" data-tool-catalogue aria-label="Published tools">
-    <article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="quantitative-trading machine-learning">
+    <article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="work research">
   <a href="/toolbox/shape-of-the-evidence/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>The Shape of the Evidence</h2>
     <p class="tool-question">What would I expect to see around this result if my explanation were actually right?</p>
     <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Quantitative trading, Machine learning</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="ml-evaluation product-work">
+<article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="research work">
   <a href="/toolbox/what-did-the-metric-throw-away/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>What Did the Metric Throw Away?</h2>
     <p class="tool-question">Could information removed by this metric change the decision?</p>
     <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: ML evaluation, Product work</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="communication people" data-sources="startups engineering parenting knowledge-boundary-research">
+<article class="tool-card" data-tool-card data-problems="communication people" data-sources="work life academic-idea">
   <a href="/toolbox/look-at-the-boundary/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Look at the Boundary</h2>
     <p class="tool-question">What might be visible from the other domain that isn&#x27;t visible from mine?</p>
     <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">People</span></div>
     <span class="source-note">From: Startups, Engineering, Parenting, Knowledge-boundary research</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="communication decisions" data-sources="engineering product-work">
+<article class="tool-card" data-tool-card data-problems="communication decisions" data-sources="work">
   <a href="/toolbox/change-the-representation/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Change the Representation</h2>
     <p class="tool-question">Is this actually small, or does it only look small in the representation I&#x27;m using?</p>
     <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Engineering, Product work</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="communication people decisions" data-sources="research startups technical-judgment">
+<article class="tool-card" data-tool-card data-problems="communication people decisions" data-sources="research work">
   <a href="/toolbox/from-intuition-to-argument/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>From Intuition to Argument</h2>
     <p class="tool-question">What exactly is my intuition noticing, and why does it matter to this decision?</p>
     <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">People</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Research, Startups, Technical judgment</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="evidence decisions communication" data-sources="academic-research-to-applied-r-and-d">
+<article class="tool-card" data-tool-card data-problems="evidence decisions communication" data-sources="research">
   <a href="/toolbox/decision-complete/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Decision-Complete</h2>
     <p class="tool-question">Can I construct a defensible path from the evidence to the decision?</p>
     <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span><span class="tool-tag">Communication</span></div>
     <span class="source-note">From: Academic research → applied R&amp;D</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="decisions timing strategy" data-sources="startups research-and-development star-trek">
+<article class="tool-card" data-tool-card data-problems="decisions timing strategy" data-sources="work film-fiction">
   <a href="/toolbox/preserve-the-option/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Preserve the Option</h2>
     <p class="tool-question">What does this decision make possible or impossible afterward?</p>
     <div class="tool-meta"><span class="tool-tag">Decisions</span><span class="tool-tag">Timing</span><span class="tool-tag">Strategy</span></div>
     <span class="source-note">From: Startups, Research and development, Star Trek</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="timing decisions strategy" data-sources="startups">
+<article class="tool-card" data-tool-card data-problems="timing decisions strategy" data-sources="work">
   <a href="/toolbox/two-clocks/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Two Clocks</h2>
     <p class="tool-question">What happens to the decision while I’m waiting?</p>
     <div class="tool-meta"><span class="tool-tag">Timing</span><span class="tool-tag">Decisions</span><span class="tool-tag">Strategy</span></div>
     <span class="source-note">From: Startups</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="applied-machine-learning research">
+<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="work research">
   <a href="/toolbox/explore-then-exploit/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Explore, Then Exploit</h2>
     <p class="tool-question">Do I know where the gains are likely to be, or am I already optimizing one path?</p>
     <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Applied machine learning, Research</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="learning evidence strategy" data-sources="applied-machine-learning">
+<article class="tool-card" data-tool-card data-problems="learning evidence strategy" data-sources="work">
   <a href="/toolbox/look-before-you-model/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Look Before You Model</h2>
     <p class="tool-question">What can I learn about the problem before choosing the solution?</p>
     <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Evidence</span><span class="tool-tag">Strategy</span></div>
     <span class="source-note">From: Applied machine learning</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="quantitative-research machine-learning">
+<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="research">
   <a href="/toolbox/start-simple/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Start Simple</h2>
     <p class="tool-question">What is the simplest approach that would teach me whether the core idea works?</p>
     <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Quantitative research, Machine learning</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="people evidence strategy" data-sources="game-theory multi-agent-learning the-prestige succession">
+<article class="tool-card" data-tool-card data-problems="people evidence strategy" data-sources="academic-idea research film-fiction">
   <a href="/toolbox/right-level-of-reasoning/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>The Right Level of Reasoning</h2>
     <p class="tool-question">How much strategic reasoning does the evidence justify here?</p>
     <div class="tool-meta"><span class="tool-tag">People</span><span class="tool-tag">Evidence</span><span class="tool-tag">Strategy</span></div>
     <span class="source-note">From: Game theory, Multi-agent learning, The Prestige, Succession</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="evidence learning" data-sources="quantitative-research finance machine-learning">
+<article class="tool-card" data-tool-card data-problems="evidence learning" data-sources="research work">
   <a href="/toolbox/start-with-a-hypothesis/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Start With a Hypothesis</h2>
     <p class="tool-question">What did I expect to observe before I saw the result?</p>
     <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Learning</span></div>
     <span class="source-note">From: Quantitative research, Finance, Machine learning</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="strategy decisions" data-sources="pommerman competitions applied-machine-learning">
+<article class="tool-card" data-tool-card data-problems="strategy decisions" data-sources="game research work">
   <a href="/toolbox/solve-the-constrained-problem/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Solve the Constrained Problem</h2>
     <p class="tool-question">What solution works under the constraints that actually exist?</p>
     <div class="tool-meta"><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
     <span class="source-note">From: Pommerman, Competitions, Applied machine learning</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="people learning" data-sources="mentoring supervision">
+<article class="tool-card" data-tool-card data-problems="people learning" data-sources="work">
   <a href="/toolbox/productive-struggle/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Productive Struggle</h2>
     <p class="tool-question">Will helping now improve the immediate outcome but reduce the learning?</p>
     <div class="tool-meta"><span class="tool-tag">People</span><span class="tool-tag">Learning</span></div>
     <span class="source-note">From: Mentoring, Supervision</span>
   </a>
 </article>
-<article class="tool-card" data-tool-card data-problems="communication learning" data-sources="phd-supervision internships writing">
+<article class="tool-card" data-tool-card data-problems="communication learning" data-sources="research work">
   <a href="/toolbox/raise-the-resolution-of-feedback/">
-    <span class="tool-eyebrow">Question worth trying</span>
     <h2>Raise the Resolution of Feedback</h2>
     <p class="tool-question">Have I made the work concrete enough for someone to give me the kind of feedback I want?</p>
     <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">Learning</span></div>
@@ -254,6 +229,7 @@
   <p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
 </footer>
 <script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+<script src="/js/toolbox-data.js"></script>
 <script src="/js/toolbox.js"></script>
 </body>
 </html>

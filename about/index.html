@@ -40,9 +40,12 @@
 		.about-section h2 { margin: 0 0 1rem; font-size: 1rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 		.about-section p { font-size: 1.05rem; line-height: 1.85; }
 		.about-lead { font-size: clamp(1.25rem, 3vw, 1.55rem) !important; line-height: 1.6 !important; }
+		.about-intro { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 2rem; align-items: start; }
+		.about-photo { display: block; width: 180px; height: 180px; border-radius: 50%; object-fit: cover; }
 		.about-page a { text-decoration-color: var(--accent); }
 		.elsewhere { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; }
 		.elsewhere a { color: var(--accent); }
+		@media (max-width: 620px) { .about-intro { grid-template-columns: 1fr; } .about-photo { width: 150px; height: 150px; } }
 	</style>
 </head>
 
@@ -79,7 +82,7 @@
 	<main class="site-main section-inner about-page animated fadeIn faster">
 		<h1>About</h1>
 		<div class="content">
-			<section class="about-section"><h2>Today</h2><p class="about-lead">I’m CTO at MultiplAI, where I build AI-assisted compliance systems for regulated financial institutions.</p><p>My work focuses on document understanding, model validation, and trustworthy AI that operates with clear evidence, traceability, and human oversight.</p></section>
+			<section class="about-section about-intro"><img class="about-photo" src="/img/pablo_photo.jpg" alt="Portrait of Pablo Hernandez Leal" width="180" height="180"><div><h2>Today</h2><p class="about-lead">I’m CTO at MultiplAI, where I build AI-assisted compliance systems for regulated financial institutions.</p><p>My work focuses on document understanding, model validation, and trustworthy AI that operates with clear evidence, traceability, and human oversight.</p></div></section>
 			<section class="about-section"><h2>What I work on</h2><p>My work has moved from fundamental machine-learning research, through applied ML and quantitative finance, toward building AI systems that have to work reliably inside real organizations.</p><p>The thread connecting those stages is an interest in experiments, uncertainty, systems, and the decisions people make with imperfect information.</p></section>
 			<section class="about-section"><h2>Previously</h2><p>Before MultiplAI, I worked at Quantfury on automated trading strategies using proprietary retail-activity data. I also modelled and deployed a reinforcement-learning agent for trading in live markets.</p><p>Earlier, at <a href="https://www.borealisai.com/en/">RBC Borealis</a>, I worked across fundamental and applied AI research, including reinforcement learning, multi-agent systems, robustness, and explainability for trading systems.</p></section>
 			<section class="about-section" id="research"><h2>Research</h2><p>My academic work includes <a href="https://arxiv.org/abs/1810.05587">multi-agent deep reinforcement learning</a>, <a href="https://www.borealisai.com/en/blog/tutorial-4-auxiliary-tasks-deep-reinforcement-learning/">auxiliary tasks for deep RL</a>, <a href="https://www.borealisai.com/en/blog/desired-characteristics-real-world-rl-agents/">robustness in reinforcement learning</a>, and explainability for <a href="https://www.borealisai.com/en/blog/aiden-reinforcement-learning-for-order-execution/">RL trading agents</a>.</p><p><a href="https://scholar.google.com/citations?user=ubp1GHsAAAAJ&amp;hl=en">View publications on Google Scholar →</a></p></section>

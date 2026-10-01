@@ -38,6 +38,33 @@
   font-weight: 500;
 }
 
+.catalogue-lens {
+  max-width: 760px;
+  margin: 2.5rem 0;
+  padding: 1.4rem 1.5rem;
+  border-left: 3px solid var(--toolbox-accent);
+  background: var(--toolbox-panel);
+}
+
+.catalogue-lens .lens-question {
+  min-height: 0;
+  margin: .35rem 0 1rem;
+  color: var(--toolbox-ink);
+  font-size: clamp(1.12rem, 2.4vw, 1.4rem);
+  line-height: 1.5;
+}
+
+.lens-context strong,
+.lens-context span {
+  display: block;
+}
+
+.lens-context span {
+  margin-top: .25rem;
+  color: var(--toolbox-faint);
+  font-size: .78rem;
+}
+
 .toolbox-filters {
   margin: 2.5rem 0 2rem;
   padding: 1.25rem 0 1.5rem;
@@ -149,7 +176,7 @@
 }
 
 .tool-card h2 {
-  margin: .2rem 0 .75rem;
+  margin: 0 0 .75rem;
   font-size: 1.25rem;
   line-height: 1.3;
 }
@@ -213,29 +240,39 @@
   line-height: 1.45;
 }
 
-.tool-sections {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+.tool-narrative {
+  max-width: 760px;
 }
 
-.tool-section {
-  padding: 1.35rem;
-  border: 1px solid var(--toolbox-rule);
-  border-radius: .65rem;
-  background: var(--toolbox-panel);
+.tool-explanation {
+  padding: 0 0 2.5rem;
+  border-bottom: 1px solid var(--toolbox-rule);
 }
 
-.tool-section.wide {
-  grid-column: 1 / -1;
-}
-
+.tool-explanation h2,
 .tool-section h2 {
-  margin: 0 0 .7rem;
-  font-size: .8rem;
+  margin: 0 0 .8rem;
+  color: var(--toolbox-faint);
+  font-size: .76rem;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
+}
+
+.tool-explanation p {
+  margin: 0;
+  color: var(--toolbox-ink);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  line-height: 1.65;
+}
+
+.tool-supporting {
+  margin-top: .25rem;
+}
+
+.tool-section {
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--toolbox-rule);
 }
 
 .tool-section p {
@@ -413,7 +450,6 @@
 
 @media (max-width: 760px) {
   .tool-grid,
-  .tool-sections,
   .toolbox-doors {
     grid-template-columns: 1fr;
   }
