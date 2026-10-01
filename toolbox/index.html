@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#494f5c">
+  <meta itemprop="name" content="Toolbox">
+  <meta itemprop="description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
+  <meta property="og:title" content="Toolbox">
+  <meta property="og:description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pablohl.github.io/toolbox/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Toolbox">
+  <meta name="twitter:description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Toolbox</title>
+  <link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/toolbox.css?v=20260930">
+</head>
+<body id="page">
+<header id="site-header" class="animated slideInUp">
+  <div class="hdr-wrapper section-inner">
+    <div class="hdr-left">
+      <div class="site-branding"><a href="https://pablohl.github.io">Pablo Hernandez Leal</a></div>
+      <nav class="site-nav hide-in-mobile">
+        <a href="https://pablohl.github.io/toolbox/">Toolbox</a>
+        <a href="https://pablohl.github.io/posts/">Writing</a>
+        <a href="https://pablohl.github.io/about">About</a>
+        <a href="https://pablohl.github.io/about/#research">Research</a>
+      </nav>
+    </div>
+    <div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div>
+  </div>
+</header>
+<div id="mobile-menu" class="animated fast">
+  <ul>
+    <li><a href="https://pablohl.github.io/toolbox/">Toolbox</a></li>
+    <li><a href="https://pablohl.github.io/posts/">Writing</a></li>
+    <li><a href="https://pablohl.github.io/about">About</a></li>
+    <li><a href="https://pablohl.github.io/about/#research">Research</a></li>
+  </ul>
+</div>
+<main class="site-main section-inner toolbox-page animated fadeIn faster">
+  <header>
+    <span class="tool-eyebrow">Not rules. Questions worth trying.</span>
+    <h1>Toolbox</h1>
+    <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
+  </header>
+  <section class="toolbox-filters" aria-label="Filter the toolbox" id="problems">
+    <div class="filter-group">
+      <span class="filter-label">What are you dealing with?</span>
+      <div class="filter-buttons">
+        <button type="button" data-problem-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-problem-filter="decisions" aria-pressed="false">Decisions</button>
+<button type="button" data-problem-filter="evidence" aria-pressed="false">Evidence</button>
+<button type="button" data-problem-filter="timing" aria-pressed="false">Timing</button>
+<button type="button" data-problem-filter="people" aria-pressed="false">People</button>
+<button type="button" data-problem-filter="communication" aria-pressed="false">Communication</button>
+<button type="button" data-problem-filter="strategy" aria-pressed="false">Strategy</button>
+<button type="button" data-problem-filter="learning" aria-pressed="false">Learning</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="source-filter">Or explore by source</label>
+      <select id="source-filter" class="source-filter" data-source-filter>
+        <option value="all">All sources</option>
+        <option value="quantitative-trading">Quantitative trading</option>
+<option value="machine-learning">Machine learning</option>
+<option value="ml-evaluation">ML evaluation</option>
+<option value="product-work">Product work</option>
+<option value="startups">Startups</option>
+<option value="engineering">Engineering</option>
+<option value="parenting">Parenting</option>
+<option value="knowledge-boundary-research">Knowledge-boundary research</option>
+<option value="research">Research</option>
+<option value="technical-judgment">Technical judgment</option>
+<option value="academic-research-to-applied-r-and-d">Academic research → applied R&amp;D</option>
+<option value="research-and-development">Research and development</option>
+<option value="star-trek">Star Trek</option>
+<option value="applied-machine-learning">Applied machine learning</option>
+<option value="quantitative-research">Quantitative research</option>
+<option value="finance">Finance</option>
+<option value="pommerman">Pommerman</option>
+<option value="competitions">Competitions</option>
+<option value="mentoring">Mentoring</option>
+<option value="supervision">Supervision</option>
+<option value="phd-supervision">PhD supervision</option>
+<option value="internships">Internships</option>
+<option value="writing">Writing</option>
+      </select>
+    </div>
+  </section>
+  <div class="catalogue-meta">
+    <span data-result-count aria-live="polite">14 tools</span>
+    <button class="clear-filters" type="button" data-clear-filters>Clear filters</button>
+  </div>
+  <section class="tool-grid" data-tool-catalogue aria-label="Published tools">
+    <article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="quantitative-trading machine-learning">
+  <a href="/toolbox/shape-of-the-evidence/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>The Shape of the Evidence</h2>
+    <p class="tool-question">What would I expect to see around this result if my explanation were actually right?</p>
+    <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Quantitative trading, Machine learning</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="evidence decisions" data-sources="ml-evaluation product-work">
+  <a href="/toolbox/what-did-the-metric-throw-away/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>What Did the Metric Throw Away?</h2>
+    <p class="tool-question">Could information removed by this metric change the decision?</p>
+    <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: ML evaluation, Product work</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="communication people" data-sources="startups engineering parenting knowledge-boundary-research">
+  <a href="/toolbox/look-at-the-boundary/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Look at the Boundary</h2>
+    <p class="tool-question">What might be visible from the other domain that isn&#x27;t visible from mine?</p>
+    <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">People</span></div>
+    <span class="source-note">From: Startups, Engineering, Parenting, Knowledge-boundary research</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="communication decisions" data-sources="engineering product-work">
+  <a href="/toolbox/change-the-representation/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Change the Representation</h2>
+    <p class="tool-question">Is this actually small, or does it only look small in the representation I&#x27;m using?</p>
+    <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Engineering, Product work</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="communication people decisions" data-sources="research startups technical-judgment">
+  <a href="/toolbox/from-intuition-to-argument/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>From Intuition to Argument</h2>
+    <p class="tool-question">What exactly is my intuition noticing, and why does it matter to this decision?</p>
+    <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">People</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Research, Startups, Technical judgment</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="evidence decisions communication" data-sources="academic-research-to-applied-r-and-d">
+  <a href="/toolbox/decision-complete/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Decision-Complete</h2>
+    <p class="tool-question">Can I construct a defensible path from the evidence to the decision?</p>
+    <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Decisions</span><span class="tool-tag">Communication</span></div>
+    <span class="source-note">From: Academic research → applied R&amp;D</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="decisions timing strategy" data-sources="startups research-and-development star-trek">
+  <a href="/toolbox/preserve-the-option/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Preserve the Option</h2>
+    <p class="tool-question">What does this decision make possible or impossible afterward?</p>
+    <div class="tool-meta"><span class="tool-tag">Decisions</span><span class="tool-tag">Timing</span><span class="tool-tag">Strategy</span></div>
+    <span class="source-note">From: Startups, Research and development, Star Trek</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="applied-machine-learning research">
+  <a href="/toolbox/explore-then-exploit/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Explore, Then Exploit</h2>
+    <p class="tool-question">Do I know where the gains are likely to be, or am I already optimizing one path?</p>
+    <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Applied machine learning, Research</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="learning evidence strategy" data-sources="applied-machine-learning">
+  <a href="/toolbox/look-before-you-model/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Look Before You Model</h2>
+    <p class="tool-question">What can I learn about the problem before choosing the solution?</p>
+    <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Evidence</span><span class="tool-tag">Strategy</span></div>
+    <span class="source-note">From: Applied machine learning</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="learning strategy decisions" data-sources="quantitative-research machine-learning">
+  <a href="/toolbox/start-simple/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Start Simple</h2>
+    <p class="tool-question">What is the simplest approach that would teach me whether the core idea works?</p>
+    <div class="tool-meta"><span class="tool-tag">Learning</span><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Quantitative research, Machine learning</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="evidence learning" data-sources="quantitative-research finance machine-learning">
+  <a href="/toolbox/start-with-a-hypothesis/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Start With a Hypothesis</h2>
+    <p class="tool-question">What did I expect to observe before I saw the result?</p>
+    <div class="tool-meta"><span class="tool-tag">Evidence</span><span class="tool-tag">Learning</span></div>
+    <span class="source-note">From: Quantitative research, Finance, Machine learning</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="strategy decisions" data-sources="pommerman competitions applied-machine-learning">
+  <a href="/toolbox/solve-the-constrained-problem/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Solve the Constrained Problem</h2>
+    <p class="tool-question">What solution works under the constraints that actually exist?</p>
+    <div class="tool-meta"><span class="tool-tag">Strategy</span><span class="tool-tag">Decisions</span></div>
+    <span class="source-note">From: Pommerman, Competitions, Applied machine learning</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="people learning" data-sources="mentoring supervision">
+  <a href="/toolbox/productive-struggle/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Productive Struggle</h2>
+    <p class="tool-question">Will helping now improve the immediate outcome but reduce the learning?</p>
+    <div class="tool-meta"><span class="tool-tag">People</span><span class="tool-tag">Learning</span></div>
+    <span class="source-note">From: Mentoring, Supervision</span>
+  </a>
+</article>
+<article class="tool-card" data-tool-card data-problems="communication learning" data-sources="phd-supervision internships writing">
+  <a href="/toolbox/raise-the-resolution-of-feedback/">
+    <span class="tool-eyebrow">Question worth trying</span>
+    <h2>Raise the Resolution of Feedback</h2>
+    <p class="tool-question">Have I made the work concrete enough for someone to give me the kind of feedback I want?</p>
+    <div class="tool-meta"><span class="tool-tag">Communication</span><span class="tool-tag">Learning</span></div>
+    <span class="source-note">From: PhD supervision, Internships, Writing</span>
+  </a>
+</article>
+  </section>
+  <p class="empty-state" data-empty-state hidden>No tools match both filters. Try another problem or source.</p>
+</main>
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+  <p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+</footer>
+<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+<script src="/js/toolbox.js"></script>
+</body>
+</html>
