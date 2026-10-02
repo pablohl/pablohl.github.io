@@ -8,22 +8,18 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman">
-<meta itemprop="description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
-  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:"><meta itemprop="datePublished" content="2024-06-26T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1734">
+<meta itemprop="description" content="In 2018, I entered the Pommerman competition at NeurIPS with Chao, Bilal, and Matt, my supervisor. Our agent finished second in the Learning Agents category. Looking back, the experience resembled applied ML in industry."><meta itemprop="datePublished" content="2024-06-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2026-10-01T00:00:00+00:00" />
 <meta itemprop="keywords" content="machine learning,applied machine learning,academia,competitions,experiments," /><meta property="og:title" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman" />
-<meta property="og:description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
-  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:" />
+<meta property="og:description" content="In 2018, I entered the Pommerman competition at NeurIPS with Chao, Bilal, and Matt, my supervisor. Our agent finished second in the Learning Agents category. Looking back, the experience resembled applied ML in industry." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pablohl.github.io/posts/pommermanlessons/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-06-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-01T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman"/>
-<meta name="twitter:description" content="&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra
-  Back in 2018, the Pommerman Competition was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:"/>
+<meta name="twitter:description" content="In 2018, I entered the Pommerman competition at NeurIPS with Chao, Bilal, and Matt, my supervisor. Our agent finished second in the Learning Agents category. Looking back, the experience resembled applied ML in industry."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -76,22 +72,9 @@
 				<h1>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</h1>
 			</header>
 			<div class="content">
-				<hr>
 <p><img src="../../img/bom2.png" alt="ResarchML"></p>
-<blockquote>
-<p>&ldquo;In theory there is no difference between theory and practice. In practice there is.&rdquo; - Yogi Berra</p>
-</blockquote>
-<hr>
-<p>Back in 2018, <a href="https://en.wikipedia.org/wiki/Pommerman_Challenge">the Pommerman Competition</a> was announced to take place at NeurIPS. Together with Chao, Bilal, and Matt (my supervisor), we submitted an agent that secured 2nd place in the Learning Agents category. Reflecting on this experience —and trying to generalize about participating in competitions— I think there are lessons learned that are applicable in industry settings, such as:</p>
-<ul>
-<li><a href="#1-working-with-deadlines">Working with deadlines</a></li>
-<li><a href="#2-dealing-with-constraints">Dealing with constraints</a></li>
-<li><a href="#3-focusing-on-solving-problems">Focusing on solving problems</a></li>
-<li><a href="#4-understanding-trade-offs">Understanding trade-offs</a></li>
-<li><a href="#5-taking-ownership">Taking ownership</a></li>
-<li><a href="#6-building-from-scratch">Building something from scratch</a></li>
-<li><a href="#7-skin-in-the-game">Having skin in the game</a></li>
-</ul>
+<p>In 2018, I entered the Pommerman competition at NeurIPS with Chao, Bilal, and Matt, my supervisor. Our agent finished second in the Learning Agents category.</p>
+<p>Looking back, what stayed with me was how much the experience resembled applied ML in industry. We had to decide what to simplify, where to add complexity, and which experiments were worth the time before the deadline. Those decisions are what I want to reflect on here.</p>
 <p>First, let&rsquo;s start with a short introduction to Pommerman.</p>
 <hr>
 <h1 id="what-is-pommerman">What is Pommerman?<a href="#what-is-pommerman" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
@@ -177,16 +160,15 @@ competition and not native to the game itself.&quot;<sup id="fnref:1"><a href="#
 <blockquote>
 <p>“People who are bred, selected, and compensated to find complicated solutions do not have an incentive to implement simplified ones.” ― Nassim Taleb</p>
 </blockquote>
-<p>How do you approach a problem with many challenges and make progress in a short time? By understanding the trade-offs and making decisions.</p>
-<ul>
-<li>
-<p><em>Sometimes simple (incorrect) models are enough.</em> One example was that the environment was partially observable, meaning you could only see a small window, not the entire board. It is clear that the information from the entire board is useful (because the enemies might be somewhere in the unseen regions). The problem was how to keep memory of seen regions in the past. One common approach, which is technically correct, is to add a recurrent network. However, that complicated the training. The second option, which was technically not entirely correct, was to <em>assume</em> that the last observation would remain until a new observation arrived. The benefit was not having to implement extra modules and just keep a simple vector of data. Results were good with the second, incorrect, approach.</p>
-</li>
-<li>
-<p><em>Other times, complexity needs to be added to see real improvements.</em>  The second example is related to the training curriculum. It was difficult to select against which agents we should train. On one side, we started using <em>static</em> agents to teach the agents that blasting them was the way to win. However, in the real competition, that wouldn&rsquo;t have worked. It was too simple. This time we needed to add complexity. Chao came up with an <em>unbiased smart</em> agent. That made an incredible difference in performance.</p>
-</li>
-</ul>
-<p>The lesson is to learn about trade-offs. Given the constraints, you can never solve everything perfectly. Finding the right amount of complexity will lead to the best results.</p>
+<p>Two decisions from the competition stayed with me because they involved different trade-offs: we simplified how the agent remembered the board, but added complexity to its training opponents.</p>
+<p>Sometimes an approximation is enough.</p>
+<p>Our agent could only see part of the board. Information from previously seen regions could still be useful, so we needed a way to remember it. A recurrent network was one option, but it complicated training.</p>
+<p>We used a simpler approach: keep the last observation of a region until a new observation replaced it. That information could become stale as the board changed out of view. Still, the approximation gave us good results and only required a simple vector of data, without adding another network component.</p>
+<p>Other times, the simple approach leaves too much out.</p>
+<p>Choosing training opponents was a different problem. We started with static agents so our agents could learn that blasting an opponent was how to win. That was a useful starting point, but it would not prepare them for the competition.</p>
+<p>Here, adding complexity helped. Chao developed an unbiased smart agent to train against, and we saw a large improvement in performance.</p>
+<p>These choices made the trade-offs concrete for me. With memory, we accepted potentially stale information in exchange for a simpler implementation and training process. With training opponents, we added complexity because the simpler approach left out behavior our agents needed to learn.</p>
+<p>The question I took from this was: what are we gaining, what are we giving up, and how does that affect the result we care about?</p>
 <h1 id="5-taking-ownership">5. Taking Ownership<a href="#5-taking-ownership" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <p><img src="../../img/owner.jpeg" alt="ResarchML"></p>
 <blockquote>
@@ -214,7 +196,9 @@ competition and not native to the game itself.&quot;<sup id="fnref:1"><a href="#
 <p>Before OpenReview, you could submit a paper, and if it did not get accepted, you got feedback. It could be terrible work, but still, you got feedback and no one needed to know about that terrible work you submitted. There was no penalty for submitting something incomplete. There was no skin in the game.</p>
 <p>Competitions are different — by definition, there are winners, losers, and prizes. There is more at stake. Having skin in the game makes things more interesting and helps you learn in a distinct way.</p>
 <hr>
-<p>The <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 competition track</a> is already out, I strongly suggest if you have time work on a submission, do it,  you will learn a lot.</p>
+<p>Looking back, the competition gave me practice with decisions that kept appearing in industry: choosing an approximation, checking whether an improving training metric meant better performance, and deciding whether another experiment was worth the time.</p>
+<p>The technical problems change, but I still find myself asking similar questions. What can we simplify? What are we leaving out? And what evidence would justify spending more time on it?</p>
+<p>That is why I would recommend trying a competition. You get to build something, make those decisions with a team, and see how the result performs.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
