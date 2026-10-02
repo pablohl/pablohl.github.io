@@ -10,6 +10,8 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
+from apply_editorial_shell import HEADER
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "toolbox.json"
@@ -108,7 +110,7 @@ def site_head(title: str, description: str, url: str) -> str:
     return f"""<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#494f5c">
+  <meta name="theme-color" content="#F6F2EA">
   <meta itemprop="name" content="{esc(title)}">
   <meta itemprop="description" content="{esc(description)}">
   <meta property="og:title" content="{esc(title)}">
@@ -125,32 +127,15 @@ def site_head(title: str, description: str, url: str) -> str:
   <title>{esc(title)}</title>
   <link rel="stylesheet" href="{GLOBAL_CSS}" integrity="{GLOBAL_CSS_INTEGRITY}" crossorigin="anonymous">
   <link rel="stylesheet" href="{TOOLBOX_CSS}">
+  <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/editorial.css?v=20261001">
+  <script src="/js/editorial-nav.js" defer></script>
 </head>"""
 
 
 def site_header() -> str:
-    return f"""<header id="site-header" class="animated slideInUp">
-  <div class="hdr-wrapper section-inner">
-    <div class="hdr-left">
-      <div class="site-branding"><a href="{SITE_URL}">Pablo Hernandez Leal</a></div>
-      <nav class="site-nav hide-in-mobile">
-        <a href="{SITE_URL}/toolbox/">Toolbox</a>
-        <a href="{SITE_URL}/posts/">Writing</a>
-        <a href="{SITE_URL}/about">About</a>
-        <a href="{SITE_URL}/about/#research">Research</a>
-      </nav>
-    </div>
-    <div class="hdr-right hdr-icons"><button id="menu-btn" class="hdr-btn" title="Menu">☰</button></div>
-  </div>
-</header>
-<div id="mobile-menu" class="animated fast">
-  <ul>
-    <li><a href="{SITE_URL}/toolbox/">Toolbox</a></li>
-    <li><a href="{SITE_URL}/posts/">Writing</a></li>
-    <li><a href="{SITE_URL}/about">About</a></li>
-    <li><a href="{SITE_URL}/about/#research">Research</a></li>
-  </ul>
-</div>"""
+    return HEADER
 
 
 def site_footer() -> str:
