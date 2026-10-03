@@ -162,6 +162,8 @@ body#page #home-footer { padding: 0 20px var(--space-5); font-size: .8125rem; }
 .post-card .post-day { order: 3; margin: 0; color: var(--color-text-secondary); font-size: .8125rem; opacity: 1; }
 .post-details { order: 4; margin-top: .15rem; color: var(--color-text-secondary); font-size: .8125rem; }
 .post-topic { color: var(--color-accent); }
+.posts-group .post-item.post-card.has-thumbnail > a { position: relative; padding-right: calc(128px + var(--space-4)); }
+.post-thumbnail { position: absolute; top: 50%; right: 0; width: 128px; height: 72px; border-radius: 4px; object-fit: cover; transform: translateY(-50%); }
 
 /* Essays */
 .site-main > article.thin { max-width: 700px; }
@@ -255,6 +257,11 @@ hr.post-end { border-color: var(--color-border); opacity: 1; }
   .home-person { grid-template-columns: 1fr; margin-bottom: var(--space-5); gap: .6rem; }
   .toolbox-teaser { grid-template-columns: 1fr; gap: var(--space-3); }
   .about-intro { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .posts-group .post-item.post-card.has-thumbnail > a { padding-right: 0; }
+  .post-thumbnail { display: none; }
 }
 
 @media (min-width: 701px) {
