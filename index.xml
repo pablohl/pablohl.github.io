@@ -7,7 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-	<lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<lastBuildDate>Sat, 03 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<item>
+		<title>Crossing Boundaries</title>
+		<link>https://pablohl.github.io/posts/crossing-boundaries/</link>
+		<pubDate>Sat, 03 Oct 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/crossing-boundaries/</guid>
+		<description>How understanding enough across roles can reveal gaps between experts—and where AI can help you get started.</description>
+	</item>
+	<item>
+		<title>The Right Level of Reasoning</title>
+		<link>https://pablohl.github.io/posts/the-right-level-of-reasoning/</link>
+		<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/the-right-level-of-reasoning/</guid>
+		<description>Why strategic sophistication is about matching the depth of reasoning to the situation, not always thinking more steps ahead.</description>
+	</item>
+	<item>
+		<title>Two Clocks</title>
+		<link>https://pablohl.github.io/posts/two-clocks/</link>
+		<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/two-clocks/</guid>
+		<description>A way to think about delayed decisions by comparing how quickly information improves with how quickly an option changes.</description>
+	</item>
+	<item>
+		<title>A Result Is Not the Decision</title>
+		<link>https://pablohl.github.io/posts/a-result-is-not-the-decision/</link>
+		<pubDate>Mon, 28 Sep 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/a-result-is-not-the-decision/</guid>
+		<description>Why the structure surrounding an experimental result matters when deciding whether the evidence is strong enough to act on.</description>
+	</item>
+	<item>
+		<title>The Metric Can Be Right and the Decision Can Still Be Wrong</title>
+		<link>https://pablohl.github.io/posts/the-metric-can-be-right/</link>
+		<pubDate>Fri, 25 Sep 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/the-metric-can-be-right/</guid>
+		<description>Why a correct metric can still support the wrong decision when it measures only part of the system.</description>
+	</item>
 	<item>
 		<title>Problems at the Boundary</title>
 		<link>https://pablohl.github.io/posts/problems-at-the-boundary/</link>
