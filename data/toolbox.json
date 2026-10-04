@@ -192,6 +192,21 @@
   ],
   "posts": [
     {
+      "id": "crossing-boundaries",
+      "title": "Crossing Boundaries",
+      "subtitle": null,
+      "date": "2026-10-03",
+      "url": "https://pablohl.github.io/posts/crossing-boundaries/",
+      "summary": "How understanding enough across roles can reveal gaps between experts—and where AI can help you get started.",
+      "topics": [
+        "cross-functional-work",
+        "ai"
+      ],
+      "tools": [
+        "look-at-the-boundary"
+      ]
+    },
+    {
       "id": "the-right-level-of-reasoning",
       "title": "The Right Level of Reasoning",
       "subtitle": "Sometimes It’s Not That Simple",
@@ -546,7 +561,9 @@
       "example": null,
       "posts": {
         "primary": "problems-at-the-boundary",
-        "supporting": []
+        "supporting": [
+          "crossing-boundaries"
+        ]
       },
       "related_tools": [],
       "lineage": null,
