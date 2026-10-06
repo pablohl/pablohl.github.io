@@ -13,7 +13,8 @@
       "The Right Level of Reasoning was added as a sixteenth published tool on 2026-09-30.",
       "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
-      "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option."
+      "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option.",
+      "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05."
     ]
   },
   "problems": [
@@ -140,6 +141,11 @@
       "type": "game"
     },
     {
+      "id": "football",
+      "name": "Football",
+      "type": "sport"
+    },
+    {
       "id": "competitions",
       "name": "Competitions",
       "type": "research"
@@ -191,6 +197,21 @@
     }
   ],
   "posts": [
+    {
+      "id": "position-before-you-know",
+      "title": "Position Before You Know",
+      "subtitle": null,
+      "date": "2026-10-05",
+      "url": "https://pablohl.github.io/posts/position-before-you-know/",
+      "summary": "How to position for the transitions that matter while the future is uncertain, then commit when the play becomes clear.",
+      "topics": [
+        "uncertainty",
+        "decision-making"
+      ],
+      "tools": [
+        "position-before-you-know"
+      ]
+    },
     {
       "id": "crossing-boundaries",
       "title": "Crossing Boundaries",
@@ -744,6 +765,47 @@
         }
       ],
       "lineage": "Builds on the discussion of optionality and reversibility in Kirk/Spock by examining how information and available options change while a decision is delayed.",
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "position-before-you-know",
+      "name": "Position Before You Know",
+      "question": "What can I do now that leaves me well positioned for the next states that matter?",
+      "situation": "The next state is uncertain, but waiting to see what happens may leave too little time to respond.",
+      "observation": "Positioning is selective preparation for the transitions that matter, not an attempt to stay ready for every future. It can be worth accepting a cost in the current state to avoid being badly placed after an important change. As information arrives, preparation should give way to commitment.",
+      "problems": [
+        "strategy",
+        "decisions",
+        "timing"
+      ],
+      "sources": [
+        "football"
+      ],
+      "use_when": [
+        "Preparing for a project to change direction after an experiment",
+        "Allocating capacity before customer demand is clear",
+        "Deciding which failure transitions deserve protection",
+        "Choosing when to stop preparing and commit"
+      ],
+      "watch_for": "Preparing for too many futures can spread resources too thin. Reassess the position as information arrives, and commit when preparation no longer justifies its cost.",
+      "example": null,
+      "posts": {
+        "primary": "position-before-you-know",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "preserve-the-option",
+          "relationship": "complements"
+        },
+        {
+          "id": "two-clocks",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": null,
       "status": "published",
       "featured": false,
       "random_enabled": true

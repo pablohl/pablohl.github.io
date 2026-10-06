@@ -28,6 +28,7 @@ SOURCE_TYPE_LABELS = {
     "film-fiction": "Film & fiction",
     "life": "Life",
     "game": "Games",
+    "sport": "Sport",
 }
 
 
@@ -428,7 +429,7 @@ def write_lens_data(published: list[dict], sources: dict[str, dict]) -> None:
     (ROOT / "js" / "toolbox-data.js").write_text(output)
 
 
-def update_sitemap(published: list[dict]) -> None:
+def update_sitemap(published: list[dict], posts: dict[str, dict]) -> None:
     path = ROOT / "sitemap.xml"
     source = re.sub(
         r'\s*<!-- toolbox:start -->.*?<!-- toolbox:end -->\s*',
@@ -436,11 +437,20 @@ def update_sitemap(published: list[dict]) -> None:
         path.read_text(),
         flags=re.DOTALL,
     )
-    urls = [f"{SITE_URL}/toolbox/"] + [f"{SITE_URL}/toolbox/{tool['id']}/" for tool in published]
-    entries = "\n".join(
-        f"  <url><loc>{esc(url)}</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>"
-        for url in urls
+    launch_date = "2026-09-30"
+    tool_dates = {
+        tool["id"]: max(launch_date, posts[tool["posts"]["primary"]]["date"])
+        for tool in published
+    }
+    catalogue_date = max(tool_dates.values())
+    entries = [
+        f"  <url><loc>{SITE_URL}/toolbox/</loc><lastmod>{catalogue_date}T00:00:00+00:00</lastmod></url>"
+    ]
+    entries.extend(
+        f"  <url><loc>{SITE_URL}/toolbox/{esc(tool['id'])}/</loc><lastmod>{tool_dates[tool['id']]}T00:00:00+00:00</lastmod></url>"
+        for tool in published
     )
+    entries = "\n".join(entries)
     block = f"  <!-- toolbox:start -->\n{entries}\n  <!-- toolbox:end -->\n"
     if "</urlset>" not in source:
         raise ValueError("Malformed sitemap")
@@ -467,7 +477,7 @@ def main() -> None:
         )
     update_essay_pages(data, published_tools, resolved_posts)
     write_lens_data(published, sources)
-    update_sitemap(published)
+    update_sitemap(published, resolved_posts)
     print(f"Built {len(published)} tool pages and updated essay relationships.")
 
 
