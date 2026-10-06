@@ -56,6 +56,13 @@ window.toolboxLenses = [
     "url": "/toolbox/two-clocks/"
   },
   {
+    "id": "position-before-you-know",
+    "name": "Position Before You Know",
+    "question": "What can I do now that leaves me well positioned for the next states that matter?",
+    "source": "Football",
+    "url": "/toolbox/position-before-you-know/"
+  },
+  {
     "id": "explore-then-exploit",
     "name": "Explore, Then Exploit",
     "question": "Do I know where the gains are likely to be, or am I already optimizing one path?",
