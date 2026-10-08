@@ -56,6 +56,13 @@ window.toolboxLenses = [
     "url": "/toolbox/two-clocks/"
   },
   {
+    "id": "what-is-worth-learning",
+    "name": "What Is Worth Learning?",
+    "question": "What uncertainty could change this decision, and what is the cheapest credible way to reduce it?",
+    "source": "Research, Product work",
+    "url": "/toolbox/what-is-worth-learning/"
+  },
+  {
     "id": "position-before-you-know",
     "name": "Position Before You Know",
     "question": "What can I do now that leaves me well positioned for the next states that matter?",
