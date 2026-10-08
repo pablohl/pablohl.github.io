@@ -14,7 +14,8 @@
       "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
       "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option.",
-      "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05."
+      "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05.",
+      "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08."
     ]
   },
   "problems": [
@@ -197,6 +198,21 @@
     }
   ],
   "posts": [
+    {
+      "id": "what-is-worth-learning",
+      "title": "What Is Worth Learning?",
+      "subtitle": null,
+      "date": "2026-10-08",
+      "url": "https://pablohl.github.io/posts/what-is-worth-learning/",
+      "summary": "Work backward from a decision to identify the uncertainty that matters and the cheapest credible way to reduce it.",
+      "topics": [
+        "decision-making",
+        "research"
+      ],
+      "tools": [
+        "what-is-worth-learning"
+      ]
+    },
     {
       "id": "position-before-you-know",
       "title": "Position Before You Know",
@@ -686,7 +702,12 @@
           "six-years-of-applied-ml"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "what-is-worth-learning",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
@@ -762,9 +783,60 @@
         {
           "id": "preserve-the-option",
           "relationship": "complements"
+        },
+        {
+          "id": "what-is-worth-learning",
+          "relationship": "complements"
         }
       ],
       "lineage": "Builds on the discussion of optionality and reversibility in Kirk/Spock by examining how information and available options change while a decision is delayed.",
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "what-is-worth-learning",
+      "name": "What Is Worth Learning?",
+      "question": "What uncertainty could change this decision, and what is the cheapest credible way to reduce it?",
+      "situation": "The need for more information is expanding into research without a clear stopping point.",
+      "observation": "Starting from a specific decision can narrow a broad information problem. Identify the uncertainty that could change the choice, then work backward to the evidence needed and a credible way to obtain it.",
+      "problems": [
+        "decisions",
+        "evidence",
+        "learning"
+      ],
+      "sources": [
+        "research",
+        "product-work"
+      ],
+      "use_when": [
+        "Planning customer interviews",
+        "Testing whether an assumption generalizes",
+        "Scoping research before a design decision",
+        "Choosing the next experiment",
+        "Deciding whether more investigation would be useful"
+      ],
+      "watch_for": "Not all useful discovery begins with a known decision. Use this lens for focused investigation without eliminating exploratory learning. Refining the question also has a cost; seek evidence when further analysis is unlikely to help.",
+      "example": "Before broadly researching how banks work, identify the design choice at stake and the assumption it depends on. Target conversations that could reveal whether that assumption holds beyond the current environment.",
+      "posts": {
+        "primary": "what-is-worth-learning",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "two-clocks",
+          "relationship": "complements"
+        },
+        {
+          "id": "decision-complete",
+          "relationship": "complements"
+        },
+        {
+          "id": "explore-then-exploit",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": null,
       "status": "published",
       "featured": false,
       "random_enabled": true
@@ -837,7 +909,12 @@
         "primary": "six-years-of-applied-ml",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "what-is-worth-learning",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
