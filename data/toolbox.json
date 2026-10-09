@@ -15,7 +15,8 @@
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
       "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option.",
       "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05.",
-      "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08."
+      "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08.",
+      "The Executive Summary Is Not a Summary was added as a supporting post for Decision-Complete on 2026-10-09."
     ]
   },
   "problems": [
@@ -198,6 +199,21 @@
     }
   ],
   "posts": [
+    {
+      "id": "the-executive-summary-is-not-a-summary",
+      "title": "The Executive Summary Is Not a Summary",
+      "subtitle": null,
+      "date": "2026-10-09",
+      "url": "https://pablohl.github.io/posts/the-executive-summary-is-not-a-summary/",
+      "summary": "An abstract says what the work found. An executive summary explains what it means for the decision.",
+      "topics": [
+        "communication",
+        "applied-research"
+      ],
+      "tools": [
+        "decision-complete"
+      ]
+    },
     {
       "id": "what-is-worth-learning",
       "title": "What Is Worth Learning?",
@@ -692,14 +708,16 @@
         "Experiments",
         "technical reports",
         "recommendations",
-        "research handoffs"
+        "research handoffs",
+        "Writing executive summaries"
       ],
       "watch_for": "Sometimes the defensible conclusion really is “we don't know yet.” Don't force a recommendation.",
-      "example": null,
+      "example": "A report shows that Model A reduces error. Writing the executive summary reveals that nobody has established whether the improvement saves enough time to justify deployment. The next step is to investigate that implication before recommending a rollout.",
       "posts": {
         "primary": "when-is-an-experiment-actually-done",
         "supporting": [
-          "six-years-of-applied-ml"
+          "six-years-of-applied-ml",
+          "the-executive-summary-is-not-a-summary"
         ]
       },
       "related_tools": [
