@@ -203,6 +203,13 @@ body#page #home-footer { padding: 0 20px var(--space-5); font-size: .8125rem; }
 .content .trajectory-equation .not-equal { color: var(--color-accent); }
 .content .decision-visual, .content .reasoning-flow, .content .metric-flow, .content .boundary-visual { flex-wrap: wrap; }
 hr.post-end { border-color: var(--color-border); opacity: 1; }
+.post-conversation { margin: var(--space-4) 0 var(--space-5); font-family: var(--font-sans); }
+.post-conversation p { margin: 0 0 var(--space-2); color: var(--color-text); font-size: .9375rem; line-height: 1.5; }
+.post-share-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
+.post-share-actions[hidden], .post-share-actions [hidden] { display: none; }
+.post-share-actions button { border: 1px solid var(--color-control-border); border-radius: 3px; padding: .35rem .7rem; background: transparent; color: var(--color-accent); font-size: .8125rem; font-weight: 600; line-height: 1.4; }
+.post-share-actions button:hover { border-color: var(--color-accent); background: var(--color-surface); }
+.post-share-status { color: var(--color-text-secondary); font-size: .8125rem; }
 .post-info, .post-nav, .related-posts { color: var(--color-text-secondary); font-family: var(--font-sans); }
 .post-info p { overflow-wrap: anywhere; }
 .post-info .tag { display: inline-block; max-width: 100%; }
