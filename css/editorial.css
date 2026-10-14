@@ -202,6 +202,14 @@ body#page #home-footer { padding: 0 20px var(--space-5); font-size: .8125rem; }
 }
 .content .trajectory-equation .not-equal { color: var(--color-accent); }
 .content .decision-visual, .content .reasoning-flow, .content .metric-flow, .content .boundary-visual { flex-wrap: wrap; }
+.editorial-related-reading { margin: var(--space-6) 0 var(--space-5); border-top: 1px solid var(--color-border); padding-top: var(--space-4); font-family: var(--font-sans); }
+.editorial-related-reading h2 { margin: 0 0 var(--space-2); color: var(--color-text-secondary); font-family: var(--font-sans); font-size: .8125rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.editorial-related-reading ul { margin: 0; padding: 0; list-style: none; }
+.editorial-related-reading li + li { border-top: 1px solid var(--color-border); }
+.editorial-related-reading a { display: block; padding: var(--space-2) 0; text-decoration: none; }
+.editorial-related-reading strong { display: block; color: var(--color-text); font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; line-height: 1.35; }
+.editorial-related-reading a:hover strong { color: var(--color-accent); text-decoration: underline; text-underline-offset: .15em; }
+.editorial-related-reading span { display: block; margin-top: .2rem; color: var(--color-text-secondary); font-size: .875rem; line-height: 1.5; }
 hr.post-end { border-color: var(--color-border); opacity: 1; }
 .post-conversation { margin: var(--space-4) 0 var(--space-5); font-family: var(--font-sans); }
 .post-conversation p { margin: 0 0 var(--space-2); color: var(--color-text); font-size: .9375rem; line-height: 1.5; }

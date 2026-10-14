@@ -1,0 +1,82 @@
+{
+  "the-executive-summary-is-not-a-summary": [
+    {"post": "when-is-an-experiment-actually-done", "reason": "Why an applied result needs a defensible path to a decision."},
+    {"post": "a-result-is-not-the-decision", "reason": "What else a result needs before it can support action."}
+  ],
+  "what-is-worth-learning": [
+    {"post": "two-clocks", "reason": "Once you know what to learn, decide whether it is worth waiting."},
+    {"post": "when-is-an-experiment-actually-done", "reason": "Connect the evidence you gather to the decision it serves."}
+  ],
+  "position-before-you-know": [
+    {"post": "kirk-spock", "reason": "A different view of adaptability and preserving options."},
+    {"post": "two-clocks", "reason": "Consider when waiting helps and when an option is changing."}
+  ],
+  "crossing-boundaries": [
+    {"post": "problems-at-the-boundary", "reason": "Why problems can hide between capable specialists."},
+    {"post": "this-feels-wrong", "reason": "Turn a concern across roles into reasoning others can inspect."}
+  ],
+  "the-right-level-of-reasoning": [
+    {"post": "what-is-worth-learning", "reason": "Ask what observation could distinguish competing explanations."},
+    {"post": "kirk-spock", "reason": "Another look at choosing a response without one fixed playbook."}
+  ],
+  "two-clocks": [
+    {"post": "kirk-spock", "reason": "Explore the value of keeping a decision reversible."},
+    {"post": "position-before-you-know", "reason": "Act under uncertainty without committing to one future."}
+  ],
+  "a-result-is-not-the-decision": [
+    {"post": "the-metric-can-be-right", "reason": "See how a valid measurement can still miss what matters."},
+    {"post": "when-is-an-experiment-actually-done", "reason": "Follow the path from experiment to product decision."}
+  ],
+  "the-metric-can-be-right": [
+    {"post": "a-result-is-not-the-decision", "reason": "Look beyond a result to the evidence around it."},
+    {"post": "when-is-an-experiment-actually-done", "reason": "Ask what an applied experiment must establish before action."}
+  ],
+  "problems-at-the-boundary": [
+    {"post": "crossing-boundaries", "reason": "What it takes to understand enough on both sides of a gap."},
+    {"post": "this-feels-wrong", "reason": "Make a cross-functional concern concrete enough to discuss."}
+  ],
+  "this-feels-wrong": [
+    {"post": "problems-at-the-boundary", "reason": "Consider where different experts' views may fail to connect."},
+    {"post": "the-executive-summary-is-not-a-summary", "reason": "Move from an observation to its implications for a decision."}
+  ],
+  "when-is-an-experiment-actually-done": [
+    {"post": "the-executive-summary-is-not-a-summary", "reason": "Use the first page of a report to explain what changes."},
+    {"post": "a-result-is-not-the-decision", "reason": "Examine what makes experimental evidence decision-ready."}
+  ],
+  "kirk-spock": [
+    {"post": "two-clocks", "reason": "Understand how the value of waiting changes with time."},
+    {"post": "position-before-you-know", "reason": "Prepare for several plausible futures before committing."}
+  ],
+  "pommermanlessons": [
+    {"post": "industryvsacademia", "reason": "More lessons about applied ML under real constraints."},
+    {"post": "position-before-you-know", "reason": "A football analogy for acting before the next state is certain."}
+  ],
+  "prompts2": [
+    {"post": "prompts", "reason": "Start with the foundations of prompting and in-context learning."},
+    {"post": "the-metric-can-be-right", "reason": "Think about what an AI evaluation metric may leave out."}
+  ],
+  "prompts": [
+    {"post": "prompts2", "reason": "Continue with practical risks and the limits of prompting."},
+    {"post": "the-metric-can-be-right", "reason": "Consider what an AI metric does and does not capture."}
+  ],
+  "industryvsacademia": [
+    {"post": "pommermanlessons", "reason": "See those constraints play out in an AI competition."},
+    {"post": "when-is-an-experiment-actually-done", "reason": "Why applied experiments must lead beyond a result."}
+  ],
+  "simplicity": [
+    {"post": "industryvsacademia", "reason": "How research habits change under industry constraints."},
+    {"post": "the-metric-can-be-right", "reason": "A closer look at skeptical evaluation and incomplete metrics."}
+  ],
+  "thoughts": [
+    {"post": "great_intern", "reason": "Practical advice for learning during a technical internship."},
+    {"post": "great_supervisor", "reason": "The mentoring side of helping someone grow."}
+  ],
+  "great_supervisor": [
+    {"post": "great_intern", "reason": "The same learning relationship from an intern's perspective."},
+    {"post": "thoughts", "reason": "Broader thoughts for people beginning a path in AI."}
+  ],
+  "great_intern": [
+    {"post": "great_supervisor", "reason": "What effective support looks like from the supervisor's side."},
+    {"post": "thoughts", "reason": "More guidance for students entering AI and machine learning."}
+  ]
+}
