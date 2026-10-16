@@ -396,7 +396,11 @@ def update_essay_pages(data: dict, published_tools: dict[str, dict], resolved_po
             source,
             flags=re.DOTALL,
         )
-        marker = '<hr class="post-end">'
+        marker = (
+            '<!-- related-reading:start -->'
+            if '<!-- related-reading:start -->' in source
+            else '<hr class="post-end">'
+        )
         if marker not in source:
             raise ValueError(f"Cannot place toolbox callout in {path}")
         callout = (
