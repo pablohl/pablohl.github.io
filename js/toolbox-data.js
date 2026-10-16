@@ -124,5 +124,12 @@ window.toolboxLenses = [
     "question": "Have I made the work concrete enough for someone to give me the kind of feedback I want?",
     "source": "PhD supervision, Internships, Writing",
     "url": "/toolbox/raise-the-resolution-of-feedback/"
+  },
+  {
+    "id": "connect-work-to-consequences",
+    "name": "Connect Work to Consequences",
+    "question": "What feedback would help me understand what happened because of my work?",
+    "source": "Research, Product work, Startups, Mentoring",
+    "url": "/toolbox/connect-work-to-consequences/"
   }
 ];

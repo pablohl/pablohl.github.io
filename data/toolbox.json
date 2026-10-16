@@ -16,7 +16,8 @@
       "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option.",
       "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05.",
       "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08.",
-      "The Executive Summary Is Not a Summary was added as a supporting post for Decision-Complete on 2026-10-09."
+      "The Executive Summary Is Not a Summary was added as a supporting post for Decision-Complete on 2026-10-09.",
+      "Connect Work to Consequences was added as a published tool alongside What Counts as Good Work? on 2026-10-15."
     ]
   },
   "problems": [
@@ -199,6 +200,21 @@
     }
   ],
   "posts": [
+    {
+      "id": "what-counts-as-good-work",
+      "title": "What Counts as Good Work?",
+      "subtitle": null,
+      "date": "2026-10-15",
+      "url": "https://pablohl.github.io/posts/what-counts-as-good-work/",
+      "summary": "Why useful feedback connects the quality of work with what happened because of it.",
+      "topics": [
+        "applied-research",
+        "feedback"
+      ],
+      "tools": [
+        "connect-work-to-consequences"
+      ]
+    },
     {
       "id": "the-executive-summary-is-not-a-summary",
       "title": "The Executive Summary Is Not a Summary",
@@ -724,6 +740,10 @@
         {
           "id": "what-is-worth-learning",
           "relationship": "complements"
+        },
+        {
+          "id": "connect-work-to-consequences",
+          "relationship": "complements"
         }
       ],
       "lineage": null,
@@ -1184,7 +1204,57 @@
           "how-to-be-a-great-intern"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "connect-work-to-consequences",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "connect-work-to-consequences",
+      "name": "Connect Work to Consequences",
+      "question": "What feedback would help me understand what happened because of my work?",
+      "situation": "You can assess the technical quality of your work but cannot tell whether it helped, or what you should improve.",
+      "observation": "Evaluating the work itself and understanding its consequences provide different information. Learning requires enough visibility into downstream use, difficulties, and outcomes to investigate how the contribution mattered.",
+      "problems": [
+        "learning",
+        "people",
+        "evidence"
+      ],
+      "sources": [
+        "research",
+        "product-work",
+        "startups",
+        "mentoring"
+      ],
+      "use_when": [
+        "Reviewing applied research",
+        "Mentoring someone through a project",
+        "Evaluating a technical investment",
+        "Understanding why a feature did not help",
+        "Planning feedback after a launch"
+      ],
+      "watch_for": "Outcomes alone do not establish the quality of a decision or an individual's contribution. Other people, external conditions, chance, and delayed effects can influence what happens.",
+      "example": "A well-built feature sees little use. Before judging the work, investigate whether people could find it, whether it addressed their need, and whether something made it difficult to use.",
+      "posts": {
+        "primary": "what-counts-as-good-work",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "decision-complete",
+          "relationship": "complements"
+        },
+        {
+          "id": "raise-the-resolution-of-feedback",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
