@@ -91,6 +91,13 @@ window.toolboxLenses = [
     "url": "/toolbox/start-simple/"
   },
   {
+    "id": "which-game-are-we-playing",
+    "name": "Which Game Are We Playing?",
+    "question": "What am I assuming the other person is trying to achieve?",
+    "source": "Game theory, Multi-agent learning",
+    "url": "/toolbox/which-game-are-we-playing/"
+  },
+  {
     "id": "right-level-of-reasoning",
     "name": "The Right Level of Reasoning",
     "question": "How much strategic reasoning does the evidence justify here?",

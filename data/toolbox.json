@@ -211,7 +211,9 @@
         "game-theory",
         "strategy"
       ],
-      "tools": []
+      "tools": [
+        "which-game-are-we-playing"
+      ]
     },
     {
       "id": "what-counts-as-good-work",
@@ -1039,6 +1041,48 @@
         },
         {
           "id": "right-level-of-reasoning",
+          "relationship": "complements"
+        }
+      ],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "which-game-are-we-playing",
+      "name": "Which Game Are We Playing?",
+      "question": "What am I assuming the other person is trying to achieve?",
+      "situation": "You are preparing a strategy or interpreting someone's behavior without having checked what matters to them.",
+      "observation": "Predicting someone's actions depends partly on understanding their objectives. A strategy can be well executed yet ineffective because it responds to a goal or success criterion the other person does not share.",
+      "problems": [
+        "people",
+        "strategy",
+        "communication"
+      ],
+      "sources": [
+        "game-theory",
+        "multi-agent-learning"
+      ],
+      "use_when": [
+        "Preparing for a job interview",
+        "Planning a negotiation",
+        "Interpreting a customer's request",
+        "Working across teams"
+      ],
+      "watch_for": "People may have several competing objectives, and their stated goals may be incomplete. Treat your explanation of their motives as a hypothesis to investigate.",
+      "example": "Before emphasizing technical depth in an interview, clarify whether the interviewer is assessing technical knowledge, collaboration, judgment, or some combination.",
+      "posts": {
+        "primary": "which-game-are-we-playing",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "right-level-of-reasoning",
+          "relationship": "complements"
+        },
+        {
+          "id": "look-at-the-boundary",
           "relationship": "complements"
         }
       ],
