@@ -201,6 +201,19 @@
   ],
   "posts": [
     {
+      "id": "which-game-are-we-playing",
+      "title": "Which Game Are We Playing?",
+      "subtitle": null,
+      "date": "2026-10-16",
+      "url": "https://pablohl.github.io/posts/which-game-are-we-playing/",
+      "summary": "A good strategy can fail when we misunderstand what the other person is trying to achieve.",
+      "topics": [
+        "game-theory",
+        "strategy"
+      ],
+      "tools": []
+    },
+    {
       "id": "what-counts-as-good-work",
       "title": "What Counts as Good Work?",
       "subtitle": null,

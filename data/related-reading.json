@@ -1,4 +1,8 @@
 {
+  "which-game-are-we-playing": [
+    {"post": "the-right-level-of-reasoning", "reason": "How much strategic reasoning about others is actually useful?"},
+    {"post": "problems-at-the-boundary", "reason": "Why a mismatch between perspectives can hide a larger problem."}
+  ],
   "what-counts-as-good-work": [
     {"post": "when-is-an-experiment-actually-done", "reason": "Why a sound experiment still needs a connection to the product decision."},
     {"post": "great_supervisor", "reason": "The mentoring side of giving feedback that helps someone grow."}
