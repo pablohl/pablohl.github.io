@@ -7,6 +7,7 @@
     navigation.querySelectorAll('[aria-current]').forEach((link) => link.removeAttribute('aria-current'));
     const path = window.location.pathname;
     const section = path.startsWith('/posts/') ? '/posts/'
+      : path.startsWith('/experiments/') ? '/experiments/'
       : path.startsWith('/toolbox/') ? '/toolbox/'
       : path.startsWith('/about') && window.location.hash === '#research' ? '/about/#research'
       : path.startsWith('/about') ? '/about/' : null;
@@ -32,5 +33,5 @@
       button.focus();
     }
   });
-  window.matchMedia('(min-width: 701px)').addEventListener('change', close);
+  window.matchMedia('(min-width: 821px)').addEventListener('change', close);
 })();
