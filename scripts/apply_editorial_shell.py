@@ -19,6 +19,7 @@ HEADER = """<header class="editorial-header">
     <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
       <a href="/about/">About</a>
       <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
       <a href="/about/#research">Research</a>
       <a href="/toolbox/">Toolbox</a>
     </nav>
@@ -29,6 +30,28 @@ OLD_HEADER = re.compile(
     r'<header id="site-header".*?</header>\s*<div id="mobile-menu".*?</div>',
     re.DOTALL,
 )
+
+EDITORIAL_NAV = re.compile(
+    r'(<nav class="editorial-header__nav"[^>]*>)(.*?)(</nav>)',
+    re.DOTALL,
+)
+
+
+def add_experiments_nav(source: str) -> str:
+    """Keep the Experiments entry in the shared static navigation."""
+    def update(match: re.Match[str]) -> str:
+        opening, links, closing = match.groups()
+        if 'href="/experiments/"' in links:
+            return match.group(0)
+        links = re.sub(
+            r'(?m)^([ \t]*)<a href="/posts/">Writing</a>',
+            lambda line: line.group(0) + f'\n{line.group(1)}<a href="/experiments/">Experiments</a>',
+            links,
+            count=1,
+        )
+        return opening + links + closing
+
+    return EDITORIAL_NAV.sub(update, source, count=1)
 
 
 def add_post_actions(path: Path, source: str) -> str:
@@ -75,7 +98,8 @@ def add_post_actions(path: Path, source: str) -> str:
 
 
 def apply(path: Path) -> bool:
-    source = path.read_text()
+    original = path.read_text()
+    source = original
     if "style.min." not in source:
         return False
 
@@ -83,6 +107,7 @@ def apply(path: Path) -> bool:
         source = OLD_HEADER.sub(HEADER, source, count=1)
     elif "editorial-header" not in source:
         source = re.sub(r"(<body\b[^>]*>)", r"\1\n" + HEADER, source, count=1)
+    source = add_experiments_nav(source)
 
     if path == ROOT / "index.html":
         source = re.sub(r'\s*<nav id="home-nav".*?</nav>', "", source, count=1, flags=re.DOTALL)
@@ -97,14 +122,18 @@ def apply(path: Path) -> bool:
     if '/css/editorial.css' not in source:
         source = source.replace(
             "</head>",
-            '  <link rel="stylesheet" href="/css/editorial.css?v=20261001">\n'
-            '  <script src="/js/editorial-nav.js" defer></script>\n</head>',
+            '  <link rel="stylesheet" href="/css/editorial.css?v=20261017">\n'
+            '  <script src="/js/editorial-nav.js?v=20261017" defer></script>\n</head>',
             1,
         )
+    source = re.sub(r'/css/editorial\.css\?v=\d+', '/css/editorial.css?v=20261017', source)
+    source = source.replace('/js/editorial-nav.js"', '/js/editorial-nav.js?v=20261017"')
     source = source.replace('content="#494f5c"', 'content="#F6F2EA"')
     source = add_post_actions(path, source)
-    path.write_text(source)
-    return True
+    if source != original:
+        path.write_text(source)
+        return True
+    return False
 
 
 def main() -> None:
