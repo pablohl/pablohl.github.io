@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=20261017-7">
+  <link rel="stylesheet" href="./styles.css?v=20261017-8">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
   <script type="module" src="./experiment.mjs?v=20261017-8"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,14 +35,20 @@
     <header class="experiment-intro">
       <span class="experiment-eyebrow">An interactive experiment</span>
       <h1>Where would you put your stand?</h1>
-      <p>This is a small experiment in making a choice when other people can choose too. Move the stands and watch how many customers each one serves. Then see how the same stand positions perform when customers are concentrated along one stretch of the beach. Finally, make a move before seeing what the other vendors do.</p>
-      <p>There are three views to try:</p>
-      <ol class="experiment-steps">
-        <li><strong>Evenly spread:</strong> Move the stands and see how their positions affect customer share.</li>
-        <li><strong>Crowded stretch:</strong> Keep those positions, but change where the customers are.</li>
-        <li><strong>Next day:</strong> Choose your position, predict the result, and reveal the other vendors’ moves.</li>
-      </ol>
-      <p>Three vendors sell the same ice cream at the same price. Each wants as many customers as possible. Each customer chooses the nearest stand along the circular shore.</p>
+      <div class="experiment-intro__layout">
+        <div class="experiment-intro__copy">
+          <p>This is a small experiment in making a choice when other people can choose too. Move the stands and watch how many customers each one serves. Then see how the same stand positions perform when customers are concentrated along one stretch of the beach. Finally, make a move before seeing what the other vendors do.</p>
+          <p>Three vendors sell the same ice cream at the same price. Each wants as many customers as possible. Each customer chooses the nearest stand along the circular shore.</p>
+        </div>
+        <aside class="experiment-guide" aria-label="Three views to try">
+          <h2>Three views to try</h2>
+          <ol class="experiment-steps">
+            <li><strong>Evenly spread:</strong> Move the stands and see how their positions affect customer share.</li>
+            <li><strong>Crowded stretch:</strong> See how those positions perform with customers concentrated in one stretch.</li>
+            <li><strong>Next day:</strong> Choose your position, predict the result, and reveal the other vendors’ moves.</li>
+          </ol>
+        </aside>
+      </div>
       <p class="experiment-source">Inspired by <a href="https://martin.zinkevich.org/lemonade/2010/about.php">the Lemonade Stand Game</a>: lemonade in the original, ice cream here. This is a simplified adaptation; the first two views allow free movement, while the third uses twelve locations and repeated rounds.</p>
     </header>
 

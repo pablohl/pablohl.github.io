@@ -1,13 +1,16 @@
 .experiment-page.section-inner { width: min(100% - 48px, 1280px); max-width: 1280px; }
 .experiment-back { display: inline-block; margin-bottom: 2rem; color: var(--color-text-secondary); font-size: .9rem; text-decoration: none; }
 .experiment-back:hover { color: var(--color-accent); text-decoration: underline; }
-.experiment-intro { max-width: 960px; margin-bottom: 2.5rem; }
+.experiment-intro { margin-bottom: 2.5rem; }
 .experiment-eyebrow { color: var(--color-accent); font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .experiment-intro h1 { margin: .55rem 0 1rem; font-size: clamp(2.3rem, 5vw, 3.7rem); font-weight: 500; line-height: 1.1; }
+.experiment-intro__layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(280px, .8fr); align-items: start; gap: 2rem; }
 .experiment-intro p { margin: 0 0 1rem; color: var(--color-text-secondary); font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.55; }
-.experiment-steps { display: grid; gap: .55rem; max-width: 850px; margin: .25rem 0 1.6rem; padding-left: 1.5rem; color: var(--color-text-secondary); font-size: 1rem; line-height: 1.55; }
+.experiment-guide { padding: 1.3rem 1.5rem; border-top: 2px solid var(--color-accent); background: #f6f4ee; }
+.experiment-guide h2 { margin: 0 0 .9rem; font-size: 1.12rem; font-weight: 600; }
+.experiment-steps { display: grid; gap: .7rem; margin: 0; padding-left: 1.35rem; color: var(--color-text-secondary); font-size: .94rem; line-height: 1.5; }
 .experiment-steps strong { color: var(--color-text); }
-.experiment-intro .experiment-source { margin-top: 1.25rem; font-family: var(--font-sans); font-size: .88rem; line-height: 1.55; }
+.experiment-intro .experiment-source { margin: 1.25rem 0 0; font-family: var(--font-sans); font-size: .88rem; line-height: 1.55; }
 .distribution-switch { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.35rem; }
 .distribution-switch button { padding: .68rem 1rem; border: 1px solid var(--color-control-border); border-radius: 4px; background: var(--color-surface); font-size: .9rem; font-weight: 600; }
 .distribution-switch button:hover, .distribution-switch button[aria-pressed="true"] { border-color: var(--color-accent); color: var(--color-accent); }
@@ -109,6 +112,7 @@
 .experiment-conclusion p { margin: 0 0 1.2rem; font-family: var(--font-serif); font-size: 1.08rem; line-height: 1.65; }
 @media (max-width: 760px) {
   .experiment-page.section-inner { width: min(100% - 32px, 1280px); }
+  .experiment-intro__layout { grid-template-columns: 1fr; gap: 1.4rem; }
   .experiment-layout { grid-template-columns: 1fr; gap: 1rem; }
   .results-panel { padding: 1.4rem; }
 }
