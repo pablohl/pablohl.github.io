@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F6F2EA">
-  <meta name="description" content="An interactive circular-beach experiment with three ice cream vendors, changing customer distributions, and repeated choices.">
+  <meta name="description" content="Place ice cream stands on a circular beach, compare customer distributions, and predict what happens when other vendors move.">
   <title>Ice Cream Vendors — An Interactive Experiment</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=20261017-6">
+  <link rel="stylesheet" href="./styles.css?v=20261017-7">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
   <script type="module" src="./experiment.mjs?v=20261017-8"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,11 +35,15 @@
     <header class="experiment-intro">
       <span class="experiment-eyebrow">An interactive experiment</span>
       <h1>Where would you put your stand?</h1>
-      <p>Three vendors sell the same ice cream at the same price. Each wants as many customers as possible. Move the stands around the circular beach and see who the customers choose.</p>
+      <p>This is a small experiment in making a choice when other people can choose too. Move the stands and watch how many customers each one serves. Then see how the same stand positions perform when customers are concentrated along one stretch of the beach. Finally, make a move before seeing what the other vendors do.</p>
+      <p>There are three views to try:</p>
+      <ol class="experiment-steps">
+        <li><strong>Evenly spread:</strong> Move the stands and see how their positions affect customer share.</li>
+        <li><strong>Crowded stretch:</strong> Keep those positions, but change where the customers are.</li>
+        <li><strong>Next day:</strong> Choose your position, predict the result, and reveal the other vendors’ moves.</li>
+      </ol>
+      <p>Three vendors sell the same ice cream at the same price. Each wants as many customers as possible. Each customer chooses the nearest stand along the circular shore.</p>
       <p class="experiment-source">Inspired by <a href="https://martin.zinkevich.org/lemonade/2010/about.php">the Lemonade Stand Game</a>: lemonade in the original, ice cream here. This is a simplified adaptation; the first two views allow free movement, while the third uses twelve locations and repeated rounds.</p>
-      <p class="experiment-assumption" data-visible-in="uniform"><strong>View 1 · Evenly spread:</strong> We represent a uniform customer distribution with 100 equally spaced customers around the shore.</p>
-      <p class="experiment-assumption" data-visible-in="crowded" hidden><strong>View 2 · Crowded stretch:</strong> Sixty customers are spread over one quarter of the shore; the remaining forty occupy the other three quarters.</p>
-      <p class="experiment-assumption" data-visible-in="next-day" hidden><strong>View 3 · Next day:</strong> Customers are evenly spread again. Vendors choose among twelve locations each day, using only what they saw the day before.</p>
     </header>
 
     <div class="distribution-switch" role="group" aria-label="Customer distribution">
@@ -68,6 +72,18 @@
         <p class="beach-hint" data-visible-in="uniform">Drag a stand around the shore, or use the sliders. The other stands stay where you leave them.</p>
         <p class="beach-hint" data-visible-in="crowded" hidden>The shaded arc is the crowded quarter. Its three rows of dots show the higher density. Stand positions stay the same when you switch views.</p>
         <p class="beach-hint" data-visible-in="next-day" data-round-hint hidden>Choose A’s next location by dragging or using its slider. The twelve pale dots are available spots.</p>
+        <div class="experiment-view-note" data-visible-in="uniform">
+          <h3>View 1 · Evenly spread</h3>
+          <p>The 100 customers are equally spaced around the shore. Try moving one stand while leaving the others in place: a better position for one vendor can mean fewer customers for another. The other stands do not move on their own in this view.</p>
+        </div>
+        <div class="experiment-view-note" data-visible-in="crowded" hidden>
+          <h3>View 2 · Crowded stretch</h3>
+          <p>Sixty customers now occupy one quarter of the shore, while forty occupy the rest. The stands keep their positions when you switch between the first two views, so you can see how the same locations perform when demand changes. This crowd is an illustrative scenario, not a real-beach estimate.</p>
+        </div>
+        <div class="experiment-view-note" data-visible-in="next-day" hidden>
+          <h3>View 3 · Next day</h3>
+          <p>Customers are evenly spread again. Choose A’s spot and compare your prediction with the result after B and C move. They each use a simple rule based on yesterday’s positions; real competitors need not follow it.</p>
+        </div>
       </div>
 
       <div class="results-panel">
@@ -135,12 +151,10 @@
       </div>
     </section>
 
-    <section class="experiment-context">
-      <h2>What this shows—and what it doesn’t</h2>
-      <p data-hide-in="next-day">In this small model, the objective and customer behavior are known: all three vendors want more customers, and customers choose by distance. Moving a stand changes its share, but the other vendors do not respond automatically. The third view adds another day of simultaneous choices.</p>
-      <p data-visible-in="crowded" hidden>The second view changes only where customers are. The shaded quarter is an illustrative scenario, not a claim about a real beach.</p>
-      <p data-visible-in="next-day" hidden>Here, B and C follow one deliberately simple rule based on the previous day. Their moves are simultaneous with yours, not instant responses to it. This shows what changes when the other vendors move, but it does not claim that real people—or the original game’s agents—follow this rule.</p>
-      <p>The accompanying essay asks a further question: what if we are wrong about what the other person is trying to achieve? <a href="/posts/which-game-are-we-playing/">Read “Which Game Are We Playing?” →</a></p>
+    <section class="experiment-conclusion">
+      <h2>What the experiment leaves us with</h2>
+      <p>A good location depends on where customers are and where the other vendors choose to stand. Changing either can change the result. In the third view, even a careful estimate based on today’s positions can be wrong when the others move tomorrow.</p>
+      <p>Here, we know the rules: every vendor wants more customers, and customers choose the closest stand along the shore. Outside a small model, we may not know what the other person is trying to achieve in the first place. That is the question behind <a href="/posts/which-game-are-we-playing/">“Which Game Are We Playing?” →</a></p>
     </section>
   </main>
 
