@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F6F2EA">
-  <meta name="description" content="Place ice cream stands on a circular beach, compare customer distributions, and predict what happens when other vendors move.">
+  <meta name="description" content="An interactive story about where to place an ice cream stand when customers and other vendors can change the outcome.">
   <title>Ice Cream Vendors — An Interactive Experiment</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=20261017-7">
+  <link rel="stylesheet" href="./styles.css?v=20261018-1">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs?v=20261017-8"></script>
+  <script type="module" src="./experiment.mjs?v=20261018-1"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -35,127 +35,112 @@
     <header class="experiment-intro">
       <span class="experiment-eyebrow">An interactive experiment</span>
       <h1>Where would you put your stand?</h1>
-      <p>This is a small experiment in making a choice when other people can choose too. Move the stands and watch how many customers each one serves. Then see how the same stand positions perform when customers are concentrated along one stretch of the beach. Finally, make a move before seeing what the other vendors do.</p>
-      <p>There are three views to try:</p>
-      <ol class="experiment-steps">
-        <li><strong>Evenly spread:</strong> Move the stands and see how their positions affect customer share.</li>
-        <li><strong>Crowded stretch:</strong> Keep those positions, but change where the customers are.</li>
-        <li><strong>Next day:</strong> Choose your position, predict the result, and reveal the other vendors’ moves.</li>
-      </ol>
-      <p>Three vendors sell the same ice cream at the same price. Each wants as many customers as possible. Each customer chooses the nearest stand along the circular shore.</p>
-      <p class="experiment-source">Inspired by <a href="https://martin.zinkevich.org/lemonade/2010/about.php">the Lemonade Stand Game</a>: lemonade in the original, ice cream here. This is a simplified adaptation; the first two views allow free movement, while the third uses twelve locations and repeated rounds.</p>
+      <p>Three vendors sell the same ice cream at the same price along a circular beach. You are one of them.</p>
     </header>
 
-    <div class="distribution-switch" role="group" aria-label="Customer distribution">
-      <button type="button" data-view="uniform" aria-pressed="true">1 · Evenly spread</button>
-      <button type="button" data-view="crowded" aria-pressed="false">2 · Crowded stretch</button>
-      <button type="button" data-view="next-day" aria-pressed="false">3 · Next day</button>
-    </div>
-
-    <section class="experiment-layout" aria-label="Circular beach simulation">
-      <div class="beach-panel">
-        <svg data-beach viewBox="0 0 640 640" role="img" aria-labelledby="beach-title beach-description">
-          <title id="beach-title">Circular beach with three movable ice cream stands</title>
-          <desc id="beach-description">One hundred customers are distributed evenly around the beach. Each customer visits the nearest stand along the circular shore. Drag a labelled stand or use its position slider to change the results.</desc>
-          <circle class="beach-water" cx="320" cy="320" r="304"></circle>
-          <circle class="beach-shoreline" cx="320" cy="320" r="263"></circle>
-          <circle class="beach-sand" cx="320" cy="320" r="229"></circle>
-          <circle class="beach-inner" cx="320" cy="320" r="169"></circle>
-          <path class="crowd-highlight" data-visible-in="crowded" d="M 320 124 A 196 196 0 0 1 516 320" hidden></path>
-          <g class="beach-slots" data-slots data-visible-in="next-day" hidden></g>
-          <text class="beach-center-label" x="320" y="307" text-anchor="middle">THE BEACH</text>
-          <text class="beach-center-subtitle" data-beach-subtitle x="320" y="339" text-anchor="middle">100 customers · 3 stands</text>
-          <g data-customers></g>
-          <g data-previous-markers></g>
-          <g data-vendors></g>
-        </svg>
-        <p class="beach-hint" data-visible-in="uniform">Drag a stand around the shore, or use the sliders. The other stands stay where you leave them.</p>
-        <p class="beach-hint" data-visible-in="crowded" hidden>The shaded arc is the crowded quarter. Its three rows of dots show the higher density. Stand positions stay the same when you switch views.</p>
-        <p class="beach-hint" data-visible-in="next-day" data-round-hint hidden>Choose A’s next location by dragging or using its slider. The twelve pale dots are available spots.</p>
-        <div class="experiment-view-note" data-visible-in="uniform">
-          <h3>View 1 · Evenly spread</h3>
-          <p>The 100 customers are equally spaced around the shore. Try moving one stand while leaving the others in place: a better position for one vendor can mean fewer customers for another. The other stands do not move on their own in this view.</p>
-        </div>
-        <div class="experiment-view-note" data-visible-in="crowded" hidden>
-          <h3>View 2 · Crowded stretch</h3>
-          <p>Sixty customers now occupy one quarter of the shore, while forty occupy the rest. The stands keep their positions when you switch between the first two views, so you can see how the same locations perform when demand changes. This crowd is an illustrative scenario, not a real-beach estimate.</p>
-        </div>
-        <div class="experiment-view-note" data-visible-in="next-day" hidden>
-          <h3>View 3 · Next day</h3>
-          <p>Customers are evenly spread again. Choose A’s spot and compare your prediction with the result after B and C move. They each use a simple rule based on yesterday’s positions; real competitors need not follow it.</p>
-        </div>
+    <section class="experiment-story" aria-label="Ice cream stand experiment">
+      <div class="story-heading">
+        <p class="story-step" data-step-label>Part 1 of 4</p>
+        <h2 data-stage-title tabindex="-1">Pick your spot</h2>
+        <p data-stage-prompt>Drag the green A stand around the shore. Each dot is a customer choosing the nearest stand.</p>
       </div>
+      <ol class="story-progress" aria-label="Experiment progress">
+        <li data-progress aria-current="step">Your spot</li>
+        <li data-progress>B moves</li>
+        <li data-progress>Customers shift</li>
+        <li data-progress>Tomorrow</li>
+      </ol>
 
-      <div class="results-panel">
-        <h2 data-results-title>Customer share</h2>
-        <p class="results-note">Each customer goes to the nearest stand <em>along the shore</em>. If two stands are equally close, they split that customer.</p>
-        <p class="results-comparison" data-visible-in="crowded" hidden>Same stand positions; only the customer distribution changed.</p>
-        <div class="round-status" data-visible-in="next-day" aria-live="polite" hidden>
-          <strong data-round-label>Choose for Day 1</strong>
-          <p data-round-message>Place A for tomorrow. B and C are still shown at their previous positions.</p>
+      <div class="experiment-layout">
+        <div class="beach-panel">
+          <svg data-beach viewBox="0 0 640 640" role="img" aria-labelledby="beach-title beach-description">
+            <title id="beach-title">Circular beach with three ice cream stands</title>
+            <desc id="beach-description">One hundred customers are evenly spaced around the shore. Drag stand A, or use its position slider, to see which customers choose it.</desc>
+            <circle class="beach-water" cx="320" cy="320" r="304"></circle>
+            <circle class="beach-shoreline" cx="320" cy="320" r="263"></circle>
+            <circle class="beach-sand" cx="320" cy="320" r="229"></circle>
+            <circle class="beach-inner" cx="320" cy="320" r="169"></circle>
+            <path class="crowd-highlight" d="M 320 124 A 196 196 0 0 1 516 320" hidden></path>
+            <text class="beach-center-label" x="320" y="307" text-anchor="middle">THE BEACH</text>
+            <text class="beach-center-subtitle" data-beach-subtitle x="320" y="339" text-anchor="middle">100 customers · 3 stands</text>
+            <g data-customers></g>
+            <g data-previous-markers></g>
+            <g data-vendors></g>
+          </svg>
+          <p class="beach-hint" data-beach-hint>Drag A; the dot colors show where customers go.</p>
         </div>
-        <div class="round-reveal" data-round-reveal hidden aria-live="polite" tabindex="-1">
-          <h3>What changed?</h3>
-          <p class="round-result" data-round-result></p>
-          <p class="round-explanation" data-round-explanation></p>
-        </div>
-        <div class="vendor-control vendor-control--0" data-vendor-control>
-          <div class="vendor-control__heading"><label for="vendor-a"><span class="vendor-swatch">A</span> Your stand</label><output for="vendor-a">—</output></div>
-          <div class="share-track"><span data-share-bar></span></div>
-          <input id="vendor-a" type="range" min="0" max="359" value="22" aria-label="Your stand position around the beach">
-          <span class="share-delta" data-share-delta hidden></span>
-        </div>
-        <div class="vendor-control vendor-control--1" data-vendor-control>
-          <div class="vendor-control__heading"><label for="vendor-b"><span class="vendor-swatch">B</span> Other vendor</label><output for="vendor-b">—</output></div>
-          <div class="share-track"><span data-share-bar></span></div>
-          <input id="vendor-b" type="range" min="0" max="359" value="137" aria-label="Vendor B position around the beach">
-          <span class="share-delta" data-share-delta hidden></span>
-        </div>
-        <div class="vendor-control vendor-control--2" data-vendor-control>
-          <div class="vendor-control__heading"><label for="vendor-c"><span class="vendor-swatch">C</span> Other vendor</label><output for="vendor-c">—</output></div>
-          <div class="share-track"><span data-share-bar></span></div>
-          <input id="vendor-c" type="range" min="0" max="359" value="259" aria-label="Vendor C position around the beach">
-          <span class="share-delta" data-share-delta hidden></span>
-        </div>
-        <div class="setup-actions" data-hide-in="next-day">
-          <button type="button" data-reset>Reset positions</button>
-          <button type="button" data-randomize>Randomize stands</button>
-        </div>
-        <p class="setup-note" data-hide-in="next-day">Randomize moves all three stands; the customers stay in place.</p>
-        <div class="round-play" data-visible-in="next-day" hidden>
-          <div class="round-planning" data-round-planning>
-            <p class="round-preview">If B and C stay where they are, <strong>A would serve <span data-preview-share>—</span></strong> of customers.</p>
+
+        <div class="results-panel">
+          <p class="results-eyebrow" data-results-eyebrow>Your result</p>
+          <div class="share-hero">
+            <strong data-a-share>33</strong>
+            <span data-a-caption>of 100 customers choose A</span>
+          </div>
+          <p class="share-context" data-share-context>Move A to see what changes.</p>
+          <div class="vendor-totals" aria-label="Other vendors' customers">
+            <span><span class="vendor-swatch vendor-swatch--b">B</span> <strong data-b-share>33</strong></span>
+            <span><span class="vendor-swatch vendor-swatch--c">C</span> <strong data-c-share>34</strong></span>
+          </div>
+          <p class="results-rule">A customer chooses the nearest stand <em>along the shore</em>. Equally close stands split that customer.</p>
+
+          <div class="precision-control" data-a-control>
+            <label for="vendor-a">Move A with a slider</label>
+            <input id="vendor-a" type="range" min="0" max="359" value="22" aria-label="Your stand A position around the beach">
+          </div>
+          <div class="precision-control" data-b-control hidden>
+            <label for="vendor-b">Move B with a slider</label>
+            <input id="vendor-b" type="range" min="0" max="359" value="137" aria-label="Vendor B position around the beach">
+          </div>
+
+          <div class="round-planning" data-round-planning hidden>
             <fieldset class="round-prediction">
-              <legend>But B and C will choose too. Compared with that estimate, what share will A actually get?</legend>
+              <legend>If B and C choose again, will A serve more, about the same, or fewer customers than the number above?</legend>
               <div class="round-prediction__choices">
-                <button type="button" data-prediction="higher" aria-pressed="false">Higher</button>
+                <button type="button" data-prediction="higher" aria-pressed="false">More</button>
                 <button type="button" data-prediction="same" aria-pressed="false">About the same</button>
-                <button type="button" data-prediction="lower" aria-pressed="false">Lower</button>
+                <button type="button" data-prediction="lower" aria-pressed="false">Fewer</button>
                 <button type="button" data-prediction="unsure" aria-pressed="false">Not sure</button>
               </div>
             </fieldset>
-            <button class="round-primary" type="button" data-next-day disabled>Reveal what happened</button>
-            <p class="round-prompt" data-round-prompt>Choose a prediction to reveal the next day. “Not sure” is fine.</p>
+            <button class="round-primary" type="button" data-reveal-button disabled>Reveal their choices</button>
+            <p class="round-prompt">Choose a prediction first. “Not sure” is fine.</p>
           </div>
-          <button class="round-primary" type="button" data-plan-next hidden>Try another day</button>
-          <details class="round-rule">
+          <div class="round-reveal" data-round-reveal hidden tabindex="-1" aria-live="polite">
+            <h3>What actually happened?</h3>
+            <div class="round-comparison">
+              <div><span>If B and C stayed</span><strong data-expected-count>—</strong></div>
+              <div><span>After they moved</span><strong data-actual-count>—</strong></div>
+            </div>
+            <p class="round-difference" data-difference></p>
+            <p class="round-explanation" data-round-explanation></p>
+            <div class="round-takeaway">
+              <p class="round-takeaway__eyebrow">The broader idea</p>
+              <h4>What carries beyond the beach?</h4>
+              <p>A choice can make sense given what you know and still lead to a different result. Other people are making choices too; the outcome alone does not tell you whether your decision was bad.</p>
+              <p>Here, every vendor wants more customers. Outside this model, even that goal may be uncertain. Before predicting someone’s next move, ask what they are trying to achieve.</p>
+              <a href="/posts/which-game-are-we-playing/">Related writing: Which Game Are We Playing? →</a>
+            </div>
+          </div>
+          <button class="round-try-again" type="button" data-try-day hidden>Try another day →</button>
+          <details class="round-method" data-round-method hidden>
             <summary>How do B and C choose?</summary>
-            <p>Each independently picks the spot that would have served them best <em>if yesterday’s other stands stayed put</em>. They cannot see your new choice or each other’s new choice. If spots tie, they prefer the one closest to yesterday’s spot.</p>
+            <p>Each independently chooses the position that would have served them best if the others had stayed in yesterday’s positions. They do not see your new choice or each other’s new choice first. This is one deliberately simple strategy, not a claim about real vendors.</p>
           </details>
-          <button class="round-start-over" type="button" data-reset-rounds>Start over</button>
-          <div class="round-history" data-round-history-wrap hidden>
-            <h3>Days played</h3>
-            <ol data-round-history></ol>
-          </div>
         </div>
+      </div>
+
+      <div class="stage-reflection" data-reflection hidden>
+        <h3 data-reflection-title>What changed?</h3>
+        <p data-reflection-text></p>
+      </div>
+      <div class="story-actions">
+        <button type="button" class="story-back" data-back hidden>← Previous part</button>
+        <button type="button" class="story-next" data-next>What if B moves? →</button>
+        <button type="button" class="story-reset" data-reset>Start over</button>
       </div>
     </section>
 
-    <section class="experiment-conclusion">
-      <h2>What the experiment leaves us with</h2>
-      <p>A good location depends on where customers are and where the other vendors choose to stand. Changing either can change the result. In the third view, even a careful estimate based on today’s positions can be wrong when the others move tomorrow.</p>
-      <p>Here, we know the rules: every vendor wants more customers, and customers choose the closest stand along the shore. Outside a small model, we may not know what the other person is trying to achieve in the first place. That is the question behind <a href="/posts/which-game-are-we-playing/">“Which Game Are We Playing?” →</a></p>
-    </section>
+    <p class="experiment-source">Inspired by <a href="https://martin.zinkevich.org/lemonade/2010/about.php">the Lemonade Stand Game</a>: lemonade in the original, ice cream here. This is a simplified model; the customer distribution and the other vendors’ decision rule are chosen to make each change visible.</p>
   </main>
 
   <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
