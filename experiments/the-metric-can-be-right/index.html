@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F6F2EA">
+  <meta name="description" content="An interactive experiment about what a correct model metric can leave out of a deployment decision.">
+  <title>The Metric Can Be Right — An Interactive Experiment</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
+  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+  <script type="module" src="./experiment.mjs"></script>
+  <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body id="page">
+  <header class="editorial-header">
+    <div class="editorial-header__inner section-inner">
+      <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+      <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+      <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+        <a href="/about/">About</a>
+        <a href="/posts/">Writing</a>
+        <a href="/experiments/">Experiments</a>
+        <a href="/about/#research">Research</a>
+        <a href="/toolbox/">Toolbox</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main section-inner metric-page">
+    <a class="metric-back" href="/experiments/">← All experiments</a>
+    <header class="metric-intro">
+      <span class="eyebrow">An interactive experiment</span>
+      <h1>The Metric Can Be Right</h1>
+      <p>Make a model choice, then look at what that comparison left out. Each step revisits the same decision with a wider view.</p>
+    </header>
+
+    <ol class="metric-progress" aria-label="Experiment progress">
+      <li data-progress aria-current="step">Choose</li>
+      <li data-progress>Reveal</li>
+      <li data-progress>Consequences</li>
+      <li data-progress>Review</li>
+      <li data-progress>Decide</li>
+    </ol>
+
+    <aside class="stage-carry" data-carry hidden aria-live="polite"><span data-carry-choice></span><span data-carry-constant></span><strong data-carry-new></strong></aside>
+
+    <div class="metric-story">
+      <section class="metric-stage" data-stage="0" aria-labelledby="opening-title">
+        <p class="eyebrow">Part 1 of 5 · A reasonable first choice</p>
+        <h2 id="opening-title" tabindex="-1">Your bank needs a fraud-detection model.</h2>
+        <p class="stage-lead">Two models were tested on the same 10,000 transactions. Which would you deploy?</p>
+        <div class="opening-models">
+          <div class="model-card" data-model-card="A"><span class="model-name">Model A</span><strong>99.2%</strong><span>accuracy</span><p>$200 to run / 10k transactions</p></div>
+          <div class="model-card" data-model-card="B"><span class="model-name">Model B</span><strong>99.0%</strong><span>accuracy</span><p>$500 to run / 10k transactions</p></div>
+        </div>
+        <fieldset class="choice-field">
+          <legend>What is your first decision?</legend>
+          <div class="choice-grid" data-opening-choices>
+            <button type="button" data-choice="A" aria-pressed="false">Choose A <small>Better accuracy, lower model cost</small></button>
+            <button type="button" data-choice="B" aria-pressed="false">Choose B <small>Despite its reported metrics</small></button>
+            <button type="button" data-choice="unsure" aria-pressed="false">I need more information <small>Keep the decision open</small></button>
+          </div>
+        </fieldset>
+        <p class="fine-print">Illustrative figures. Both metrics are calculated correctly under equal test conditions. The running cost excludes investigation and downstream losses.</p>
+      </section>
+
+      <section class="metric-stage" data-stage="1" aria-labelledby="reveal-title" hidden>
+        <p class="eyebrow">Part 2 of 5 · Reveal the compression</p>
+        <h2 id="reveal-title" tabindex="-1">What did accuracy hide?</h2>
+        <p class="stage-lead">The aggregate scores are close. First predict: do you think the two models make similar kinds of mistakes?</p>
+        <div class="choice-grid compact" data-error-predictions>
+          <button type="button" data-error-prediction="similar" aria-pressed="false">Probably similar</button>
+          <button type="button" data-error-prediction="different" aria-pressed="false">Probably different</button>
+          <button type="button" data-error-prediction="unsure" aria-pressed="false">Not sure</button>
+        </div>
+        <div class="transaction-panel" data-transaction-panel hidden>
+          <div class="transaction-heading"><h3>One transaction at a time</h3><div class="model-switch" role="group" aria-label="Model view"><button type="button" data-view="compare" aria-pressed="true">Compare both</button><button type="button" data-view="A" aria-pressed="false">A only</button><button type="button" data-view="B" aria-pressed="false">B only</button></div></div>
+          <p>Each mark is one transaction in the same representative 1,000-transaction slice. The full test has ten times as many of each outcome.</p>
+          <div class="outcome-filter" role="group" aria-label="Transaction display"><button type="button" data-filter="all" aria-pressed="true">All transactions</button><button type="button" data-filter="errors" aria-pressed="false">Errors only</button></div>
+          <div class="transaction-matrices" data-matrices>
+            <div class="transaction-matrix" data-panel-model="A"><h4>Model A <span data-sample-counts="A"></span></h4><canvas data-transactions="A" width="800" height="225" role="img" aria-label="Model A outcomes for one thousand transactions"></canvas></div>
+            <div class="transaction-matrix" data-panel-model="B"><h4>Model B <span data-sample-counts="B"></span></h4><canvas data-transactions="B" width="800" height="225" role="img" aria-label="Model B outcomes for one thousand transactions"></canvas></div>
+          </div>
+          <div class="legend"><span><i class="legend-dot correct"></i>Correct</span><span><i class="legend-dot missed"></i>Missed fraud</span><span><i class="legend-dot declined"></i>False decline</span></div>
+          <p class="fine-print" data-filter-note>Same transaction positions in both models; the colors show each model’s outcome.</p>
+          <div class="error-counts" data-error-counts aria-live="polite"></div>
+          <p class="insight"><strong>What changed?</strong> Accuracy counts both errors the same. It does not tell you which error the model made.</p>
+        </div>
+      </section>
+
+      <section class="metric-stage" data-stage="2" aria-labelledby="cost-title" hidden>
+        <p class="eyebrow">Part 3 of 5 · Different consequences</p>
+        <h2 id="cost-title" tabindex="-1">Should those errors count equally?</h2>
+        <div class="consequence-pair">
+          <div><span class="case-tag missed">Missed fraud</span><p>A fraudulent transfer is approved. The bank may lose money.</p></div>
+          <div><span class="case-tag declined">False decline</span><p>A legitimate customer cannot complete a payment. That creates friction and may lose business.</p></div>
+        </div>
+        <p class="stage-lead">The error counts have not changed. Now give the errors consequences.</p>
+        <div class="cost-layout">
+          <div class="assumption-control"><label for="decline-cost">Estimated cost of one false decline: <strong data-decline-cost>$350</strong></label><input id="decline-cost" type="range" min="0" max="700" step="10" value="350"><div class="range-ends"><span>$0</span><span>$700</span></div><div class="break-even-scale"><span class="break-even-point" data-break-even-marker></span></div><div class="break-even-zones" aria-label="Below break-even Model B has lower estimated cost; above break-even Model A has lower estimated cost"><span data-cost-zone="B">B lower cost</span><span data-cost-zone="A">A lower cost</span></div><p class="break-even-label" data-break-even-label></p><p>A missed fraud case is fixed at an illustrative $600. Move only the false-decline assumption.</p></div>
+          <div class="comparison" data-cost-comparison aria-live="polite"></div>
+        </div>
+        <p class="insight"><strong>What changed?</strong> The models and their accuracy did not change. The value assigned to an error changed—and that can change the preferred model.</p>
+      </section>
+
+      <section class="metric-stage" data-stage="3" aria-labelledby="review-title" hidden>
+        <p class="eyebrow">Part 4 of 5 · Widen the system boundary</p>
+        <h2 id="review-title" tabindex="-1">What happens after an alert?</h2>
+        <p class="stage-lead">A model output is not the final decision. A person may need to investigate it. Compare two hypothetical review experiences for a $2,400 transfer.</p>
+        <div class="review-cards">
+          <div class="review-card"><span class="model-name">Model A configuration</span><strong>High risk · 0.91</strong><p>Supporting evidence unavailable in the alert. An analyst must find it elsewhere.</p><button type="button" data-review="A">Inspect this case</button><div class="review-result" data-review-result="A" hidden><div class="review-path" aria-label="Alert, then a separate evidence lookup, then an analyst decision"><span>Alert</span><b aria-hidden="true">→</b><span class="review-path__detour">Separate lookup</span><b aria-hidden="true">→</b><span>Decision</span></div><p>Look up the recipient, device, and account changes in separate systems. <strong>Illustrative review: 10 minutes.</strong></p></div></div>
+          <div class="review-card"><span class="model-name">Model B configuration</span><strong>High risk · 0.91</strong><p>New recipient · unusual device · recent account changes are shown with the alert.</p><button type="button" data-review="B">Inspect this case</button><div class="review-result" data-review-result="B" hidden><div class="review-path" aria-label="Alert with evidence, then an analyst decision"><span class="review-path__inline">Alert + evidence</span><b aria-hidden="true">→</b><span>Decision</span></div><p>Evidence is available in the alert. <strong>Illustrative review: 2 minutes.</strong></p></div></div>
+        </div>
+        <div class="review-projection" data-review-projection hidden>
+          <h3>Now imagine a larger workload.</h3>
+          <p>Keep the same illustrative alert rates. What if the workflow processed 100,000 transactions?</p>
+          <div class="workload-comparison" data-workload-comparison role="img" aria-label="Projected analyst-hours for Model A and Model B"></div>
+          <p data-total-comparison></p>
+          <p class="fine-print">This is a projection, not a measured operational result. Evidence access belongs to the surrounding product workflow, not necessarily the predictive model itself. The two configurations would need to be assessed as complete systems.</p>
+        </div>
+        <p class="insight"><strong>What changed?</strong> The evaluation boundary grew from model output to human review. A single case suggests a possible difference; it does not establish an average workload.</p>
+      </section>
+
+      <section class="metric-stage" data-stage="4" aria-labelledby="decision-title" hidden>
+        <p class="eyebrow">Part 5 of 5 · Decide what to measure next</p>
+        <h2 id="decision-title" tabindex="-1">When is more information worth collecting?</h2>
+        <p class="stage-lead">Your first choice was <strong data-initial-choice></strong>. After seeing the error types, costs, and one review example, what would you do next?</p>
+        <div class="decision-summary" data-decision-summary></div>
+        <fieldset class="choice-field"><legend>With this 10,000-transaction test, what is your next step?</legend><div class="choice-grid" data-next-choices>
+          <button type="button" data-next-choice="errors" aria-pressed="false">Investigate more errors <small>Could rare or high-cost mistakes change the estimate?</small></button>
+          <button type="button" data-next-choice="review" aria-pressed="false">Measure review burden <small>Does case-level time scale to the workload?</small></button>
+          <button type="button" data-next-choice="deploy" aria-pressed="false">Decide with current evidence <small>Would plausible missing information change the choice?</small></button>
+        </div></fieldset>
+        <div class="decision-feedback" data-decision-feedback hidden aria-live="polite"></div>
+        <button type="button" class="counterfactual-trigger" data-open-counterfactual hidden>What if the test were smaller? →</button>
+        <div class="counterfactual" data-counterfactual hidden>
+          <p class="eyebrow">Optional counterfactual</p>
+          <h3>Now suppose the same percentages came from only 1,000 transactions.</h3>
+          <p>The earlier 10,000-transaction result has not changed. With fewer cases, the error-rate estimates would be less stable. Would your next step change?</p>
+          <div class="choice-grid" data-counterfactual-choices>
+            <button type="button" data-counterfactual-choice="errors" aria-pressed="false">Investigate more errors <small>Reduce uncertainty in the error rates</small></button>
+            <button type="button" data-counterfactual-choice="review" aria-pressed="false">Measure review burden <small>Test whether case time generalizes</small></button>
+            <button type="button" data-counterfactual-choice="deploy" aria-pressed="false">Decide now <small>Act despite thinner evidence</small></button>
+          </div>
+          <p class="counterfactual-feedback" data-counterfactual-feedback hidden aria-live="polite"></p>
+        </div>
+        <div class="transfer" data-transfer hidden><p class="eyebrow">Beyond this model</p><h3>What did the metric throw away?</h3><p>The right question is not “What else could we measure?” There is always more. Ask whether omitted information could plausibly change this decision. If it cannot, move on. If it can, investigate that boundary.</p><p>The full essay develops why a perfectly correct metric can still answer a smaller question than the decision requires.</p><a href="/posts/the-metric-can-be-right/">Read The Metric Can Be Right and the Decision Can Still Be Wrong →</a></div>
+      </section>
+    </div>
+
+    <div class="metric-actions"><button type="button" class="secondary" data-back hidden>← Previous step</button><button type="button" class="primary" data-continue disabled>Continue →</button><button type="button" class="reset" data-reset>Start over</button></div>
+    <details class="metric-method"><summary>How this illustrative model works</summary><p>The test contains 10,000 transactions, including 200 fraudulent ones. Model A misses 60 fraud cases and falsely declines 20 legitimate ones; Model B misses 20 and falsely declines 80. Thus A has 9,920 correct predictions (99.2%) and B has 9,900 (99.0%). The marks show a representative one-tenth slice of that evaluation, not a separate measurement.</p><p>The cost comparison assumes $600 per missed fraud case, a reader-adjustable amount per false decline, and the stated model running costs. The review projection uses 160 A alerts or 260 B alerts per 10,000 transactions, the illustrative case times of 10 and 2 minutes, and $40 per analyst-hour. It does not establish actual review times, true loss distributions, customer effects, or a deployment recommendation. All figures and interfaces are invented to expose the decision boundary.</p></details>
+  </main>
+  <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+</body>
+</html>
