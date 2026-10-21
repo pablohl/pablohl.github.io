@@ -21,6 +21,9 @@ const ui = {
   crowdHighlight: document.querySelector(".crowd-highlight"),
   beachSubtitle: document.querySelector("[data-beach-subtitle]"),
   beachHint: document.querySelector("[data-beach-hint]"),
+  keyChange: document.querySelector("[data-key-change]"),
+  keyTie: document.querySelector("[data-key-tie]"),
+  keyPrevious: document.querySelector("[data-key-previous]"),
   stepLabel: document.querySelector("[data-step-label]"),
   stageTitle: document.querySelector("[data-stage-title]"),
   stagePrompt: document.querySelector("[data-stage-prompt]"),
@@ -31,6 +34,9 @@ const ui = {
   bShare: document.querySelector("[data-b-share]"),
   cShare: document.querySelector("[data-c-share]"),
   shareContext: document.querySelector("[data-share-context]"),
+  tieNote: document.querySelector("[data-tie-note]"),
+  demandControl: document.querySelector("[data-demand-control]"),
+  demandButtons: [...document.querySelectorAll("[data-demand]")],
   aControl: document.querySelector("[data-a-control]"),
   bControl: document.querySelector("[data-b-control]"),
   aSlider: document.querySelector("#vendor-a"),
@@ -56,6 +62,7 @@ const ui = {
 const stagePositions = [[...INITIAL_POSITIONS], null, null, null];
 const touched = [false, false, false, false];
 let stage = 0;
+let demandMode = "crowded";
 let competitionBaseline = null;
 let crowdedBaseline = null;
 let roundPreviousPositions = null;
@@ -72,7 +79,13 @@ function activePositions() {
 }
 
 function activeCustomers() {
-  return stage >= 2 ? customerSets.crowded : customerSets.uniform;
+  return stage >= 2 ? customerSets[demandMode] : customerSets.uniform;
+}
+
+function orientationText(turn) {
+  const degrees = Math.round(turn * CHOICE_COUNT) % CHOICE_COUNT;
+  const nearest = ["top", "right", "bottom", "left"][Math.round(degrees / 90) % 4];
+  return `${degrees} degrees clockwise from top, near ${nearest}`;
 }
 
 function movableVendor() {
@@ -123,20 +136,21 @@ function renderBeach(allocation) {
   if (stage === 3 && roundPhase === "revealed") baselineAssignments = previewAssignments;
 
   const dots = customers.map((customer, index) => {
-    const radius = stage >= 2 && index < 60
+    const radius = stage >= 2 && demandMode === "crowded" && index < 60
       ? CUSTOMER_RADIUS + (index % 3 - 1) * 8
       : CUSTOMER_RADIUS;
     const point = polarPoint(customer, radius);
     const winners = allocation.assignments[index];
     const switched = baselineAssignments &&
       winners.join(",") !== baselineAssignments[index].join(",");
-    return svgElement("circle", {
-      class: (winners.length === 1 ? "customer customer--" + winners[0] : "customer customer--tie") +
-        (switched ? " customer--switched" : ""),
-      cx: point.x,
-      cy: point.y,
-      r: 4.1,
-    });
+    const className = (winners.length === 1 ? "customer customer--" + winners[0] : "customer customer--tie") +
+      (switched ? " customer--switched" : "");
+    return winners.length === 1
+      ? svgElement("circle", { class: className, cx: point.x, cy: point.y, r: 4.1 })
+      : svgElement("rect", {
+        class: className, x: point.x - 3.5, y: point.y - 3.5,
+        width: 7, height: 7, transform: `rotate(45 ${point.x} ${point.y})`,
+      });
   });
   ui.customers.replaceChildren(...dots);
 
@@ -144,12 +158,19 @@ function renderBeach(allocation) {
     ? [1, 2].flatMap((index) => {
       if (Math.abs(oldRivalPositions[index] - activePositions()[index]) < 1e-10) return [];
       const point = polarPoint(oldRivalPositions[index], VENDOR_RADIUS);
-      return [svgElement("circle", {
-        class: "previous-marker previous-marker--" + index,
-        cx: point.x,
-        cy: point.y,
-        r: 18,
-      })];
+      const marker = svgElement("g", { class: "previous-position" });
+      marker.append(
+        svgElement("circle", {
+          class: "previous-marker previous-marker--" + index,
+          cx: point.x, cy: point.y, r: 18,
+        }),
+        svgElement("text", {
+          class: "previous-position__label", x: point.x, y: point.y - 27,
+          "text-anchor": "middle",
+        })
+      );
+      marker.lastChild.textContent = `${String.fromCharCode(65 + index)} before`;
+      return [marker];
     })
     : [];
   ui.previousMarkers.replaceChildren(...ghosts);
@@ -173,8 +194,11 @@ function renderBeach(allocation) {
   });
   ui.vendors.replaceChildren(...markers);
 
-  ui.crowdHighlight.hidden = stage < 2;
-  ui.beachSubtitle.textContent = stage >= 2
+  ui.keyChange.hidden = !baselineAssignments || !countSwitched(allocation.assignments, baselineAssignments);
+  ui.keyTie.hidden = !allocation.assignments.some((winners) => winners.length > 1);
+  ui.keyPrevious.hidden = ghosts.length === 0;
+  ui.crowdHighlight.hidden = stage < 2 || demandMode !== "crowded";
+  ui.beachSubtitle.textContent = stage >= 2 && demandMode === "crowded"
     ? "60 clustered · 40 elsewhere"
     : "100 customers · 3 stands";
   ui.svg.querySelector("#beach-description").textContent =
@@ -183,10 +207,12 @@ function renderBeach(allocation) {
       : stage === 1
         ? "The customers and stand A remain in place. Move stand B or use its slider to see how customer choices change."
         : stage === 2
-          ? "The stands have not moved. Sixty customers now occupy the highlighted quarter of the shore, and forty occupy the rest."
+          ? demandMode === "crowded"
+            ? "The stands have not moved. Sixty customers occupy the highlighted quarter of the shore, and forty occupy the rest. Toggle back to evenly spread customers to compare."
+            : "The stands have not moved. One hundred customers are evenly spaced around the shore. Toggle to a crowded stretch to compare."
           : roundPhase === "choose"
-            ? "Customers remain clustered. Choose stand A's next location; the current colors show what would happen if B and C stayed."
-            : "B and C have moved. Dashed circles mark their previous positions. Gold outlines mark customers whose chosen stand changed from the stay-put estimate.";
+            ? "The selected customer distribution stays fixed. Choose stand A's next location; the current colors show what would happen if B and C stayed."
+            : "B and C have chosen. Dashed circles and labels mark any stand that moved. Dark outlines mark customers whose chosen stand changed from the stay-put estimate.";
 }
 
 function renderStageText() {
@@ -199,8 +225,8 @@ function renderStageText() {
   const prompts = [
     "Drag the green A stand around the shore. Each dot is a customer choosing the nearest stand.",
     "Keep A where you placed it. Drag orange B and watch what happens to A's customers.",
-    "The stands stay exactly where they are. Most customers now gather along one quarter of the shore.",
-    "Choose A's position before knowing where B and C will go. Then predict what happens.",
+    "The stands stay exactly where they are. Compare evenly spread customers with a crowd along one quarter of the shore.",
+    "Keep the selected customer pattern. Choose A's position before knowing where B and C will go, then predict the result.",
   ];
   ui.stepLabel.textContent = "Part " + (stage + 1) + " of 4";
   ui.stageTitle.textContent = stage === 3 && day > 0
@@ -218,12 +244,16 @@ function renderStageText() {
     stage === 0
       ? "Drag A; the dot colors show where customers go."
       : stage === 1
-        ? "Drag B. Gold outlines mark customers whose chosen stand changed."
+        ? "Drag B. Dark outlines mark customers whose chosen stand changed."
         : stage === 2
-          ? "The shaded arc contains 60 customers. None of the stands moved."
+          ? demandMode === "crowded"
+            ? "The shaded arc contains 60 customers. Toggle back to compare; none of the stands move."
+            : "Customers are spread evenly. Toggle to crowded; none of the stands move."
           : roundPhase === "choose"
             ? "Drag A. The colors show the stay-put estimate if B and C do not move."
-            : "Dashed circles show where B and C stood before; gold outlines show changed customer choices.";
+            : oldRivalPositions && [1, 2].some((index) => Math.abs(oldRivalPositions[index] - activePositions()[index]) >= 1e-10)
+              ? "Dashed circles show earlier stand positions; dark outlines show changed customer choices."
+              : "B and C stayed in place; compare the result with your stay-put estimate.";
   ui.back.hidden = stage === 0;
   ui.next.hidden = stage === 3;
   ui.next.textContent = [
@@ -240,7 +270,7 @@ function renderResults(allocation) {
   ui.cShare.textContent = formatCount(shares[2]);
   ui.resultEyebrow.textContent = stage === 3 && roundPhase === "choose"
     ? "If B and C stay"
-    : stage === 3 ? "After everyone moved" : "Your result";
+    : stage === 3 ? "After B and C chose" : "Your result";
   ui.aCaption.textContent = stage === 3 && roundPhase === "choose"
     ? "of 100 customers would choose A"
     : "of 100 customers choose A";
@@ -254,13 +284,31 @@ function renderResults(allocation) {
           ? shareComparison(shares[0], competitionBaseline.shares[0], "before B moved")
           : "A has not moved. Now try moving B."
         : stage === 2
-          ? "With no stand moved, A changed from " + formatCount(crowdedBaseline.shares[0]) + " to " + formatCount(shares[0]) + " customers."
+          ? demandMode === "uniform"
+            ? "Evenly spread customers are the baseline. Switch to the crowded stretch to compare."
+            : "With all stands fixed, A changed from " + formatCount(crowdedBaseline.shares[0]) + " to " + formatCount(shares[0]) + " customers when demand shifted."
           : roundPhase === "choose"
             ? "This assumes B and C stay in yesterday's positions."
-            : "This is A's actual result after B and C chose new positions.";
+            : "This is A's result after B and C chose their positions.";
+
+  const ties = allocation.assignments.filter((winners) => winners.length > 1);
+  ui.tieNote.hidden = ties.length === 0;
+  const rivalsShareLocation = Math.abs(activePositions()[1] - activePositions()[2]) < 1e-10;
+  ui.tieNote.textContent = rivalsShareLocation && ties.length > 0
+    ? `B and C chose the same spot. They split ${ties.length} equally close customers, so their totals may include halves.`
+    : ties.length === 1 && ties[0].length === 2
+    ? "One customer is equally close to two stands. Each receives half of that customer's share, which is why a total may end in .5."
+    : `${ties.length} customers are equally close to multiple stands. Their shares are split evenly, so totals may include fractions.`;
+
+  ui.demandControl.hidden = stage !== 2;
+  ui.demandButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.demand === demandMode));
+  });
 
   ui.aSlider.value = Math.round(activePositions()[0] * CHOICE_COUNT) % CHOICE_COUNT;
   ui.bSlider.value = Math.round(activePositions()[1] * CHOICE_COUNT) % CHOICE_COUNT;
+  ui.aSlider.setAttribute("aria-valuetext", orientationText(activePositions()[0]));
+  ui.bSlider.setAttribute("aria-valuetext", orientationText(activePositions()[1]));
   ui.aControl.hidden = !(stage === 0 || (stage === 3 && roundPhase === "choose"));
   ui.bControl.hidden = stage !== 1;
   ui.planning.hidden = !(stage === 3 && roundPhase === "choose");
@@ -286,23 +334,21 @@ function renderReflection(allocation) {
       : "Your position changed the result";
     message = switched === 0
       ? "This position produces the same customer choices as the starting one. Try another spot to see how the result changes."
-      : (sameShare
-      ? "A still serves " + formatCount(allocation.shares[0]) + " customers."
-      : "A went from " + formatCount(initialAllocation.shares[0]) + " to " +
-        formatCount(allocation.shares[0]) + " customers.") +
-      " Gold outlines mark the " + switched +
-      " customers whose chosen stand changed. B and C stayed put.";
+      : (sameShare ? "Same total, different customers. " : "Your move changed the allocation. ") +
+        `${switched} customers changed their chosen stand; B and C stayed put.`;
   } else if (stage === 1 && touched[1]) {
     title = "Your stand did not move";
-    message = "B's move changed A's share from " + formatCount(competitionBaseline.shares[0]) +
-      " to " + formatCount(allocation.shares[0]) + ". Gold outlines show the " +
-      countSwitched(allocation.assignments, competitionBaseline.assignments) +
-      " customers whose chosen stand changed.";
-  } else if (stage === 2) {
+    const switched = countSwitched(allocation.assignments, competitionBaseline.assignments);
+    message = switched === 0
+      ? "B moved, but no customer changed stands. Try another position to see whether A's result changes."
+      : `B moved while A stayed put. ${switched} customers changed their chosen stand.`;
+  } else if (stage === 2 && demandMode === "crowded") {
     title = "Same stands, different demand";
-    message = "With every stand fixed, A went from " + formatCount(crowdedBaseline.shares[0]) +
-      " customers under even demand to " + formatCount(allocation.shares[0]) +
-      " with a crowd in one quarter. A good location depends on where customers are.";
+    const switched = countSwitched(allocation.assignments, crowdedBaseline.assignments);
+    message = switched === 0
+      ? "The customer pattern changed, but choices did not. The same stands still serve the same customers."
+      : "No stand moved. Customers gathering in one stretch changed which stand was nearest for " +
+        switched + " of them.";
   }
   ui.reflection.hidden = !message;
   ui.reflectionTitle.textContent = title;
@@ -338,6 +384,13 @@ ui.aSlider.addEventListener("input", (event) => {
 });
 ui.bSlider.addEventListener("input", (event) => {
   updatePosition(1, Number(event.currentTarget.value) / CHOICE_COUNT);
+});
+ui.demandButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (stage !== 2) return;
+    demandMode = button.dataset.demand;
+    render();
+  });
 });
 ui.svg.addEventListener("pointerdown", (event) => {
   const marker = event.target.closest("[data-vendor]");
@@ -391,6 +444,7 @@ ui.back.addEventListener("click", () => {
 });
 ui.reset.addEventListener("click", () => {
   stage = 0;
+  demandMode = "crowded";
   stagePositions[0] = [...INITIAL_POSITIONS];
   stagePositions[1] = null;
   stagePositions[2] = null;
@@ -419,9 +473,10 @@ ui.revealButton.addEventListener("click", () => {
   if (stage !== 3 || roundPhase !== "choose" || prediction === null) return;
   const previous = [...roundPreviousPositions];
   const positions = stagePositions[3];
-  const preview = allocateCustomers(customerSets.crowded, positions);
-  const nextB = bestResponseToPrevious(customerSets.crowded, previous, 1, CHOICE_COUNT);
-  const nextC = bestResponseToPrevious(customerSets.crowded, previous, 2, CHOICE_COUNT);
+  const customers = activeCustomers();
+  const preview = allocateCustomers(customers, positions);
+  const nextB = bestResponseToPrevious(customers, previous, 1, CHOICE_COUNT);
+  const nextC = bestResponseToPrevious(customers, previous, 2, CHOICE_COUNT);
   previewAssignments = preview.assignments;
   oldRivalPositions = previous;
   positions[1] = nextB;
@@ -430,7 +485,7 @@ ui.revealButton.addEventListener("click", () => {
   roundPhase = "revealed";
   day += 1;
 
-  const actual = allocateCustomers(customerSets.crowded, positions);
+  const actual = allocateCustomers(customers, positions);
   revealData = {
     expected: preview.shares[0],
     actual: actual.shares[0],
@@ -449,9 +504,13 @@ ui.revealButton.addEventListener("click", () => {
     lower: "fewer",
     unsure: "not sure",
   };
-  ui.roundExplanation.textContent = "B and C each chose using yesterday's positions. Dashed rings show where they stood before; gold outlines mark " +
-    revealData.switched + " customers whose chosen stand changed from the stay-put picture. You predicted " +
-    predictionLabels[prediction] + ".";
+  ui.roundExplanation.textContent = "You predicted " + predictionLabels[prediction] + ". B and C each chose using yesterday's positions. " +
+    (revealData.switched === 0
+      ? "No customer changed stands from the stay-put picture."
+      : "Dark outlines mark " + revealData.switched + " customers whose chosen stand changed from the stay-put picture.") +
+    ([1, 2].some((index) => Math.abs(oldRivalPositions[index] - positions[index]) >= 1e-10)
+      ? " Dashed rings labeled ‘before’ mark the competitors' earlier positions."
+      : " Neither competitor changed position this time.");
   render();
   ui.reveal.focus();
 });

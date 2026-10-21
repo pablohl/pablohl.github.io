@@ -9,9 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=20261018-1">
+  <link rel="stylesheet" href="./styles.css?v=20261020-1">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs?v=20261018-1"></script>
+  <script type="module" src="./experiment.mjs?v=20261020-1"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -60,6 +60,10 @@
             <circle class="beach-shoreline" cx="320" cy="320" r="263"></circle>
             <circle class="beach-sand" cx="320" cy="320" r="229"></circle>
             <circle class="beach-inner" cx="320" cy="320" r="169"></circle>
+            <text class="beach-orientation" x="320" y="51" text-anchor="middle">top</text>
+            <text class="beach-orientation" x="585" y="324" text-anchor="middle">right</text>
+            <text class="beach-orientation" x="320" y="596" text-anchor="middle">bottom</text>
+            <text class="beach-orientation" x="56" y="324" text-anchor="middle">left</text>
             <path class="crowd-highlight" d="M 320 124 A 196 196 0 0 1 516 320" hidden></path>
             <text class="beach-center-label" x="320" y="307" text-anchor="middle">THE BEACH</text>
             <text class="beach-center-subtitle" data-beach-subtitle x="320" y="339" text-anchor="middle">100 customers · 3 stands</text>
@@ -67,6 +71,11 @@
             <g data-previous-markers></g>
             <g data-vendors></g>
           </svg>
+          <div class="beach-key" aria-label="Beach diagram key">
+            <span data-key-change hidden><i class="beach-key__change" aria-hidden="true"></i> outlined dot: changed choice</span>
+            <span data-key-tie hidden><i class="beach-key__tie" aria-hidden="true"></i> shared customer</span>
+            <span data-key-previous hidden><i class="beach-key__previous" aria-hidden="true"></i> dashed ring: earlier stand position</span>
+          </div>
           <p class="beach-hint" data-beach-hint>Drag A; the dot colors show where customers go.</p>
         </div>
 
@@ -81,18 +90,30 @@
             <span><span class="vendor-swatch vendor-swatch--b">B</span> <strong data-b-share>33</strong></span>
             <span><span class="vendor-swatch vendor-swatch--c">C</span> <strong data-c-share>34</strong></span>
           </div>
+          <p class="tie-note" data-tie-note hidden></p>
           <p class="results-rule">A customer chooses the nearest stand <em>along the shore</em>. Equally close stands split that customer.</p>
+
+          <div class="demand-control" data-demand-control hidden>
+            <p>Keep all three stands fixed. Compare where customers are:</p>
+            <div class="demand-options" role="group" aria-label="Customer distribution">
+              <button type="button" data-demand="uniform" aria-pressed="false">Evenly spread</button>
+              <button type="button" data-demand="crowded" aria-pressed="true">Crowded stretch</button>
+            </div>
+          </div>
 
           <div class="precision-control" data-a-control>
             <label for="vendor-a">Move A with a slider</label>
             <input id="vendor-a" type="range" min="0" max="359" value="22" aria-label="Your stand A position around the beach">
+            <div class="slider-orientation" aria-hidden="true"><span>top</span><span>right</span><span>bottom</span><span>left</span><span>top</span></div>
           </div>
           <div class="precision-control" data-b-control hidden>
             <label for="vendor-b">Move B with a slider</label>
             <input id="vendor-b" type="range" min="0" max="359" value="137" aria-label="Vendor B position around the beach">
+            <div class="slider-orientation" aria-hidden="true"><span>top</span><span>right</span><span>bottom</span><span>left</span><span>top</span></div>
           </div>
 
           <div class="round-planning" data-round-planning hidden>
+            <p class="rival-rule"><strong>How B and C choose:</strong> They each choose using yesterday’s positions. Neither sees today’s new choices.</p>
             <fieldset class="round-prediction">
               <legend>If B and C choose again, will A serve more, about the same, or fewer customers than the number above?</legend>
               <div class="round-prediction__choices">
@@ -109,15 +130,15 @@
             <h3>What actually happened?</h3>
             <div class="round-comparison">
               <div><span>If B and C stayed</span><strong data-expected-count>—</strong></div>
-              <div><span>After they moved</span><strong data-actual-count>—</strong></div>
+              <div><span>After B and C chose</span><strong data-actual-count>—</strong></div>
             </div>
             <p class="round-difference" data-difference></p>
             <p class="round-explanation" data-round-explanation></p>
             <div class="round-takeaway">
               <p class="round-takeaway__eyebrow">The broader idea</p>
               <h4>What carries beyond the beach?</h4>
-              <p>A choice can make sense given what you know and still lead to a different result. Other people are making choices too; the outcome alone does not tell you whether your decision was bad.</p>
-              <p>Here, every vendor wants more customers. Outside this model, even that goal may be uncertain. Before predicting someone’s next move, ask what they are trying to achieve.</p>
+              <p><strong>Here, you know their goal. You do not know their next move. Outside this model, you may be uncertain about both.</strong></p>
+              <p>A result can change because others chose differently, even when your own stand stayed put. Before predicting someone’s move, ask what they are trying to achieve.</p>
               <a href="/posts/which-game-are-we-playing/">Related writing: Which Game Are We Playing? →</a>
             </div>
           </div>
