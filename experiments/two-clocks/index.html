@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F6F2EA">
+  <meta name="description" content="An interactive experiment about learning while the opportunity to act changes.">
+  <title>Two Clocks — An Interactive Experiment</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
+  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+  <script type="module" src="./experiment.mjs"></script>
+  <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body id="page">
+  <header class="editorial-header">
+    <div class="editorial-header__inner section-inner">
+      <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+      <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+      <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+        <a href="/about/">About</a>
+        <a href="/posts/">Writing</a>
+        <a href="/experiments/">Experiments</a>
+        <a href="/about/#research">Research</a>
+        <a href="/toolbox/">Toolbox</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main section-inner clocks-page">
+    <a class="clocks-back" href="/experiments/">← All experiments</a>
+    <header class="clocks-intro">
+      <span class="eyebrow">An interactive experiment</span>
+      <h1>Two Clocks</h1>
+      <p>What happens to a decision while you are waiting to know more?</p>
+    </header>
+
+    <section class="decision-experiment" aria-labelledby="decision-title">
+      <div class="decision-head">
+        <p class="eyebrow">One project · two changing clocks</p>
+        <h2 id="decision-title">A promising project. A real deadline.</h2>
+        <p data-decision-brief>You have 12 weeks and $100,000. Building costs $60,000 and takes 8 weeks. The idea has a 50% estimated chance of being viable. Each test costs $5,000 and one week; its signal may be wrong. What would you do?</p>
+      </div>
+
+      <div class="clock-summary" aria-label="Current project state">
+        <div><span>Current week</span><strong data-current-week>0</strong></div>
+        <div><span>Viability estimate</span><strong data-current-belief>50%</strong></div>
+        <div><span>Unspent budget</span><strong data-current-budget>$100,000</strong></div>
+        <div class="allowance"><span>Tests before last build start</span><strong data-delay-left>4</strong></div>
+      </div>
+
+      <div class="timeline" aria-label="Evidence and opportunity timeline">
+        <div class="timeline-head"><h3>The same weeks, two clocks</h3><span data-window-heading>Build can start through week 4</span></div>
+        <div class="timeline-row-label">What you know <span>Test results change the estimate</span></div>
+        <div class="timeline-grid timeline-evidence" data-evidence-grid role="img"></div>
+        <div class="timeline-row-label">What you can still do <span>Building needs eight weeks</span></div>
+        <div class="timeline-grid timeline-opportunity" data-opportunity-grid role="img"></div>
+        <div class="timeline-grid timeline-build" data-build-grid role="img"></div>
+        <div class="timeline-legend"><span><i class="legend-current"></i> Now</span><span><i class="legend-last"></i> Last start</span><span><i class="legend-deadline"></i> Deadline</span><span><i class="legend-build"></i> Eight-week build</span></div>
+        <p class="timeline-meaning" data-timeline-meaning></p>
+      </div>
+
+      <div class="decision-controls">
+        <h3 data-action-heading>Choose an action</h3>
+        <div class="replay-actions">
+          <button type="button" data-action="build"><strong>Build</strong><span>Commit $60,000 and eight weeks.</span></button>
+          <button type="button" data-action="test"><strong>Test</strong><span data-test-copy>Spend $5,000 and one week.</span></button>
+          <button type="button" data-action="stop"><strong>Stop</strong><span>Keep the unspent budget.</span></button>
+        </div>
+        <p class="action-warning" data-action-warning hidden></p>
+        <div class="action-consequence" data-action-consequence hidden aria-live="polite">
+          <p class="eyebrow" data-consequence-label></p>
+          <p class="consequence-main" data-consequence-main></p>
+          <div class="consequence-delta" data-consequence-delta></div>
+          <p class="consequence-note" data-consequence-note></p>
+        </div>
+        <details class="expected-details" data-expected-details><summary>What does the model expect from here?</summary><p data-expected-values></p><p class="small-note">These compare additional value from this moment. Earlier test costs are sunk; a realized outcome is a different quantity.</p></details>
+      </div>
+
+      <div class="decision-after" data-decision-after hidden>
+        <div class="replay-reset"><button type="button" class="clocks-primary" data-replay-same>Replay this project</button><button type="button" class="text-action" data-replay-other>Try a different project</button></div>
+        <p class="small-note">Replay this project keeps its hidden viability, test draws, and execution draw. You can change your decisions without changing that underlying future.</p>
+        <p class="run-comparison" data-run-comparison hidden></p>
+        <button type="button" class="text-action" data-reveal-project hidden>Reveal the hidden project</button>
+        <p class="small-note" data-revealed-project hidden></p>
+        <div class="clocks-conclusion"><h3>Waiting moves the decision too.</h3><p>Evidence may change what you should do, but it cannot return spent time or budget. An unfavorable outcome does not, by itself, make the earlier choice unjustified.</p><p>The useful question is whether another test could change your action <em>while that action is still available</em>.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></div>
+      </div>
+    </section>
+
+    <details class="clocks-explore" data-optional-replay hidden>
+      <summary>Explore other futures and strategies</summary>
+      <p>These optional comparisons help separate a decision's expected value from one realized outcome.</p>
+      <section class="future-sampling" aria-labelledby="future-title"><h3 id="future-title">The same decision, different outcomes</h3><p>Build now from the starting conditions. Sample independent projects; the choice and 50% estimated chance of execution success stay the same.</p><div class="future-fan" aria-label="Possible results of the same build decision"><div class="future-decision">Build now <span>Commit $60,000</span></div><div class="future-branches"><div class="future-outcome future-outcome--gain"><strong>Successful build</strong><span>+$120,000 net</span><div class="future-marks" data-sample-gains aria-hidden="true"></div></div><div class="future-outcome future-outcome--loss"><strong>Failed build</strong><span>−$60,000 net</span><div class="future-marks" data-sample-losses aria-hidden="true"></div></div></div></div><div class="sample-actions"><button class="clocks-primary" type="button" data-sample-future>Sample a future →</button><button class="text-action" type="button" data-reset-samples>Reset futures</button></div><p class="sample-feedback" data-sample-feedback aria-live="polite"></p><p class="small-note">Each mark is a random result, not a verdict on the decision.</p></section>
+      <section class="batch-comparison" aria-labelledby="batch-title"><h3 id="batch-title">Compare strategies on matched projects</h3><p>Build now; test once and build after a positive signal; or choose the highest expected-value action after each result. Each strategy faces the same hidden projects and random draws.</p><button type="button" class="text-action" data-sample-batch>Sample 100 shared projects →</button><div data-batch-results hidden aria-live="polite"></div><p class="small-note">The adaptive policy is optimal only under this synthetic model's assumptions. A batch of 100 can favor another policy by chance.</p></section>
+      <details class="replay-controls"><summary>Adjust assumptions for the next replay</summary><div class="replay-settings"><fieldset><legend>How clear is each test?</legend><div class="setting-pair"><button type="button" data-reliability="0.8" aria-pressed="true">Clearer · 80%</button><button type="button" data-reliability="0.55" aria-pressed="false">Noisier · 55%</button></div></fieldset><fieldset><legend>Test cost</legend><div class="setting-pair"><button type="button" data-test-cost="5000" aria-pressed="true">$5,000</button><button type="button" data-test-cost="10000" aria-pressed="false">$10,000</button></div></fieldset><fieldset><legend>Deadline</legend><div class="setting-pair"><button type="button" data-deadline="12" aria-pressed="true">Week 12</button><button type="button" data-deadline="10" aria-pressed="false">Week 10</button></div></fieldset><fieldset><legend>Execution variability</legend><div class="setting-pair"><button type="button" data-execution="0.9" aria-pressed="true">Less · 90/10</button><button type="button" data-execution="0.7" aria-pressed="false">More · 70/30</button></div></fieldset></div><p class="small-note">Changing an assumption starts a fresh decision on this same hidden project. Comparisons across different assumptions are not like-for-like.</p></details>
+    </details>
+
+    <details class="clocks-method"><summary>How this illustrative model works</summary><p>There are 12 weeks and $100,000. Building costs $60,000, takes 8 weeks, and returns $180,000 if execution succeeds. A preliminary test costs $5,000 and one week. The starting chance that the underlying idea is viable is 50%.</p><p>A clearer test gives a supportive signal 80% of the time when the idea is viable, and 20% when it is not. Results update the viability estimate using Bayes’ rule; they do not change the hidden project. Execution succeeds 90% of the time for a viable idea and 10% otherwise. Optional settings change these assumptions for a replay.</p><p>The result of each test is randomly sampled from the hidden project. The same-project replay preserves that project and its draws. Expected values count future choices; realized net subtracts all incurred test and build costs. All amounts and probabilities are invented for this explanation, not forecasts or recommendations.</p></details>
+  </main>
+
+  <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+</body>
+</html>
