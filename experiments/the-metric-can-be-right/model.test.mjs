@@ -46,6 +46,8 @@ test('cost components and break-even agree with displayed totals', () => {
 });
 
 test('alert count, case time, analyst-hours and projected cost are consistent', () => {
+  assert.deepEqual(reviewWorkload(MODEL.A), { alerts: 160, minutesPerAlert: 10, hours: 160 * 10 / 60 });
+  assert.deepEqual(reviewWorkload(MODEL.B), { alerts: 260, minutesPerAlert: 2, hours: 260 * 2 / 60 });
   assert.deepEqual(reviewWorkload(MODEL.A, 100_000), { alerts: 1600, minutesPerAlert: 10, hours: 1600 * 10 / 60 });
   assert.deepEqual(reviewWorkload(MODEL.B, 100_000), { alerts: 2600, minutesPerAlert: 2, hours: 2600 * 2 / 60 });
   for (const model of Object.values(MODEL)) {

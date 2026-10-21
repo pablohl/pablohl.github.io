@@ -12,6 +12,7 @@ const samples = { A: sampleOutcomes('A'), B: sampleOutcomes('B') };
 const focusedIndices = samples.A.flatMap((outcome, index) =>
   outcome !== 'correct' || samples.B[index] !== 'correct' ? [index] : []);
 const colors = { correct: '#b9c0b8', missed: '#aa5742', declined: '#bf8b3f' };
+const costScale = Math.max(...Object.values(MODEL).map((model) => errorCost(model, 700)));
 const stageTitles = ['#opening-title', '#reveal-title', '#cost-title', '#review-title', '#decision-title'];
 let state = createJourney();
 
@@ -36,11 +37,11 @@ function renderCarry() {
   const costPreference = preferred(state.declineCost);
   const costSummary = costPreference === 'tie'
     ? `At ${money(state.declineCost)} per false decline, estimated model + error costs tie.`
-    : `At ${money(state.declineCost)} per false decline, ${costPreference} has the lower estimated model + error cost.`;
+    : `At ${money(state.declineCost)} per false decline, Model ${costPreference} has the lower estimated model + error cost.`;
   const summaries = [
     null,
     ['Same 10,000 transactions and model costs.', 'Now reveal the kinds of error.'],
-    [`A misses ${MODEL.A.missed} fraud cases; B misses ${MODEL.B.missed}. B falsely declines ${MODEL.B.falseDeclines}; A declines ${MODEL.A.falseDeclines}.`, 'Now give those errors consequences.'],
+    [`Model A misses ${MODEL.A.missed} fraud cases and falsely declines ${MODEL.A.falseDeclines} legitimate payments. Model B misses ${MODEL.B.missed} fraud cases and falsely declines ${MODEL.B.falseDeclines} legitimate payments.`, 'Now give those errors consequences.'],
     [costSummary, 'Now include the person reviewing alerts.'],
     ['One alert suggests different review effort; the workload figure is a projection, not a measurement.', 'Now choose what information is worth pursuing.'],
   ];
@@ -61,15 +62,30 @@ function drawMatrix(key) {
     const x = focus ? 34 + position * 53 : (position % 100) * 8 + 4;
     const y = focus ? 49 : Math.floor(position / 100) * 18 + 30;
     context.fillStyle = colors[outcome];
-    context.beginPath();
-    context.arc(x, y, focus ? 10 : outcome === 'correct' ? 2.25 : 3.1, 0, Math.PI * 2);
-    context.fill();
+    const size = focus ? 10 : 3.25;
+    if (outcome === 'missed') {
+      context.beginPath();
+      context.moveTo(x, y - size);
+      context.lineTo(x + size, y);
+      context.lineTo(x, y + size);
+      context.lineTo(x - size, y);
+      context.closePath();
+      context.fill();
+    } else if (outcome === 'declined') {
+      context.fillRect(x - size, y - size, size * 2, size * 2);
+    } else {
+      context.beginPath();
+      context.arc(x, y, focus ? 5 : 2.25, 0, Math.PI * 2);
+      context.fill();
+    }
   });
   const counts = countOutcomes(outcomes);
   const viewDescription = focus
     ? `${focusedIndices.length} transactions where at least one model erred; gray means this model was correct`
     : 'all 1,000 transactions at matching positions';
-  canvas.setAttribute('aria-label', `Model ${key}, ${viewDescription}: ${counts.missed} missed fraud, ${counts.declined} false declines, ${counts.correct} correct predictions in the sample.`);
+  canvas.setAttribute('aria-label', focus
+    ? `Model ${key}, ${viewDescription}: ${counts.missed} missed fraud, ${counts.declined} false declines in the sample.`
+    : `Model ${key}, ${viewDescription}: ${counts.correct} correct predictions in the sample. Use Look at the errors to compare the mistake types.`);
   $(`[data-sample-counts="${key}"]`).textContent = focus
     ? `${counts.missed} missed · ${counts.declined} false declines`
     : `${counts.correct} correct / 1,000`;
@@ -86,11 +102,16 @@ function renderMatrices() {
   drawMatrix('A');
   drawMatrix('B');
   $('[data-filter-note]').textContent = state.outcomeFilter === 'errors'
-    ? `The same ${focusedIndices.length} transactions appear in both views. Gray means that model got that case right; no outcomes were added.`
-    : 'The same transaction positions appear in both models. Colors show each model’s outcome.';
+    ? `These are the same ${focusedIndices.length} transaction positions in both views, selected because at least one model made an error. Gray means that model got the case right; no outcomes were added.`
+    : 'The same transaction positions appear in both models. Look at the errors to compare which mistakes each model makes.';
   const a = countOutcomes(samples.A);
   const b = countOutcomes(samples.B);
-  $('[data-error-counts]').textContent = `Full test: A misses ${a.missed * 10} fraud cases and falsely declines ${a.declined * 10}; B misses ${b.missed * 10} and falsely declines ${b.declined * 10}.`;
+  $('[data-error-counts]').hidden = state.outcomeFilter !== 'errors';
+  $('[data-error-counts]').textContent = `Across the full 10,000-transaction test, Model A misses ${a.missed * 10} fraud cases and falsely declines ${a.declined * 10} legitimate payments. Model B misses ${b.missed * 10} fraud cases and falsely declines ${b.declined * 10} legitimate payments.`;
+  const expectation = { similar: 'You expected similar errors.', different: 'You expected different errors.', unsure: 'You were unsure about the error mix.' }[state.prediction];
+  $('[data-prediction-feedback]').hidden = state.outcomeFilter !== 'errors';
+  $('[data-prediction-feedback]').textContent = `${expectation} The models make different kinds of mistakes: Model A misses more fraud; Model B falsely declines more valid payments.`;
+  $('[data-filter="errors"]').textContent = state.outcomeFilter === 'errors' ? 'Errors only' : 'Look at the errors →';
 }
 
 function costRow(key, scale) {
@@ -117,29 +138,29 @@ function renderCosts() {
   $$('[data-cost-zone]').forEach((zone) => {
     zone.dataset.active = String(zone.dataset.costZone === winner);
   });
-  $('[data-break-even-label]').textContent = `Break-even at ${money(threshold)} per false decline`;
+  $('[data-break-even-label]').textContent = `The models break even at ${money(threshold)} per false decline`;
   $('[data-cost-comparison]').innerHTML = `<p class="comparison-label">Estimated cost / 10,000 transactions</p>
-    ${costRow('A', Math.max(a, b))}${costRow('B', Math.max(a, b))}
-    <p class="comparison-result">${winner === 'tie' ? 'The estimates tie.' : `On these assumptions, ${winner} costs ${money(Math.abs(a - b))} less.`}</p>`;
+    <p class="comparison-result">${winner === 'tie' ? 'The estimates tie.' : `Model ${winner} costs ${money(Math.abs(a - b))} less <span>per 10,000 transactions, on these assumptions</span>`}</p>
+    ${costRow('A', costScale)}${costRow('B', costScale)}`;
 }
 
 function workloadRow(key, scale) {
-  const workload = reviewWorkload(MODEL[key], 100_000);
+  const workload = reviewWorkload(MODEL[key]);
   return `<div class="workload-row"><div class="workload-row__heading"><span>Model ${key}</span><strong>${number(workload.hours)} analyst-hours</strong></div>
     <div class="workload-track"><span style="width:${(workload.hours / scale * 100).toFixed(2)}%"></span></div>
     <span class="workload-row__formula">${number(workload.alerts)} alerts × ${workload.minutesPerAlert} min per alert ÷ 60</span></div>`;
 }
 
 function renderWorkload() {
-  const maxHours = Math.max(...Object.values(MODEL).map((model) => reviewWorkload(model, 100_000).hours));
-  const a = reviewWorkload(MODEL.A, 100_000);
-  const b = reviewWorkload(MODEL.B, 100_000);
+  const maxHours = Math.max(...Object.values(MODEL).map((model) => reviewWorkload(model).hours));
+  const a = reviewWorkload(MODEL.A);
+  const b = reviewWorkload(MODEL.B);
   const container = $('[data-workload-comparison]');
   container.innerHTML = workloadRow('A', maxHours) + workloadRow('B', maxHours);
-  container.setAttribute('aria-label', `Illustrative projection for 100,000 transactions: A has ${a.alerts} alerts at ${a.minutesPerAlert} minutes each, or ${number(a.hours)} analyst-hours; B has ${b.alerts} alerts at ${b.minutesPerAlert} minutes each, or ${number(b.hours)} analyst-hours.`);
+  container.setAttribute('aria-label', `Illustrative projection for 10,000 transactions: Model A has ${a.alerts} alerts at ${a.minutesPerAlert} minutes each, or ${number(a.hours)} analyst-hours; Model B has ${b.alerts} alerts at ${b.minutesPerAlert} minutes each, or ${number(b.hours)} analyst-hours.`);
   const projectedA = errorCost(MODEL.A, state.declineCost) + reviewProjection(MODEL.A);
   const projectedB = errorCost(MODEL.B, state.declineCost) + reviewProjection(MODEL.B);
-  $('[data-total-comparison]').innerHTML = `If those case times were typical at ${money(ANALYST_HOURLY_COST)} per analyst-hour, projected model + error + review cost per 10,000 transactions would be <strong>${money(projectedA)} for A</strong> and <strong>${money(projectedB)} for B</strong>. This is a sensitivity check, not a measured result.`;
+  $('[data-total-comparison]').innerHTML = `If those case times were typical at ${money(ANALYST_HOURLY_COST)} per analyst-hour, projected model + error + human review cost per 10,000 transactions would be <strong>${money(projectedA)} for Model A</strong> and <strong>${money(projectedB)} for Model B</strong>. This is a sensitivity check, not a measured result.`;
 }
 
 function renderDecision() {
@@ -147,11 +168,23 @@ function renderDecision() {
   const b = errorCost(MODEL.B, state.declineCost);
   const margin = Math.abs(a - b);
   const reviewDifference = Math.abs(reviewProjection(MODEL.A) - reviewProjection(MODEL.B));
-  const lead = preferred(state.declineCost) === 'tie'
+  const costLeader = preferred(state.declineCost);
+  const lead = costLeader === 'tie'
     ? 'The model + error estimates tie.'
-    : `${preferred(state.declineCost)} has a ${money(margin)} estimated lead before review.`;
-  $('[data-decision-summary]').innerHTML = `<span>Same 10,000-transaction test · ${money(state.declineCost)} per false decline</span><strong>${lead}</strong><span>The illustrative review-time difference is about ${money(reviewDifference)} per 10,000 transactions; it has not been measured across the workload.</span>`;
-  $('[data-initial-choice]').textContent = state.choice === 'unsure' ? 'to wait for more information' : `Model ${state.choice}`;
+    : `Model ${costLeader} costs ${money(margin)} less before review.`;
+  const initial = state.choice === 'unsure' ? 'Gather more evidence' : `Model ${state.choice}`;
+  const possibleChange = state.nextChoice === 'errors'
+    ? 'More error cases might change the estimated error mix.'
+    : state.nextChoice === 'review'
+      ? 'A workload study might replace the one-case review projection.'
+      : state.nextChoice === 'deploy'
+        ? 'You chose to act on the current evidence; revisit if plausible missing information could reverse the choice.'
+        : 'Unmeasured review time or different error rates could still matter.';
+  $('[data-decision-summary]').innerHTML = `<div><span>Initial choice</span><strong>${initial}</strong></div>
+    <div><span>What you learned</span><strong>Model A misses more fraud; Model B falsely declines more payments.</strong></div>
+    <div><span>Current preference on these cost assumptions</span><strong>${lead}</strong></div>
+    <div><span>What could change it</span><strong>${possibleChange}</strong></div>
+    <p>Same 10,000-transaction test · ${money(state.declineCost)} per false decline. A single review case suggests about ${money(reviewDifference)} difference per 10,000 transactions, but that workload effect has not been measured.</p>`;
   pressOne('[data-next-choice]', 'nextChoice', state.nextChoice);
   $('[data-decision-feedback]').hidden = !state.nextChoice;
   $('[data-open-counterfactual]').hidden = !state.nextChoice || state.counterfactualOpen;
@@ -186,13 +219,14 @@ function renderReviews() {
   $$('[data-review]').forEach((button) => {
     const inspected = state.reviews.includes(button.dataset.review);
     button.disabled = inspected;
-    button.textContent = inspected ? 'Case inspected' : 'Inspect this case';
+    button.textContent = inspected ? 'Review steps shown' : 'Reveal the review steps';
     $(`[data-review-result="${button.dataset.review}"]`).hidden = !inspected;
   });
   $('[data-review-projection]').hidden = state.reviews.length < 2;
 }
 
 function render() {
+  $('.metric-page').classList.toggle('is-compact', state.stage > 0);
   $$('[data-stage]').forEach((element) => { element.hidden = Number(element.dataset.stage) !== state.stage; });
   $$('[data-progress]').forEach((element, index) => {
     if (index === state.stage) element.setAttribute('aria-current', 'step');
