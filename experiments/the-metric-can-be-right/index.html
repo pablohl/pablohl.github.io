@@ -79,6 +79,7 @@
         </div>
         <div class="transaction-panel" data-transaction-panel hidden>
           <div class="transaction-heading"><h3>Same transactions, different mistakes</h3><div class="model-switch" role="group" aria-label="Model view"><button type="button" data-view="compare" aria-pressed="true">Compare both</button><button type="button" data-view="A" aria-pressed="false">Model A only</button><button type="button" data-view="B" aria-pressed="false">Model B only</button></div></div>
+          <p>A fraud model scores each transaction, and a decision rule determines whether to let it through or block it. A <strong>missed fraud</strong> is a fraudulent transfer that goes through; a <strong>false decline</strong> is a legitimate payment that gets blocked.</p>
           <p>The full test contains 10,000 transactions. To make individual outcomes visible, this diagram shows 1,000 of them: exactly one-tenth of the correct decisions, missed fraud cases, and false declines. Each dot is one transaction, and the same position represents that transaction for both models. The counts below the diagram return to the full 10,000.</p>
           <div class="outcome-filter" role="group" aria-label="Transaction display"><button type="button" data-filter="all" aria-pressed="true">All 1,000 transactions</button><button type="button" data-filter="errors" aria-pressed="false">Look at the errors →</button></div>
           <div class="transaction-matrices" data-matrices>
@@ -96,7 +97,7 @@
       <section class="metric-stage" data-stage="2" aria-labelledby="cost-title" hidden>
         <p class="eyebrow">Part 3 of 5 · Different consequences</p>
         <h2 id="cost-title" tabindex="-1">Should those errors count equally?</h2>
-        <p class="stage-lead">A fraud model scores a transaction, and a decision rule determines whether to let it through or stop it. In this simplified example, two kinds of wrong decisions matter:</p>
+        <p class="stage-lead">You have seen both kinds of mistake. Their consequences can be different:</p>
         <div class="consequence-pair">
           <div><span class="case-tag missed">Missed fraud</span><p>A fraudulent transfer goes through. The bank may lose money.</p></div>
           <div><span class="case-tag declined">False decline</span><p>A legitimate payment is blocked. The customer is inconvenienced, and the bank may lose business.</p></div>
