@@ -110,7 +110,7 @@ function renderMatrices() {
   $('[data-error-counts]').textContent = `Across the full 10,000-transaction test, Model A misses ${a.missed * 10} fraud cases and falsely declines ${a.declined * 10} legitimate payments. Model B misses ${b.missed * 10} fraud cases and falsely declines ${b.declined * 10} legitimate payments.`;
   const expectation = { similar: 'You expected similar errors.', different: 'You expected different errors.', unsure: 'You were unsure about the error mix.' }[state.prediction];
   $('[data-prediction-feedback]').hidden = state.outcomeFilter !== 'errors';
-  $('[data-prediction-feedback]').textContent = `${expectation} The models make different kinds of mistakes: Model A misses more fraud; Model B falsely declines more valid payments.`;
+  $('[data-prediction-feedback]').textContent = `${expectation} In this scenario, the models make different kinds of mistakes: Model A misses more fraud; Model B falsely declines more valid payments.`;
   $('[data-filter="errors"]').textContent = state.outcomeFilter === 'errors' ? 'Errors only' : 'Look at the errors →';
 }
 
@@ -167,11 +167,20 @@ function renderDecision() {
   const a = errorCost(MODEL.A, state.declineCost);
   const b = errorCost(MODEL.B, state.declineCost);
   const margin = Math.abs(a - b);
+  const fullA = a + reviewProjection(MODEL.A);
+  const fullB = b + reviewProjection(MODEL.B);
+  const fullMargin = Math.abs(fullA - fullB);
   const reviewDifference = Math.abs(reviewProjection(MODEL.A) - reviewProjection(MODEL.B));
   const costLeader = preferred(state.declineCost);
-  const lead = costLeader === 'tie'
-    ? 'The model + error estimates tie.'
-    : `Model ${costLeader} costs ${money(margin)} less before review.`;
+  const fullLeader = preferred(state.declineCost, true);
+  const lead = (leader, difference) => leader === 'tie'
+    ? 'The estimates tie'
+    : `Model ${leader} costs ${money(difference)} less`;
+  const boundaryChange = costLeader === fullLeader
+    ? costLeader === 'tie'
+      ? 'The comparison remains tied after review.'
+      : 'Including human review changes the size of the advantage, even though the lower-cost model stays the same.'
+    : 'Including human review changes which model has the lower projected cost.';
   const initial = state.choice === 'unsure' ? 'Gather more evidence' : `Model ${state.choice}`;
   const possibleChange = state.nextChoice === 'errors'
     ? 'More error cases might change the estimated error mix.'
@@ -182,9 +191,16 @@ function renderDecision() {
         : 'Unmeasured review time or different error rates could still matter.';
   $('[data-decision-summary]').innerHTML = `<div><span>Initial choice</span><strong>${initial}</strong></div>
     <div><span>What you learned</span><strong>Model A misses more fraud; Model B falsely declines more payments.</strong></div>
-    <div><span>Current preference on these cost assumptions</span><strong>${lead}</strong></div>
+    <section class="decision-costs" aria-label="How the cost comparison changes when human review is included">
+      <h3>How the comparison changes</h3>
+      <dl>
+        <div><dt>Model and error costs</dt><dd><strong>${lead(costLeader, margin)}</strong><small>A ${money(a)} · B ${money(b)}</small></dd></div>
+        <div><dt>Including illustrative human review</dt><dd><strong>${lead(fullLeader, fullMargin)}</strong><small>A ${money(fullA)} · B ${money(fullB)}</small></dd></div>
+      </dl>
+      <p>${boundaryChange}</p>
+    </section>
     <div><span>What could change it</span><strong>${possibleChange}</strong></div>
-    <p>Same 10,000-transaction test · ${money(state.declineCost)} per false decline. A single review case suggests about ${money(reviewDifference)} difference per 10,000 transactions, but that workload effect has not been measured.</p>`;
+    <p>Same 10,000-transaction test · ${money(state.declineCost)} per false decline. The review-cost comparison extrapolates from one illustrative case per model; it is not a measured workload.</p>`;
   pressOne('[data-next-choice]', 'nextChoice', state.nextChoice);
   $('[data-decision-feedback]').hidden = !state.nextChoice;
   $('[data-open-counterfactual]').hidden = !state.nextChoice || state.counterfactualOpen;

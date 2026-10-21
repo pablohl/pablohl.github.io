@@ -9,9 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20261021">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs"></script>
+  <script type="module" src="./experiment.mjs?v=20261021"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -54,8 +54,8 @@
         <h2 id="opening-title" tabindex="-1">Your bank needs a fraud-detection model.</h2>
         <p class="stage-lead">Two models were tested on the same 10,000 transactions. Which would you deploy?</p>
         <div class="opening-models">
-          <div class="model-card" data-model-card="A"><span class="model-name">Model A</span><strong>99.2%</strong><span>accuracy</span><p>$200 to run / 10k transactions</p></div>
-          <div class="model-card" data-model-card="B"><span class="model-name">Model B</span><strong>99.0%</strong><span>accuracy</span><p>$500 to run / 10k transactions</p></div>
+          <div class="model-card" data-model-card="A"><span class="model-name">Model A</span><strong>99.2%</strong><span>accuracy</span><p>$200 to process these 10,000 transactions</p></div>
+          <div class="model-card" data-model-card="B"><span class="model-name">Model B</span><strong>99.0%</strong><span>accuracy</span><p>$500 to process these 10,000 transactions</p></div>
         </div>
         <fieldset class="choice-field">
           <legend>What is your first decision?</legend>
@@ -65,7 +65,7 @@
             <button type="button" data-choice="unsure" aria-pressed="false">Gather more evidence</button>
           </div>
         </fieldset>
-        <p class="fine-print">Illustrative figures. Both metrics are calculated correctly under equal test conditions. The running cost excludes investigation and downstream losses.</p>
+        <p class="fine-print">These are invented figures for one test, not measured bank results. “To process” is only the cost of running each model on those transactions; it does not include investigating alerts or the consequences of mistakes.</p>
       </section>
 
       <section class="metric-stage" data-stage="1" aria-labelledby="reveal-title" hidden>
@@ -79,7 +79,7 @@
         </div>
         <div class="transaction-panel" data-transaction-panel hidden>
           <div class="transaction-heading"><h3>Same transactions, different mistakes</h3><div class="model-switch" role="group" aria-label="Model view"><button type="button" data-view="compare" aria-pressed="true">Compare both</button><button type="button" data-view="A" aria-pressed="false">Model A only</button><button type="button" data-view="B" aria-pressed="false">Model B only</button></div></div>
-          <p>Each dot is one transaction in a representative 1,000-transaction slice of the 10,000-transaction test. The sample has one-tenth of each outcome.</p>
+          <p>The full test contains 10,000 transactions. To make individual outcomes visible, this diagram shows 1,000 of them: exactly one-tenth of the correct decisions, missed fraud cases, and false declines. Each dot is one transaction, and the same position represents that transaction for both models. The counts below the diagram return to the full 10,000.</p>
           <div class="outcome-filter" role="group" aria-label="Transaction display"><button type="button" data-filter="all" aria-pressed="true">All 1,000 transactions</button><button type="button" data-filter="errors" aria-pressed="false">Look at the errors →</button></div>
           <div class="transaction-matrices" data-matrices>
             <div class="transaction-matrix" data-panel-model="A"><h4>Model A <span data-sample-counts="A"></span></h4><canvas data-transactions="A" width="800" height="225" role="img" aria-label="Model A outcomes for one thousand transactions"></canvas></div>
@@ -96,11 +96,12 @@
       <section class="metric-stage" data-stage="2" aria-labelledby="cost-title" hidden>
         <p class="eyebrow">Part 3 of 5 · Different consequences</p>
         <h2 id="cost-title" tabindex="-1">Should those errors count equally?</h2>
+        <p class="stage-lead">A fraud model scores a transaction, and a decision rule determines whether to let it through or stop it. In this simplified example, two kinds of wrong decisions matter:</p>
         <div class="consequence-pair">
           <div><span class="case-tag missed">Missed fraud</span><p>A fraudulent transfer goes through. The bank may lose money.</p></div>
           <div><span class="case-tag declined">False decline</span><p>A legitimate payment is blocked. The customer is inconvenienced, and the bank may lose business.</p></div>
         </div>
-        <p class="stage-lead">The error counts have not changed. Now give the errors consequences.</p>
+        <p class="stage-lead">The error counts have not changed. Now estimate what each kind of mistake could cost.</p>
         <div class="cost-layout">
           <div class="assumption-control"><label for="decline-cost">Estimated cost of one <span class="case-tag declined">false decline</span>: <strong data-decline-cost>$350</strong></label><div class="range-control"><input id="decline-cost" type="range" min="0" max="700" step="10" value="350"><div class="break-even-scale" aria-hidden="true"><span class="break-even-point" data-break-even-marker></span></div></div><div class="range-ends"><span>$0</span><span>$700</span></div><div class="break-even-zones" aria-label="Below break-even Model B has lower estimated cost; above break-even Model A has lower estimated cost"><span data-cost-zone="B">Model B lower cost</span><span data-cost-zone="A">Model A lower cost</span></div><p class="break-even-label" data-break-even-label></p><p>A missed fraud case remains fixed at an illustrative $600. Move the slider to see when the extra false declines change which model has the lower estimated cost.</p></div>
           <div class="comparison" data-cost-comparison aria-live="polite"></div>
@@ -111,17 +112,17 @@
       <section class="metric-stage" data-stage="3" aria-labelledby="review-title" hidden>
         <p class="eyebrow">Part 4 of 5 · Widen the system boundary</p>
         <h2 id="review-title" tabindex="-1">What happens when a person reviews an alert?</h2>
-        <p class="stage-lead">The model flags a $2,400 transfer as high risk, but a human analyst still has to decide what to do. Both configurations show the same alert. The difference is whether the information needed for that review is already available.</p>
+        <p class="stage-lead">Both models flag this $2,400 transfer as high risk. A human analyst then reviews the alert and decides what to do. Here we compare two hypothetical alert screens—not a built-in difference between the predictive models. One screen shows the alert alone; the other also shows the evidence the analyst needs.</p>
         <div class="review-cards">
-          <div class="review-card"><span class="model-name">Model A configuration</span><strong>High-risk alert</strong><p>The analyst sees the alert, but the supporting evidence is not shown. They must find it in other systems before deciding what to do.</p><button type="button" data-review="A">Reveal the review steps</button><div class="review-result" data-review-result="A" hidden><div class="review-path" aria-label="Alert, then a separate evidence lookup, then an analyst decision"><span>Alert</span><b aria-hidden="true">→</b><span class="review-path__detour">Separate lookup</span><b aria-hidden="true">→</b><span>Analyst decision</span></div><p>The analyst looks up the recipient, device, and account changes separately. <strong>Illustrative human review: 10 minutes.</strong></p></div></div>
-          <div class="review-card"><span class="model-name">Model B configuration</span><strong>High-risk alert</strong><p>The alert includes the new recipient, unusual device, and recent account changes, so the analyst can review that context in one place.</p><button type="button" data-review="B">Reveal the review steps</button><div class="review-result" data-review-result="B" hidden><div class="review-path" aria-label="Alert with evidence, then an analyst decision"><span class="review-path__inline">Alert + evidence</span><b aria-hidden="true">→</b><span>Analyst decision</span></div><p>The analyst checks the evidence supplied with the alert. <strong>Illustrative human review: 2 minutes.</strong></p></div></div>
+          <div class="review-card"><span class="model-name">With Model A · alert alone</span><strong>High-risk alert</strong><p>The analyst sees the alert, but the supporting evidence is not shown. They must find it in other systems before deciding what to do.</p><button type="button" data-review="A">Reveal the review steps</button><div class="review-result" data-review-result="A" hidden><div class="review-path" aria-label="Alert, then a separate evidence lookup, then an analyst decision"><span>Alert</span><b aria-hidden="true">→</b><span class="review-path__detour">Separate lookup</span><b aria-hidden="true">→</b><span>Analyst decision</span></div><p>The analyst looks up the recipient, device, and account changes separately. <strong>Illustrative human review: 10 minutes.</strong></p></div></div>
+          <div class="review-card"><span class="model-name">With Model B · alert plus evidence</span><strong>High-risk alert</strong><p>The alert includes the new recipient, unusual device, and recent account changes, so the analyst can review that context in one place.</p><button type="button" data-review="B">Reveal the review steps</button><div class="review-result" data-review-result="B" hidden><div class="review-path" aria-label="Alert with evidence, then an analyst decision"><span class="review-path__inline">Alert + evidence</span><b aria-hidden="true">→</b><span>Analyst decision</span></div><p>The analyst checks the evidence supplied with the alert. <strong>Illustrative human review: 2 minutes.</strong></p></div></div>
         </div>
         <div class="review-projection" data-review-projection hidden>
           <h3>Across the same 10,000 transactions</h3>
           <p>Model A raises 160 alerts; Model B raises 260. If the case times above were typical for each alert, what would that mean for the human review workload?</p>
           <div class="workload-comparison" data-workload-comparison role="img" aria-label="Projected analyst-hours for Model A and Model B"></div>
           <p data-total-comparison></p>
-          <p class="fine-print">This is a projection, not a measured operational result. Evidence access belongs to the surrounding product workflow, not necessarily the predictive model itself. The two configurations would need to be assessed as complete systems.</p>
+          <p class="fine-print">The 10- and 2-minute examples are not measured averages. If real alerts take different amounts of time, these totals change. Review speed also depends on what the product shows the analyst, so a deployment comparison needs to include the model <em>and</em> its review workflow.</p>
         </div>
         <p class="insight"><strong>What changed?</strong> The evaluation boundary grew from model output to human review. A single case suggests a possible difference; it does not establish an average workload.</p>
       </section>

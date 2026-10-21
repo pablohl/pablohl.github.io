@@ -134,10 +134,19 @@ body#page .metric-page.site-main { padding-top: 2.5rem; }
 .workload-row:last-child .workload-track span { background: #9f8161; }
 .workload-row__formula { display: block; color: var(--color-text-secondary); font-size: .79rem; }
 .decision-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.5rem; max-width: 1010px; border-top: 2px solid var(--color-accent); padding: 1rem 0; font-size: .93rem; }
-.decision-summary div { border-bottom: 1px solid var(--color-border); padding-bottom: .7rem; }
+.decision-summary > div { border-bottom: 1px solid var(--color-border); padding-bottom: .7rem; }
 .decision-summary span { display: block; margin-bottom: .2rem; color: var(--color-text-secondary); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
 .decision-summary strong { display: block; font-family: var(--font-serif); font-size: 1.16rem; font-weight: 600; line-height: 1.35; }
-.decision-summary p { grid-column: 1 / -1; margin: 0; color: var(--color-text-secondary); font-size: .81rem; }
+.decision-summary > p { grid-column: 1 / -1; margin: 0; color: var(--color-text-secondary); font-size: .81rem; }
+.decision-costs { grid-column: 1 / -1; margin: .3rem 0; padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: 5px; background: var(--color-surface); }
+.decision-costs h3 { margin: 0 0 .7rem; font-family: var(--font-serif); font-size: 1.35rem; font-weight: 500; }
+.decision-costs dl { margin: 0; }
+.decision-costs dl > div { display: grid; grid-template-columns: minmax(11rem, 1fr) minmax(0, 1.2fr); gap: .7rem; padding: .75rem 0; border-top: 1px solid var(--color-border); }
+.decision-costs dt { font-weight: 700; }
+.decision-costs dd { margin: 0; }
+.decision-costs dd strong { font-family: var(--font-sans); font-size: .95rem; }
+.decision-costs dd small { display: block; margin-top: .2rem; color: var(--color-text-secondary); font-size: .78rem; font-variant-numeric: tabular-nums; }
+.decision-costs p { margin: .55rem 0 0; color: var(--color-text-secondary); font-size: .86rem; line-height: 1.5; }
 .decision-feedback { max-width: 930px; margin: 1rem 0; border: 1px solid var(--color-border); border-radius: 5px; padding: 1rem 1.2rem; background: var(--color-surface); }
 .decision-feedback p { margin: .4rem 0 0; color: var(--color-text-secondary); line-height: 1.55; }
 .counterfactual-trigger { margin: .3rem 0 0; border: 0; padding: .5rem 0; background: transparent; color: var(--color-accent); font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .16em; }
@@ -167,6 +176,7 @@ body#page .metric-page.site-main { padding-top: 2.5rem; }
   .metric-stage[data-stage="0"] .choice-field { margin-top: 1.3rem; }
   .metric-story { min-height: 0; }
   .decision-summary { grid-template-columns: 1fr; }
+  .decision-costs dl > div { grid-template-columns: 1fr; gap: .3rem; }
 }
 @media (max-width: 480px) {
   .metric-progress { gap: .2rem; }

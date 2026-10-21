@@ -54,3 +54,17 @@ test('alert count, case time, analyst-hours and projected cost are consistent', 
     assert.equal(reviewProjection(model), reviewWorkload(model).hours * 40);
   }
 });
+
+test('review projection changes the final comparison at $600 per false decline', () => {
+  const aBefore = errorCost(MODEL.A, 600);
+  const bBefore = errorCost(MODEL.B, 600);
+  const aWithReview = aBefore + reviewProjection(MODEL.A);
+  const bWithReview = bBefore + reviewProjection(MODEL.B);
+
+  assert.equal(bBefore - aBefore, 12_300);
+  assert.equal(Math.round(aWithReview), 49_267);
+  assert.equal(Math.round(bWithReview), 60_847);
+  assert.equal(Math.round(bWithReview - aWithReview), 11_580);
+  assert.equal(preferred(600), 'A');
+  assert.equal(preferred(600, true), 'A');
+});
