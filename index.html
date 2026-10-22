@@ -57,7 +57,7 @@
 		@media (max-width: 700px) { .home-person, .toolbox-teaser { grid-template-columns: 1fr; align-items: start; } }
 		@media (max-width: 560px) { #home-nav { flex-wrap: wrap; gap: .75rem 1.25rem; } .essay-link { grid-template-columns: 1fr; } .essay-date { grid-row: 1; } .essay-summary { grid-column: 1; } }
 	</style>
-  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
+  <link rel="stylesheet" href="/css/editorial.css?v=20261021">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -90,12 +90,28 @@
 					<a href="https://twitter.com/pablohleal" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/pablo-hernandez-leal-ba3a2538/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="mailto:hleal.pablo@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
 				</div>
 			</section>
+			<section class="home-focus" aria-labelledby="home-focus-title">
+				<h2 id="home-focus-title">What I work on</h2>
+				<div class="home-focus-grid">
+					<div><h3>AI systems in regulated environments</h3><p>Building for accuracy, evidence, traceability, and human review.</p></div>
+					<div><h3>From research to production</h3><p>Turning experimental findings into engineering decisions under operational constraints.</p></div>
+					<div><h3>Technical decisions and teams</h3><p>Working across engineering, product, and domain expertise when requirements or evidence are incomplete.</p></div>
+				</div>
+			</section>
 			<section class="selected-writing" aria-labelledby="selected-writing-title">
 				<h2 id="selected-writing-title">Selected writing</h2>
-				<a class="essay-link" href="https://pablohl.github.io/posts/the-metric-can-be-right/"><span class="essay-title">The Metric Can Be Right and the Decision Can Still Be Wrong</span><span class="essay-date">Sep 2026</span><span class="essay-summary">Why a correct metric can still support the wrong decision when it measures only part of the system.</span></a>
-				<a class="essay-link" href="https://pablohl.github.io/posts/problems-at-the-boundary/"><span class="essay-title">Problems at the Boundary</span><span class="essay-date">Sep 2026</span><span class="essay-summary">Why capable specialists can miss problems that exist between their domains.</span></a>
-				<a class="essay-link" href="https://pablohl.github.io/posts/pommermanlessons/"><span class="essay-title">From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</span><span class="essay-date">Jun 2024</span><span class="essay-summary">Lessons about deadlines, constraints, trade-offs, and ownership from an AI competition.</span></a>
-				<a class="view-all" href="https://pablohl.github.io/posts/">View all writing →</a>
+				<a class="essay-link" href="/posts/kirk-spock/"><span class="essay-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span><span class="essay-date">Sep 2026</span><span class="essay-summary">When should a decision preserve options, and when is it time to commit?</span></a>
+				<a class="essay-link" href="/posts/the-executive-summary-is-not-a-summary/"><span class="essay-title">The Executive Summary Is Not a Summary</span><span class="essay-date">Oct 2026</span><span class="essay-summary">An abstract says what the work found. An executive summary explains what it means for the decision.</span></a>
+				<a class="essay-link" href="/posts/the-metric-can-be-right/"><span class="essay-title">The Metric Can Be Right and the Decision Can Still Be Wrong</span><span class="essay-date">Sep 2026</span><span class="essay-summary">Why a correct metric can still support the wrong decision when it measures only part of the system.</span></a>
+				<a class="view-all" href="/posts/">View all writing →</a>
+			</section>
+			<section class="home-experiments" aria-labelledby="home-experiments-title">
+				<div class="home-section-heading"><h2 id="home-experiments-title">Interactive experiments</h2><a href="/experiments/">View all experiments →</a></div>
+				<p class="home-section-intro">Small models you can change to see how a decision unfolds.</p>
+				<div class="home-experiment-grid">
+					<a href="/experiments/two-clocks/"><span class="experiment-kicker">Build · test · stop</span><h3>Two Clocks</h3><p>See how learning can improve a decision while the opportunity to act narrows.</p><span class="experiment-arrow" aria-hidden="true">Explore experiment →</span></a>
+					<a href="/experiments/the-metric-can-be-right/"><span class="experiment-kicker">Model · errors · review</span><h3>The Metric Can Be Right</h3><p>Choose a fraud-detection model, then reveal what its accuracy score leaves out.</p><span class="experiment-arrow" aria-hidden="true">Explore experiment →</span></a>
+				</div>
 			</section>
 			<section class="toolbox-teaser" aria-labelledby="toolbox-teaser-title">
 				<div>
