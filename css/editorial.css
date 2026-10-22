@@ -129,6 +129,11 @@ body#page #spotlight #home-center { width: min(100% - 40px, 1040px); padding: va
 body#page #home-social { display: flex; gap: .8rem; margin: .3rem 0 0; font-size: 1.1rem; opacity: 1; }
 #home-social a { color: var(--color-accent); margin: 0; }
 #home-social a:hover { color: var(--color-accent-hover); }
+.home-focus { margin-bottom: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+.home-focus h2, .home-experiments h2 { margin: 0 0 var(--space-4); color: var(--color-text-secondary); font-family: var(--font-sans); font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.home-focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.home-focus-grid h3 { margin: 0 0 .4rem; font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+.home-focus-grid p { margin: 0; color: var(--color-text-secondary); font-size: .9375rem; line-height: 1.6; }
 .selected-writing { padding-top: var(--space-5); }
 .selected-writing h2 { margin-bottom: var(--space-3); color: var(--color-text-secondary); font-family: var(--font-sans); font-size: .8125rem; font-weight: 600; letter-spacing: .08em; }
 .essay-link { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); text-decoration: none; }
@@ -137,6 +142,19 @@ body#page #home-social { display: flex; gap: .8rem; margin: .3rem 0 0; font-size
 .essay-summary { grid-row: 2; margin-top: .3rem; color: var(--color-text-secondary); font-size: 1rem; line-height: 1.6; }
 .essay-date { grid-row: 3; margin-top: .4rem; color: var(--color-text-secondary); font-size: .8125rem; }
 .view-all { margin-top: var(--space-4); font-size: .9375rem; font-weight: 600; }
+.home-experiments { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+.home-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem var(--space-4); }
+.home-experiments h2 { margin-bottom: var(--space-2); }
+.home-section-heading a { font-size: .875rem; font-weight: 600; }
+.home-section-intro { margin: 0 0 var(--space-4); color: var(--color-text-secondary); font-size: .9375rem; }
+.home-experiment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.home-experiment-grid > a { display: flex; flex-direction: column; min-width: 0; padding: var(--space-4); border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-surface); color: var(--color-text); text-decoration: none; }
+.home-experiment-grid > a:hover { border-color: var(--color-accent); }
+.home-experiment-grid > a:hover h3 { color: var(--color-accent); text-decoration: underline; text-underline-offset: .15em; }
+.home-experiment-grid .experiment-kicker { color: var(--color-accent); font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.home-experiment-grid h3 { margin: .45rem 0 .4rem; font-size: 1.5rem; line-height: 1.25; }
+.home-experiment-grid p { margin: 0 0 var(--space-4); color: var(--color-text-secondary); font-size: .9375rem; line-height: 1.6; }
+.home-experiment-grid .experiment-arrow { margin-top: auto; color: var(--color-accent); font-size: .875rem; font-weight: 600; }
 .toolbox-teaser { margin-top: var(--space-6); padding: var(--space-5); border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-surface); }
 .toolbox-teaser .tool-eyebrow { color: var(--color-text-secondary); }
 .toolbox-teaser h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
@@ -280,11 +298,13 @@ hr.post-end { border-color: var(--color-border); opacity: 1; }
   .editorial-header__nav a { padding: .6rem 0; border-bottom: 1px solid var(--color-border); }
   .editorial-header__nav a[aria-current="page"] { border-bottom: 2px solid var(--color-accent); }
   .home-person { grid-template-columns: 1fr; margin-bottom: var(--space-5); gap: .6rem; }
+  .home-focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .toolbox-teaser { grid-template-columns: 1fr; gap: var(--space-3); }
   .about-intro { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
+  .home-focus-grid, .home-experiment-grid { grid-template-columns: 1fr; }
   .posts-group .post-item.post-card.has-thumbnail > a { padding-right: 0; }
   .post-thumbnail { display: none; }
 }
