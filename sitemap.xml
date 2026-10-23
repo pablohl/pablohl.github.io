@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pablohl.github.io/posts/the-friction-ai-removes/</loc>
+    <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://pablohl.github.io/posts/which-game-are-we-playing/</loc>
     <lastmod>2026-10-16T00:00:00+00:00</lastmod>
   </url>
@@ -148,7 +152,7 @@
     <loc>https://pablohl.github.io/tags/index/</loc>
   </url>
   <!-- toolbox:start -->
-  <url><loc>https://pablohl.github.io/toolbox/</loc><lastmod>2026-10-16T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/toolbox/</loc><lastmod>2026-10-22T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/shape-of-the-evidence/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/what-did-the-metric-throw-away/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/look-at-the-boundary/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
@@ -169,6 +173,7 @@
   <url><loc>https://pablohl.github.io/toolbox/productive-struggle/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/raise-the-resolution-of-feedback/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/connect-work-to-consequences/</loc><lastmod>2026-10-15T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/toolbox/surface-the-hidden-decisions/</loc><lastmod>2026-10-22T00:00:00+00:00</lastmod></url>
   <!-- toolbox:end -->
   <!-- experiments:start -->
   <url><loc>https://pablohl.github.io/experiments/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>

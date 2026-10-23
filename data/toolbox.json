@@ -17,7 +17,8 @@
       "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05.",
       "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08.",
       "The Executive Summary Is Not a Summary was added as a supporting post for Decision-Complete on 2026-10-09.",
-      "Connect Work to Consequences was added as a published tool alongside What Counts as Good Work? on 2026-10-15."
+      "Connect Work to Consequences was added as a published tool alongside What Counts as Good Work? on 2026-10-15.",
+      "Surface the Hidden Decisions was added as a published tool alongside The Friction AI Removes on 2026-10-22."
     ]
   },
   "problems": [
@@ -197,9 +198,29 @@
       "id": "writing",
       "name": "Writing",
       "type": "work"
+    },
+    {
+      "id": "ai-assisted-writing",
+      "name": "AI-assisted writing",
+      "type": "work"
     }
   ],
   "posts": [
+    {
+      "id": "the-friction-ai-removes",
+      "title": "The Friction AI Removes",
+      "subtitle": null,
+      "date": "2026-10-22",
+      "url": "https://pablohl.github.io/posts/the-friction-ai-removes/",
+      "summary": "AI can make a document look complete without revealing the decisions and assumptions hidden in its details.",
+      "topics": [
+        "ai",
+        "collaboration"
+      ],
+      "tools": [
+        "surface-the-hidden-decisions"
+      ]
+    },
     {
       "id": "which-game-are-we-playing",
       "title": "Which Game Are We Playing?",
@@ -1310,6 +1331,49 @@
         {
           "id": "raise-the-resolution-of-feedback",
           "relationship": "complements"
+        }
+      ],
+      "lineage": null,
+      "status": "published",
+      "featured": false,
+      "random_enabled": true
+    },
+    {
+      "id": "surface-the-hidden-decisions",
+      "name": "Surface the Hidden Decisions",
+      "question": "Which decisions does this document appear to settle that we haven’t actually made?",
+      "situation": "A detailed document is about to be handed to someone who may treat its contents as agreed requirements.",
+      "observation": "A complete-looking document can turn assumptions and suggested approaches into apparent commitments. Distinguishing agreed requirements, proposals, and unresolved questions helps the recipient understand what they should implement and what still needs discussion.",
+      "problems": [
+        "communication",
+        "decisions",
+        "people"
+      ],
+      "sources": [
+        "product-work",
+        "ai-assisted-writing"
+      ],
+      "use_when": [
+        "Reviewing specifications",
+        "Preparing handoffs",
+        "Sharing AI-assisted proposals",
+        "Estimating work",
+        "Turning an idea into requirements"
+      ],
+      "watch_for": "Not every detail requires a separate approval. Focus on assumptions that materially affect scope, cost, feasibility, or outcomes. AI can help identify them, but its review cannot establish that the relevant people agree.",
+      "example": null,
+      "posts": {
+        "primary": "the-friction-ai-removes",
+        "supporting": []
+      },
+      "related_tools": [
+        {
+          "id": "look-at-the-boundary",
+          "relationship": "complements"
+        },
+        {
+          "id": "raise-the-resolution-of-feedback",
+          "relationship": "contrasts"
         }
       ],
       "lineage": null,

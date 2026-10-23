@@ -138,5 +138,12 @@ window.toolboxLenses = [
     "question": "What feedback would help me understand what happened because of my work?",
     "source": "Research, Product work, Startups, Mentoring",
     "url": "/toolbox/connect-work-to-consequences/"
+  },
+  {
+    "id": "surface-the-hidden-decisions",
+    "name": "Surface the Hidden Decisions",
+    "question": "Which decisions does this document appear to settle that we haven’t actually made?",
+    "source": "Product work, AI-assisted writing",
+    "url": "/toolbox/surface-the-hidden-decisions/"
   }
 ];
