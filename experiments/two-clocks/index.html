@@ -9,9 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=two-offers-1">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs"></script>
+  <script type="module" src="./experiment.mjs?v=two-offers-1"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -31,76 +31,62 @@
   </header>
 
   <main class="site-main section-inner clocks-page">
-    <a class="clocks-back" href="/experiments/">← All experiments</a>
-    <header class="clocks-intro">
-      <span class="eyebrow">An interactive experiment</span>
-      <h1>Two Clocks</h1>
-      <p>What happens to a decision while you are waiting to know more?</p>
-    </header>
+    <a class="back" href="/experiments/">← All experiments</a>
+    <header class="intro"><h1>Two Clocks</h1><p>As the picture clears, the opening to act can close.</p></header>
+    <p class="setup">You receive an offer from a small company to lead a new product. The work sounds exciting, but you’ve had a job that swallowed your evenings before. This time, you want room to grow, someone to learn from, and a life outside work. Before you say yes, you’d like to know the people you’d be joining.</p>
+    <section class="stage" aria-labelledby="stage-title"><div><p id="stage-label" class="eyebrow"></p><h2 id="stage-title" tabindex="-1"></h2><p id="stage-copy"></p></div><button id="previous" class="reset">Previous scenario</button></section>
+    <p id="story-note" class="comparison-hint"></p>
+    <div class="visuals">
+      <section class="visual knowledge" aria-labelledby="knowledge-title"><p class="eyebrow">What you know</p><h2 id="knowledge-title">The picture clears</h2>
+        <svg id="knowledge-svg" viewBox="0 0 360 350" role="img" aria-labelledby="knowledge-desc">
+          <title id="knowledge-desc">The role, support, and working hours are not yet clear.</title>
+          <defs><clipPath id="scene-clip"><circle cx="180" cy="175" r="132"/></clipPath><filter id="scene-blur"><feGaussianBlur id="blur" stdDeviation="10"/></filter><radialGradient id="sky"><stop stop-color="#e5eff0"/><stop offset="1" stop-color="#b5ced0"/></radialGradient><radialGradient id="mist"><stop stop-color="#f6f2ea"/><stop offset="1" stop-color="#e3e9e7"/></radialGradient></defs>
+          <circle cx="180" cy="175" r="140" fill="none" stroke="#c4d1ce" stroke-width="2"/>
+          <g clip-path="url(#scene-clip)"><circle cx="180" cy="175" r="132" fill="url(#sky)"/><path d="M35 213 Q180 175 325 213 L325 320 H35Z" fill="#c7d7d3"/><g filter="url(#scene-blur)" aria-hidden="true"><path d="M105 83 H235 L255 104 V274 H105Z" fill="#f8faf4" stroke="#62838a" stroke-width="2"/><path d="M235 83 V104 H255" fill="none" stroke="#62838a" stroke-width="2"/></g><circle id="fog" cx="180" cy="175" r="132" fill="url(#mist)" opacity=".96"/><g id="mist-lines" fill="none" stroke="#fffdf7" stroke-width="15" opacity=".5"><path d="M60 130 Q180 100 300 137"/><path d="M50 185 Q180 155 310 191"/><path d="M60 235 Q180 205 300 243"/></g></g>
+          <g class="role-facts" aria-hidden="true">
+            <text x="180" y="117" class="fact-label">OWNERSHIP</text><text id="fact-0" x="180" y="139">Still unknown</text>
+            <text x="180" y="173" class="fact-label">SUPPORT</text><text id="fact-1" x="180" y="195">Still unknown</text>
+            <text x="180" y="229" class="fact-label">HOURS</text><text id="fact-2" x="180" y="251">Still unknown</text>
+          </g>
+          <circle cx="180" cy="175" r="132" fill="none" stroke="#62838a" stroke-width="2"/>
+        </svg>
+        <p id="clarity-caption" class="visual-caption"></p><p id="clarity-sub" class="visual-sub"></p>
+      </section>
+      <section class="visual opportunity" aria-labelledby="opportunity-title"><p class="eyebrow">What you can still do</p><h2 id="opportunity-title">The opening narrows</h2>
+        <svg id="opportunity-svg" viewBox="0 0 360 350" role="img" aria-labelledby="opportunity-desc">
+          <title id="opportunity-desc">A smaller role with support and the original role are available.</title>
+          <defs><mask id="opening-mask"><rect width="360" height="350" fill="white"/><circle id="aperture-cutout" cx="180" cy="175" r="132" fill="black"/></mask><radialGradient id="stone"><stop stop-color="#9b8165"/><stop offset="1" stop-color="#c4b49f"/></radialGradient></defs>
+          <circle cx="180" cy="175" r="140" fill="#faf6e9"/>
+          <circle cx="180" cy="175" r="140" fill="url(#stone)" mask="url(#opening-mask)"/>
+          <circle cx="180" cy="175" r="140" fill="none" stroke="#b5a48c" stroke-width="2"/>
+          <circle id="opening-edge" cx="180" cy="175" r="132" fill="none" stroke="#765c40" stroke-width="2"/>
+          <circle id="initial-opening" cx="180" cy="175" r="132" fill="none" stroke="#6a5847" stroke-dasharray="3 6" opacity="0"/>
+          <g id="format-shape" class="format" transform="translate(180 130)" aria-hidden="true"><g class="silhouette"><path d="M-20 -26 H20 V0 H-20Z M-12 -18 H12 M-12 -10 H4 M6 -4 L18 -16 L22 -12 L10 0 H6Z"/></g><text y="19" text-anchor="middle">Smaller role</text></g>
 
-    <section class="decision-experiment" aria-labelledby="decision-title">
-      <div class="decision-head">
-        <p class="eyebrow">One project · two changing clocks</p>
-        <h2 id="decision-title">A promising project. A real deadline.</h2>
-        <p data-decision-brief>You have 12 weeks and $100,000. Building costs $60,000 and takes 8 weeks. The idea has a 50% estimated chance of being viable. Each test costs $5,000 and one week; its signal may be wrong. What would you do?</p>
-      </div>
-
-      <div class="clock-summary" aria-label="Current project state">
-        <div><span>Current week</span><strong data-current-week>0</strong></div>
-        <div><span>Viability estimate</span><strong data-current-belief>50%</strong></div>
-        <div><span>Unspent budget</span><strong data-current-budget>$100,000</strong></div>
-        <div class="allowance"><span>Tests before last build start</span><strong data-delay-left>4</strong></div>
-      </div>
-
-      <div class="timeline" aria-label="Evidence and opportunity timeline">
-        <div class="timeline-head"><h3>The same weeks, two clocks</h3><span data-window-heading>Build can start through week 4</span></div>
-        <div class="timeline-row-label">What you know <span>Test results change the estimate</span></div>
-        <div class="timeline-grid timeline-evidence" data-evidence-grid role="img"></div>
-        <div class="timeline-row-label">What you can still do <span>Building needs eight weeks</span></div>
-        <div class="timeline-grid timeline-opportunity" data-opportunity-grid role="img"></div>
-        <div class="timeline-grid timeline-build" data-build-grid role="img"></div>
-        <div class="timeline-legend"><span><i class="legend-current"></i> Now</span><span><i class="legend-last"></i> Last start</span><span><i class="legend-deadline"></i> Deadline</span><span><i class="legend-build"></i> Eight-week build</span></div>
-        <p class="timeline-meaning" data-timeline-meaning></p>
-      </div>
-
-      <div class="decision-controls">
-        <h3 data-action-heading>Choose an action</h3>
-        <div class="replay-actions">
-          <button type="button" data-action="build"><strong>Build</strong><span>Commit $60,000 and eight weeks.</span></button>
-          <button type="button" data-action="test"><strong>Test</strong><span data-test-copy>Spend $5,000 and one week.</span></button>
-          <button type="button" data-action="stop"><strong>Stop</strong><span>Keep the unspent budget.</span></button>
-        </div>
-        <p class="action-warning" data-action-warning hidden></p>
-        <div class="action-consequence" data-action-consequence hidden aria-live="polite">
-          <p class="eyebrow" data-consequence-label></p>
-          <p class="consequence-main" data-consequence-main></p>
-          <div class="consequence-delta" data-consequence-delta></div>
-          <p class="consequence-note" data-consequence-note></p>
-        </div>
-        <details class="expected-details" data-expected-details><summary>What does the model expect from here?</summary><p data-expected-values></p><p class="small-note">These compare additional value from this moment. Earlier test costs are sunk; a realized outcome is a different quantity.</p></details>
-      </div>
-
-      <div class="decision-after" data-decision-after hidden>
-        <div class="replay-reset"><button type="button" class="clocks-primary" data-replay-same>Replay this project</button><button type="button" class="text-action" data-replay-other>Try a different project</button></div>
-        <p class="small-note">Replay this project keeps its hidden viability, test draws, and execution draw. You can change your decisions without changing that underlying future.</p>
-        <p class="run-comparison" data-run-comparison hidden></p>
-        <button type="button" class="text-action" data-reveal-project hidden>Reveal the hidden project</button>
-        <p class="small-note" data-revealed-project hidden></p>
-        <div class="clocks-conclusion"><h3>Waiting moves the decision too.</h3><p>Evidence may change what you should do, but it cannot return spent time or budget. An unfavorable outcome does not, by itself, make the earlier choice unjustified.</p><p>The useful question is whether another test could change your action <em>while that action is still available</em>.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></div>
-      </div>
-    </section>
-
-    <details class="clocks-explore" data-optional-replay hidden>
-      <summary>Explore other futures and strategies</summary>
-      <p>These optional comparisons help separate a decision's expected value from one realized outcome.</p>
-      <section class="future-sampling" aria-labelledby="future-title"><h3 id="future-title">The same decision, different outcomes</h3><p>Build now from the starting conditions. Sample independent projects; the choice and 50% estimated chance of execution success stay the same.</p><div class="future-fan" aria-label="Possible results of the same build decision"><div class="future-decision">Build now <span>Commit $60,000</span></div><div class="future-branches"><div class="future-outcome future-outcome--gain"><strong>Successful build</strong><span>+$120,000 net</span><div class="future-marks" data-sample-gains aria-hidden="true"></div></div><div class="future-outcome future-outcome--loss"><strong>Failed build</strong><span>−$60,000 net</span><div class="future-marks" data-sample-losses aria-hidden="true"></div></div></div></div><div class="sample-actions"><button class="clocks-primary" type="button" data-sample-future>Sample a future →</button><button class="text-action" type="button" data-reset-samples>Reset futures</button></div><p class="sample-feedback" data-sample-feedback aria-live="polite"></p><p class="small-note">Each mark is a random result, not a verdict on the decision.</p></section>
-      <section class="batch-comparison" aria-labelledby="batch-title"><h3 id="batch-title">Compare strategies on matched projects</h3><p>Build now; test once and build after a positive signal; or choose the highest expected-value action after each result. Each strategy faces the same hidden projects and random draws.</p><button type="button" class="text-action" data-sample-batch>Sample 100 shared projects →</button><div data-batch-results hidden aria-live="polite"></div><p class="small-note">The adaptive policy is optimal only under this synthetic model's assumptions. A batch of 100 can favor another policy by chance.</p></section>
-      <details class="replay-controls"><summary>Adjust assumptions for the next replay</summary><div class="replay-settings"><fieldset><legend>How clear is each test?</legend><div class="setting-pair"><button type="button" data-reliability="0.8" aria-pressed="true">Clearer · 80%</button><button type="button" data-reliability="0.55" aria-pressed="false">Noisier · 55%</button></div></fieldset><fieldset><legend>Test cost</legend><div class="setting-pair"><button type="button" data-test-cost="5000" aria-pressed="true">$5,000</button><button type="button" data-test-cost="10000" aria-pressed="false">$10,000</button></div></fieldset><fieldset><legend>Deadline</legend><div class="setting-pair"><button type="button" data-deadline="12" aria-pressed="true">Week 12</button><button type="button" data-deadline="10" aria-pressed="false">Week 10</button></div></fieldset><fieldset><legend>Execution variability</legend><div class="setting-pair"><button type="button" data-execution="0.9" aria-pressed="true">Less · 90/10</button><button type="button" data-execution="0.7" aria-pressed="false">More · 70/30</button></div></fieldset></div><p class="small-note">Changing an assumption starts a fresh decision on this same hidden project. Comparisons across different assumptions are not like-for-like.</p></details>
+          <g id="format-join" class="format" transform="translate(180 213)" aria-hidden="true"><g class="silhouette"><path d="M-9 0 V-30 H14 V0 M-21 -13 H5 M-1 -19 L5 -13 L-1 -7"/></g><text y="19" text-anchor="middle">Original role</text></g>
+        </svg>
+        <p id="option-caption" class="visual-caption"></p><p id="option-sub" class="visual-sub"></p>
+      </section>
+    </div>
+    <div class="controls"><span id="time-label"></span><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
+    <p id="change" class="consequence" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p id="updates" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    <section class="inquiries" hidden aria-labelledby="inquiry-title"><p class="action-kind">Get to know the team</p><h2 id="inquiry-title">What would you like to ask?</h2><div id="conversations"></div></section>
+    <section class="choices" hidden aria-labelledby="choices-title"><p class="action-kind">Give them your answer</p><h2 id="choices-title">Would you take the job?</h2><p class="choice-intro">Choose the job you would take, or decline both offers.</p><div id="decisions"></div><button id="decline" class="reset">Decline the offer</button></section>
+    <p id="decision-note" class="comparison-hint"></p>
+    <section id="ending" hidden tabindex="-1" aria-labelledby="result-title"><h2 id="result-title"></h2><p id="result-copy"></p><p id="result-comparison" class="small"></p><div class="ending-actions"><button id="next" class="primary"></button><button id="alternate">Try evidence that points the other way</button></div><p class="small">Next scenario keeps this story. The other evidence story restarts this scenario.</p></section>
+    <section id="replay-panel" hidden aria-label="Untimed replay"><label id="scrub-label" for="scrub"></label><input id="scrub" type="range" min="0" max="60" step="0.1" value="0"><p id="replay-events"></p></section>
+    <div class="closing"><p>More clarity can mean “no.” Waiting still changes which choices remain.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></div>
+    <details class="methods"><summary>How the illustration works</summary>
+      <p>This is a curated illustration, with a maximum of 60 seconds per run. It is not a forecast of real hiring. Press Start to begin. Conversations and decisions appear once the experience starts. Pause whenever you need to read. Leaving the tab pauses it too. Conversations take 6 seconds in the first and third scenarios, and 14 in the second. Only one conversation can be underway at a time.</p>
+      <p>The manager describes mentoring; the teammate describes working hours. Both stories offer broad ownership. One has regular mentoring and predictable hours; the other has neither. The underlying facts stay fixed across the three scenarios. Answers arrive only if you ask and wait for them. You can accept or decline while an answer is pending. A conversation selected while paused waits until you resume.</p>
+      <p>The mentored role includes a written agreement for a named mentor and protected hours, in exchange for a narrower role with less ownership. This simplified model assumes those terms are honored. The original role means leading the full product with the company’s existing mentoring arrangements and working hours. When the team finalizes staffing, the smaller role with support disappears; only the original role remains. Each acceptance button commits to its stated terms; nothing is substituted automatically.</p>
+      <p>In the first scenario, the smaller role with support expires at 32 seconds and the original offer at 75. In the other scenarios those deadlines are 10 and 30 seconds. At a deadline that option is unavailable. The run stops when you decide, when the offer expires, or at 60 seconds. In the slow-closing scenario an offer remains after the minute, and you can still decide.</p>
+      <p>The clearing haze represents progress toward answers, not certainty or better news. Labels and quotations show what you actually know. The opening is a metaphor for remaining options, not their value or probability of success. Outlines preserve lost options; the dotted circle marks the original opening. Reduced-motion mode uses discrete changes instead of continuous movement.</p>
+      <p>Replay is limited to the time you experienced. It shows only answers received by the selected moment, never future answers or answers to questions you did not ask. It preserves your recorded decision; return to the run to resume from where you left off. Start again resets the same story and scenario. Next scenario resets time and conversations but preserves the story. The alternate-story button changes the evidence and restarts the current scenario.</p>
+      <p>No score is assigned. Your record preserves the terms and evidence available when you decided. A later outcome alone cannot establish whether an earlier decision was justified.</p>
     </details>
-
-    <details class="clocks-method"><summary>How this illustrative model works</summary><p>There are 12 weeks and $100,000. Building costs $60,000, takes 8 weeks, and returns $180,000 if execution succeeds. A preliminary test costs $5,000 and one week. The starting chance that the underlying idea is viable is 50%.</p><p>A clearer test gives a supportive signal 80% of the time when the idea is viable, and 20% when it is not. Results update the viability estimate using Bayes’ rule; they do not change the hidden project. Execution succeeds 90% of the time for a viable idea and 10% otherwise. Optional settings change these assumptions for a replay.</p><p>The result of each test is randomly sampled from the hidden project. The same-project replay preserves that project and its draws. Expected values count future choices; realized net subtracts all incurred test and build costs. All amounts and probabilities are invented for this explanation, not forecasts or recommendations.</p></details>
   </main>
-
   <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
 </body>
 </html>
