@@ -7,7 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-	<lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<lastBuildDate>Thu, 22 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pablohl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<item>
+		<title>The Friction AI Removes</title>
+		<link>https://pablohl.github.io/posts/the-friction-ai-removes/</link>
+		<pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+		<guid>https://pablohl.github.io/posts/the-friction-ai-removes/</guid>
+		<description>AI can make a document look complete without revealing the decisions and assumptions hidden in its details.</description>
+	</item>
 	<item>
 		<title>Which Game Are We Playing?</title>
 		<link>https://pablohl.github.io/posts/which-game-are-we-playing/</link>

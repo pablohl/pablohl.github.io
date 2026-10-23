@@ -201,6 +201,19 @@
   ],
   "posts": [
     {
+      "id": "the-friction-ai-removes",
+      "title": "The Friction AI Removes",
+      "subtitle": null,
+      "date": "2026-10-22",
+      "url": "https://pablohl.github.io/posts/the-friction-ai-removes/",
+      "summary": "AI can make a document look complete without revealing the decisions and assumptions hidden in its details.",
+      "topics": [
+        "ai",
+        "collaboration"
+      ],
+      "tools": []
+    },
+    {
       "id": "which-game-are-we-playing",
       "title": "Which Game Are We Playing?",
       "subtitle": null,
