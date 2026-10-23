@@ -151,7 +151,13 @@
   </url><url>
     <loc>https://pablohl.github.io/tags/index/</loc>
   </url>
-  <!-- toolbox:start -->
+<!-- experiments:start -->
+  <url><loc>https://pablohl.github.io/experiments/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/experiments/two-clocks/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/experiments/ice-cream-vendors/</loc><lastmod>2026-10-17T00:00:00+00:00</lastmod></url>
+  <url><loc>https://pablohl.github.io/experiments/the-metric-can-be-right/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
+  <!-- experiments:end -->
+<!-- toolbox:start -->
   <url><loc>https://pablohl.github.io/toolbox/</loc><lastmod>2026-10-22T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/shape-of-the-evidence/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/what-did-the-metric-throw-away/</loc><lastmod>2026-09-30T00:00:00+00:00</lastmod></url>
@@ -175,10 +181,8 @@
   <url><loc>https://pablohl.github.io/toolbox/connect-work-to-consequences/</loc><lastmod>2026-10-15T00:00:00+00:00</lastmod></url>
   <url><loc>https://pablohl.github.io/toolbox/surface-the-hidden-decisions/</loc><lastmod>2026-10-22T00:00:00+00:00</lastmod></url>
   <!-- toolbox:end -->
-  <!-- experiments:start -->
-  <url><loc>https://pablohl.github.io/experiments/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
-  <url><loc>https://pablohl.github.io/experiments/two-clocks/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
-  <url><loc>https://pablohl.github.io/experiments/ice-cream-vendors/</loc><lastmod>2026-10-17T00:00:00+00:00</lastmod></url>
-  <url><loc>https://pablohl.github.io/experiments/the-metric-can-be-right/</loc><lastmod>2026-10-20T00:00:00+00:00</lastmod></url>
-  <!-- experiments:end -->
+<!-- engineering:start -->
+<url><loc>https://pablohl.github.io/toolbox/engineering/</loc></url>
+<url><loc>https://pablohl.github.io/toolbox/engineering/hiring-forecast/</loc></url>
+<!-- engineering:end -->
 </urlset>
