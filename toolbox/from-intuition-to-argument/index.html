@@ -24,6 +24,7 @@
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
+<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">
 </head>
 <body id="page">
 <header class="editorial-header">
@@ -49,6 +50,7 @@
       <h2>The idea</h2>
       <p>Intuition can be compressed experience, but it is a private signal. Turning it into explicit reasoning tests the intuition before asking others to accept it.</p>
     </section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">A retry that feels unsafe</h3><p><strong>Situation.</strong> An engineer sees a proposal to retry a failed order-processing workflow and says, “This feels fragile.” The team needs to decide whether the retry design is acceptable.</p><p><strong>The tempting conclusion.</strong> “They have seen systems like this fail, so we should block the design.”</p><p><strong>What changes the view.</strong> Trace a timeout after the workflow has already sent a confirmation. If the retry sends it again, the concern has a specific mechanism: repeating a completed external action. If a durable request identifier prevents that action from repeating, including after a restart, the original objection weakens.</p><p><strong>What this supports.</strong> Ask for a trace and a failure test around duplicate actions. The claim is now narrow enough to examine: this retry may repeat a completed action after a timeout. Revise or withdraw it if the evidence shows that case is already handled; “fragile” alone does not settle the review.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>
