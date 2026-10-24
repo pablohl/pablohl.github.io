@@ -9,9 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=two-offers-1">
+  <link rel="stylesheet" href="./styles.css?v=interface-polish-2">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs?v=two-offers-1"></script>
+  <script type="module" src="./experiment.mjs?v=interface-polish-2"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -34,7 +34,7 @@
     <a class="back" href="/experiments/">← All experiments</a>
     <header class="intro"><h1>Two Clocks</h1><p>As the picture clears, the opening to act can close.</p></header>
     <p class="setup">You receive an offer from a small company to lead a new product. The work sounds exciting, but you’ve had a job that swallowed your evenings before. This time, you want room to grow, someone to learn from, and a life outside work. Before you say yes, you’d like to know the people you’d be joining.</p>
-    <section class="stage" aria-labelledby="stage-title"><div><p id="stage-label" class="eyebrow"></p><h2 id="stage-title" tabindex="-1"></h2><p id="stage-copy"></p></div><button id="previous" class="reset">Previous scenario</button></section>
+    <section class="stage" aria-labelledby="stage-title"><div><p id="stage-label" class="eyebrow"></p><h2 id="stage-title" tabindex="-1"></h2></div><button id="previous" class="reset">Previous scenario</button></section>
     <p id="story-note" class="comparison-hint"></p>
     <div class="visuals">
       <section class="visual knowledge" aria-labelledby="knowledge-title"><p class="eyebrow">What you know</p><h2 id="knowledge-title">The picture clears</h2>
@@ -68,15 +68,15 @@
         <p id="option-caption" class="visual-caption"></p><p id="option-sub" class="visual-sub"></p>
       </section>
     </div>
-    <div class="controls"><span id="time-label"></span><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
+    <div class="timeline"><div class="timeline-labels"><span id="time-label"></span><span>60 seconds</span></div><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><div class="timeline-ticks" aria-hidden="true"><span>0</span><span>15</span><span>30</span><span>45</span><span>60s</span></div></div><div class="controls"><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
     <p id="change" class="consequence" role="status" aria-live="polite" aria-atomic="true"></p>
     <p id="updates" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
     <section class="inquiries" hidden aria-labelledby="inquiry-title"><p class="action-kind">Get to know the team</p><h2 id="inquiry-title">What would you like to ask?</h2><div id="conversations"></div></section>
     <section class="choices" hidden aria-labelledby="choices-title"><p class="action-kind">Give them your answer</p><h2 id="choices-title">Would you take the job?</h2><p class="choice-intro">Choose the job you would take, or decline both offers.</p><div id="decisions"></div><button id="decline" class="reset">Decline the offer</button></section>
     <p id="decision-note" class="comparison-hint"></p>
-    <section id="ending" hidden tabindex="-1" aria-labelledby="result-title"><h2 id="result-title"></h2><p id="result-copy"></p><p id="result-comparison" class="small"></p><div class="ending-actions"><button id="next" class="primary"></button><button id="alternate">Try evidence that points the other way</button></div><p class="small">Next scenario keeps this story. The other evidence story restarts this scenario.</p></section>
+    <section id="ending" hidden tabindex="-1" aria-labelledby="result-title"><h2 id="result-title"></h2><p id="result-copy"></p><p id="result-comparison" class="small"></p><div class="scenario-reflection"><p class="eyebrow">The timing you experienced</p><h3 id="scenario-reveal"></h3><p id="scenario-context"></p></div><div class="ending-actions"><button id="next" class="primary"></button><button id="alternate">Try evidence that points the other way</button></div><p class="small">Next scenario keeps this story. The other evidence story restarts this scenario.</p></section>
     <section id="replay-panel" hidden aria-label="Untimed replay"><label id="scrub-label" for="scrub"></label><input id="scrub" type="range" min="0" max="60" step="0.1" value="0"><p id="replay-events"></p></section>
-    <div class="closing"><p>More clarity can mean “no.” Waiting still changes which choices remain.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></div>
+    <aside class="closing" aria-label="A reflection beyond the experiment"><p class="eyebrow">Beyond this experiment</p><p class="closing-thought">More clarity can mean “no.” Waiting still changes which choices remain.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></aside>
     <details class="methods"><summary>How the illustration works</summary>
       <p>This is a curated illustration, with a maximum of 60 seconds per run. It is not a forecast of real hiring. Press Start to begin. Conversations and decisions appear once the experience starts. Pause whenever you need to read. Leaving the tab pauses it too. Conversations take 6 seconds in the first and third scenarios, and 14 in the second. Only one conversation can be underway at a time.</p>
       <p>The manager describes mentoring; the teammate describes working hours. Both stories offer broad ownership. One has regular mentoring and predictable hours; the other has neither. The underlying facts stay fixed across the three scenarios. Answers arrive only if you ask and wait for them. You can accept or decline while an answer is pending. A conversation selected while paused waits until you resume.</p>
