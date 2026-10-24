@@ -128,56 +128,56 @@
     {
       "id": "results-to-decisions",
       "title": "What Does This Result Let Us Decide?",
-      "category": "Applied research · Technical recommendations",
-      "sectionLabel": "Research decisions",
-      "summary": "The experiment produced an answer. What action does that answer support?",
-      "cardSummary": "Explore two research scenarios: how missing evidence and the scope of a rollout change the recommendation.",
-      "problemTitle": "From a result to a recommendation",
+      "category": "Engineering judgment · Technical recommendations",
+      "sectionLabel": "Technical decisions",
+      "summary": "Fewer overnight pages. A successful migration rehearsal. Both sound promising. What would you recommend next?",
+      "cardSummary": "An on-call engineer wants fewer overnight pages. A team wants to move its database. Explore what the results let them do next.",
+      "problemTitle": "The numbers look good. The next step is less clear.",
       "introduction": [
-        "A report can contain accurate numbers, clear figures, and a section of limitations while leaving the reader to reconstruct the recommendation.",
-        "The missing connection may be an explanation, a decision criterion, or evidence that has not yet been collected. Identifying the gap tells us what work to do next."
+        "A promising result arrives with a caveat. Is it a reason to stop, a reason to narrow the plan, or something to check before going further?",
+        "Follow two engineering decisions. In each one, change what the team knows or needs—and see why the recommendation changes."
       ],
       "frameworkLabels": [
         "Observation",
         "Interpretation",
         "Decision"
       ],
-      "frameworkBoundary": "A result supports an action only under the requirements and conditions that connect them.",
-      "examplesTitle": "What changes the recommendation?",
-      "examplesLabel": "Research example",
-      "examplesDisclaimer": "Two illustrative scenarios. Change one condition to see what it permits.",
+      "frameworkBoundary": "The reader needs to see how the observation supports the action—and where that support ends.",
+      "examplesTitle": "Start with a situation",
+      "examplesLabel": "Engineering example",
+      "examplesDisclaimer": "Two fictional situations. Explore the detail that changes each decision.",
       "discussionSummary": "How this could sound in the report",
-      "discussionTitle": "Turn the result into a recommendation",
-      "appliedLabel": "Applied to the lower-cost model",
+      "discussionTitle": "Make the connection visible",
+      "appliedLabel": "Applied to the on-call example",
       "templateGap": "If a part is missing, decide whether you need analysis, an explanation, evidence, or agreement on a trade-off.",
       "cautionTitle": "Keep the conclusion proportionate.",
       "caution": "A recommendation can be to continue, narrow the scope, retain the current approach, or collect specific evidence. State what the uncertainty permits or prevents.",
-      "discussionTemplate": "On [evaluated cases], we observed [result] compared with [baseline]. Given [requirement], I recommend [action and scope]. We have not established [uncertainty]; this matters because [effect on the decision].",
+      "discussionTemplate": "We found [result] on [cases]. That supports [interpretation], but leaves [gap]. Given [what the next step requires], I recommend [action and scope].",
       "discussion": [
         {
           "label": "Observation",
           "question": "What changed, compared with what, and on which cases?",
-          "example": "The cheaper model has similar automated scores on the evaluated documents, but reviewers report more editing."
+          "example": "Raising the timeout threshold would reduce last week’s pages from 18 to 4."
         },
         {
           "label": "Interpretation",
           "question": "What does that establish, and what remains uncertain?",
-          "example": "The measured model cost falls. We have not established whether extra editing offsets that saving."
+          "example": "That establishes fewer interruptions. Replaying a real checkout outage shows the proposed rule would also miss a problem customers experienced."
         },
         {
           "label": "Decision",
           "question": "Given our requirements, what should we do next?",
-          "example": "Keep the current model while running a paired review-time comparison. Switch only if the cheaper option meets quality requirements and reduces total operating cost."
+          "example": "Keep the current threshold while revising the rule. Check the revision against known outages before using it to page the on-call engineer."
         }
       ],
       "lessons": [
         {
           "title": "Name the decision criterion.",
-          "text": "Lower model cost does not establish lower total operating cost. Say which outcome the decision needs to improve."
+          "text": "The on-call team wants fewer unnecessary interruptions while still detecting customer problems. Counting pages answers only part of that question."
         },
         {
           "title": "Make the caveat change something.",
-          "text": "Missing scan coverage can limit a rollout to digital PDFs. If scans are required, it becomes a gap to resolve before that rollout."
+          "text": "The migration rehearsal does not cover the archive. Whether that stops the next move depends on whether the archive has to move with it."
         },
         {
           "title": "Identify the work that remains.",
@@ -198,112 +198,120 @@
       ],
       "examples": [
         {
-          "id": "lower-cost-model",
-          "name": "Lower-cost model",
-          "title": "The model costs less. Does the work cost less?",
-          "scenario": "You are deciding whether to replace the current model to reduce total operating cost. A cheaper model has similar automated evaluation scores on the same documents. Reviewers notice that some answers need more editing. Both options must meet the same quality requirements.",
-          "impression": "“The scores are similar and the model costs less. We should switch.”",
-          "tension": "The evaluation supports a claim about measured performance and model cost. It does not yet tell us whether extra review effort offsets the saving.",
-          "comparisonTitle": "The decision depends on the outcome we actually need",
+          "id": "on-call-alerts",
+          "name": "Overnight pages",
+          "story": true,
+          "title": "Eighteen pages. Four worth waking up for?",
+          "scenario": [
+            "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests have timed out for five minutes. By the time they open the dashboard, the spike has passed.",
+            "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%. Applied to last week’s traffic, that rule would have sent just four pages."
+          ],
+          "impression": "“Four pages instead of eighteen. Let’s raise the threshold.”",
+          "tension": "That would mean fewer interrupted nights. But would the new rule still wake someone when customers cannot complete a purchase?",
+          "comparisonTitle": "What did counting pages leave open?",
           "columns": [
-            "What the evaluation establishes",
-            "What the decision also needs"
+            "Count the interruptions",
+            "Check the problems they reveal"
           ],
           "comparison": [
             {
-              "label": "Evidence",
+              "label": "Question",
               "values": [
-                "On the evaluated documents, the cheaper model has similar automated scores and a lower model cost.",
-                "A comparison of editing time and quality on the same work, including the cost of review."
+                "How many pages would the new rule send?",
+                "Would it still detect outages that need a response?"
               ]
             },
             {
-              "label": "Consequence",
+              "label": "Finding",
               "values": [
-                "It is a candidate for a focused trial. The scores alone do not support replacing the current model.",
-                "If total operating cost falls and quality requirements are met, a bounded switch can be justified."
+                "Four pages instead of eighteen on last week’s traffic.",
+                "During Thursday’s checkout outage, 3% of requests timed out. The proposed 5% rule would never have paged."
               ]
             }
           ],
           "interaction": {
-            "question": "Has the review-time comparison resolved the trade-off?",
+            "question": "What has the team checked?",
             "options": [
               {
-                "id": "unmeasured",
-                "label": "Review time is still unmeasured",
-                "title": "Resolve the missing evidence",
-                "evidence": "The model-cost result stays the same. Reviewer observations suggest a possible offsetting cost, but its size is unknown.",
-                "recommendation": "Keep the current model while comparing review time on paired outputs. Include review costs and check the same quality requirements before deciding whether to switch.",
-                "reason": "The missing evidence concerns the outcome that motivated the change. More runs of the automated metric alone would not settle it."
+                "id": "page-count",
+                "label": "Only the number of pages",
+                "title": "A quieter night is promising. Detection is still an open question.",
+                "evidence": "The new rule would have sent four pages last week. Nobody has checked whether the pages it removes include incidents that needed a response.",
+                "recommendation": "Keep the current rule for now. Replay known outages against the proposed threshold and check whether it would alert soon enough for the team to respond.",
+                "reason": "The useful next check is about what the rule would miss. Another count of pages cannot answer that."
               },
               {
-                "id": "measured",
-                "label": "Total cost falls and quality meets requirements",
-                "title": "Make a bounded switch",
-                "evidence": "In this branch, a paired comparison establishes lower total operating cost, including review, while meeting the required quality level on the evaluated work.",
-                "recommendation": "Switch for the evaluated document types, monitor review effort and quality, and revisit the choice if the production workload differs.",
-                "reason": "The added evidence connects the lower model cost to the actual objective. It supports a scoped recommendation without establishing performance on every future document."
+                "id": "outage-replay",
+                "label": "They also replayed Thursday’s checkout outage",
+                "title": "The quieter rule would have missed a real outage.",
+                "evidence": "On Thursday, 3% of checkout requests timed out long enough for customers to lose purchases. The current rule paged the engineer. A 5% threshold would not have paged at all.",
+                "recommendation": "Do not adopt this threshold. Keep the current rule while looking for a way to filter brief spikes without hiding sustained checkout failures, then replay known incidents again.",
+                "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change."
               }
             ]
           },
-          "takeawayTitle": "Identify what would settle the choice",
-          "takeaway": "A useful recommendation names both what we learned and the unresolved question that could change the choice. The next experiment should address that question.",
-          "boundedConclusion": "“The cheaper model has similar automated scores on the evaluated documents, but editing effort is unmeasured. I recommend a paired review-time trial before replacing the current model because our objective is lower total operating cost.”",
-          "followup": "Compare outputs for the same documents, measure review time consistently, and agree on the quality and cost requirements before inspecting the result."
+          "takeawayTitle": "The missing connection",
+          "takeaway": "Fewer pages tells us about interruptions. To recommend this rule, we also need to know what happens to incident detection. Writing the recommendation exposes the part the first measurement did not answer.",
+          "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. The quieter rule does not meet our need to detect sustained customer failures.”",
+          "followup": "Find a revised rule that distinguishes brief spikes from sustained failures. Replay known incidents and inspect detection time before changing the production alert."
         },
         {
-          "id": "incomplete-coverage",
-          "name": "Incomplete coverage",
-          "title": "The parser works on digital PDFs. Can we roll it out?",
-          "scenario": "A document parser meets the agreed extraction-quality requirement on the evaluated digital PDFs. Scanned documents were not tested. You need to decide whether that missing coverage blocks the proposed rollout.",
-          "impression": "“Scans were not tested, so we cannot deploy.”",
-          "tension": "The evidence has a boundary. Whether that boundary prevents deployment depends on what the proposed rollout includes and how excluded documents will be handled.",
-          "comparisonTitle": "The same evidence can support different rollout decisions",
+          "id": "migration-scope",
+          "name": "Migration scope",
+          "title": "The rehearsal passed. Why is the migration still on hold?",
+          "scenario": [
+            "The team has spent weeks preparing to move its order database. In the rehearsal, recent orders arrive intact: totals match, relationships hold, and the application reads them correctly. The team wants to schedule the move.",
+            "Then someone asks about the archive. Older orders use a different schema, and none were included in the rehearsal. A colleague says the migration should stop until every historical format has been tested."
+          ],
+          "impression": "“We haven’t tested the archive. We can’t move anything yet.”",
+          "tension": "The gap is real. But does the archive have to move this weekend, or can it stay where it is while recent orders move first?",
+          "comparisonTitle": "The same rehearsal can support different migration plans",
           "columns": [
-            "Digital-only pilot",
-            "Rollout includes scans"
+            "Recent records move first",
+            "All records must move together"
           ],
           "comparison": [
             {
               "label": "Requirement",
               "values": [
-                "Only supported digital PDFs enter the parser. Scans are reliably identified and routed to the existing process.",
-                "The parser must handle both digital and scanned PDFs."
+                "The application can safely route recent and historical queries to the correct database. The archive stays available in the old system.",
+                "The application requires recent and historical records in the new database at the same time."
               ]
             },
             {
               "label": "What the evidence supports",
               "values": [
-                "A limited pilot within the evaluated document types, with monitoring. Scans remain outside its scope.",
-                "The digital-PDF result does not establish scan quality. Representative scan evaluation or a reliable fallback is needed before including them."
+                "A staged migration of the tested record types, provided routing, consistency checks, and rollback are verified.",
+                "The recent-record rehearsal does not establish that older schemas will migrate correctly. Test representative historical records before the full move."
               ]
             }
           ],
           "interaction": {
-            "question": "What must the proposed rollout handle?",
+            "question": "What does the next move actually require?",
             "options": [
               {
-                "id": "digital-only",
-                "label": "Digital PDFs only, with reliable scan routing",
-                "title": "Limit the rollout to supported inputs",
-                "evidence": "The evaluated digital PDFs meet the agreed quality requirement. Scan performance remains unknown.",
-                "recommendation": "Run a monitored pilot for supported digital PDFs. Reliably route scans to the existing process and state that they are outside the pilot.",
-                "reason": "The caveat limits scope. This recommendation depends on being able to enforce that boundary; if routing is unreliable, resolve it first."
+                "id": "staged",
+                "label": "The archive can stay; split access and rollback are verified",
+                "title": "The archive can wait. A limited move has support.",
+                "evidence": "The recent-order rehearsal passed. The team has also verified that the application can access orders across both databases consistently and that it can roll back. Historical formats remain untested.",
+                "recommendation": "Move the tested recent orders in stages and monitor the agreed checks. Keep the archive in the old database until its formats have been rehearsed.",
+                "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support."
               },
               {
-                "id": "scans-required",
-                "label": "Digital and scanned PDFs are required",
-                "title": "Resolve coverage before the full rollout",
-                "evidence": "The experimental result is unchanged: digital PDFs meet the requirement; scan performance remains unknown.",
-                "recommendation": "Hold the rollout that includes scans. Evaluate representative scanned PDFs against the same requirements, or establish an accepted fallback before including them.",
-                "reason": "The missing evidence now concerns a required input. It blocks this scope of rollout, even though a digital-only pilot could still be considered."
+                "id": "all-records",
+                "label": "The application needs all orders in the new database",
+                "title": "This move needs evidence the rehearsal did not provide.",
+                "evidence": "The recent-order rehearsal still passes. But the application cannot operate with the archive left behind, and historical formats remain untested.",
+                "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and rollback plan before scheduling the move.",
+                "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid."
               }
             ]
           },
-          "takeawayTitle": "Translate a limitation into its practical consequence",
-          "takeaway": "A caveat can change the scope, the next test, or the recommendation. Explain which one it changes rather than leaving the reader to infer whether the whole result should be trusted.",
-          "boundedConclusion": "“The parser meets our extraction-quality requirement on the evaluated digital PDFs. I recommend a digital-only pilot with scan routing to the existing process. We have not established scan quality, so this result does not support including scans.”",
-          "followup": "Check that the pilot can reliably identify and route excluded inputs. If scans must be included, evaluate a representative scan sample before expanding."
+          "takeawayTitle": "The missing connection",
+          "takeaway": "“The archive is untested” describes a limit of the rehearsal. Its consequence depends on the plan: it may restrict the move to recent orders, or prevent the full move from going ahead.",
+          "boundedConclusion": "“The rehearsal supports moving the tested recent orders. Because split access and rollback are verified, I recommend a staged move while the archive stays in the old database. This is not evidence that historical formats are ready to migrate.”",
+          "followup": "Confirm which records the next step actually requires. For a staged move, verify split access and consistency; for a full move, rehearse representative older schemas as well.",
+          "story": true
         }
       ],
       "checklist": [
@@ -433,7 +441,8 @@
             }
           ]
         }
-      ]
+      ],
+      "storyFirst": true
     }
   ]
 }
