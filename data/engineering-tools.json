@@ -4,7 +4,7 @@
       "id": "hiring-forecast",
       "title": "What Did the Interview Actually Tell You?",
       "category": "Engineering leadership · Hiring",
-      "summary": "“Strong candidate” is an impression. What would you trust them to do on your team, and what in the interview supports that expectation?",
+      "summary": "An interview observes behavior. Hiring predicts future work. What connects the two?",
       "examples": [
         {
           "id": "ml-evaluation",
@@ -105,7 +105,25 @@
           "reason": "Turn a broad impression into a claim others can examine."
         }
       ],
-      "discussionTemplate": "We observed [specific behavior]. That gives us reason to expect [work contribution], with [support]. We’re still unsure about [gap], which we could check by [next step]."
+      "discussionTemplate": "We observed [specific behavior]. That gives us reason to expect [work contribution], with [support]. We’re still unsure about [gap], which we could check by [next step].",
+      "introduction": [
+        "A technical interview shows how someone responds to a particular problem. Hiring asks us to predict their contribution on real work, with our team’s support and constraints.",
+        "The jump from an encouraging answer to a broad expectation can hide assumptions. Separate what you saw, what it suggests, and what remains untested."
+      ],
+      "lessons": [
+        {
+          "title": "Look for consequences.",
+          "text": "The ML example asks whether recognizing a risk changes the candidate’s test or recommendation—not just whether they can name the problem."
+        },
+        {
+          "title": "Identify the actual gap.",
+          "text": "The queue example separates product knowledge from failure reasoning. An untested capability and an observed difficulty need different follow-ups."
+        },
+        {
+          "title": "Keep predictions conditional.",
+          "text": "Neither example establishes performance across unfamiliar problems. Name the support and conditions your expectation assumes so it can be questioned and revisited."
+        }
+      ]
     }
   ]
 }
