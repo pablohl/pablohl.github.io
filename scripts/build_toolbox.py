@@ -185,7 +185,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261023b"></head>')}
 <body id="page">
 {site_header()}
 <main class="site-main section-inner toolbox-page animated fadeIn faster">
@@ -194,6 +194,11 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     <h1>Toolbox</h1>
     <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
   </header>
+  <nav class="toolbox-collections" aria-label="Toolbox collections">
+    <a href="#decision-tools"><strong>Decision Toolbox</strong><span>Reusable lenses for evidence, uncertainty, and trade-offs.</span></a>
+    <a href="/toolbox/engineering/"><strong>Engineering Toolbox →</strong><span>Concrete scenarios for engineering judgment. Start with what an interview actually tells you.</span></a>
+  </nav>
+  <h2 id="decision-tools">Decision Toolbox</h2>
   <aside class="catalogue-lens" data-random-lens data-initial-lens="{esc(initial_lens['id'])}" aria-labelledby="catalogue-lens-title">
     <span class="tool-eyebrow">Give me a lens</span>
     <p class="lens-question" data-lens-question>{esc(initial_lens['question'])}</p>
@@ -482,6 +487,8 @@ def main() -> None:
     update_essay_pages(data, published_tools, resolved_posts)
     write_lens_data(published, sources)
     update_sitemap(published, resolved_posts)
+    from build_engineering_toolbox import build
+    build()
     print(f"Built {len(published)} tool pages and updated essay relationships.")
 
 
