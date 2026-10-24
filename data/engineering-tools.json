@@ -78,8 +78,6 @@
           ],
           "takeawayTitle": "“We didn’t see it” and “they struggled with it” are different",
           "takeaway": "An interview that never tested failure handling leaves a question open. An answer that overlooks a failure after it has been explained gives you something concrete to examine. Neither warrants a broad claim about every aspect of the candidate’s ability.",
-          "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a duplicate-message scenario and ask how they would prevent repeated side effects. Product experience and failure reasoning are separate questions.”",
-          "followup": "Explain the delivery behavior without requiring product-specific vocabulary. Ask them to trace one message through a failure and recovery. Then assess the reasoning against the role’s expectations.",
           "conditions": [
             {
               "label": "What the interviewer supplied matters.",
@@ -97,7 +95,19 @@
               "For a junior role with design reviews, I’d expect them to need guidance on this failure mode. For a senior role leading payment design, the same answer raises a stronger concern.",
               "We don’t know whether this is a local gap or a broader difficulty. Ask them to revise a similar design after structured feedback."
             ]
-          }
+          },
+          "discussionCases": [
+            {
+              "label": "You haven’t tested the capability",
+              "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a duplicate-message scenario and ask how they would prevent repeated side effects. Product experience and failure reasoning are separate questions.”",
+              "followup": "Explain the delivery behavior without requiring product-specific vocabulary. Ask them to trace one message through a failure and recovery. Then assess the reasoning against the role’s expectations."
+            },
+            {
+              "label": "You observed a problem in the reasoning",
+              "boundedConclusion": "“After duplicate delivery and its consequences were explained, they kept a design that could charge a customer twice. For a junior role with design reviews, I’d expect them to need guidance on this failure mode. For a senior role leading payment design, this raises a stronger concern. I haven’t yet established whether this is a local gap or a broader difficulty.”",
+              "followup": "Give targeted feedback and ask them to revise the design, then trace a repeated message through failure and recovery. This checks how they use support. A similar, unfamiliar scenario can separately test whether the reasoning transfers."
+            }
+          ]
         }
       ],
       "discussion": [
