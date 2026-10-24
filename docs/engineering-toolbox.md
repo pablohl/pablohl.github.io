@@ -13,7 +13,7 @@ The guide now starts with recognizable interview situations and comparisons that
 - The hiring guide opens with the gap between observing interview behavior and predicting future work. A concise Evidence → Expectation → Uncertainty relationship and three questions introduce the proposed distinction.
 - An accessible selector defaults to ML evaluation and displays one example at a time. Each example contains the role and interview scenario, a tempting conclusion, two contrasting cases, what each supports, and an explanation immediately connected to those cases.
 - An optional disclosure shows how the reasoning could sound in a hiring discussion and a specific follow-up.
-- The closing discussion draws lessons about consequential reasoning, technical gaps, and the limits of predictions from both examples. It then pairs a three-part structure (evidence, expectation with support, uncertainty with a next check) with a completed ML example. A reusable sentence shows how the parts form a single hiring expectation, without requiring a worksheet.
+- The closing discussion draws three concise lessons about consequential reasoning, technical gaps, and the limits of predictions from both examples. It then pairs a three-part structure (evidence, expectation with support, uncertainty with a next check) with a completed ML example. A reusable sentence shows how the parts form a single hiring expectation, without requiring a worksheet.
 - Related decision lenses explain the broader reasoning.
 
 ## What changed after review
@@ -24,7 +24,7 @@ The examples are illustrative, not actual candidate evaluations or a validated h
 
 ## Presentation and reuse
 
-Use the site's existing cream, green, serif headings, and sans serif body text. Comparisons appear as labeled tables at wide widths and as stacked, fully labeled cases below 760px. Optional discussion examples use native disclosures. A small progressive enhancement script provides the example selector, including arrow keys, Home/End, roving focus, and direct example links. Without JavaScript, both complete examples remain visible. No visitor input, storage, or clipboard access is used.
+Use the site's existing cream, green, serif headings, and sans serif body text. The problem and distinction share a two-column opening on wide screens and stack below 760px. Reduced section gaps, heading sizes, panel padding, and repeated text keep the examples close to the introduction. The structured synthesis keeps its questions and examples without repeating the explanatory hints. Comparisons appear as labeled tables at wide widths and as stacked, fully labeled cases below 760px. Optional discussion examples use native disclosures. A small progressive enhancement script provides the example selector, including arrow keys, Home/End, roving focus, and direct example links. Without JavaScript, both complete examples remain visible. No visitor input, storage, or clipboard access is used.
 
 `data/engineering-tools.json` contains the guide's scenarios, comparisons, explanations, and discussion questions. `scripts/build_engineering_toolbox.py` renders them with the existing shared site shell. `css/engineering-toolbox.css` owns their presentation. Run `python3 scripts/build_toolbox.py` to regenerate both collections and sitemap entries.
 

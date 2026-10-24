@@ -107,22 +107,21 @@
       ],
       "discussionTemplate": "We observed [specific behavior]. That gives us reason to expect [work contribution], with [support]. We’re still unsure about [gap], which we could check by [next step].",
       "introduction": [
-        "A technical interview gives us a limited view of how someone thinks. We ask questions, introduce constraints, and observe how they respond.",
-        "But hiring requires a different judgment: what do we expect this person to contribute on real problems, with the support and constraints of our team?",
-        "It’s easy to move from an encouraging interview moment to a broad conclusion about someone’s potential without examining the assumptions in between."
+        "A technical interview shows how someone responds to a particular problem. Hiring asks us to predict their contribution on real work, with our team’s support and constraints.",
+        "The jump from an encouraging answer to a broad expectation can hide assumptions. Separate what you saw, what it suggests, and what remains untested."
       ],
       "lessons": [
         {
-          "title": "A concern matters through its consequences",
-          "text": "The ML comparison separates recognizing a familiar risk from using it to change a decision. That helps us ask what the candidate’s reasoning would change in the work, rather than how convincing the answer sounded."
+          "title": "Look for consequences.",
+          "text": "The ML example asks whether recognizing a risk changes the candidate’s test or recommendation—not just whether they can name the problem."
         },
         {
-          "title": "A technical gap needs a more specific question",
-          "text": "The queue comparison separates product knowledge from reasoning about failures. Before calling a gap a weakness, ask whether the interview tested the capability the role needs. Missing evidence and an observed difficulty call for different follow-ups."
+          "title": "Identify the actual gap.",
+          "text": "The queue example separates product knowledge from failure reasoning. An untested capability and an observed difficulty need different follow-ups."
         },
         {
-          "title": "An expectation still depends on context",
-          "text": "Neither example shows how the person will perform across unfamiliar problems, team constraints, or different levels of support. A strong observation can support a reasonable expectation without proving it. Naming those conditions makes the prediction easier to question and revisit."
+          "title": "Keep predictions conditional.",
+          "text": "Neither example establishes performance across unfamiliar problems. Name the support and conditions your expectation assumes so it can be questioned and revisited."
         }
       ]
     }

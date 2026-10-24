@@ -185,7 +185,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261023c"></head>')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261023d"></head>')}
 <body id="page">
 {site_header()}
 <main class="site-main section-inner toolbox-page animated fadeIn faster">
