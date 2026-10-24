@@ -4,7 +4,8 @@
   if (!selector) return;
   const tabs = [...selector.querySelectorAll('[data-example-tab]')];
   const panels = tabs.map(tab => document.getElementById(tab.dataset.exampleTab));
-  if (!tabs.length || panels.some(panel => !panel)) return;
+  const summaries = tabs.map(tab => document.querySelector(`[data-example-summary="${tab.dataset.exampleTab}"]`));
+  if (!tabs.length || panels.some(panel => !panel) || summaries.some(summary => !summary)) return;
 
   selector.setAttribute('role', 'tablist');
   selector.setAttribute('aria-label', 'Interview example');
@@ -21,6 +22,7 @@
       tab.setAttribute('aria-selected', String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
       panels[i].hidden = i !== index;
+      summaries[i].hidden = i !== index;
     });
     if (updateHash) {
       const url = new URL(window.location.href);
