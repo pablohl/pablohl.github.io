@@ -9,9 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <link rel="stylesheet" href="./styles.css?v=interface-polish-2">
+  <link rel="stylesheet" href="./styles.css?v=decision-layout-1">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-  <script type="module" src="./experiment.mjs?v=interface-polish-2"></script>
+  <script type="module" src="./experiment.mjs?v=decision-layout-1"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -34,8 +34,13 @@
     <a class="back" href="/experiments/">← All experiments</a>
     <header class="intro"><h1>Two Clocks</h1><p>As the picture clears, the opening to act can close.</p></header>
     <p class="setup">You receive an offer from a small company to lead a new product. The work sounds exciting, but you’ve had a job that swallowed your evenings before. This time, you want room to grow, someone to learn from, and a life outside work. Before you say yes, you’d like to know the people you’d be joining.</p>
+    <section class="experience" aria-label="Explore the offer">
     <section class="stage" aria-labelledby="stage-title"><div><p id="stage-label" class="eyebrow"></p><h2 id="stage-title" tabindex="-1"></h2></div><button id="previous" class="reset">Previous scenario</button></section>
     <p id="story-note" class="comparison-hint"></p>
+    <div class="clock-bar"><div class="timeline"><div class="timeline-labels"><span id="time-label"></span><span>60 seconds</span></div><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><div class="timeline-ticks" aria-hidden="true"><span>0</span><span>15</span><span>30</span><span>45</span><span>60s</span></div></div><div class="controls"><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
+    <p id="change" class="consequence" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p id="updates" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
     <div class="visuals">
       <section class="visual knowledge" aria-labelledby="knowledge-title"><p class="eyebrow">What you know</p><h2 id="knowledge-title">The picture clears</h2>
         <svg id="knowledge-svg" viewBox="0 0 360 350" role="img" aria-labelledby="knowledge-desc">
@@ -50,7 +55,7 @@
           </g>
           <circle cx="180" cy="175" r="132" fill="none" stroke="#62838a" stroke-width="2"/>
         </svg>
-        <p id="clarity-caption" class="visual-caption"></p><p id="clarity-sub" class="visual-sub"></p>
+        <p id="known-facts" class="model-facts"></p><p id="clarity-caption" class="visual-caption"></p><p id="clarity-sub" class="visual-sub"></p>
       </section>
       <section class="visual opportunity" aria-labelledby="opportunity-title"><p class="eyebrow">What you can still do</p><h2 id="opportunity-title">The opening narrows</h2>
         <svg id="opportunity-svg" viewBox="0 0 360 350" role="img" aria-labelledby="opportunity-desc">
@@ -68,22 +73,29 @@
         <p id="option-caption" class="visual-caption"></p><p id="option-sub" class="visual-sub"></p>
       </section>
     </div>
-    <div class="timeline"><div class="timeline-labels"><span id="time-label"></span><span>60 seconds</span></div><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><div class="timeline-ticks" aria-hidden="true"><span>0</span><span>15</span><span>30</span><span>45</span><span>60s</span></div></div><div class="controls"><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
-    <p id="change" class="consequence" role="status" aria-live="polite" aria-atomic="true"></p>
-    <p id="updates" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
-    <section class="inquiries" hidden aria-labelledby="inquiry-title"><p class="action-kind">Get to know the team</p><h2 id="inquiry-title">What would you like to ask?</h2><div id="conversations"></div></section>
-    <section class="choices" hidden aria-labelledby="choices-title"><p class="action-kind">Give them your answer</p><h2 id="choices-title">Would you take the job?</h2><p class="choice-intro">Choose the job you would take, or decline both offers.</p><div id="decisions"></div><button id="decline" class="reset">Decline the offer</button></section>
+    <div class="action-grid">
+    <section class="inquiries" aria-labelledby="inquiry-title"><p class="action-kind">Get to know the team</p><h2 id="inquiry-title">What would you like to ask?</h2><div id="conversations"></div></section>
+    <section class="choices" aria-labelledby="choices-title"><p class="action-kind">Give them your answer</p><h2 id="choices-title">Would you take the job?</h2><p class="choice-intro">Choose a role, or decline both.</p><div id="decisions"></div><button id="decline" class="reset">Decline the offer</button></section>
+    </div>
     <p id="decision-note" class="comparison-hint"></p>
+    <section id="run-comparison" class="run-comparison" hidden aria-labelledby="comparison-title">
+      <h2 id="comparison-title">Compare your runs</h2><p id="comparison-context"></p>
+      <div class="comparison-grid">
+        <section aria-labelledby="previous-run-title"><h3 id="previous-run-title">Previous run</h3><p id="previous-scenario" class="comparison-scenario"></p><dl><div><dt>Timing</dt><dd id="previous-timing"></dd></div><div><dt>Heard</dt><dd id="previous-evidence"></dd></div><div><dt>Options lost</dt><dd id="previous-lost"></dd></div><div><dt>Decision</dt><dd id="previous-choice"></dd></div></dl></section>
+        <section aria-labelledby="current-run-title"><h3 id="current-run-title">This run</h3><p id="current-scenario" class="comparison-scenario"></p><dl><div><dt>Timing</dt><dd id="current-timing"></dd></div><div><dt>Heard</dt><dd id="current-evidence"></dd></div><div><dt>Options lost</dt><dd id="current-lost"></dd></div><div><dt>Decision</dt><dd id="current-choice"></dd></div></dl></section>
+      </div>
+    </section>
     <section id="ending" hidden tabindex="-1" aria-labelledby="result-title"><h2 id="result-title"></h2><p id="result-copy"></p><p id="result-comparison" class="small"></p><div class="scenario-reflection"><p class="eyebrow">The timing you experienced</p><h3 id="scenario-reveal"></h3><p id="scenario-context"></p></div><div class="ending-actions"><button id="next" class="primary"></button><button id="alternate">Try evidence that points the other way</button></div><p class="small">Next scenario keeps this story. The other evidence story restarts this scenario.</p></section>
     <section id="replay-panel" hidden aria-label="Untimed replay"><label id="scrub-label" for="scrub"></label><input id="scrub" type="range" min="0" max="60" step="0.1" value="0"><p id="replay-events"></p></section>
+    </section>
     <aside class="closing" aria-label="A reflection beyond the experiment"><p class="eyebrow">Beyond this experiment</p><p class="closing-thought">More clarity can mean “no.” Waiting still changes which choices remain.</p><a href="/posts/two-clocks/">Read the Two Clocks essay →</a></aside>
     <details class="methods"><summary>How the illustration works</summary>
-      <p>This is a curated illustration, with a maximum of 60 seconds per run. It is not a forecast of real hiring. Press Start to begin. Conversations and decisions appear once the experience starts. Pause whenever you need to read. Leaving the tab pauses it too. Conversations take 6 seconds in the first and third scenarios, and 14 in the second. Only one conversation can be underway at a time.</p>
+      <p>This is a curated illustration, with a maximum of 60 seconds per run. It is not a forecast of real hiring. Press Start to begin. Read the conversations and offer terms before starting. Start enables the conversations and decisions; Pause keeps them available while stopping illustration time. Pause whenever you need to read. Leaving the tab pauses it too. Conversations take 6 seconds in the first and third scenarios, and 14 in the second. Only one conversation can be underway at a time.</p>
       <p>The manager describes mentoring; the teammate describes working hours. Both stories offer broad ownership. One has regular mentoring and predictable hours; the other has neither. The underlying facts stay fixed across the three scenarios. Answers arrive only if you ask and wait for them. You can accept or decline while an answer is pending. A conversation selected while paused waits until you resume.</p>
       <p>The mentored role includes a written agreement for a named mentor and protected hours, in exchange for a narrower role with less ownership. This simplified model assumes those terms are honored. The original role means leading the full product with the company’s existing mentoring arrangements and working hours. When the team finalizes staffing, the smaller role with support disappears; only the original role remains. Each acceptance button commits to its stated terms; nothing is substituted automatically.</p>
       <p>In the first scenario, the smaller role with support expires at 32 seconds and the original offer at 75. In the other scenarios those deadlines are 10 and 30 seconds. At a deadline that option is unavailable. The run stops when you decide, when the offer expires, or at 60 seconds. In the slow-closing scenario an offer remains after the minute, and you can still decide.</p>
       <p>The clearing haze represents progress toward answers, not certainty or better news. Labels and quotations show what you actually know. The opening is a metaphor for remaining options, not their value or probability of success. Outlines preserve lost options; the dotted circle marks the original opening. Reduced-motion mode uses discrete changes instead of continuous movement.</p>
-      <p>Replay is limited to the time you experienced. It shows only answers received by the selected moment, never future answers or answers to questions you did not ask. It preserves your recorded decision; return to the run to resume from where you left off. Start again resets the same story and scenario. Next scenario resets time and conversations but preserves the story. The alternate-story button changes the evidence and restarts the current scenario.</p>
+      <p>Replay is limited to the time you experienced. It shows only answers received by the selected moment, never future answers or answers to questions you did not ask. It preserves your recorded decision; return to the run to resume from where you left off. Start again resets the same story and scenario. Next scenario resets time and conversations but preserves the story. The alternate-story button changes the evidence and restarts the current scenario. Moving to another scenario or evidence story keeps a snapshot of the run you just left beside the current run. The snapshot contains only evidence you actually received; replaying or restarting does not rewrite it. The comparison labels when the evidence story changes, so it is not mistaken for a timing-only comparison.</p>
       <p>No score is assigned. Your record preserves the terms and evidence available when you decided. A later outcome alone cannot establish whether an earlier decision was justified.</p>
     </details>
   </main>
