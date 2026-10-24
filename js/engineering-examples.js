@@ -7,7 +7,7 @@
   if (!tabs.length || panels.some(panel => !panel)) return;
 
   selector.setAttribute('role', 'tablist');
-  selector.setAttribute('aria-label', 'Interview example');
+  selector.setAttribute('aria-label', selector.dataset.examplesLabel || 'Interview example');
   tabs.forEach((tab, index) => {
     tab.setAttribute('role', 'tab');
     tab.setAttribute('aria-controls', panels[index].id);

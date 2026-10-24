@@ -124,6 +124,325 @@
           "text": "Neither example establishes performance across unfamiliar problems. Name the support and conditions your expectation assumes so it can be questioned and revisited."
         }
       ]
+    },
+    {
+      "id": "results-to-decisions",
+      "title": "What Does This Result Let Us Decide?",
+      "category": "Engineering judgment · Technical recommendations",
+      "sectionLabel": "Technical decisions",
+      "summary": "Fewer overnight pages. A successful migration rehearsal. Both sound promising. What would you recommend next?",
+      "cardSummary": "An on-call engineer wants fewer overnight pages. A team wants to move its database. Explore what the results let them do next.",
+      "problemTitle": "The numbers look good. The next step is less clear.",
+      "introduction": [
+        "A promising result arrives with a caveat. Is it a reason to stop, a reason to narrow the plan, or something to check before going further?",
+        "Follow two engineering decisions. In each one, change what the team knows or needs—and see why the recommendation changes."
+      ],
+      "frameworkLabels": [
+        "Observation",
+        "Interpretation",
+        "Decision"
+      ],
+      "frameworkBoundary": "The reader needs to see how the observation supports the action—and where that support ends.",
+      "examplesTitle": "Start with a situation",
+      "examplesLabel": "Engineering example",
+      "examplesDisclaimer": "Two fictional situations. Explore the detail that changes each decision.",
+      "discussionSummary": "How this could sound in the report",
+      "discussionTitle": "Make the connection visible",
+      "appliedLabel": "Applied to the on-call example",
+      "templateGap": "If a part is missing, decide whether you need analysis, an explanation, evidence, or agreement on a trade-off.",
+      "cautionTitle": "Keep the conclusion proportionate.",
+      "caution": "A recommendation can be to continue, narrow the scope, retain the current approach, or collect specific evidence. State what the uncertainty permits or prevents.",
+      "discussionTemplate": "We found [result] on [cases]. That supports [interpretation], but leaves [gap]. Given [what the next step requires], I recommend [action and scope].",
+      "discussion": [
+        {
+          "label": "Observation",
+          "question": "What changed, compared with what, and on which cases?",
+          "example": "Raising the timeout threshold would reduce last week’s pages from 18 to 4."
+        },
+        {
+          "label": "Interpretation",
+          "question": "What does that establish, and what remains uncertain?",
+          "example": "That establishes fewer interruptions. Replaying a real checkout outage shows the proposed rule would also miss a problem customers experienced."
+        },
+        {
+          "label": "Decision",
+          "question": "Given our requirements, what should we do next?",
+          "example": "Keep the current threshold while revising the rule. Check the revision against known outages before using it to page the on-call engineer."
+        }
+      ],
+      "lessons": [
+        {
+          "title": "Name the decision criterion.",
+          "text": "The on-call team wants fewer unnecessary interruptions while still detecting customer problems. Counting pages answers only part of that question."
+        },
+        {
+          "title": "Make the caveat change something.",
+          "text": "The migration rehearsal does not cover the archive. Whether that stops the next move depends on whether the archive has to move with it."
+        },
+        {
+          "title": "Identify the work that remains.",
+          "text": "An unclear result needs analysis. An unclear connection needs explanation. An untested assumption needs evidence. A disputed trade-off needs a decision from the responsible person."
+        }
+      ],
+      "related": [
+        {
+          "id": "decision-complete",
+          "title": "Decision-Complete",
+          "reason": "Inspect the path from evidence to a defensible action."
+        },
+        {
+          "id": "what-did-the-metric-throw-away",
+          "title": "What Did the Metric Throw Away?",
+          "reason": "Ask whether an omitted distinction could change the choice."
+        }
+      ],
+      "examples": [
+        {
+          "id": "on-call-alerts",
+          "name": "Overnight pages",
+          "story": true,
+          "title": "Eighteen pages. Four worth waking up for?",
+          "scenario": [
+            "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests have timed out for five minutes. By the time they open the dashboard, the spike has passed.",
+            "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%. Applied to last week’s traffic, that rule would have sent just four pages."
+          ],
+          "impression": "“Four pages instead of eighteen. Let’s raise the threshold.”",
+          "tension": "That would mean fewer interrupted nights. But would the new rule still wake someone when customers cannot complete a purchase?",
+          "comparisonTitle": "What did counting pages leave open?",
+          "columns": [
+            "Count the interruptions",
+            "Check the problems they reveal"
+          ],
+          "comparison": [
+            {
+              "label": "Question",
+              "values": [
+                "How many pages would the new rule send?",
+                "Would it still detect outages that need a response?"
+              ]
+            },
+            {
+              "label": "Finding",
+              "values": [
+                "Four pages instead of eighteen on last week’s traffic.",
+                "During Thursday’s checkout outage, 3% of requests timed out. The proposed 5% rule would never have paged."
+              ]
+            }
+          ],
+          "interaction": {
+            "question": "What has the team checked?",
+            "options": [
+              {
+                "id": "page-count",
+                "label": "Only the number of pages",
+                "title": "A quieter night is promising. Detection is still an open question.",
+                "evidence": "The new rule would have sent four pages last week. Nobody has checked whether the pages it removes include incidents that needed a response.",
+                "recommendation": "Keep the current rule for now. Replay known outages against the proposed threshold and check whether it would alert soon enough for the team to respond.",
+                "reason": "The useful next check is about what the rule would miss. Another count of pages cannot answer that."
+              },
+              {
+                "id": "outage-replay",
+                "label": "They also replayed Thursday’s checkout outage",
+                "title": "The quieter rule would have missed a real outage.",
+                "evidence": "On Thursday, 3% of checkout requests timed out long enough for customers to lose purchases. The current rule paged the engineer. A 5% threshold would not have paged at all.",
+                "recommendation": "Do not adopt this threshold. Keep the current rule while looking for a way to filter brief spikes without hiding sustained checkout failures, then replay known incidents again.",
+                "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change."
+              }
+            ]
+          },
+          "takeawayTitle": "The missing connection",
+          "takeaway": "Fewer pages tells us about interruptions. To recommend this rule, we also need to know what happens to incident detection. Writing the recommendation exposes the part the first measurement did not answer.",
+          "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. The quieter rule does not meet our need to detect sustained customer failures.”",
+          "followup": "Find a revised rule that distinguishes brief spikes from sustained failures. Replay known incidents and inspect detection time before changing the production alert."
+        },
+        {
+          "id": "migration-scope",
+          "name": "Migration scope",
+          "title": "The rehearsal passed. Why is the migration still on hold?",
+          "scenario": [
+            "The team has spent weeks preparing to move its order database. In the rehearsal, recent orders arrive intact: totals match, relationships hold, and the application reads them correctly. The team wants to schedule the move.",
+            "Then someone asks about the archive. Older orders use a different schema, and none were included in the rehearsal. A colleague says the migration should stop until every historical format has been tested."
+          ],
+          "impression": "“We haven’t tested the archive. We can’t move anything yet.”",
+          "tension": "The gap is real. But does the archive have to move this weekend, or can it stay where it is while recent orders move first?",
+          "comparisonTitle": "The same rehearsal can support different migration plans",
+          "columns": [
+            "Recent records move first",
+            "All records must move together"
+          ],
+          "comparison": [
+            {
+              "label": "Requirement",
+              "values": [
+                "The application can safely route recent and historical queries to the correct database. The archive stays available in the old system.",
+                "The application requires recent and historical records in the new database at the same time."
+              ]
+            },
+            {
+              "label": "What the evidence supports",
+              "values": [
+                "A staged migration of the tested record types, provided routing, consistency checks, and rollback are verified.",
+                "The recent-record rehearsal does not establish that older schemas will migrate correctly. Test representative historical records before the full move."
+              ]
+            }
+          ],
+          "interaction": {
+            "question": "What does the next move actually require?",
+            "options": [
+              {
+                "id": "staged",
+                "label": "The archive can stay; split access and rollback are verified",
+                "title": "The archive can wait. A limited move has support.",
+                "evidence": "The recent-order rehearsal passed. The team has also verified that the application can access orders across both databases consistently and that it can roll back. Historical formats remain untested.",
+                "recommendation": "Move the tested recent orders in stages and monitor the agreed checks. Keep the archive in the old database until its formats have been rehearsed.",
+                "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support."
+              },
+              {
+                "id": "all-records",
+                "label": "The application needs all orders in the new database",
+                "title": "This move needs evidence the rehearsal did not provide.",
+                "evidence": "The recent-order rehearsal still passes. But the application cannot operate with the archive left behind, and historical formats remain untested.",
+                "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and rollback plan before scheduling the move.",
+                "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid."
+              }
+            ]
+          },
+          "takeawayTitle": "The missing connection",
+          "takeaway": "“The archive is untested” describes a limit of the rehearsal. Its consequence depends on the plan: it may restrict the move to recent orders, or prevent the full move from going ahead.",
+          "boundedConclusion": "“The rehearsal supports moving the tested recent orders. Because split access and rollback are verified, I recommend a staged move while the archive stays in the old database. This is not evidence that historical formats are ready to migrate.”",
+          "followup": "Confirm which records the next step actually requires. For a staged move, verify split access and consistency; for a full move, rehearse representative older schemas as well.",
+          "story": true
+        }
+      ],
+      "checklist": [
+        {
+          "title": "Purpose and Reader",
+          "items": [
+            {
+              "rule": "The first page makes clear what question the document answers.",
+              "why": "The reader should know what problem the document is solving before seeing details."
+            },
+            {
+              "rule": "The document is written for a specific reader or decision.",
+              "why": "A report for a technical reviewer, manager, or business stakeholder should not emphasize the same details."
+            }
+          ]
+        },
+        {
+          "title": "Structure",
+          "items": [
+            {
+              "rule": "Each section has one clear job.",
+              "why": "Problem Summary sets up the question. Method explains how it was measured. Results show what was found. Analysis explains what it means. Conclusion states what should happen next."
+            },
+            {
+              "rule": "The method, sample, and scope are stated before the results.",
+              "why": "The reader needs to know what was evaluated before interpreting the numbers."
+            },
+            {
+              "rule": "The document states what was not evaluated or what the results do not prove.",
+              "why": "This prevents the reader from overclaiming the findings."
+            },
+            {
+              "rule": "Each section opens with 1–2 sentences before the first table, figure, or list.",
+              "why": "Readers need context before they encounter evidence."
+            }
+          ]
+        },
+        {
+          "title": "Tables and Figures",
+          "items": [
+            {
+              "rule": "Every table or figure is introduced in the prose with the finding it supports.",
+              "why": "“Figure 2 shows…” is not enough. The sentence should say what the figure shows."
+            },
+            {
+              "rule": "Every caption states the takeaway or purpose of the table/figure.",
+              "why": "A good caption helps the reader understand why the evidence is included."
+            },
+            {
+              "rule": "Every percentage has a visible denominator.",
+              "why": "“8%” is unclear unless the reader knows 8% of what."
+            },
+            {
+              "rule": "Percentages in the same table use the same denominator, or the table explains when they do not.",
+              "why": "Mixed denominators make numbers look comparable when they may not be."
+            },
+            {
+              "rule": "If categories can overlap, the table says so.",
+              "why": "Otherwise, readers may assume the rows add up to 100%."
+            }
+          ]
+        },
+        {
+          "title": "Paragraphs and Analysis",
+          "items": [
+            {
+              "rule": "Each analytical paragraph follows: claim → evidence → consequence.",
+              "why": "The consequence sentence is what turns a result into analysis."
+            },
+            {
+              "rule": "Each paragraph makes one main claim.",
+              "why": "Multiple claims in one paragraph make the logic hard to follow."
+            },
+            {
+              "rule": "Prose explains what the numbers mean; it does not simply repeat the table.",
+              "why": "Repeating the table adds length without adding insight."
+            },
+            {
+              "rule": "Comparisons name both sides explicitly.",
+              "why": "“Better,” “higher,” or “longer” is unclear without a baseline."
+            },
+            {
+              "rule": "Qualitative words are replaced with specific claims when possible.",
+              "why": "Words like “important,” “significant,” and “helpful” are weak unless tied to evidence or action."
+            },
+            {
+              "rule": "For each claim about why a change was necessary, name the most obvious counterargument and address it.",
+              "why": "If the report doesn't preempt that question, it looks like the author didn't think of it."
+            }
+          ]
+        },
+        {
+          "title": "Conclusion and Final Read",
+          "items": [
+            {
+              "rule": "The executive summary can be understood without reading the full body.",
+              "why": "A busy reader should still understand the main finding, implication, and next step."
+            },
+            {
+              "rule": "The conclusion answers: what was found, why it matters, and what should happen next.",
+              "why": "A conclusion should not only summarize; it should guide action."
+            },
+            {
+              "rule": "Every recommendation is supported by evidence from the document.",
+              "why": "Recommendations that do not follow from the results feel unsupported."
+            },
+            {
+              "rule": "Read the document once for flow, not grammar. Each section should naturally lead to the next.",
+              "why": "A technically correct document can still feel confusing if the logic does not progress clearly."
+            }
+          ]
+        },
+        {
+          "title": "Executive Summary",
+          "items": [
+            {
+              "rule": "The executive summary gives the answer, not an introduction to the document. A reader who stops here should understand the main finding."
+            },
+            {
+              "rule": "It states why the finding matters to this reader or decision. Importance should not be left for the reader to infer."
+            },
+            {
+              "rule": "It states the recommended action or decision, when one is required. The reader should know what should happen next."
+            },
+            {
+              "rule": "It includes only the evidence needed to support those points. Methodological and supporting detail belongs in the body unless it changes the decision."
+            }
+          ]
+        }
+      ],
+      "storyFirst": true
     }
   ]
 }
