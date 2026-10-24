@@ -124,6 +124,316 @@
           "text": "Neither example establishes performance across unfamiliar problems. Name the support and conditions your expectation assumes so it can be questioned and revisited."
         }
       ]
+    },
+    {
+      "id": "results-to-decisions",
+      "title": "What Does This Result Let Us Decide?",
+      "category": "Applied research · Technical recommendations",
+      "sectionLabel": "Research decisions",
+      "summary": "The experiment produced an answer. What action does that answer support?",
+      "cardSummary": "Explore two research scenarios: how missing evidence and the scope of a rollout change the recommendation.",
+      "problemTitle": "From a result to a recommendation",
+      "introduction": [
+        "A report can contain accurate numbers, clear figures, and a section of limitations while leaving the reader to reconstruct the recommendation.",
+        "The missing connection may be an explanation, a decision criterion, or evidence that has not yet been collected. Identifying the gap tells us what work to do next."
+      ],
+      "frameworkLabels": [
+        "Observation",
+        "Interpretation",
+        "Decision"
+      ],
+      "frameworkBoundary": "A result supports an action only under the requirements and conditions that connect them.",
+      "examplesTitle": "What changes the recommendation?",
+      "examplesLabel": "Research example",
+      "examplesDisclaimer": "Two illustrative scenarios. Change one condition to see what it permits.",
+      "discussionSummary": "How this could sound in the report",
+      "discussionTitle": "Turn the result into a recommendation",
+      "appliedLabel": "Applied to the lower-cost model",
+      "templateGap": "If a part is missing, decide whether you need analysis, an explanation, evidence, or agreement on a trade-off.",
+      "cautionTitle": "Keep the conclusion proportionate.",
+      "caution": "A recommendation can be to continue, narrow the scope, retain the current approach, or collect specific evidence. State what the uncertainty permits or prevents.",
+      "discussionTemplate": "On [evaluated cases], we observed [result] compared with [baseline]. Given [requirement], I recommend [action and scope]. We have not established [uncertainty]; this matters because [effect on the decision].",
+      "discussion": [
+        {
+          "label": "Observation",
+          "question": "What changed, compared with what, and on which cases?",
+          "example": "The cheaper model has similar automated scores on the evaluated documents, but reviewers report more editing."
+        },
+        {
+          "label": "Interpretation",
+          "question": "What does that establish, and what remains uncertain?",
+          "example": "The measured model cost falls. We have not established whether extra editing offsets that saving."
+        },
+        {
+          "label": "Decision",
+          "question": "Given our requirements, what should we do next?",
+          "example": "Keep the current model while running a paired review-time comparison. Switch only if the cheaper option meets quality requirements and reduces total operating cost."
+        }
+      ],
+      "lessons": [
+        {
+          "title": "Name the decision criterion.",
+          "text": "Lower model cost does not establish lower total operating cost. Say which outcome the decision needs to improve."
+        },
+        {
+          "title": "Make the caveat change something.",
+          "text": "Missing scan coverage can limit a rollout to digital PDFs. If scans are required, it becomes a gap to resolve before that rollout."
+        },
+        {
+          "title": "Identify the work that remains.",
+          "text": "An unclear result needs analysis. An unclear connection needs explanation. An untested assumption needs evidence. A disputed trade-off needs a decision from the responsible person."
+        }
+      ],
+      "related": [
+        {
+          "id": "decision-complete",
+          "title": "Decision-Complete",
+          "reason": "Inspect the path from evidence to a defensible action."
+        },
+        {
+          "id": "what-did-the-metric-throw-away",
+          "title": "What Did the Metric Throw Away?",
+          "reason": "Ask whether an omitted distinction could change the choice."
+        }
+      ],
+      "examples": [
+        {
+          "id": "lower-cost-model",
+          "name": "Lower-cost model",
+          "title": "The model costs less. Does the work cost less?",
+          "scenario": "You are deciding whether to replace the current model to reduce total operating cost. A cheaper model has similar automated evaluation scores on the same documents. Reviewers notice that some answers need more editing. Both options must meet the same quality requirements.",
+          "impression": "“The scores are similar and the model costs less. We should switch.”",
+          "tension": "The evaluation supports a claim about measured performance and model cost. It does not yet tell us whether extra review effort offsets the saving.",
+          "comparisonTitle": "The decision depends on the outcome we actually need",
+          "columns": [
+            "What the evaluation establishes",
+            "What the decision also needs"
+          ],
+          "comparison": [
+            {
+              "label": "Evidence",
+              "values": [
+                "On the evaluated documents, the cheaper model has similar automated scores and a lower model cost.",
+                "A comparison of editing time and quality on the same work, including the cost of review."
+              ]
+            },
+            {
+              "label": "Consequence",
+              "values": [
+                "It is a candidate for a focused trial. The scores alone do not support replacing the current model.",
+                "If total operating cost falls and quality requirements are met, a bounded switch can be justified."
+              ]
+            }
+          ],
+          "interaction": {
+            "question": "Has the review-time comparison resolved the trade-off?",
+            "options": [
+              {
+                "id": "unmeasured",
+                "label": "Review time is still unmeasured",
+                "title": "Resolve the missing evidence",
+                "evidence": "The model-cost result stays the same. Reviewer observations suggest a possible offsetting cost, but its size is unknown.",
+                "recommendation": "Keep the current model while comparing review time on paired outputs. Include review costs and check the same quality requirements before deciding whether to switch.",
+                "reason": "The missing evidence concerns the outcome that motivated the change. More runs of the automated metric alone would not settle it."
+              },
+              {
+                "id": "measured",
+                "label": "Total cost falls and quality meets requirements",
+                "title": "Make a bounded switch",
+                "evidence": "In this branch, a paired comparison establishes lower total operating cost, including review, while meeting the required quality level on the evaluated work.",
+                "recommendation": "Switch for the evaluated document types, monitor review effort and quality, and revisit the choice if the production workload differs.",
+                "reason": "The added evidence connects the lower model cost to the actual objective. It supports a scoped recommendation without establishing performance on every future document."
+              }
+            ]
+          },
+          "takeawayTitle": "Identify what would settle the choice",
+          "takeaway": "A useful recommendation names both what we learned and the unresolved question that could change the choice. The next experiment should address that question.",
+          "boundedConclusion": "“The cheaper model has similar automated scores on the evaluated documents, but editing effort is unmeasured. I recommend a paired review-time trial before replacing the current model because our objective is lower total operating cost.”",
+          "followup": "Compare outputs for the same documents, measure review time consistently, and agree on the quality and cost requirements before inspecting the result."
+        },
+        {
+          "id": "incomplete-coverage",
+          "name": "Incomplete coverage",
+          "title": "The parser works on digital PDFs. Can we roll it out?",
+          "scenario": "A document parser meets the agreed extraction-quality requirement on the evaluated digital PDFs. Scanned documents were not tested. You need to decide whether that missing coverage blocks the proposed rollout.",
+          "impression": "“Scans were not tested, so we cannot deploy.”",
+          "tension": "The evidence has a boundary. Whether that boundary prevents deployment depends on what the proposed rollout includes and how excluded documents will be handled.",
+          "comparisonTitle": "The same evidence can support different rollout decisions",
+          "columns": [
+            "Digital-only pilot",
+            "Rollout includes scans"
+          ],
+          "comparison": [
+            {
+              "label": "Requirement",
+              "values": [
+                "Only supported digital PDFs enter the parser. Scans are reliably identified and routed to the existing process.",
+                "The parser must handle both digital and scanned PDFs."
+              ]
+            },
+            {
+              "label": "What the evidence supports",
+              "values": [
+                "A limited pilot within the evaluated document types, with monitoring. Scans remain outside its scope.",
+                "The digital-PDF result does not establish scan quality. Representative scan evaluation or a reliable fallback is needed before including them."
+              ]
+            }
+          ],
+          "interaction": {
+            "question": "What must the proposed rollout handle?",
+            "options": [
+              {
+                "id": "digital-only",
+                "label": "Digital PDFs only, with reliable scan routing",
+                "title": "Limit the rollout to supported inputs",
+                "evidence": "The evaluated digital PDFs meet the agreed quality requirement. Scan performance remains unknown.",
+                "recommendation": "Run a monitored pilot for supported digital PDFs. Reliably route scans to the existing process and state that they are outside the pilot.",
+                "reason": "The caveat limits scope. This recommendation depends on being able to enforce that boundary; if routing is unreliable, resolve it first."
+              },
+              {
+                "id": "scans-required",
+                "label": "Digital and scanned PDFs are required",
+                "title": "Resolve coverage before the full rollout",
+                "evidence": "The experimental result is unchanged: digital PDFs meet the requirement; scan performance remains unknown.",
+                "recommendation": "Hold the rollout that includes scans. Evaluate representative scanned PDFs against the same requirements, or establish an accepted fallback before including them.",
+                "reason": "The missing evidence now concerns a required input. It blocks this scope of rollout, even though a digital-only pilot could still be considered."
+              }
+            ]
+          },
+          "takeawayTitle": "Translate a limitation into its practical consequence",
+          "takeaway": "A caveat can change the scope, the next test, or the recommendation. Explain which one it changes rather than leaving the reader to infer whether the whole result should be trusted.",
+          "boundedConclusion": "“The parser meets our extraction-quality requirement on the evaluated digital PDFs. I recommend a digital-only pilot with scan routing to the existing process. We have not established scan quality, so this result does not support including scans.”",
+          "followup": "Check that the pilot can reliably identify and route excluded inputs. If scans must be included, evaluate a representative scan sample before expanding."
+        }
+      ],
+      "checklist": [
+        {
+          "title": "Purpose and Reader",
+          "items": [
+            {
+              "rule": "The first page makes clear what question the document answers.",
+              "why": "The reader should know what problem the document is solving before seeing details."
+            },
+            {
+              "rule": "The document is written for a specific reader or decision.",
+              "why": "A report for a technical reviewer, manager, or business stakeholder should not emphasize the same details."
+            }
+          ]
+        },
+        {
+          "title": "Structure",
+          "items": [
+            {
+              "rule": "Each section has one clear job.",
+              "why": "Problem Summary sets up the question. Method explains how it was measured. Results show what was found. Analysis explains what it means. Conclusion states what should happen next."
+            },
+            {
+              "rule": "The method, sample, and scope are stated before the results.",
+              "why": "The reader needs to know what was evaluated before interpreting the numbers."
+            },
+            {
+              "rule": "The document states what was not evaluated or what the results do not prove.",
+              "why": "This prevents the reader from overclaiming the findings."
+            },
+            {
+              "rule": "Each section opens with 1–2 sentences before the first table, figure, or list.",
+              "why": "Readers need context before they encounter evidence."
+            }
+          ]
+        },
+        {
+          "title": "Tables and Figures",
+          "items": [
+            {
+              "rule": "Every table or figure is introduced in the prose with the finding it supports.",
+              "why": "“Figure 2 shows…” is not enough. The sentence should say what the figure shows."
+            },
+            {
+              "rule": "Every caption states the takeaway or purpose of the table/figure.",
+              "why": "A good caption helps the reader understand why the evidence is included."
+            },
+            {
+              "rule": "Every percentage has a visible denominator.",
+              "why": "“8%” is unclear unless the reader knows 8% of what."
+            },
+            {
+              "rule": "Percentages in the same table use the same denominator, or the table explains when they do not.",
+              "why": "Mixed denominators make numbers look comparable when they may not be."
+            },
+            {
+              "rule": "If categories can overlap, the table says so.",
+              "why": "Otherwise, readers may assume the rows add up to 100%."
+            }
+          ]
+        },
+        {
+          "title": "Paragraphs and Analysis",
+          "items": [
+            {
+              "rule": "Each analytical paragraph follows: claim → evidence → consequence.",
+              "why": "The consequence sentence is what turns a result into analysis."
+            },
+            {
+              "rule": "Each paragraph makes one main claim.",
+              "why": "Multiple claims in one paragraph make the logic hard to follow."
+            },
+            {
+              "rule": "Prose explains what the numbers mean; it does not simply repeat the table.",
+              "why": "Repeating the table adds length without adding insight."
+            },
+            {
+              "rule": "Comparisons name both sides explicitly.",
+              "why": "“Better,” “higher,” or “longer” is unclear without a baseline."
+            },
+            {
+              "rule": "Qualitative words are replaced with specific claims when possible.",
+              "why": "Words like “important,” “significant,” and “helpful” are weak unless tied to evidence or action."
+            },
+            {
+              "rule": "For each claim about why a change was necessary, name the most obvious counterargument and address it.",
+              "why": "If the report doesn't preempt that question, it looks like the author didn't think of it."
+            }
+          ]
+        },
+        {
+          "title": "Conclusion and Final Read",
+          "items": [
+            {
+              "rule": "The executive summary can be understood without reading the full body.",
+              "why": "A busy reader should still understand the main finding, implication, and next step."
+            },
+            {
+              "rule": "The conclusion answers: what was found, why it matters, and what should happen next.",
+              "why": "A conclusion should not only summarize; it should guide action."
+            },
+            {
+              "rule": "Every recommendation is supported by evidence from the document.",
+              "why": "Recommendations that do not follow from the results feel unsupported."
+            },
+            {
+              "rule": "Read the document once for flow, not grammar. Each section should naturally lead to the next.",
+              "why": "A technically correct document can still feel confusing if the logic does not progress clearly."
+            }
+          ]
+        },
+        {
+          "title": "Executive Summary",
+          "items": [
+            {
+              "rule": "The executive summary gives the answer, not an introduction to the document. A reader who stops here should understand the main finding."
+            },
+            {
+              "rule": "It states why the finding matters to this reader or decision. Importance should not be left for the reader to infer."
+            },
+            {
+              "rule": "It states the recommended action or decision, when one is required. The reader should know what should happen next."
+            },
+            {
+              "rule": "It includes only the evidence needed to support those points. Methodological and supporting detail belongs in the body unless it changes the decision."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
