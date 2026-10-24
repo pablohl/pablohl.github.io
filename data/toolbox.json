@@ -638,7 +638,14 @@
       "lineage": "Pommerman's distinction between training reward and winning developed into asking which decision-relevant information a metric removes.",
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Higher accuracy, more time lost",
+        "situation": "Two models route the same 100 support tickets. Model A gets 92 right; Model B gets 90 right. The team is choosing which model to use.",
+        "tempting_conclusion": "“Model A has higher accuracy, so it is the better choice.”",
+        "evidence": "A misses six urgent tickets and unnecessarily escalates two routine ones. B misses two urgent tickets and escalates eight routine ones. For illustration, suppose each missed urgent ticket causes 60 minutes of avoidable work and each unnecessary escalation costs five minutes. A then costs 370 minutes; B costs 160. Accuracy counted those two kinds of mistake equally.",
+        "conclusion": "B has the lower estimated burden under these assumptions, despite lower accuracy. The next useful evidence is whether those error consequences are credible in this workflow. Different consequences could change the choice again; the lesson is to inspect the distinction that could affect this decision, rather than collect every possible metric."
+      }
     },
     {
       "id": "look-at-the-boundary",
@@ -706,7 +713,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "One column on the screen, three integrations behind it",
+        "situation": "A product proposal adds a “Latest delivery status” column to an orders dashboard. In the screen sketch, it looks like a small addition.",
+        "tempting_conclusion": "“It is one extra column, so it should be a small piece of work.”",
+        "evidence": "A dependency map shows that the status would have to come from three carriers with different event formats, update times, and missing-data behavior. The screen sketch represents the display change; the map exposes the work needed to make the value trustworthy. If an existing feed already supplies that value, the same column could indeed be a small change.",
+        "conclusion": "Separate displaying an existing status from creating a reliable status feed. Estimate those scopes separately, or limit the first version to orders the existing feed covers. The dependency map explains implementation work; it does not, by itself, establish how valuable the column is."
+      }
     },
     {
       "id": "from-intuition-to-argument",
@@ -740,7 +754,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A retry that feels unsafe",
+        "situation": "An engineer sees a proposal to retry a failed order-processing workflow and says, “This feels fragile.” The team needs to decide whether the retry design is acceptable.",
+        "tempting_conclusion": "“They have seen systems like this fail, so we should block the design.”",
+        "evidence": "Trace a timeout after the workflow has already sent a confirmation. If the retry sends it again, the concern has a specific mechanism: repeating a completed external action. If a durable request identifier prevents that action from repeating, including after a restart, the original objection weakens.",
+        "conclusion": "Ask for a trace and a failure test around duplicate actions. The claim is now narrow enough to examine: this retry may repeat a completed action after a timeout. Revise or withdraw it if the evidence shows that case is already handled; “fragile” alone does not settle the review."
+      }
     },
     {
       "id": "decision-complete",
@@ -823,7 +844,14 @@
       "lineage": "Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.",
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A pilot integration that may become a public API",
+        "situation": "A team is connecting its first document-storage provider for a pilot. Exposing the provider’s identifiers and response format directly would be fastest. Suppose a small translation layer would take two extra days.",
+        "tempting_conclusion": "“Use the direct integration now. We can always change providers later.”",
+        "evidence": "Both approaches use the same provider today. But if customers build against its format, switching later requires coordinating their migrations as well as changing the backend. A small translation layer can keep that change internal. It costs time now, and it does not remove every future switching cost.",
+        "conclusion": "For a disposable demo needed tomorrow, the direct integration may be reasonable. For an API about to gain long-lived customers, the boundary may justify its cost. Preserve the specific option to replace this provider; that does not require building a framework for every provider you might someday use."
+      }
     },
     {
       "id": "two-clocks",
@@ -1379,7 +1407,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A correction feature becomes a training commitment",
+        "situation": "The team agrees that analysts should be able to correct a model’s labels. A detailed draft specification also says that those corrections will retrain the model overnight.",
+        "tempting_conclusion": "“The specification is complete. We can estimate and build the whole feature.”",
+        "evidence": "In the discussion, people agreed on editing labels. They did not decide whether edits should become training data automatically, how a new model would be checked, or who would authorize its release. The draft has turned one agreed capability into several apparent commitments.",
+        "conclusion": "Keep label correction as an agreed requirement. Mark overnight retraining as a proposal, and resolve the training and release questions before estimating that automation. This does not mean rejecting retraining or reopening decisions the team has already made."
+      }
     }
   ]
 }
