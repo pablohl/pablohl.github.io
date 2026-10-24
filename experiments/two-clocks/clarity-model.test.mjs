@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {SCENARIOS,STORIES,createRun,viewAt,start,pause,advance,ask,decide,openingRadius} from './clarity-model.mjs';
+import {SCENARIOS,STORIES,createRun,viewAt,start,pause,advance,ask,decide,openingRadius,summarizeRun} from './clarity-model.mjs';
 for(const [index,scenario] of SCENARIOS.entries())for(const story of Object.keys(STORIES)){
  test(`${scenario.name} / ${story}: conversations, expiry, decision and replay`,()=>{
   const r=createRun(index,story);
@@ -67,4 +67,34 @@ test('Exactly two offers: support expires first, the original job remains',()=>{
   assert.throws(()=>decide(r,'later'),/unavailable/);
   decide(r,'join');assert.match(r.decision.terms,/lead the full product/);
  }
+});
+
+test('A comparison snapshot preserves the decision and only evidence received',()=>{
+ const r=createRun(1,'mismatch');ask(r,'manager');advance(r,14);ask(r,'teammate');advance(r,2);decide(r,'join');
+ const saved=summarizeRun(r);
+ assert.equal(saved.scenario,SCENARIOS[1].name);
+ assert.equal(saved.time,16);
+ assert.deepEqual(saved.evidence.map(e=>e.id),['manager']);
+ assert.equal(saved.evidence[0].short,'No regular mentor');
+ assert.deepEqual(saved.lost,['Smaller role with support']);
+ assert.deepEqual(saved.available,['Original role']);
+ assert.equal(saved.decision.name,'Accepted the original role');
+ // Later runs, source mutations, and replay inspection cannot rewrite a snapshot.
+ viewAt(r,0);createRun(2,'fit');r.evidence[0].short='changed';r.decision.name='changed';
+ assert.equal(saved.evidence[0].short,'No regular mentor');
+ assert.equal(saved.decision.name,'Accepted the original role');
+ saved.deadlines[0]=99;assert.equal(SCENARIOS[1].deadlines[0],10);
+});
+
+test('Comparison distinguishes an expired offer from the illustration limit',()=>{
+ const closed=createRun(1);start(closed);advance(closed,30);
+ const expired=summarizeRun(closed);
+ assert.equal(expired.ended,'closed');assert.equal(expired.decision,null);
+ assert.deepEqual(expired.lost,['Smaller role with support','Original role']);
+ assert.deepEqual(expired.evidence,[]);
+ const slow=createRun();start(slow);advance(slow,60);
+ const limit=summarizeRun(slow);
+ assert.equal(limit.ended,'limit');assert.equal(limit.decision,null);
+ assert.deepEqual(limit.available,['Original role']);
+ assert.deepEqual(limit.lost,['Smaller role with support']);
 });

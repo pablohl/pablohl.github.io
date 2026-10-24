@@ -56,3 +56,16 @@ export function openingRadius(scenario,time){
  for(let i=1;i<knots.length;i++){const [end,r]=knots[i],[start,prior]=knots[i-1];if(time<=end)return prior+(r-prior)*(time-start)/(end-start);}
  return 0;
 }
+
+// A comparison records the actual run, never a replay position or future answers.
+export function summarizeRun(run){
+ const scenario=SCENARIOS[run.index],state=viewAt(run);
+ return {
+  index:run.index,story:run.story,time:run.time,started:run.started,ended:run.ended,
+  scenario:scenario.name,conversation:scenario.conversation,deadlines:[...scenario.deadlines],
+  evidence:(run.decision?.evidence||state.evidence).map(e=>({...e})),
+  lost:state.options.filter(o=>!o.available).map(o=>o.label),
+  available:state.options.filter(o=>o.available).map(o=>o.label),
+  decision:run.decision?{name:run.decision.name,time:run.decision.time,terms:run.decision.terms}:null,
+ };
+}
