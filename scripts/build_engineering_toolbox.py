@@ -17,6 +17,10 @@ def render_example(example, number):
     # Mobile cards use the same content as the semantic desktop comparison table.
     mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<p><strong>{esc(row["label"])}</strong>{esc(row["values"][i])}</p>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
     conditions = ''.join(f'<p class="case-conditions"><strong>{esc(condition["label"])}</strong> {esc(condition["text"])}</p>\n' for condition in example['conditions'])
+    if example.get('discussionCases'):
+        discussion = ''.join(f'<h4>{esc(case["label"])}</h4><blockquote>{esc(case["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(case["followup"])}</p>' for case in example['discussionCases'])
+    else:
+        discussion = f'<blockquote>{esc(example["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(example["followup"])}</p>'
     return f'''<article class="engineering-case" id="{esc(example['id'])}" aria-labelledby="{esc(example['id'])}-title">
 <h3 class="case-title" id="{esc(example['id'])}-title">{esc(example['title'])}</h3>
 <p class="case-scenario">{esc(example['scenario'])}</p>
@@ -25,7 +29,7 @@ def render_example(example, number):
 <table class="case-comparison"><caption class="visually-hidden">{esc(example['comparisonTitle'])}</caption><thead><tr><td></td>{columns}</tr></thead><tbody>{rows}</tbody></table>
 <div class="case-comparison-mobile">{mobile}</div>
 {conditions}<aside class="case-takeaway"><h3>{esc(example['takeawayTitle'])}</h3><p>{esc(example['takeaway'])}</p></aside>
-<details class="case-discussion"><summary>How this could sound in the hiring discussion</summary><blockquote>{esc(example['boundedConclusion'])}</blockquote><p><strong>A useful follow-up:</strong> {esc(example['followup'])}</p></details>
+<details class="case-discussion"><summary>How this could sound in the hiring discussion</summary>{discussion}</details>
 </article>'''
 
 

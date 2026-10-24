@@ -30,6 +30,8 @@ Use the site's existing cream, green, serif headings, and sans serif body text. 
 
 Each example's `conditions` hold any notes about prompting or role expectations. Its `application` contains a label and one example answer per shared discussion question, in the same order. The builder emits a matching `data-example-summary` block for every example tab so selection switches both the scenario and its application. Edit these source fields rather than the generated HTML.
 
+When the contrasting cases need different discussion conclusions, use `discussionCases` with a label, `boundedConclusion`, and `followup` for each case. Match the labels to the comparison columns so readers can tell which evidence each conclusion addresses. Otherwise, the example's single `boundedConclusion` and `followup` remain supported.
+
 Run `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts -p 'test_build_engineering_toolbox.py'` to check that rebuilding preserves the published guide, every tab has a readable static panel and matching application, and repeated builds are stable.
 
 The reusable editorial pattern is recognizable problem → proposed distinction → selectable examples → discussion. Each example contains a situation, tempting conclusion, contrasting evidence, and bounded interpretation. Future tools can use a different interaction if it helps visitors understand the decision; a worksheet is not the default requirement.
