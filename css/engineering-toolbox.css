@@ -94,3 +94,29 @@ body#page .engineering-page.site-main { padding-top: 2rem; }
 .example-controls { gap: .25rem .75rem; }
 body#page .engineering-page.site-main { padding-top: 1.5rem; }
 }
+
+/* Decision stories retain the guide's typography and native controls. */
+.engineering-tool-card + .engineering-tool-card { margin-top: 1rem; }
+.decision-explorer { margin-block: 1.5rem; }
+.decision-explorer fieldset { margin: 0; padding: 1rem; border: 1px solid var(--color-border); border-radius: 4px; }
+.decision-explorer legend { padding-inline: .35rem; font-weight: 600; font-size: 1rem; }
+.decision-explorer label { display: flex; align-items: flex-start; gap: .65rem; cursor: pointer; line-height: 1.6; }
+.decision-explorer label { padding: .6rem .25rem; }
+.decision-explorer input { flex: 0 0 auto; width: 1.1rem; height: 1.1rem; margin-top: .25rem; accent-color: var(--color-accent); }
+.decision-outcome { border-left: 3px solid var(--color-accent); padding: .25rem 1rem; margin-block: 1.25rem; max-width: 900px; }
+.decision-outcome h4 { font-size: 1.125rem; margin: .5rem 0; }
+.decision-outcome p { font-size: .9375rem; }
+.decision-outcome[hidden], .decision-explorer fieldset[hidden] { display: none; }
+.decision-explorer input:focus-visible, .case-discussion summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+
+/* Give the situation room to establish why the decision matters. */
+.story-opening { max-width: 760px; margin-block: 1.5rem; }
+.story-case .case-scenario, .story-case .story-question { max-width: 800px; }
+.story-case .case-scenario + .case-scenario { margin-top: .8rem; }
+.story-question { font-size: 1.0625rem; }
+.story-framework { margin-top: 1.5rem; max-width: 820px; }
+.story-case .decision-recommendation strong { font-weight: 600; }
+
+.story-case .case-label { color: var(--color-text-secondary); font-size: .8125rem; margin: 0 0 .5rem; }
+.story-case .case-title { font-size: clamp(1.3rem, 2.4vw, 1.65rem); margin: 0 0 .65rem; }
+.story-ending { max-width: 820px; }
