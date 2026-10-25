@@ -9,8 +9,7 @@
         {
           "id": "ml-evaluation",
           "name": "ML evaluation",
-          "title": "They spotted a problem. Did it change their recommendation?",
-          "scenario": "You’re hiring an ML engineer who will help decide whether models are ready to ship. In the interview, you show a classifier with 92% accuracy and ask whether the team should deploy it. The candidate says there could be data leakage: information available during testing might not be available when the model is used.",
+          "scenario": "You’re hiring an ML engineer who will help decide whether models are ready to ship. You show a fraud-detection model with 92% accuracy and ask whether to deploy it. The candidate warns of possible data leakage: the test might use later customer disputes to predict whether an earlier payment was fraudulent. Those disputes would not yet be known when the model checks a new payment, so the test score could be misleading.",
           "impression": "“They spotted leakage. They have good evaluation judgment.”",
           "tension": "That could be true. But naming a familiar problem and knowing what to do about it are different pieces of evidence.",
           "comparisonTitle": "What happens after they name the problem?",
@@ -20,30 +19,39 @@
           ],
           "comparison": [
             {
-              "label": "What you observe",
+              "label": "What happened",
               "values": [
                 "They mention possible leakage, then recommend deploying because 92% sounds high.",
-                "They ask how the test data was separated, propose checking performance on later data, and hold off on recommending deployment until that check is done."
+                "They ask whether the test used information available at payment time, propose retesting with only that information on later payments, and hold off on recommending deployment until that check is done."
               ]
             },
             {
               "label": "What this supports",
               "values": [
-                "They recognize the term. This answer gives little evidence that they would use it to challenge a release decision.",
+                "In this answer, they recommended release without resolving a risk they had identified. That raises a specific concern about their use of evaluation evidence. You don’t yet know how they would respond to guidance.",
                 "They connect a concern to a test and a release condition. That supports a more specific expectation: they may question an unreliable evaluation before recommending release."
               ]
             }
           ],
-          "takeawayTitle": "Look for what the concern changes",
-          "takeaway": "A concern becomes more useful evidence when it changes the proposed test, the recommendation, or the next action. Saying “there may be leakage” tells you less than showing how that possibility changes the decision.",
-          "boundedConclusion": "“In this case, they turned an evaluation risk into a concrete check before release. I’d expect them to contribute to model reviews, with help on our domain’s metrics. I haven’t yet seen whether they do the same with an unfamiliar problem.”",
-          "followup": "Give them a different evaluation scenario and ask what would make them change their recommendation. Look for whether they adapt the reasoning rather than repeat the same test."
+          "takeaway": "The first response sets aside an identified risk when recommending release. The second turns that risk into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
+          "conditions": [],
+          "discussionCases": [
+            {
+              "label": "They name the risk",
+              "boundedConclusion": "“They identified possible leakage but recommended release without resolving it. That raises a concern about how they used evaluation evidence in this answer. I’d need to see them address that concern before trusting a release recommendation. I don’t yet know how they would revise their reasoning with guidance.”",
+              "followup": "Ask what information would be available when a payment arrives, and what test result would change their recommendation. Note any hints you provide and whether they use them."
+            },
+            {
+              "label": "They act on the risk",
+              "boundedConclusion": "“In this case, they proposed retesting with information available at payment time and waiting for that result before recommending release. I’d expect them to contribute to model reviews, with help on our domain’s metrics. I haven’t yet seen whether they do the same with an unfamiliar problem.”",
+              "followup": "Give them a different evaluation scenario and ask what would make them change their recommendation. Look for whether they adapt the reasoning rather than repeat the same test."
+            }
+          ]
         },
         {
           "id": "system-design",
           "name": "System design",
-          "title": "They don’t know our queue. What does that tell us?",
-          "scenario": "You’re hiring a backend engineer to work on a service that uses a message queue. The candidate hasn’t used your queue product. You still need to understand whether they can reason about failures, repeated messages, and recovery.",
+          "scenario": "You’re hiring a backend engineer to work on a service that uses a message queue. The candidate hasn’t used your queue product. A queue may deliver the same payment request more than once; without a safeguard, that could charge a customer twice. You still need to understand whether they can reason about failures, repeated messages, and recovery.",
           "impression": "“They don’t know our stack. They’ll struggle with reliability.”",
           "tension": "Unfamiliarity with a product is visible. Their ability to reason about reliability needs its own evidence.",
           "comparisonTitle": "Two different reasons you might lack confidence",
@@ -53,44 +61,60 @@
           ],
           "comparison": [
             {
-              "label": "What happened in the interview",
+              "label": "What happened",
               "values": [
                 "You asked which queue products they had used, but never discussed delivery failures or repeated messages.",
                 "You explained that the queue can deliver a message more than once. Even after discussing the consequences, they kept a design that could charge the customer twice and offered no way to prevent or detect it."
               ]
             },
             {
-              "label": "What you can conclude",
+              "label": "What this supports",
               "values": [
                 "You know they lack experience with this product. You don’t yet know how they reason about these failures.",
                 "You have evidence of difficulty handling this failure mode in this discussion. The concern is more specific than unfamiliarity with the product."
               ]
             }
           ],
-          "takeawayTitle": "“We didn’t see it” and “they struggled with it” are different",
           "takeaway": "An interview that never tested failure handling leaves a question open. An answer that overlooks a failure after it has been explained gives you something concrete to examine. Neither warrants a broad claim about every aspect of the candidate’s ability.",
-          "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a duplicate-message scenario and ask how they would prevent repeated side effects. Product experience and failure reasoning are separate questions.”",
-          "followup": "Explain the delivery behavior without requiring product-specific vocabulary. Ask them to trace one message through a failure and recovery. Then assess the reasoning against the role’s expectations."
+          "conditions": [
+            {
+              "label": "What the interviewer supplied matters.",
+              "text": "In the second response, you explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
+            },
+            {
+              "label": "The role changes the forecast.",
+              "text": "Judge the answer against the role’s responsibilities and the support the team can provide."
+            }
+          ],
+          "discussionCases": [
+            {
+              "label": "You haven’t tested the capability",
+              "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a repeated-payment scenario and ask how they would prevent charging a customer twice. Product experience and failure reasoning are separate questions.”",
+              "followup": "Explain the delivery behavior without requiring product-specific vocabulary. Ask them to trace one message through a failure and recovery. Then assess the reasoning against the role’s expectations."
+            },
+            {
+              "label": "You observed a problem in the reasoning",
+              "boundedConclusion": "“After duplicate delivery and its consequences were explained, they kept a design that could charge a customer twice. For a junior role with design reviews, I’d expect them to need guidance on this failure mode. For a senior role leading payment design, this raises a stronger concern. I haven’t yet established whether this is a local gap or a broader difficulty.”",
+              "followup": "Give targeted feedback and ask them to revise the design, then trace a repeated message through failure and recovery. This checks how they use support. A similar, unfamiliar scenario can separately test whether the reasoning transfers."
+            }
+          ]
         }
       ],
       "discussion": [
         {
           "label": "Evidence",
           "question": "What did we observe?",
-          "explanation": "Describe the action or answer before giving it a meaning.",
-          "example": "They questioned the test split and proposed evaluating on later data before recommending release."
+          "explanation": "Describe the action or answer before giving it a meaning."
         },
         {
           "label": "Expectation",
           "question": "What work might they handle, with what support?",
-          "explanation": "Translate the observation into a specific work expectation. Name the help it assumes.",
-          "example": "I’d expect them to contribute to model reviews, with guidance on our domain’s metrics."
+          "explanation": "Translate the observation into a specific work expectation. Name the help it assumes."
         },
         {
           "label": "Uncertainty",
           "question": "What remains untested, and how would we check it?",
-          "explanation": "Name the limit of the prediction and a next step that could change your confidence.",
-          "example": "We haven’t seen this reasoning on an unfamiliar problem. Use a different evaluation scenario in a follow-up discussion."
+          "explanation": "Name the limit of the prediction and a next step that could change your confidence."
         }
       ],
       "related": [
@@ -105,7 +129,7 @@
           "reason": "Turn a broad impression into a claim others can examine."
         }
       ],
-      "discussionTemplate": "We observed [specific behavior]. That gives us reason to expect [work contribution], with [support]. We’re still unsure about [gap], which we could check by [next step].",
+      "discussionTemplate": "We observed [specific behavior]. This suggests [a specific expectation or concern] about [work], given [conditions and support]. We’re still unsure about [gap], which we could check by [next step].",
       "introduction": [
         "A technical interview shows how someone responds to a particular problem. Hiring asks us to predict their contribution on real work, with our team’s support and constraints.",
         "The jump from an encouraging answer to a broad expectation can hide assumptions. Separate what you saw, what it suggests, and what remains untested."
@@ -113,17 +137,22 @@
       "lessons": [
         {
           "title": "Look for consequences.",
-          "text": "The ML example asks whether recognizing a risk changes the candidate’s test or recommendation—not just whether they can name the problem."
+          "text": "When a candidate raises a concern, look at what happens next. A proposed check and a recommendation that depends on its result show more than naming the concern alone."
         },
         {
           "title": "Identify the actual gap.",
-          "text": "The queue example separates product knowledge from failure reasoning. An untested capability and an observed difficulty need different follow-ups."
+          "text": "Not asking about a capability leaves it untested. Watching someone struggle after the problem is explained gives you a specific difficulty to investigate. These need different follow-ups."
+        },
+        {
+          "title": "Account for the prompt.",
+          "text": "What the candidate demonstrated depends partly on what the interviewer explained, hinted at, or left unstated."
         },
         {
           "title": "Keep predictions conditional.",
-          "text": "Neither example establishes performance across unfamiliar problems. Name the support and conditions your expectation assumes so it can be questioned and revisited."
+          "text": "One interview response does not establish performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
         }
-      ]
+      ],
+      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step]."
     },
     {
       "id": "results-to-decisions",
@@ -142,48 +171,11 @@
         "Interpretation",
         "Decision"
       ],
-      "frameworkBoundary": "The reader needs to see how the observation supports the action—and where that support ends.",
       "examplesTitle": "Start with a situation",
       "examplesLabel": "Engineering example",
       "examplesDisclaimer": "Two fictional situations. Explore the detail that changes each decision.",
       "discussionSummary": "How this could sound in the report",
-      "discussionTitle": "Make the connection visible",
-      "appliedLabel": "Applied to the on-call example",
-      "templateGap": "If a part is missing, decide whether you need analysis, an explanation, evidence, or agreement on a trade-off.",
-      "cautionTitle": "Keep the conclusion proportionate.",
-      "caution": "A recommendation can be to continue, narrow the scope, retain the current approach, or collect specific evidence. State what the uncertainty permits or prevents.",
       "discussionTemplate": "We found [result] on [cases]. That supports [interpretation], but leaves [gap]. Given [what the next step requires], I recommend [action and scope].",
-      "discussion": [
-        {
-          "label": "Observation",
-          "question": "What changed, compared with what, and on which cases?",
-          "example": "Raising the timeout threshold would reduce last week’s pages from 18 to 4."
-        },
-        {
-          "label": "Interpretation",
-          "question": "What does that establish, and what remains uncertain?",
-          "example": "That establishes fewer interruptions. Replaying a real checkout outage shows the proposed rule would also miss a problem customers experienced."
-        },
-        {
-          "label": "Decision",
-          "question": "Given our requirements, what should we do next?",
-          "example": "Keep the current threshold while revising the rule. Check the revision against known outages before using it to page the on-call engineer."
-        }
-      ],
-      "lessons": [
-        {
-          "title": "Name the decision criterion.",
-          "text": "The on-call team wants fewer unnecessary interruptions while still detecting customer problems. Counting pages answers only part of that question."
-        },
-        {
-          "title": "Make the caveat change something.",
-          "text": "The migration rehearsal does not cover the archive. Whether that stops the next move depends on whether the archive has to move with it."
-        },
-        {
-          "title": "Identify the work that remains.",
-          "text": "An unclear result needs analysis. An unclear connection needs explanation. An untested assumption needs evidence. A disputed trade-off needs a decision from the responsible person."
-        }
-      ],
       "related": [
         {
           "id": "decision-complete",
@@ -201,7 +193,7 @@
           "id": "on-call-alerts",
           "name": "Overnight pages",
           "story": true,
-          "title": "Eighteen pages. Four worth waking up for?",
+          "title": "Fewer pages. Would the new rule still catch an outage?",
           "scenario": [
             "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests have timed out for five minutes. By the time they open the dashboard, the spike has passed.",
             "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%. Applied to last week’s traffic, that rule would have sent just four pages."
@@ -238,7 +230,9 @@
                 "title": "A quieter night is promising. Detection is still an open question.",
                 "evidence": "The new rule would have sent four pages last week. Nobody has checked whether the pages it removes include incidents that needed a response.",
                 "recommendation": "Keep the current rule for now. Replay known outages against the proposed threshold and check whether it would alert soon enough for the team to respond.",
-                "reason": "The useful next check is about what the rule would miss. Another count of pages cannot answer that."
+                "reason": "The useful next check is about what the rule would miss. Another count of pages cannot answer that.",
+                "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4. We have not checked which incidents it would miss. I recommend replaying known outages before changing the rule, because fewer interruptions only help if we still detect customer problems.”",
+                "followup": "Replay known incidents and compare whether and when each rule would page. Inspect the incidents that would no longer trigger an alert."
               },
               {
                 "id": "outage-replay",
@@ -246,14 +240,14 @@
                 "title": "The quieter rule would have missed a real outage.",
                 "evidence": "On Thursday, 3% of checkout requests timed out long enough for customers to lose purchases. The current rule paged the engineer. A 5% threshold would not have paged at all.",
                 "recommendation": "Do not adopt this threshold. Keep the current rule while looking for a way to filter brief spikes without hiding sustained checkout failures, then replay known incidents again.",
-                "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change."
+                "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change.",
+                "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. This threshold does not meet our need to detect sustained customer failures.”",
+                "followup": "Revise the rule to distinguish brief spikes from sustained failures, then check it against known incidents before changing production alerts."
               }
             ]
           },
           "takeawayTitle": "The missing connection",
-          "takeaway": "Fewer pages tells us about interruptions. To recommend this rule, we also need to know what happens to incident detection. Writing the recommendation exposes the part the first measurement did not answer.",
-          "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. The quieter rule does not meet our need to detect sustained customer failures.”",
-          "followup": "Find a revised rule that distinguishes brief spikes from sustained failures. Replay known incidents and inspect detection time before changing the production alert."
+          "takeaway": "Fewer pages tells us about interruptions. To recommend this rule, we also need to know what happens to incident detection. Writing the recommendation exposes the part the first measurement did not answer."
         },
         {
           "id": "migration-scope",
@@ -295,7 +289,9 @@
                 "title": "The archive can wait. A limited move has support.",
                 "evidence": "The recent-order rehearsal passed. The team has also verified that the application can access orders across both databases consistently and that it can roll back. Historical formats remain untested.",
                 "recommendation": "Move the tested recent orders in stages and monitor the agreed checks. Keep the archive in the old database until its formats have been rehearsed.",
-                "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support."
+                "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support.",
+                "boundedConclusion": "“The rehearsal supports moving the tested recent orders. Because split access and rollback are verified, I recommend a staged move while the archive stays in the old database. Historical formats still need their own rehearsal before they can move.”",
+                "followup": "Monitor the agreed consistency checks during the staged move. Rehearse representative historical formats before expanding its scope."
               },
               {
                 "id": "all-records",
@@ -303,14 +299,14 @@
                 "title": "This move needs evidence the rehearsal did not provide.",
                 "evidence": "The recent-order rehearsal still passes. But the application cannot operate with the archive left behind, and historical formats remain untested.",
                 "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and rollback plan before scheduling the move.",
-                "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid."
+                "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid.",
+                "boundedConclusion": "“Recent orders passed the rehearsal, but the application requires the archive in the new database too. Historical formats have not been tested, so I recommend holding the full migration until that rehearsal and the rollback checks pass.”",
+                "followup": "Rehearse representative historical formats, resolve failures, and verify the complete move and rollback before scheduling migration."
               }
             ]
           },
           "takeawayTitle": "The missing connection",
           "takeaway": "“The archive is untested” describes a limit of the rehearsal. Its consequence depends on the plan: it may restrict the move to recent orders, or prevent the full move from going ahead.",
-          "boundedConclusion": "“The rehearsal supports moving the tested recent orders. Because split access and rollback are verified, I recommend a staged move while the archive stays in the old database. This is not evidence that historical formats are ready to migrate.”",
-          "followup": "Confirm which records the next step actually requires. For a staged move, verify split access and consistency; for a full move, rehearse representative older schemas as well.",
           "story": true
         }
       ],
@@ -442,7 +438,9 @@
           ]
         }
       ],
-      "storyFirst": true
+      "storyFirst": true,
+      "endingTitle": "What connects a result to a decision?",
+      "ending": "A measurement answers a particular question. A recommendation connects that answer to what the next step requires. Make the connection explicit, including what the evidence leaves open: the reader should be able to see why this action follows and where its support ends."
     }
   ]
 }

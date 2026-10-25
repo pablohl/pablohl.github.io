@@ -1,0 +1,17 @@
+.tool-worked-example {
+  max-width: 76ch;
+  padding: 1.5rem 0;
+}
+.tool-worked-example h3 {
+  margin: 0 0 1rem;
+  font: 600 1.4rem/1.3 var(--font-serif);
+}
+.tool-worked-example p {
+  color: var(--color-text);
+}
+.tool-worked-example p + p {
+  margin-top: .875rem;
+}
+.tool-worked-example strong {
+  font-weight: 600;
+}

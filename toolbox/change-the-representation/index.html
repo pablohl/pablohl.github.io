@@ -24,6 +24,7 @@
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
+<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">
 </head>
 <body id="page">
 <header class="editorial-header">
@@ -49,6 +50,7 @@
       <h2>The idea</h2>
       <p>Something can be small at one interface and large inside the system—or technically difficult while almost irrelevant to the user.</p>
     </section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">One column on the screen, three integrations behind it</h3><p><strong>Situation.</strong> A product proposal adds a “Latest delivery status” column to an orders dashboard. In the screen sketch, it looks like a small addition.</p><p><strong>The tempting conclusion.</strong> “It is one extra column, so it should be a small piece of work.”</p><p><strong>What changes the view.</strong> A dependency map shows that the status would have to come from three carriers with different event formats, update times, and missing-data behavior. The screen sketch represents the display change; the map exposes the work needed to make the value trustworthy. If an existing feed already supplies that value, the same column could indeed be a small change.</p><p><strong>What this supports.</strong> Separate displaying an existing status from creating a reliable status feed. Estimate those scopes separately, or limit the first version to orders the existing feed covers. The dependency map explains implementation work; it does not, by itself, establish how valuable the column is.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>

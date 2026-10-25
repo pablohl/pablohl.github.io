@@ -283,10 +283,31 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
             f'<section class="tool-section"><h2>Related tools</h2>{"".join(related)}</section>'
         )
 
-    description = tool["observation"]
+    worked_example = ""
+    head = site_head(tool['name'], tool['observation'], f'{SITE_URL}/toolbox/{tool["id"]}/')
+    if tool.get("worked_example"):
+        example = tool["worked_example"]
+        fields = (
+            ("situation", "Situation"),
+            ("tempting_conclusion", "The tempting conclusion"),
+            ("evidence", "What changes the view"),
+            ("conclusion", "What this supports"),
+        )
+        if not isinstance(example.get("title"), str) or not example["title"].strip() or any(
+            not isinstance(example.get(key), str) or not example[key].strip() for key, _ in fields
+        ):
+            raise ValueError(f"Incomplete worked example for {tool['id']}")
+        paragraphs = ''.join(f'<p><strong>{label}.</strong> {esc(example[key])}</p>' for key, label in fields)
+        worked_example = (
+            '    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title">'
+            '<h2>Worked example · illustrative</h2>'
+            f'<h3 id="worked-example-title">{esc(example["title"])}</h3>{paragraphs}</section>\n'
+        )
+        head = head.replace('</head>', '<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">\n</head>')
+
     return f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head(tool['name'], description, f'{SITE_URL}/toolbox/{tool["id"]}/')}
+{head}
 <body id="page">
 {site_header()}
 <main class="site-main section-inner tool-page animated fadeIn faster">
@@ -299,7 +320,7 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
       <h2>The idea</h2>
       <p>{esc(tool['observation'])}</p>
     </section>
-    <div class="tool-supporting">
+{worked_example}    <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>
       <p>{esc(tool['situation'])}</p>

@@ -24,6 +24,7 @@
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
+<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">
 </head>
 <body id="page">
 <header class="editorial-header">
@@ -49,6 +50,7 @@
       <h2>The idea</h2>
       <p>A complete-looking document can turn assumptions and suggested approaches into apparent commitments. Distinguishing agreed requirements, proposals, and unresolved questions helps the recipient understand what they should implement and what still needs discussion.</p>
     </section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">A correction feature becomes a training commitment</h3><p><strong>Situation.</strong> The team agrees that analysts should be able to correct a model’s labels. A detailed draft specification also says that those corrections will retrain the model overnight.</p><p><strong>The tempting conclusion.</strong> “The specification is complete. We can estimate and build the whole feature.”</p><p><strong>What changes the view.</strong> In the discussion, people agreed on editing labels. They did not decide whether edits should become training data automatically, how a new model would be checked, or who would authorize its release. The draft has turned one agreed capability into several apparent commitments.</p><p><strong>What this supports.</strong> Keep label correction as an agreed requirement. Mark overnight retraining as a proposal, and resolve the training and release questions before estimating that automation. This does not mean rejecting retraining or reopening decisions the team has already made.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>

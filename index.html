@@ -28,36 +28,9 @@
 	<title>Pablo Hernandez Leal</title>
 	<link rel="alternate" type="application/rss+xml" href="https://pablohl.github.io/index.xml" title="Pablo Hernandez Leal" />
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
-	<style>
-		:root { --accent: #d7a36a; --muted: rgba(255,255,255,.68); --rule: rgba(255,255,255,.14); }
-		#spotlight { min-height: 100vh; height: auto; align-items: flex-start; overflow: visible; }
-		#spotlight #home-center { width: min(92%, 1040px); margin: 0 auto; padding: 8vh 0 5rem; text-align: left; }
-		.home-person { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: end; margin: 0 0 5rem; }
-		.home-person h1 { margin: 0; font-size: clamp(2.9rem, 7vw, 5rem); line-height: 1.05; letter-spacing: -.04em; }
-		.home-role { margin: .85rem 0 0; color: var(--accent); font-size: 1.05rem; }
-		.home-intro { max-width: 720px; margin: .75rem 0 0; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
-		#home-social { margin: 1.25rem 0; text-align: left; }
-		#home-social a:first-child { margin-left: 0; }
-		#home-nav { display: flex; flex-direction: row; justify-content: flex-start; gap: 1.5rem; margin: 1.25rem 0 0; text-align: left; }
-		#home-nav a { margin: 0; color: var(--accent); }
-		.selected-writing { border-top: 1px solid var(--rule); padding-top: 2rem; }
-		.selected-writing h2 { margin: 0 0 1.6rem; font-size: 1rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-		.essay-link { display: grid; grid-template-columns: 1fr auto; gap: .5rem 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid var(--rule); color: inherit; }
-		.essay-link:hover { color: inherit; }
-		.essay-title { font-size: clamp(1.25rem, 2.5vw, 1.65rem); line-height: 1.3; }
-		.essay-date { color: var(--muted); font-size: .85rem; white-space: nowrap; }
-		.essay-summary { grid-column: 1; color: var(--muted); line-height: 1.55; }
-		.view-all { display: inline-block; margin-top: 1.75rem; color: var(--accent); }
-		.toolbox-teaser { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem 3rem; align-items: end; margin-top: 4.5rem; padding: 2.25rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-		.toolbox-teaser .tool-eyebrow { display: block; margin-bottom: .6rem; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-		.toolbox-teaser h2 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.15rem); line-height: 1.2; }
-		.toolbox-teaser p { max-width: 680px; margin: .75rem 0 0; color: var(--muted); line-height: 1.65; }
-		.toolbox-link { color: var(--accent); white-space: nowrap; }
-		#home-footer { position: static; padding: 1.5rem 0 2rem; }
-		@media (max-width: 700px) { .home-person, .toolbox-teaser { grid-template-columns: 1fr; align-items: start; } }
-		@media (max-width: 560px) { #home-nav { flex-wrap: wrap; gap: .75rem 1.25rem; } .essay-link { grid-template-columns: 1fr; } .essay-date { grid-row: 1; } .essay-summary { grid-column: 1; } }
-	</style>
+
   <link rel="stylesheet" href="/css/editorial.css?v=20261021">
+  <link rel="stylesheet" href="/css/home.css?v=20261023">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -78,7 +51,7 @@
   </div>
 </header>
 	
-	<div id="spotlight" class="animated fadeIn">
+	<main id="spotlight">
 		<div id="home-center">
 			<section class="home-person" aria-labelledby="home-person-title">
 				<div>
@@ -99,11 +72,10 @@
 				</div>
 			</section>
 			<section class="selected-writing" aria-labelledby="selected-writing-title">
-				<h2 id="selected-writing-title">Selected writing</h2>
+				<div class="home-section-heading"><h2 id="selected-writing-title">Selected writing</h2><a href="/posts/">View all writing →</a></div>
 				<a class="essay-link" href="/posts/kirk-spock/"><span class="essay-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span><span class="essay-date">Sep 2026</span><span class="essay-summary">When should a decision preserve options, and when is it time to commit?</span></a>
 				<a class="essay-link" href="/posts/the-executive-summary-is-not-a-summary/"><span class="essay-title">The Executive Summary Is Not a Summary</span><span class="essay-date">Oct 2026</span><span class="essay-summary">An abstract says what the work found. An executive summary explains what it means for the decision.</span></a>
 				<a class="essay-link" href="/posts/the-metric-can-be-right/"><span class="essay-title">The Metric Can Be Right and the Decision Can Still Be Wrong</span><span class="essay-date">Sep 2026</span><span class="essay-summary">Why a correct metric can still support the wrong decision when it measures only part of the system.</span></a>
-				<a class="view-all" href="/posts/">View all writing →</a>
 			</section>
 			<section class="home-experiments" aria-labelledby="home-experiments-title">
 				<div class="home-section-heading"><h2 id="home-experiments-title">Interactive experiments</h2><a href="/experiments/">View all experiments →</a></div>
@@ -122,12 +94,12 @@
 				<a class="toolbox-link" href="https://pablohl.github.io/toolbox/">Explore the toolbox →</a>
 			</section>
 		</div>
-		<div id="home-footer">
+	</main>
+	<footer id="home-footer">
 			<p>
 				&copy; 2026 <a href="https://pablohl.github.io">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a> &#183; <a href="https://pablohl.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
 			</p>
-		</div>
-	</div>
+	</footer>
 
 
 	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>

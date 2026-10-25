@@ -24,6 +24,7 @@
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
+<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">
 </head>
 <body id="page">
 <header class="editorial-header">
@@ -49,6 +50,7 @@
       <h2>The idea</h2>
       <p>Immediate value isn&#x27;t the only consequence of a choice. Some decisions alter the future option set and the cost of responding to new information.</p>
     </section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">A pilot integration that may become a public API</h3><p><strong>Situation.</strong> A team is connecting its first document-storage provider for a pilot. Exposing the provider’s identifiers and response format directly would be fastest. Suppose a small translation layer would take two extra days.</p><p><strong>The tempting conclusion.</strong> “Use the direct integration now. We can always change providers later.”</p><p><strong>What changes the view.</strong> Both approaches use the same provider today. But if customers build against its format, switching later requires coordinating their migrations as well as changing the backend. A small translation layer can keep that change internal. It costs time now, and it does not remove every future switching cost.</p><p><strong>What this supports.</strong> For a disposable demo needed tomorrow, the direct integration may be reasonable. For an API about to gain long-lived customers, the boundary may justify its cost. Preserve the specific option to replace this provider; that does not require building a framework for every provider you might someday use.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>

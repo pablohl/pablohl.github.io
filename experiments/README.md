@@ -159,6 +159,8 @@ If the brief cannot identify a consequential action and a visible comparison, re
 
 Review the rendered experience, not only the source or screenshots of the opening. Record checks as **Pass / Needs work / Not checked / Not applicable**, with brief evidence. Do not claim compliance from the presence of a control or a methods paragraph alone.
 
+For a complementary review of the central idea from practitioner, newer-reader, subject-matter, and interaction-design perspectives, use the [Multi-Perspective Review Guideline](../docs/multi-perspective-review.md).
+
 ### Core acceptance checks
 
 - [ ] A new reader can identify what to do first without a tutorial.
