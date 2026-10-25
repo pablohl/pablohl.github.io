@@ -9,8 +9,7 @@
         {
           "id": "ml-evaluation",
           "name": "ML evaluation",
-          "title": "They spotted a problem. Did it change their recommendation?",
-          "scenario": "You’re hiring an ML engineer who will help decide whether models are ready to ship. In the interview, you show a classifier with 92% accuracy and ask whether the team should deploy it. The candidate says there could be data leakage: information available during testing might not be available when the model is used.",
+          "scenario": "You’re hiring an ML engineer who will help decide whether models are ready to ship. You show a fraud-detection model with 92% accuracy and ask whether to deploy it. The candidate warns of possible data leakage: the test might use later customer disputes to predict whether an earlier payment was fraudulent. Those disputes would not yet be known when the model checks a new payment, so the test score could be misleading.",
           "impression": "“They spotted leakage. They have good evaluation judgment.”",
           "tension": "That could be true. But naming a familiar problem and knowing what to do about it are different pieces of evidence.",
           "comparisonTitle": "What happens after they name the problem?",
@@ -20,38 +19,46 @@
           ],
           "comparison": [
             {
-              "label": "What you observe",
+              "label": "What happened",
               "values": [
                 "They mention possible leakage, then recommend deploying because 92% sounds high.",
-                "They ask how the test data was separated, propose checking performance on later data, and hold off on recommending deployment until that check is done."
+                "They ask whether the test used information available at payment time, propose retesting with only that information on later payments, and hold off on recommending deployment until that check is done."
               ]
             },
             {
               "label": "What this supports",
               "values": [
-                "They recognize the term. This answer gives little evidence that they would use it to challenge a release decision.",
+                "They notice a possible evaluation problem. You haven’t yet seen them investigate it or use it to change a release recommendation.",
                 "They connect a concern to a test and a release condition. That supports a more specific expectation: they may question an unreliable evaluation before recommending release."
               ]
             }
           ],
-          "takeawayTitle": "Look for what the concern changes",
-          "takeaway": "A concern becomes more useful evidence when it changes the proposed test, the recommendation, or the next action. Saying “there may be leakage” tells you less than showing how that possibility changes the decision.",
-          "boundedConclusion": "“In this case, they turned an evaluation risk into a concrete check before release. I’d expect them to contribute to model reviews, with help on our domain’s metrics. I haven’t yet seen whether they do the same with an unfamiliar problem.”",
-          "followup": "Give them a different evaluation scenario and ask what would make them change their recommendation. Look for whether they adapt the reasoning rather than repeat the same test.",
+          "takeaway": "In the second response, the candidate proposes a specific check and makes their release recommendation depend on the result. That gives you evidence of how they use a concern to guide a decision. Mentioning leakage alone leaves that ability untested.",
           "conditions": [],
           "application": {
-            "label": "Applied to the ML example",
+            "label": "ML evaluation: when they act on the risk",
             "examples": [
-              "They questioned the test split and proposed evaluating on later data before recommending release.",
+              "They proposed retesting with information available at payment time and waiting for that result before recommending release.",
               "I’d expect them to contribute to model reviews, with guidance on our domain’s metrics.",
               "We haven’t seen this reasoning on an unfamiliar problem. Use a different evaluation scenario in a follow-up discussion."
             ]
-          }
+          },
+          "discussionCases": [
+            {
+              "label": "They name the risk",
+              "boundedConclusion": "“They noticed possible leakage, but still recommended release because the score was high. I’d want a model review to connect that concern to a check before recommending release. I haven’t yet seen whether they can do that, with or without guidance.”",
+              "followup": "Ask what information would be available when a payment arrives, and what test result would change their recommendation. Note any hints you provide and whether they use them."
+            },
+            {
+              "label": "They act on the risk",
+              "boundedConclusion": "“In this case, they proposed retesting with information available at payment time and waiting for that result before recommending release. I’d expect them to contribute to model reviews, with help on our domain’s metrics. I haven’t yet seen whether they do the same with an unfamiliar problem.”",
+              "followup": "Give them a different evaluation scenario and ask what would make them change their recommendation. Look for whether they adapt the reasoning rather than repeat the same test."
+            }
+          ]
         },
         {
           "id": "system-design",
           "name": "System design",
-          "title": "They don’t know our queue. What does that tell us?",
           "scenario": "You’re hiring a backend engineer to work on a service that uses a message queue. The candidate hasn’t used your queue product. A queue may deliver the same payment request more than once; without a safeguard, that could charge a customer twice. You still need to understand whether they can reason about failures, repeated messages, and recovery.",
           "impression": "“They don’t know our stack. They’ll struggle with reliability.”",
           "tension": "Unfamiliarity with a product is visible. Their ability to reason about reliability needs its own evidence.",
@@ -62,34 +69,33 @@
           ],
           "comparison": [
             {
-              "label": "What happened in the interview",
+              "label": "What happened",
               "values": [
                 "You asked which queue products they had used, but never discussed delivery failures or repeated messages.",
                 "You explained that the queue can deliver a message more than once. Even after discussing the consequences, they kept a design that could charge the customer twice and offered no way to prevent or detect it."
               ]
             },
             {
-              "label": "What you can conclude",
+              "label": "What this supports",
               "values": [
                 "You know they lack experience with this product. You don’t yet know how they reason about these failures.",
                 "You have evidence of difficulty handling this failure mode in this discussion. The concern is more specific than unfamiliarity with the product."
               ]
             }
           ],
-          "takeawayTitle": "“We didn’t see it” and “they struggled with it” are different",
           "takeaway": "An interview that never tested failure handling leaves a question open. An answer that overlooks a failure after it has been explained gives you something concrete to examine. Neither warrants a broad claim about every aspect of the candidate’s ability.",
           "conditions": [
             {
               "label": "What the interviewer supplied matters.",
-              "text": "Identifying a failure independently, recognizing it after a hint, and applying an explanation to a design are different observations. Here, the interviewer explained duplicate delivery; the question is whether the candidate used that explanation."
+              "text": "In the second response, you explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
             },
             {
               "label": "The role changes the forecast.",
-              "text": "For a junior engineer with regular design reviews, this answer suggests a need for guidance on failure handling. For a senior engineer expected to lead payment-system design, the same difficulty is a more consequential concern. Neither prediction follows from product unfamiliarity alone."
+              "text": "Judge the answer against the role’s responsibilities and the support the team can provide."
             }
           ],
           "application": {
-            "label": "Applied to the system-design example",
+            "label": "System design: when you observed a problem in the reasoning",
             "examples": [
               "After duplicate delivery and its consequences were explained, they kept a design that could charge a customer twice.",
               "For a junior role with design reviews, I’d expect them to need guidance on this failure mode. For a senior role leading payment design, the same answer raises a stronger concern.",
@@ -99,7 +105,7 @@
           "discussionCases": [
             {
               "label": "You haven’t tested the capability",
-              "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a duplicate-message scenario and ask how they would prevent repeated side effects. Product experience and failure reasoning are separate questions.”",
+              "boundedConclusion": "“They’ll need to learn our queue. Before judging their reliability skills, I’d discuss a repeated-payment scenario and ask how they would prevent charging a customer twice. Product experience and failure reasoning are separate questions.”",
               "followup": "Explain the delivery behavior without requiring product-specific vocabulary. Ask them to trace one message through a failure and recovery. Then assess the reasoning against the role’s expectations."
             },
             {
@@ -147,11 +153,11 @@
       "lessons": [
         {
           "title": "Look for consequences.",
-          "text": "The ML example asks whether recognizing a risk changes the candidate’s test or recommendation—not just whether they can name the problem."
+          "text": "When a candidate raises a concern, look at what happens next. A proposed check and a recommendation that depends on its result show more than naming the concern alone."
         },
         {
           "title": "Identify the actual gap.",
-          "text": "The queue example separates product knowledge from failure reasoning. An untested capability and an observed difficulty need different follow-ups."
+          "text": "Not asking about a capability leaves it untested. Watching someone struggle after the problem is explained gives you a specific difficulty to investigate. These need different follow-ups."
         },
         {
           "title": "Account for the prompt.",
@@ -159,7 +165,7 @@
         },
         {
           "title": "Keep predictions conditional.",
-          "text": "Neither example establishes performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
+          "text": "One interview response does not establish performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
         }
       ]
     }

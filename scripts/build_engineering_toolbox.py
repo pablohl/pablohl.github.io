@@ -6,7 +6,7 @@ from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_foot
 
 
 def page(title, summary, route, body, interactive=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261024">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261024b">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024" defer></script>' if interactive else ''
     return f'<!DOCTYPE html>\n<html lang="en-us">{head}<body id="page">{site_header()}<main class="site-main section-inner engineering-page">{body}</main>{site_footer()}{script}</body></html>\n'
 
@@ -18,18 +18,17 @@ def render_example(example, number):
     mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<p><strong>{esc(row["label"])}</strong>{esc(row["values"][i])}</p>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
     conditions = ''.join(f'<p class="case-conditions"><strong>{esc(condition["label"])}</strong> {esc(condition["text"])}</p>\n' for condition in example['conditions'])
     if example.get('discussionCases'):
-        discussion = ''.join(f'<h4>{esc(case["label"])}</h4><blockquote>{esc(case["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(case["followup"])}</p>' for case in example['discussionCases'])
+        discussion = '<div class="discussion-cases">' + ''.join(f'<section><h4>{esc(case["label"])}</h4><blockquote>{esc(case["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(case["followup"])}</p></section>' for case in example['discussionCases']) + '</div>'
     else:
         discussion = f'<blockquote>{esc(example["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(example["followup"])}</p>'
     return f'''<article class="engineering-case" id="{esc(example['id'])}" aria-labelledby="{esc(example['id'])}-title">
-<h3 class="case-title" id="{esc(example['id'])}-title">{esc(example['title'])}</h3>
+<h3 class="visually-hidden" id="{esc(example['id'])}-title">{esc(example['name'])}</h3>
 <p class="case-scenario">{esc(example['scenario'])}</p>
-<div class="case-impression"><p class="case-label">The tempting conclusion</p><blockquote>{esc(example['impression'])}</blockquote><p>{esc(example['tension'])}</p></div>
-<h3>{esc(example['comparisonTitle'])}</h3>
+<div class="case-impression"><p><strong>A tempting conclusion:</strong> {esc(example['impression'])}</p><p>{esc(example['tension'])}</p></div>
 <table class="case-comparison"><caption class="visually-hidden">{esc(example['comparisonTitle'])}</caption><thead><tr><td></td>{columns}</tr></thead><tbody>{rows}</tbody></table>
 <div class="case-comparison-mobile">{mobile}</div>
-{conditions}<aside class="case-takeaway"><h3>{esc(example['takeawayTitle'])}</h3><p>{esc(example['takeaway'])}</p></aside>
-<details class="case-discussion"><summary>How this could sound in the hiring discussion</summary>{discussion}</details>
+<p class="case-takeaway">{esc(example['takeaway'])}</p>
+<details class="case-discussion"><summary>Example wording for the hiring discussion</summary><p class="discussion-purpose">Use these sample statements to describe each response to the hiring team: what happened, what it suggests about future work, and what remains uncertain.</p>{conditions}{discussion}</details>
 </article>'''
 
 
@@ -65,7 +64,7 @@ def build():
         body = f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering</a> / Hiring</nav>
 <header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / Hiring</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
 <section class="engineering-problem" aria-labelledby="problem-title"><div><p class="engineering-eyebrow">01 / The problem</p><h2 id="problem-title">From observation to prediction</h2>{introduction}</div><div class="engineering-framework"><p class="engineering-eyebrow">02 / The distinction</p><p class="framework-flow">Evidence <span aria-hidden="true">→</span><span class="visually-hidden">then</span> Expectation <span aria-hidden="true">→</span><span class="visually-hidden">then</span> Uncertainty</p><dl class="framework-questions">{framework}</dl><p class="framework-boundary">An observation can support an expectation without proving it.</p></div></section>
-<section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">03 / Explore an example</p><h2 id="examples-title">What does the evidence support?</h2><div class="example-controls"><div class="case-selector" data-example-tabs hidden>{navigation}</div><p class="example-disclaimer">Two illustrative interview scenarios.</p></div><noscript><p>Both examples are shown below. With JavaScript enabled, you can select one at a time.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What this distinction helps us notice ↓</a></section>
+<section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">03 / Examples</p><h2 id="examples-title">Compare the evidence</h2><div class="example-controls"><div class="case-selector" data-example-tabs hidden>{navigation}</div><p class="example-disclaimer">Two illustrative scenarios.</p></div><noscript><p>Both examples are shown below. With JavaScript enabled, you can select one at a time.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What this distinction helps us notice ↓</a></section>
 <section class="engineering-section" id="discussion"><p class="engineering-eyebrow">04 / Discussion</p><h2>What this distinction helps us notice</h2><div class="discussion-lessons">{lessons}</div><h3 class="synthesis-title">Turn the evidence into a hiring expectation</h3>
 {discussion}
 <div class="hiring-template"><h3>A sentence to take with you</h3><blockquote>{esc(tool["discussionTemplate"])}</blockquote><p>If a part is missing, name the gap rather than filling it with an impression.</p></div><p class="discussion-caution"><strong>Check the standard, too.</strong> If you call a gap “learnable” for one candidate and “disqualifying” for another, explain which requirement of the role justifies the difference.</p></section>
