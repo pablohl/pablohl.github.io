@@ -8,13 +8,13 @@ Two fictional stories establish why that connection matters. An on-call team con
 
 The stories precede the formal Observation → Interpretation → Decision framework. Each branch contains its own recommendation, report wording, and follow-up. Changing the selected condition hides the previous branch together with its report wording. Comparisons remain optional disclosures. The ending contains one transferable explanation and reusable wording, without repeating a completed example or adding another lesson list.
 
-The report disclosure retains all 25 supplied checks and their explanations. Checkboxes are labeled and are not saved. The stories contain no private transcript details. All events and numbers are fictional.
+The guide stays focused on the examples and transferable distinction. A universal report checklist would distract from that purpose and may not fit the reader’s situation. The stories contain no private transcript details. All events and numbers are fictional.
 
 ## Source and integration
 
 Content lives in `data/engineering-tools.json`. The shared builder keeps the current hiring renderer and adds a separate story renderer; it does not rewrite the hiring HTML with string substitutions. Main's hiring data and generated page are preserved exactly. Shared styles retain main's revisions and add scoped story and decision controls.
 
-`js/engineering-decisions.js` enhances complete static outcomes into radio-controlled branches. Without JavaScript, both stories and all four outcomes remain readable, with native report disclosures and checkboxes. The example selector retains keyboard navigation and fragment links.
+`js/engineering-decisions.js` enhances complete static outcomes into radio-controlled branches. Without JavaScript, both stories and all four outcomes remain readable, with native report disclosures. The example selector retains keyboard navigation and fragment links.
 
 Rebuild with `PYTHONDONTWRITEBYTECODE=1 python3 scripts/build_toolbox.py`. Run `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts -p 'test_build_engineering_toolbox.py'` for hiring preservation, branch-specific reports, static fallback, short-ending, validation, and repeatability checks.
 
@@ -29,7 +29,7 @@ Reviewed under `docs/multi-perspective-review.md`. Interactive-experiment guidan
 | Subject expert: distinguish result from assumptions | Does counting pages establish detection? What did the rehearsal test? What enables a staged move? | The examples expose evidence limits. Safe split access and rollback are additional conditions, not consequences of a successful rehearsal. Keep those conditions explicit in the branch and matching report. |
 | Information designer: each section adds value | Does a branch switch update the quotation? Is the ending repetitive? Do both guides still rebuild? | Native controls and stories remain useful. Repeated synthesis and divergent renderer assumptions added risk. Shorten the ending and separate story rendering from the preserved hiring path. |
 
-Convergence: evidence and report wording must remain aligned. Complementarity: a clearer title and a shorter ending support the same reading path. Unique expert finding: a successful rehearsal does not establish safe operation across two databases. Tension resolved: retain the stories before the named framework while removing repeated worked synthesis. Rejected: simulation, scoring, additional controls, or applying the interactive-experiment requirements. The checklist remains an optional application aid.
+Convergence: evidence and report wording must remain aligned. Complementarity: a clearer title and a shorter ending support the same reading path. Unique expert finding: a successful rehearsal does not establish safe operation across two databases. Tension resolved: retain the stories before the named framework while removing repeated worked synthesis. Rejected: simulation, scoring, additional controls, or applying the interactive-experiment requirements. The report checklist has been removed to keep the guide applicable across situations.
 
 Verification establishes implementation and editorial consistency. Independent-reader comprehension, screen-reader use, and browser zoom still require separate validation.
 

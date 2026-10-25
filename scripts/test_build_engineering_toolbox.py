@@ -96,9 +96,9 @@ class EngineeringRebuildTests(unittest.TestCase):
         self.assertEqual(len(outcomes), 4)
         for attrs in panels + outcomes:
             self.assertNotIn('hidden', attrs)
-        self.assertEqual(sum(tag == 'input' and attrs.get('type') == 'checkbox' for tag, attrs in elements), 25)
+        self.assertFalse(any(tag == 'input' and attrs.get('type') == 'checkbox' for tag, attrs in elements))
         self.assertLess(source.index('id="examples"'), source.index('class="framework-flow"'))
-        ending = source.split('id="discussion"', 1)[1].split('id="report-checklist"', 1)[0]
+        ending = source.split('id="discussion"', 1)[1].split('<section class="engineering-section related-lenses"', 1)[0]
         self.assertNotIn('hiring-structure', ending)
         self.assertNotIn('Thursday', ending)
         self.assertEqual(ending.count('<blockquote>'), 1)

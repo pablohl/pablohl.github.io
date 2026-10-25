@@ -41,15 +41,6 @@ def render_decision(interaction, example_id):
     return f'''<div class="decision-explorer" data-decision-explorer><fieldset data-decision-controls hidden><legend>{esc(interaction['question'])}</legend>{controls}</fieldset><div class="decision-outcomes" aria-live="polite" aria-atomic="true">{outcomes}</div></div>'''
 
 
-def render_checklist(groups):
-    sections = []
-    for group in groups:
-        items = ''.join(f'<li><label><input type="checkbox"><span>{esc(item["rule"])}' + (f'<small>{esc(item["why"])}</small>' if item.get('why') else '') + '</span></label></li>' for item in group['items'])
-        sections.append(f'<section><h3>{esc(group["title"])}</h3><ul class="report-checklist">{items}</ul></section>')
-    count = sum(len(group['items']) for group in groups)
-    return f'<section class="engineering-section" id="report-checklist"><details class="case-discussion report-review"><summary>Check your own report · {count} checks</summary><p>Use this before submitting a report or analysis. Check an item only after verifying it in the document. Your checks are not saved.</p>' + ''.join(sections) + '</details></section>'
-
-
 def render_story_example(example):
     rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th>' + ''.join(f'<td>{esc(v)}</td>' for v in row['values']) + '</tr>' for row in example['comparison'])
     columns = ''.join(f'<th scope="col">{esc(c)}</th>' for c in example['columns'])
@@ -75,7 +66,6 @@ def render_story_guide(tool):
 <section class="story-opening" aria-labelledby="problem-title"><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}</section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
 <section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><p class="framework-flow">{flow}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
-{render_checklist(tool['checklist'])}
 <section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering Toolbox</a></section>'''
 
 
