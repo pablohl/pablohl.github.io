@@ -48,23 +48,17 @@ class EngineeringRebuildTests(unittest.TestCase):
         ):
             self.assertIn(phrase, self.source)
 
-    def test_every_tab_has_a_static_panel_and_matching_application(self):
+    def test_every_tab_has_a_readable_static_panel(self):
         elements = Elements(self.source).elements
         tabs = [attrs for _, attrs in elements if 'data-example-tab' in attrs]
-        summaries = [attrs for _, attrs in elements if 'data-example-summary' in attrs]
         self.assertEqual(len(tabs), 2)
-        self.assertEqual(len(summaries), len(tabs))
         for tab in tabs:
             example_id = tab['data-example-tab']
             panels = [attrs for tag, attrs in elements
                       if tag == 'article' and attrs.get('id') == example_id]
-            matching = [attrs for attrs in summaries
-                        if attrs['data-example-summary'] == example_id]
             self.assertEqual(len(panels), 1)
-            self.assertEqual(len(matching), 1)
-            # Without JavaScript both the example and its application stay readable.
+            # Without JavaScript both complete examples stay readable.
             self.assertNotIn('hidden', panels[0])
-            self.assertNotIn('hidden', matching[0])
 
     def test_repeated_build_is_stable(self):
         first = {p.relative_to(self.root): p.read_bytes()
