@@ -195,8 +195,8 @@
           "story": true,
           "title": "Fewer pages. Would the new rule still catch an outage?",
           "scenario": [
-            "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests have timed out for five minutes. By the time they open the dashboard, the spike has passed.",
-            "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%. Applied to last week’s traffic, that rule would have sent just four pages."
+            "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests in the last five minutes have timed out. By the time they open the dashboard, the spike has passed.",
+            "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%, keeping the same five-minute measurement window. Applied to last week’s traffic, that rule would have sent just four pages."
           ],
           "impression": "“Four pages instead of eighteen. Let’s raise the threshold.”",
           "tension": "That would mean fewer interrupted nights. But would the new rule still wake someone when customers cannot complete a purchase?",
@@ -217,7 +217,7 @@
               "label": "Finding",
               "values": [
                 "Four pages instead of eighteen on last week’s traffic.",
-                "During Thursday’s checkout outage, 3% of requests timed out. The proposed 5% rule would never have paged."
+                "During Thursday’s checkout outage, the highest timeout rate in any five-minute window was 3%. The proposed 5% rule would never have paged."
               ]
             }
           ],
@@ -238,7 +238,7 @@
                 "id": "outage-replay",
                 "label": "They also replayed Thursday’s checkout outage",
                 "title": "The quieter rule would have missed a real outage.",
-                "evidence": "On Thursday, 3% of checkout requests timed out long enough for customers to lose purchases. The current rule paged the engineer. A 5% threshold would not have paged at all.",
+                "evidence": "During Thursday’s checkout outage, the highest timeout rate in any five-minute window was 3%. Customers lost purchases, and the current 1% rule paged the engineer. The rate stayed below 5% throughout, so the proposed rule would not have paged at all.",
                 "recommendation": "Do not adopt this threshold. Keep the current rule while looking for a way to filter brief spikes without hiding sustained checkout failures, then replay known incidents again.",
                 "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change.",
                 "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. This threshold does not meet our need to detect sustained customer failures.”",
@@ -268,14 +268,14 @@
             {
               "label": "Requirement",
               "values": [
-                "The application can safely route recent and historical queries to the correct database. The archive stays available in the old system.",
+                "The application can read recent and historical orders correctly from both databases. The archive stays available in the old system.",
                 "The application requires recent and historical records in the new database at the same time."
               ]
             },
             {
               "label": "What the evidence supports",
               "values": [
-                "A staged migration of the tested record types, provided routing, consistency checks, and rollback are verified.",
+                "A staged migration of the tested record types, provided the application reads both databases correctly, the records remain consistent, and a safe way to undo the move has been tested.",
                 "The recent-record rehearsal does not establish that older schemas will migrate correctly. Test representative historical records before the full move."
               ]
             }
@@ -285,12 +285,12 @@
             "options": [
               {
                 "id": "staged",
-                "label": "The archive can stay; split access and rollback are verified",
+                "label": "The archive can stay; reading both databases and safely undoing the move have been tested",
                 "title": "The archive can wait. A limited move has support.",
-                "evidence": "The recent-order rehearsal passed. The team has also verified that the application can access orders across both databases consistently and that it can roll back. Historical formats remain untested.",
+                "evidence": "The recent-order rehearsal passed. The team has also verified that the application can read orders correctly from both databases and that the move can be safely undone. Historical formats remain untested.",
                 "recommendation": "Move the tested recent orders in stages and monitor the agreed checks. Keep the archive in the old database until its formats have been rehearsed.",
                 "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support.",
-                "boundedConclusion": "“The rehearsal supports moving the tested recent orders. Because split access and rollback are verified, I recommend a staged move while the archive stays in the old database. Historical formats still need their own rehearsal before they can move.”",
+                "boundedConclusion": "“The rehearsal supports moving the tested recent orders. The application can read orders correctly from both databases, and the team has tested a safe way to undo the move. I recommend a staged move while the archive stays in the old database. Historical formats still need their own rehearsal before they can move.”",
                 "followup": "Monitor the agreed consistency checks during the staged move. Rehearse representative historical formats before expanding its scope."
               },
               {
@@ -298,10 +298,10 @@
                 "label": "The application needs all orders in the new database",
                 "title": "This move needs evidence the rehearsal did not provide.",
                 "evidence": "The recent-order rehearsal still passes. But the application cannot operate with the archive left behind, and historical formats remain untested.",
-                "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and rollback plan before scheduling the move.",
+                "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and a safe way to undo the move before scheduling it.",
                 "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid.",
-                "boundedConclusion": "“Recent orders passed the rehearsal, but the application requires the archive in the new database too. Historical formats have not been tested, so I recommend holding the full migration until that rehearsal and the rollback checks pass.”",
-                "followup": "Rehearse representative historical formats, resolve failures, and verify the complete move and rollback before scheduling migration."
+                "boundedConclusion": "“Recent orders passed the rehearsal, but the application requires the archive in the new database too. Historical formats have not been tested, so I recommend holding the full migration until that rehearsal passes and a safe way to undo the move has been verified.”",
+                "followup": "Rehearse representative historical formats, resolve failures, and verify the complete move and a safe way to undo it before scheduling migration."
               }
             ]
           },
