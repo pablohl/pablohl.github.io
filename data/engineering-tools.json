@@ -28,25 +28,17 @@
             {
               "label": "What this supports",
               "values": [
-                "They notice a possible evaluation problem. You haven’t yet seen them investigate it or use it to change a release recommendation.",
+                "In this answer, they recommended release without resolving a risk they had identified. That raises a specific concern about their use of evaluation evidence. You don’t yet know how they would respond to guidance.",
                 "They connect a concern to a test and a release condition. That supports a more specific expectation: they may question an unreliable evaluation before recommending release."
               ]
             }
           ],
-          "takeaway": "In the second response, the candidate proposes a specific check and makes their release recommendation depend on the result. That gives you evidence of how they use a concern to guide a decision. Mentioning leakage alone leaves that ability untested.",
+          "takeaway": "The first response sets aside an identified risk when recommending release. The second turns that risk into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
           "conditions": [],
-          "application": {
-            "label": "ML evaluation: when they act on the risk",
-            "examples": [
-              "They proposed retesting with information available at payment time and waiting for that result before recommending release.",
-              "I’d expect them to contribute to model reviews, with guidance on our domain’s metrics.",
-              "We haven’t seen this reasoning on an unfamiliar problem. Use a different evaluation scenario in a follow-up discussion."
-            ]
-          },
           "discussionCases": [
             {
               "label": "They name the risk",
-              "boundedConclusion": "“They noticed possible leakage, but still recommended release because the score was high. I’d want a model review to connect that concern to a check before recommending release. I haven’t yet seen whether they can do that, with or without guidance.”",
+              "boundedConclusion": "“They identified possible leakage but recommended release without resolving it. That raises a concern about how they used evaluation evidence in this answer. I’d need to see them address that concern before trusting a release recommendation. I don’t yet know how they would revise their reasoning with guidance.”",
               "followup": "Ask what information would be available when a payment arrives, and what test result would change their recommendation. Note any hints you provide and whether they use them."
             },
             {
@@ -94,14 +86,6 @@
               "text": "Judge the answer against the role’s responsibilities and the support the team can provide."
             }
           ],
-          "application": {
-            "label": "System design: when you observed a problem in the reasoning",
-            "examples": [
-              "After duplicate delivery and its consequences were explained, they kept a design that could charge a customer twice.",
-              "For a junior role with design reviews, I’d expect them to need guidance on this failure mode. For a senior role leading payment design, the same answer raises a stronger concern.",
-              "We don’t know whether this is a local gap or a broader difficulty. Ask them to revise a similar design after structured feedback."
-            ]
-          },
           "discussionCases": [
             {
               "label": "You haven’t tested the capability",
@@ -145,7 +129,7 @@
           "reason": "Turn a broad impression into a claim others can examine."
         }
       ],
-      "discussionTemplate": "We observed [specific behavior]. That gives us reason to expect [work contribution], with [support]. We’re still unsure about [gap], which we could check by [next step].",
+      "discussionTemplate": "We observed [specific behavior]. This suggests [a specific expectation or concern] about [work], given [conditions and support]. We’re still unsure about [gap], which we could check by [next step].",
       "introduction": [
         "A technical interview shows how someone responds to a particular problem. Hiring asks us to predict their contribution on real work, with our team’s support and constraints.",
         "The jump from an encouraging answer to a broad expectation can hide assumptions. Separate what you saw, what it suggests, and what remains untested."
@@ -167,7 +151,8 @@
           "title": "Keep predictions conditional.",
           "text": "One interview response does not establish performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
         }
-      ]
+      ],
+      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step]."
     }
   ]
 }
