@@ -33,7 +33,7 @@
               ]
             }
           ],
-          "takeaway": "The first response sets aside an identified risk when recommending release. The second turns that risk into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
+          "takeaway": "When they name the risk, they set aside an identified concern when recommending release. When they act on the risk, they turn that concern into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
           "conditions": [],
           "discussionCases": [
             {
@@ -79,7 +79,7 @@
           "conditions": [
             {
               "label": "What the interviewer supplied matters.",
-              "text": "In the second response, you explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
+              "text": "When you observed a problem in the reasoning, you had explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
             },
             {
               "label": "The role changes the forecast.",
@@ -152,19 +152,19 @@
           "text": "One interview response does not establish performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
         }
       ],
-      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step]."
+      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step].",
+      "distinction": "What you observed is evidence. What you expect them to do at work is a prediction. Keep the uncertainty visible."
     },
     {
       "id": "results-to-decisions",
       "title": "What Does This Result Let Us Decide?",
       "category": "Engineering judgment · Technical recommendations",
       "sectionLabel": "Technical decisions",
-      "summary": "Fewer overnight pages. A successful migration rehearsal. Both sound promising. What would you recommend next?",
-      "cardSummary": "An on-call engineer wants fewer overnight pages. A team wants to move its database. Explore what the results let them do next.",
-      "problemTitle": "The numbers look good. The next step is less clear.",
+      "summary": "Connect what a result establishes to the requirements of the action you recommend.",
+      "cardSummary": "An online shop wants fewer overnight alerts. A team wants to move its order records. Explore what each result supports—and what the next step still requires.",
+      "problemTitle": "A result answers a question. A decision depends on what the next step requires.",
       "introduction": [
-        "A promising result arrives with a caveat. Is it a reason to stop, a reason to narrow the plan, or something to check before going further?",
-        "Follow two engineering decisions. In each one, change what the team knows or needs—and see why the recommendation changes."
+        "A promising result is not yet a recommendation. Ask what it establishes, what it leaves open, and whether that gap matters for the action you want to take."
       ],
       "frameworkLabels": [
         "Observation",
@@ -175,7 +175,7 @@
       "examplesLabel": "Engineering example",
       "examplesDisclaimer": "Two fictional situations. Explore the detail that changes each decision.",
       "discussionSummary": "How this could sound in the report",
-      "discussionTemplate": "We found [result] on [cases]. That supports [interpretation], but leaves [gap]. Given [what the next step requires], I recommend [action and scope].",
+      "discussionTemplate": "We found [result] when we tested [cases]. This supports [interpretation], but leaves [gap]. Because the next step needs [requirement], I recommend [action and scope].",
       "related": [
         {
           "id": "decision-complete",
@@ -191,33 +191,33 @@
       "examples": [
         {
           "id": "on-call-alerts",
-          "name": "Overnight pages",
+          "name": "Overnight alerts",
           "story": true,
-          "title": "Fewer pages. Would the new rule still catch an outage?",
+          "title": "Fewer interruptions. Would we still notice when customers need help?",
           "scenario": [
-            "It is 2 a.m. The on-call engineer gets another page from the checkout service. More than 1% of requests in the last five minutes have timed out. By the time they open the dashboard, the spike has passed.",
-            "The team has received 18 timeout pages in a week. Someone proposes raising the timeout threshold to 5%, keeping the same five-minute measurement window. Applied to last week’s traffic, that rule would have sent just four pages."
+            "An online shop sends an urgent notification to the engineer responsible for fixing problems when purchases start failing. The point is to get someone’s attention so they can investigate and help customers buy again. But short-lived problems also trigger alerts, waking the engineer even when the problem has already passed.",
+            "The team received 18 overnight alerts last week. Someone proposes making the rule less sensitive, so it waits for failures to become more common before notifying anyone. Applied to last week’s activity, it would have sent only four alerts."
           ],
-          "impression": "“Four pages instead of eighteen. Let’s raise the threshold.”",
-          "tension": "That would mean fewer interrupted nights. But would the new rule still wake someone when customers cannot complete a purchase?",
-          "comparisonTitle": "What did counting pages leave open?",
+          "impression": "“The less sensitive rule would have sent four alerts instead of eighteen last week. Let’s adopt it.”",
+          "tension": "Fewer interruptions would help the engineer. But the rule still needs to call someone in when needed.",
+          "comparisonTitle": "An alert count does not tell us what the alerts were for",
           "columns": [
             "Count the interruptions",
-            "Check the problems they reveal"
+            "Connect alerts to incidents"
           ],
           "comparison": [
             {
               "label": "Question",
               "values": [
-                "How many pages would the new rule send?",
-                "Would it still detect outages that need a response?"
+                "How many alerts would the new rule send?",
+                "What incidents triggered the alerts, how serious were they, and which needed intervention?"
               ]
             },
             {
               "label": "Finding",
               "values": [
-                "Four pages instead of eighteen on last week’s traffic.",
-                "During Thursday’s checkout outage, the highest timeout rate in any five-minute window was 3%. The proposed 5% rule would never have paged."
+                "Four alerts instead of eighteen on last week’s activity.",
+                "A purchase failure needed intervention. The current rule alerted the engineer; the proposed rule would not have alerted them."
               ]
             }
           ],
@@ -226,93 +226,113 @@
             "options": [
               {
                 "id": "page-count",
-                "label": "Only the number of pages",
-                "title": "A quieter night is promising. Detection is still an open question.",
-                "evidence": "The new rule would have sent four pages last week. Nobody has checked whether the pages it removes include incidents that needed a response.",
-                "recommendation": "Keep the current rule for now. Replay known outages against the proposed threshold and check whether it would alert soon enough for the team to respond.",
-                "reason": "The useful next check is about what the rule would miss. Another count of pages cannot answer that.",
-                "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4. We have not checked which incidents it would miss. I recommend replaying known outages before changing the rule, because fewer interruptions only help if we still detect customer problems.”",
-                "followup": "Replay known incidents and compare whether and when each rule would page. Inspect the incidents that would no longer trigger an alert."
+                "label": "Only the number of alerts",
+                "title": "The count is lower. The incidents behind it are still unexamined.",
+                "evidence": "Nobody has reviewed what happened after each alert: what kind of incident triggered it, how serious it was, or whether someone had to intervene.",
+                "recommendation": "Before changing the rule, review the incidents behind the alerts it would remove.",
+                "reason": "",
+                "boundedConclusion": "“The less sensitive rule would have sent four alerts instead of eighteen last week. We have not reviewed the incidents behind the alerts it removes. I recommend checking their severity and whether they needed intervention before adopting the rule.”",
+                "followup": "For each removed alert, review the incident and the team’s response. Record which incidents needed intervention and whether the proposed rule would still have alerted someone.",
+                "summary": "The incidents behind the removed alerts have not been reviewed.",
+                "nextStep": "Review the incidents before adopting the rule."
               },
               {
                 "id": "outage-replay",
-                "label": "They also replayed Thursday’s checkout outage",
-                "title": "The quieter rule would have missed a real outage.",
-                "evidence": "During Thursday’s checkout outage, the highest timeout rate in any five-minute window was 3%. Customers lost purchases, and the current 1% rule paged the engineer. The rate stayed below 5% throughout, so the proposed rule would not have paged at all.",
-                "recommendation": "Do not adopt this threshold. Keep the current rule while looking for a way to filter brief spikes without hiding sustained checkout failures, then replay known incidents again.",
-                "reason": "Fewer pages was a real improvement in one measure. The replay shows why that improvement does not justify this change.",
-                "boundedConclusion": "“The proposed threshold would reduce last week’s pages from 18 to 4, but it would also miss Thursday’s checkout outage. I recommend keeping the current rule while we revise how it filters brief spikes. This threshold does not meet our need to detect sustained customer failures.”",
-                "followup": "Revise the rule to distinguish brief spikes from sustained failures, then check it against known incidents before changing production alerts."
+                "label": "Also the incidents behind the alerts",
+                "title": "The proposed rule removes an alert that led to necessary intervention.",
+                "evidence": "The team reviewed the incidents behind the alerts. One involved customers being unable to buy and required the engineer to intervene.",
+                "recommendation": "Revise the proposed rule before adopting it.",
+                "reason": "It reduces the alert count, but would also miss an incident that needed intervention.",
+                "boundedConclusion": "“The less sensitive rule would have sent four alerts instead of eighteen last week, but it would remove an alert for a purchase failure that needed intervention. The current rule alerted the engineer; the proposed rule would not. I recommend revising the rule before adopting it.”",
+                "followup": "Revise which incidents trigger an alert. Recheck the revised rule against incidents that needed intervention and those that did not.",
+                "ruleComparison": [
+                  {
+                    "label": "Current rule",
+                    "text": "Alerted the engineer to that incident."
+                  },
+                  {
+                    "label": "Proposed rule",
+                    "text": "Would not have alerted the engineer: the failures did not reach its higher trigger point."
+                  }
+                ],
+                "summary": "One removed alert concerned an incident that needed intervention.",
+                "nextStep": "Revise the rule so it still alerts someone to that incident."
               }
-            ]
+            ],
+            "baseline": "The proposed rule would have sent 4 alerts instead of 18 on the same week’s activity."
           },
           "takeawayTitle": "The missing connection",
-          "takeaway": "Fewer pages tells us about interruptions. To recommend this rule, we also need to know what happens to incident detection. Writing the recommendation exposes the part the first measurement did not answer."
+          "takeaway": "Eighteen alerts becoming four tells us about interruptions. Reviewing the incidents tells us what those alerts were for. That connection determines whether fewer alerts supports adopting this rule."
         },
         {
           "id": "migration-scope",
-          "name": "Migration scope",
-          "title": "The rehearsal passed. Why is the migration still on hold?",
+          "name": "Active orders and the archive",
+          "title": "Active orders passed the trial. Does the historical archive have to move too?",
           "scenario": [
-            "The team has spent weeks preparing to move its order database. In the rehearsal, recent orders arrive intact: totals match, relationships hold, and the application reads them correctly. The team wants to schedule the move.",
-            "Then someone asks about the archive. Older orders use a different schema, and none were included in the rehearsal. A colleague says the migration should stop until every historical format has been tested."
+            "An online shop is preparing to move its order records to a new database—the system that stores them. Active orders are the orders staff still handle day to day. The historical archive holds completed orders kept for reference, using an older storage format.",
+            "In a practice run, the active orders moved correctly: amounts matched, and staff could find and read them. The historical archive was not tested. A colleague says, “Then the whole move has to wait.”"
           ],
-          "impression": "“We haven’t tested the archive. We can’t move anything yet.”",
-          "tension": "The gap is real. But does the archive have to move this weekend, or can it stay where it is while recent orders move first?",
-          "comparisonTitle": "The same rehearsal can support different migration plans",
+          "impression": "“The historical archive hasn’t been tested. We can’t move the active orders either.”",
+          "tension": "Can the archive remain accessible in the old system while staff use active orders in the new one? Or does the shop need both together in the new system?",
+          "comparisonTitle": "The same successful trial can support different plans",
           "columns": [
-            "Recent records move first",
-            "All records must move together"
+            "The archive can stay behind",
+            "The archive must move too"
           ],
           "comparison": [
             {
               "label": "Requirement",
               "values": [
-                "The application can read recent and historical orders correctly from both databases. The archive stays available in the old system.",
-                "The application requires recent and historical records in the new database at the same time."
+                "Staff can work with active orders in the new system while the archive remains accessible in the old one. Using both systems and safely undoing the limited move have been checked.",
+                "Staff cannot do their work unless active orders and the historical archive are together in the new system."
               ]
             },
             {
-              "label": "What the evidence supports",
+              "label": "What the trial supports",
               "values": [
-                "A staged migration of the tested record types, provided the application reads both databases correctly, the records remain consistent, and a safe way to undo the move has been tested.",
-                "The recent-record rehearsal does not establish that older schemas will migrate correctly. Test representative historical records before the full move."
+                "Move the tested active orders, keeping the untested archive in the old system. The additional checks establish that this limited arrangement works.",
+                "Test the archive before the complete move: the active-order trial does not show that the older format will move correctly."
               ]
             }
           ],
           "interaction": {
-            "question": "What does the next move actually require?",
+            "question": "Must the historical archive move with the active orders?",
             "options": [
               {
                 "id": "staged",
-                "label": "The archive can stay; reading both databases and safely undoing the move have been tested",
-                "title": "The archive can wait. A limited move has support.",
-                "evidence": "The recent-order rehearsal passed. The team has also verified that the application can read orders correctly from both databases and that the move can be safely undone. Historical formats remain untested.",
-                "recommendation": "Move the tested recent orders in stages and monitor the agreed checks. Keep the archive in the old database until its formats have been rehearsed.",
-                "reason": "The gap limits which records can move. It does not, by itself, rule out the smaller move the team can safely support.",
-                "boundedConclusion": "“The rehearsal supports moving the tested recent orders. The application can read orders correctly from both databases, and the team has tested a safe way to undo the move. I recommend a staged move while the archive stays in the old database. Historical formats still need their own rehearsal before they can move.”",
-                "followup": "Monitor the agreed consistency checks during the staged move. Rehearse representative historical formats before expanding its scope."
+                "label": "No—the archive can stay in the old system",
+                "title": "The active orders can move while the archive waits.",
+                "evidence": "Staff can find the right records across both systems, and the team has checked that the active orders stay correct and that the limited move can be undone safely.",
+                "recommendation": "Move active orders in small groups and check that they remain accessible and correct. Leave the archive in the old system until its own trial succeeds.",
+                "reason": "",
+                "boundedConclusion": "“Active orders passed the trial. We have checked that staff can use them in the new system while the historical archive stays accessible in the old one, and that the limited move can be undone safely. I recommend moving the active orders while we test the archive separately.”",
+                "followup": "Check that staff can still find the right records during the limited move. Test the archive’s older format before including it.",
+                "summary": "The archive can stay accessible in the old system; the limited arrangement has been checked.",
+                "nextStep": "Move the active orders. Keep the archive where it is."
               },
               {
                 "id": "all-records",
-                "label": "The application needs all orders in the new database",
-                "title": "This move needs evidence the rehearsal did not provide.",
-                "evidence": "The recent-order rehearsal still passes. But the application cannot operate with the archive left behind, and historical formats remain untested.",
-                "recommendation": "Hold the full migration. Rehearse representative historical formats, resolve failures, and verify the checks and a safe way to undo the move before scheduling it.",
-                "reason": "The same caveat now concerns records required for the next step. It blocks this plan, even though the recent-order result remains valid.",
-                "boundedConclusion": "“Recent orders passed the rehearsal, but the application requires the archive in the new database too. Historical formats have not been tested, so I recommend holding the full migration until that rehearsal passes and a safe way to undo the move has been verified.”",
-                "followup": "Rehearse representative historical formats, resolve failures, and verify the complete move and a safe way to undo it before scheduling migration."
+                "label": "Yes—staff need the active orders and archive together",
+                "title": "The archive must be tested before this move.",
+                "evidence": "The new customer-support screen needs active orders and purchase history together. Staff cannot use it with the archive left in the old system. The active-order trial does not establish that the archive’s older format will move correctly.",
+                "recommendation": "Hold the complete move. Test the archive’s older format, fix any problems, and check that the complete move can be undone safely before setting a date.",
+                "reason": "",
+                "boundedConclusion": "“Active orders passed the trial, but staff need the historical archive in the new system too. Its older format has not been tested, so I recommend holding the complete move until that trial succeeds and a safe way to undo the move has been checked.”",
+                "followup": "Test the archive’s older format and fix any problems. Verify the complete move and a safe way to undo it before setting a date.",
+                "summary": "Staff need the archive in the new system too, but its older format has not been tested.",
+                "nextStep": "Wait to move either group. Test the archive first."
               }
-            ]
+            ],
+            "baseline": "Active orders passed the trial. The historical archive is still untested."
           },
           "takeawayTitle": "The missing connection",
-          "takeaway": "“The archive is untested” describes a limit of the rehearsal. Its consequence depends on the plan: it may restrict the move to recent orders, or prevent the full move from going ahead.",
+          "takeaway": "If the archive can stay accessible in the old system, its missing test does not prevent the checked move of active orders. If staff need both in the new system, test the archive before moving either group.",
           "story": true
         }
       ],
       "storyFirst": true,
-      "endingTitle": "What connects a result to a decision?",
-      "ending": "A measurement answers a particular question. A recommendation connects that answer to what the next step requires. Make the connection explicit, including what the evidence leaves open: the reader should be able to see why this action follows and where its support ends."
+      "endingTitle": "Name what the gap changes.",
+      "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action."
     }
   ]
 }
