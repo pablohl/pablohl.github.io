@@ -50,7 +50,7 @@
       <h2>The idea</h2>
       <p>Metrics are compression. They can be perfectly correct while excluding distinctions that matter to the actual decision.</p>
     </section>
-    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">Higher accuracy, more time lost</h3><p><strong>Situation.</strong> Two models route the same 100 support tickets. Model A gets 92 right; Model B gets 90 right. The team is choosing which model to use.</p><p><strong>The tempting conclusion.</strong> “Model A has higher accuracy, so it is the better choice.”</p><p><strong>What changes the view.</strong> A misses six urgent tickets and unnecessarily escalates two routine ones. B misses two urgent tickets and escalates eight routine ones. For illustration, suppose each missed urgent ticket causes 60 minutes of avoidable work and each unnecessary escalation costs five minutes. A then costs 370 minutes; B costs 160. Accuracy counted those two kinds of mistake equally.</p><p><strong>What this supports.</strong> B has the lower estimated burden under these assumptions, despite lower accuracy. The next useful evidence is whether those error consequences are credible in this workflow. Different consequences could change the choice again; the lesson is to inspect the distinction that could affect this decision, rather than collect every possible metric.</p></section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">Two commutes with the same average</h3><p><strong>Situation.</strong> You need to reach childcare pickup by six. Two routes average 30 minutes. One usually takes 25–35 minutes; the other often takes 15 minutes but sometimes takes an hour. You must choose a route and departure time.</p><p><strong>The tempting conclusion.</strong> The average is the same, so either route is equally suitable.</p><p><strong>What changes the view.</strong> An early arrival does not cancel the consequences of a late pickup. The average removes the distinction that matters: how often each route exceeds the time available. Compare arrival times for the hours you actually travel, including any unusually bad days.</p><p><strong>What this supports.</strong> Choose the route and departure time with an acceptable risk of arriving late. The more predictable route may suit this trip even if the average is identical. With no fixed arrival time, you might choose differently. You need the information that can change this choice, not every possible travel statistic.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>
@@ -58,7 +58,7 @@
     </section>
     <section class="tool-section">
       <h2>Useful when</h2>
-      <div class="use-list"><span>Model evaluation</span><span>KPIs</span><span>averages</span><span>rankings</span><span>performance comparisons</span></div>
+      <div class="use-list"><span>Comparing averages</span><span>Choosing between services</span><span>Reviewing rankings</span><span>Interpreting performance measures</span></div>
     </section>
     <section class="tool-section">
       <h2>Watch for</h2>
@@ -68,7 +68,7 @@
       <h2>Where this came from</h2>
       <p>ML evaluation, Product work</p>
     </section>
-    <section class="tool-section"><h2>Lineage</h2><p>Pommerman&#x27;s distinction between training reward and winning developed into asking which decision-relevant information a metric removes.</p></section>
+    <section class="tool-section"><h2>Lineage</h2><p>Pommerman&#x27;s distinction between training reward and winning developed into asking which decision-relevant information a metric removes.</p></section><section class="tool-section"><h2>Related tools</h2><a class="post-relationship" href="/toolbox/shape-of-the-evidence/"><strong>The Shape of the Evidence</strong><span>Complements</span></a><a class="post-relationship" href="/toolbox/decision-complete/"><strong>Decision-Complete</strong><span>Complements</span></a></section>
     <section class="tool-section">
       <h2>Read the reasoning</h2>
       <a class="post-relationship" href="https://pablohl.github.io/posts/the-metric-can-be-right/"><strong>The Metric Can Be Right and the Decision Can Still Be Wrong</strong><span>Primary post · Sep 25, 2026</span></a><a class="post-relationship" href="https://pablohl.github.io/posts/pommermanlessons/"><strong>From NeurIPS to the Real World: Key Takeaways from Competing in Pommerman</strong><span>Supporting post · Jun 26, 2024</span></a>

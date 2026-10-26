@@ -4,6 +4,8 @@
 
 The objective is not to maximize features, interactivity, or actionability. It is to improve the clarity, depth, and experience of the tool's central idea.
 
+For Decision Toolbox entries, also apply the audience, completeness, and worked-example requirements in [decision-toolbox.md](decision-toolbox.md). Engineering examples are not the default for that collection.
+
 ## Step 1 — Establish the intended discovery
 
 Before reviewing, identify:

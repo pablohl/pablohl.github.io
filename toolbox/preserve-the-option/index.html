@@ -50,7 +50,7 @@
       <h2>The idea</h2>
       <p>Immediate value isn&#x27;t the only consequence of a choice. Some decisions alter the future option set and the cost of responding to new information.</p>
     </section>
-    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">A pilot integration that may become a public API</h3><p><strong>Situation.</strong> A team is connecting its first document-storage provider for a pilot. Exposing the provider’s identifiers and response format directly would be fastest. Suppose a small translation layer would take two extra days.</p><p><strong>The tempting conclusion.</strong> “Use the direct integration now. We can always change providers later.”</p><p><strong>What changes the view.</strong> Both approaches use the same provider today. But if customers build against its format, switching later requires coordinating their migrations as well as changing the backend. A small translation layer can keep that change internal. It costs time now, and it does not remove every future switching cost.</p><p><strong>What this supports.</strong> For a disposable demo needed tomorrow, the direct integration may be reasonable. For an API about to gain long-lived customers, the boundary may justify its cost. Preserve the specific option to replace this provider; that does not require building a framework for every provider you might someday use.</p></section>
+    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title"><h2>Worked example · illustrative</h2><h3 id="worked-example-title">Paying for a refundable booking</h3><p><strong>Situation.</strong> You are booking accommodation for a family visit whose dates may change. A nonrefundable room costs less; the same room with cancellation until a week before arrival costs extra. Both meet your needs if the visit goes ahead.</p><p><strong>The tempting conclusion.</strong> Choose the cheaper room because the stay itself is identical.</p><p><strong>What changes the view.</strong> The extra payment buys a future choice, not a better room. If the dates change within the cancellation window, the refundable booking can be released without losing the full room price. If the dates are already firm, that option may have little value. The deadline also matters: cancellation protection may expire before the uncertainty is resolved.</p><p><strong>What this supports.</strong> Compare the premium with the plausible cost of changing plans and when you expect confirmation. Paying for flexibility can be reasonable, but it is not automatically worth any price. Preserve the specific option you may need, rather than purchasing every available safeguard.</p></section>
     <div class="tool-supporting">
     <section class="tool-section">
       <h2>Situation</h2>
@@ -58,7 +58,7 @@
     </section>
     <section class="tool-section">
       <h2>Useful when</h2>
-      <div class="use-list"><span>Architecture</span><span>customer commitments</span><span>pricing</span><span>security</span><span>integrations</span><span>difficult-to-reverse choices</span></div>
+      <div class="use-list"><span>Making bookings</span><span>Entering commitments</span><span>Choosing between flexible and fixed arrangements</span><span>Considering choices that are costly to reverse</span></div>
     </section>
     <section class="tool-section">
       <h2>Watch for</h2>
@@ -68,7 +68,7 @@
       <h2>Where this came from</h2>
       <p>Startups, Research and development, Star Trek</p>
     </section>
-    <section class="tool-section"><h2>Lineage</h2><p>Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.</p></section>
+    <section class="tool-section"><h2>Lineage</h2><p>Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.</p></section><section class="tool-section"><h2>Related tools</h2><a class="post-relationship" href="/toolbox/two-clocks/"><strong>Two Clocks</strong><span>Complements</span></a><a class="post-relationship" href="/toolbox/position-before-you-know/"><strong>Position Before You Know</strong><span>Complements</span></a></section>
     <section class="tool-section">
       <h2>Read the reasoning</h2>
       <a class="post-relationship" href="https://pablohl.github.io/posts/kirk-spock/"><strong>Sometimes You Need Kirk. Sometimes You Need Spock.</strong><span>Primary post · Sep 17, 2026</span></a><a class="post-relationship" href="https://pablohl.github.io/posts/industryvsacademia/"><strong>Lessons From Six Years of Applied Machine Learning in Industry</strong><span>Supporting post · Jun 4, 2024</span></a>
