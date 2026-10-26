@@ -82,9 +82,9 @@ class EngineeringRebuildTests(unittest.TestCase):
         self.assertIn('We have not reviewed the incidents behind the alerts it removes', reports['on-call-alerts-page-count'])
         self.assertNotIn('Thursday', reports['on-call-alerts-page-count'])
         self.assertIn('purchase failure that needed intervention', reports['on-call-alerts-outage-replay'])
-        self.assertIn('recommend a limited move', reports['migration-scope-staged'])
+        self.assertIn('recommend moving the active orders', reports['migration-scope-staged'])
         self.assertIn('recommend holding the complete move', reports['migration-scope-all-records'])
-        self.assertNotIn('recommend a limited move', reports['migration-scope-all-records'])
+        self.assertNotIn('recommend moving the active orders', reports['migration-scope-all-records'])
         self.assertEqual(len(set(reports.values())), 4)
 
     def test_story_fallback_and_short_ending(self):

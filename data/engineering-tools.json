@@ -232,7 +232,9 @@
                 "recommendation": "Before changing the rule, review the incidents behind the alerts it would remove.",
                 "reason": "",
                 "boundedConclusion": "“The less sensitive rule would have sent four alerts instead of eighteen last week. We have not reviewed the incidents behind the alerts it removes. I recommend checking their severity and whether they needed intervention before adopting the rule.”",
-                "followup": "For each removed alert, review the incident and the team’s response. Record which incidents needed intervention and whether the proposed rule would still have alerted someone."
+                "followup": "For each removed alert, review the incident and the team’s response. Record which incidents needed intervention and whether the proposed rule would still have alerted someone.",
+                "summary": "The incidents behind the removed alerts have not been reviewed.",
+                "nextStep": "Review the incidents before adopting the rule."
               },
               {
                 "id": "outage-replay",
@@ -252,77 +254,85 @@
                     "label": "Proposed rule",
                     "text": "Would not have alerted the engineer: the failures did not reach its higher trigger point."
                   }
-                ]
+                ],
+                "summary": "One removed alert concerned an incident that needed intervention.",
+                "nextStep": "Revise the rule so it still alerts someone to that incident."
               }
-            ]
+            ],
+            "baseline": "The proposed rule would have sent 4 alerts instead of 18 on the same week’s activity."
           },
           "takeawayTitle": "The missing connection",
           "takeaway": "Eighteen alerts becoming four tells us about interruptions. Reviewing the incidents tells us what those alerts were for. That connection determines whether fewer alerts supports adopting this rule."
         },
         {
           "id": "migration-scope",
-          "name": "Moving order records",
-          "title": "The trial worked for recent orders. Must older orders hold up the whole move?",
+          "name": "Active orders and the archive",
+          "title": "Active orders passed the trial. Does the historical archive have to move too?",
           "scenario": [
-            "An online shop is preparing to move its order records to a new database—the system that stores them. In a practice run, recent orders move correctly: the amounts match, and staff can find and read the orders in the new system.",
-            "Older orders are stored differently and were not included in the trial. A colleague says, “We haven’t tested those orders, so we can’t move anything.” Before deciding, the team needs to know whether all orders must move together."
+            "An online shop is preparing to move its order records to a new database—the system that stores them. Active orders are the orders staff still handle day to day. The historical archive holds completed orders kept for reference, using an older storage format.",
+            "In a practice run, the active orders moved correctly: amounts matched, and staff could find and read them. The historical archive was not tested. A colleague says, “Then the whole move has to wait.”"
           ],
-          "impression": "“Older orders haven’t been tested. The whole move must wait.”",
-          "tension": "Does the shop need every order in the new system at once? Or can recent orders move while older orders stay available where they are?",
+          "impression": "“The historical archive hasn’t been tested. We can’t move the active orders either.”",
+          "tension": "Can the archive remain accessible in the old system while staff use active orders in the new one? Or does the shop need both together in the new system?",
           "comparisonTitle": "The same successful trial can support different plans",
           "columns": [
-            "Recent orders can move separately",
-            "Every order must move together"
+            "The archive can stay behind",
+            "The archive must move too"
           ],
           "comparison": [
             {
-              "label": "What the plan needs",
+              "label": "Requirement",
               "values": [
-                "Staff can still find the right orders across both systems. The team has checked that the records stay correct and that it can undo the move safely.",
-                "The shop can only operate if recent and older orders are together in the new system."
+                "Staff can work with active orders in the new system while the archive remains accessible in the old one. Using both systems and safely undoing the limited move have been checked.",
+                "Staff cannot do their work unless active orders and the historical archive are together in the new system."
               ]
             },
             {
               "label": "What the trial supports",
               "values": [
-                "A limited move of the tested recent orders, while older orders stay in the old system. The checks for using both systems and undoing the move are additional evidence.",
-                "The trial only covered recent orders. Test the different older formats before moving everything."
+                "Move the tested active orders, keeping the untested archive in the old system. The additional checks establish that this limited arrangement works.",
+                "Test the archive before the complete move: the active-order trial does not show that the older format will move correctly."
               ]
             }
           ],
           "interaction": {
-            "question": "What does the proposed move require?",
+            "question": "Must the historical archive move with the active orders?",
             "options": [
               {
                 "id": "staged",
-                "label": "Older orders can stay; using both systems and undoing the move have been checked",
-                "title": "The untested older orders limit the move. They do not have to stop it.",
-                "evidence": "Recent orders passed the trial. The team also checked that staff can find the right orders across both systems, that the records stay correct, and that the move can be undone safely. Older orders have not been tested.",
-                "recommendation": "Move the tested recent orders in small groups and check that they remain correct. Keep older orders available in the old system until their own trial succeeds.",
-                "reason": "The evidence supports this smaller step. It does not support moving the untested older orders yet.",
-                "boundedConclusion": "“The trial supports moving the tested recent orders. We have also checked that using both systems keeps the orders accessible and correct, and that the move can be undone safely. I recommend a limited move while older orders stay in the old system. They need their own trial before moving.”",
-                "followup": "Check that orders stay accessible and correct during the limited move. Test examples of the different older formats before including them."
+                "label": "No—the archive can stay in the old system",
+                "title": "The active orders can move while the archive waits.",
+                "evidence": "Staff can find the right records across both systems, and the team has checked that the active orders stay correct and that the limited move can be undone safely.",
+                "recommendation": "Move active orders in small groups and check that they remain accessible and correct. Leave the archive in the old system until its own trial succeeds.",
+                "reason": "",
+                "boundedConclusion": "“Active orders passed the trial. We have checked that staff can use them in the new system while the historical archive stays accessible in the old one, and that the limited move can be undone safely. I recommend moving the active orders while we test the archive separately.”",
+                "followup": "Check that staff can still find the right records during the limited move. Test the archive’s older format before including it.",
+                "summary": "The archive can stay accessible in the old system; the limited arrangement has been checked.",
+                "nextStep": "Move the active orders. Keep the archive where it is."
               },
               {
                 "id": "all-records",
-                "label": "The shop needs every order in the new system at once",
-                "title": "This plan needs evidence the trial did not provide.",
-                "evidence": "The recent orders still passed the trial. But the shop cannot operate with older orders left behind, and those orders have not been tested.",
-                "recommendation": "Hold the complete move. Test examples of the different older formats, fix any problems, and check that the complete move can be undone safely before scheduling it.",
-                "reason": "The same evidence gap now affects records required for the next step. It blocks this plan, even though the result for recent orders is still valid.",
-                "boundedConclusion": "“Recent orders passed the trial, but this plan requires older orders in the new system too. They have not been tested, so I recommend holding the complete move until their trial succeeds and a safe way to undo the move has been checked.”",
-                "followup": "Test examples of the different older formats and fix any problems. Verify the complete move and a safe way to undo it before setting a date."
+                "label": "Yes—staff need the active orders and archive together",
+                "title": "The archive must be tested before this move.",
+                "evidence": "The new customer-support screen needs active orders and purchase history together. Staff cannot use it with the archive left in the old system. The active-order trial does not establish that the archive’s older format will move correctly.",
+                "recommendation": "Hold the complete move. Test the archive’s older format, fix any problems, and check that the complete move can be undone safely before setting a date.",
+                "reason": "",
+                "boundedConclusion": "“Active orders passed the trial, but staff need the historical archive in the new system too. Its older format has not been tested, so I recommend holding the complete move until that trial succeeds and a safe way to undo the move has been checked.”",
+                "followup": "Test the archive’s older format and fix any problems. Verify the complete move and a safe way to undo it before setting a date.",
+                "summary": "Staff need the archive in the new system too, but its older format has not been tested.",
+                "nextStep": "Wait to move either group. Test the archive first."
               }
-            ]
+            ],
+            "baseline": "Active orders passed the trial. The historical archive is still untested."
           },
           "takeawayTitle": "The missing connection",
-          "takeaway": "“Older orders are untested” describes a limit of the trial. Whether that means moving fewer orders or waiting altogether depends on what the next step requires.",
+          "takeaway": "If the archive can stay accessible in the old system, its missing test does not prevent the checked move of active orders. If staff need both in the new system, test the archive before moving either group.",
           "story": true
         }
       ],
       "storyFirst": true,
       "endingTitle": "Name what the gap changes.",
-      "ending": "A missing check does not always mean “stop,” and a favorable number does not always mean “go.” Explain what the evidence supports: another check, a smaller step, or holding the proposed change."
+      "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action."
     }
   ]
 }

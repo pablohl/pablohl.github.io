@@ -6,10 +6,10 @@ from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_foot
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
-        script += '<script src="/js/engineering-decisions.js?v=20261024" defer></script>'
+        script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
     return f'<!DOCTYPE html>\n<html lang="en-us">{head}<body id="page">{site_header()}<main class="site-main section-inner engineering-page">{body}</main>{site_footer()}{script}</body></html>\n'
 
 
@@ -51,9 +51,9 @@ def render_rule_comparison(option):
 
 def render_decision(interaction, example_id):
     controls = ''.join(f'<label><input type="radio" name="{esc(example_id)}-condition" value="{esc(option["id"])}" aria-controls="{esc(example_id)}-{esc(option["id"])}"{" checked" if i == 0 else ""}><span>{esc(option["label"])}</span></label>' for i, option in enumerate(interaction['options']))
-    # Report wording belongs to its evidence branch, so it changes with the outcome.
-    outcomes = ''.join(f'''<section class="decision-outcome" id="{esc(example_id)}-{esc(option['id'])}" data-decision-outcome="{esc(option['id'])}"><h4>{esc(option['title'])}</h4><p>{esc(option['evidence'])}</p>{render_rule_comparison(option)}<p class="decision-recommendation"><strong>Recommended next step:</strong> {esc(option['recommendation'])}</p>{'<p>' + esc(option['reason']) + '</p>' if option.get('reason') else ''}<details class="case-discussion"><summary>How this could sound in the report</summary><blockquote>{esc(option['boundedConclusion'])}</blockquote><p><strong>A useful follow-up:</strong> {esc(option['followup'])}</p></details></section>''' for option in interaction['options'])
-    return f'''<div class="decision-explorer" data-decision-explorer><fieldset data-decision-controls hidden><legend>{esc(interaction['question'])}</legend>{controls}</fieldset><div class="decision-outcomes" aria-live="polite" aria-atomic="true">{outcomes}</div></div>'''
+    # Keep the two changing fields in the same place; longer reasoning is optional.
+    outcomes = ''.join(f'''<section class="decision-outcome" id="{esc(example_id)}-{esc(option['id'])}" data-decision-outcome="{esc(option['id'])}"><p class="decision-selection">Showing: {esc(option['label'])}</p><dl class="decision-summary"><div data-decision-field="evidence"><dt>What this establishes <span class="decision-change-tag">Changed</span></dt><dd>{esc(option['summary'])}</dd></div><div data-decision-field="next-step"><dt>Next step <span class="decision-change-tag">Changed</span></dt><dd>{esc(option['nextStep'])}</dd></div></dl>{render_rule_comparison(option)}<details class="decision-explanation"><summary>Why this follows</summary><h4>{esc(option['title'])}</h4><p>{esc(option['evidence'])}</p><p class="decision-recommendation"><strong>How to proceed:</strong> {esc(option['recommendation'])}</p>{'<p>' + esc(option['reason']) + '</p>' if option.get('reason') else ''}</details><details class="case-discussion"><summary>How this could sound in the report</summary><blockquote>{esc(option['boundedConclusion'])}</blockquote><p><strong>A useful follow-up:</strong> {esc(option['followup'])}</p></details></section>''' for option in interaction['options'])
+    return f'''<div class="decision-explorer" data-decision-explorer><fieldset data-decision-controls hidden><legend>{esc(interaction['question'])}</legend>{controls}</fieldset><p class="decision-baseline"><strong>Unchanged:</strong> {esc(interaction['baseline'])}</p><h4 class="decision-result-title">Evidence and next step</h4><p class="visually-hidden" data-decision-announcement role="status" aria-live="polite"></p><div class="decision-outcomes">{outcomes}</div></div>'''
 
 
 def render_story_example(example):
