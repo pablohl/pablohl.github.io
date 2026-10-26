@@ -1,0 +1,68 @@
+[
+  {
+    "situation": "A result looks impressive, but I’m unsure whether to trust it.",
+    "primary": {
+      "tool": "shape-of-the-evidence",
+      "description": "Check whether the surrounding observations fit the explanation."
+    },
+    "alternative": {
+      "tool": "what-did-the-metric-throw-away",
+      "description": "The headline number may hide differences that matter."
+    }
+  },
+  {
+    "situation": "I understand the findings, but I’m unsure what we should do.",
+    "primary": {
+      "tool": "decision-complete",
+      "description": "Examine the reasoning connecting the findings to a practical choice."
+    },
+    "alternative": {
+      "tool": "what-is-worth-learning",
+      "description": "That reasoning reveals an unanswered question, and you need to decide what to investigate."
+    }
+  },
+  {
+    "situation": "We keep gathering information without getting closer to a decision.",
+    "primary": {
+      "tool": "what-is-worth-learning",
+      "description": "Identify which uncertainty could actually change the choice."
+    },
+    "alternative": {
+      "tool": "two-clocks",
+      "description": "Further learning may help, but you need to consider what waiting could cost."
+    }
+  },
+  {
+    "situation": "I’m unsure whether to act now or wait.",
+    "primary": {
+      "tool": "two-clocks",
+      "description": "Consider how information and available options change during the delay."
+    },
+    "alternative": {
+      "tool": "position-before-you-know",
+      "description": "You cannot commit yet, but could prepare in ways that help across plausible outcomes."
+    }
+  },
+  {
+    "situation": "Something feels wrong, but I can’t explain why.",
+    "primary": {
+      "tool": "from-intuition-to-argument",
+      "description": "Identify what your concern is noticing and make the reasoning inspectable."
+    },
+    "alternative": {
+      "tool": "look-at-the-boundary",
+      "description": "The concern involves different areas of expertise, and understanding their connection may reveal the problem."
+    }
+  },
+  {
+    "situation": "A detailed plan includes things we haven’t actually agreed on.",
+    "primary": {
+      "tool": "surface-the-hidden-decisions",
+      "description": "Separate agreed commitments from assumptions and suggestions."
+    },
+    "alternative": {
+      "tool": "change-the-representation",
+      "description": "People agree on the wording but understand its scope or consequences differently."
+    }
+  }
+]

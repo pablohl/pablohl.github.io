@@ -1,0 +1,26 @@
+/* Landing-page orientation: separate from catalogue filters and tool pages. */
+.starting-points-intro { max-width: 46rem; line-height: 1.7; }
+.starting-points a { text-decoration: underline; text-underline-offset: .18em; }
+.starting-points { margin-bottom: 3rem; }
+.starting-points > p { max-width: 46rem; color: var(--toolbox-muted); }
+.starting-points-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+.starting-point { padding: 1.5rem 0; border-top: 1px solid var(--toolbox-rule); }
+.starting-point:last-child { border-bottom: 1px solid var(--toolbox-rule); }
+.starting-point h3 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
+.starting-point p { max-width: 48rem; margin: .6rem 0; line-height: 1.6; }
+.starting-point-primary a { font-weight: 650; }
+.starting-point-label { font-weight: 600; }
+.starting-point-alternative { color: var(--toolbox-muted); font-size: .95rem; }
+.starting-point-description { display: block; margin-top: .15rem; }
+.starting-points a:focus-visible { outline: 2px solid var(--toolbox-accent); outline-offset: 4px; border-radius: 2px; }
+#starting-points, #all-tools, #random-lens { scroll-margin-top: 6rem; }
+@media (max-width: 600px) {
+  .starting-point { padding: 1.2rem 0; }
+}
+
+.toolbox-page > header { margin-bottom: 2.5rem; }
+.catalogue-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.catalogue-heading h2 { margin: 0; }
+.catalogue-heading button { flex-shrink: 0; }
+.catalogue-lens[hidden] { display: none; }
+.catalogue-heading + .catalogue-lens { margin: 0 0 1.5rem; }

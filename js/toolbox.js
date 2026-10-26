@@ -116,6 +116,13 @@
     }
 
     button.addEventListener("click", pickAnother);
+    var suggest = document.querySelector("[data-lens-suggest]");
+    if (suggest) suggest.addEventListener("click", function () {
+      var opening = root.hidden;
+      if (opening) pickAnother();
+      root.hidden = !opening;
+      suggest.setAttribute("aria-expanded", String(opening));
+    });
   }
 
   setupCatalogue();
