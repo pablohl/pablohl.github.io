@@ -6,10 +6,10 @@ from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_foot
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261025">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
-        script += '<script src="/js/engineering-decisions.js?v=20261024" defer></script>'
+        script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
     return f'<!DOCTYPE html>\n<html lang="en-us">{head}<body id="page">{site_header()}<main class="site-main section-inner engineering-page">{body}</main>{site_footer()}{script}</body></html>\n'
 
 
@@ -42,11 +42,18 @@ def render_example(example, number):
 </article>'''
 
 
+def render_rule_comparison(option):
+    if not option.get('ruleComparison'):
+        return ''
+    rows = ''.join(f'<div><dt>{esc(row["label"])}</dt><dd>{esc(row["text"])}</dd></div>' for row in option['ruleComparison'])
+    return f'<dl class="decision-rule-comparison">{rows}</dl>'
+
+
 def render_decision(interaction, example_id):
     controls = ''.join(f'<label><input type="radio" name="{esc(example_id)}-condition" value="{esc(option["id"])}" aria-controls="{esc(example_id)}-{esc(option["id"])}"{" checked" if i == 0 else ""}><span>{esc(option["label"])}</span></label>' for i, option in enumerate(interaction['options']))
-    # Report wording belongs to its evidence branch, so it changes with the outcome.
-    outcomes = ''.join(f'''<section class="decision-outcome" id="{esc(example_id)}-{esc(option['id'])}" data-decision-outcome="{esc(option['id'])}"><h4>{esc(option['title'])}</h4><p>{esc(option['evidence'])}</p><p class="decision-recommendation"><strong>{esc(option['recommendation'])}</strong></p><p>{esc(option['reason'])}</p><details class="case-discussion"><summary>How this could sound in the report</summary><blockquote>{esc(option['boundedConclusion'])}</blockquote><p><strong>A useful follow-up:</strong> {esc(option['followup'])}</p></details></section>''' for option in interaction['options'])
-    return f'''<div class="decision-explorer" data-decision-explorer><fieldset data-decision-controls hidden><legend>{esc(interaction['question'])}</legend>{controls}</fieldset><div class="decision-outcomes" aria-live="polite" aria-atomic="true">{outcomes}</div></div>'''
+    # Keep the two changing fields in the same place; longer reasoning is optional.
+    outcomes = ''.join(f'''<section class="decision-outcome" id="{esc(example_id)}-{esc(option['id'])}" data-decision-outcome="{esc(option['id'])}"><p class="decision-selection">Showing: {esc(option['label'])}</p><dl class="decision-summary"><div data-decision-field="evidence"><dt>What this establishes <span class="decision-change-tag">Changed</span></dt><dd>{esc(option['summary'])}</dd></div><div data-decision-field="next-step"><dt>Next step <span class="decision-change-tag">Changed</span></dt><dd>{esc(option['nextStep'])}</dd></div></dl>{render_rule_comparison(option)}<details class="decision-explanation"><summary>Why this follows</summary><h4>{esc(option['title'])}</h4><p>{esc(option['evidence'])}</p><p class="decision-recommendation"><strong>How to proceed:</strong> {esc(option['recommendation'])}</p>{'<p>' + esc(option['reason']) + '</p>' if option.get('reason') else ''}</details><details class="case-discussion"><summary>How this could sound in the report</summary><blockquote>{esc(option['boundedConclusion'])}</blockquote><p><strong>A useful follow-up:</strong> {esc(option['followup'])}</p></details></section>''' for option in interaction['options'])
+    return f'''<div class="decision-explorer" data-decision-explorer><fieldset data-decision-controls hidden><legend>{esc(interaction['question'])}</legend>{controls}</fieldset><p class="decision-baseline"><strong>Unchanged:</strong> {esc(interaction['baseline'])}</p><h4 class="decision-result-title">Evidence and next step</h4><p class="visually-hidden" data-decision-announcement role="status" aria-live="polite"></p><div class="decision-outcomes">{outcomes}</div></div>'''
 
 
 def render_story_example(example):
@@ -70,10 +77,10 @@ def render_story_guide(tool):
     flow = ' <span aria-hidden="true">→</span><span class="visually-hidden">then</span> '.join(esc(label) for label in tool['frameworkLabels'])
     related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
     return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering</a> / {esc(tool['sectionLabel'])}</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
-<section class="story-opening" aria-labelledby="problem-title"><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}</section>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1></header>
+<section class="engineering-framework story-distinction" aria-labelledby="problem-title"><p class="engineering-eyebrow">The distinction</p><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}<p class="framework-flow">{flow}</p></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
-<section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><p class="framework-flow">{flow}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
+<section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
 <section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering Toolbox</a></section>'''
 
 
