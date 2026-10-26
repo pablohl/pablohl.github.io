@@ -160,7 +160,7 @@
       "title": "What Does This Result Let Us Decide?",
       "category": "Engineering judgment · Technical recommendations",
       "sectionLabel": "Technical decisions",
-      "summary": "A quieter night. A successful trial run. What do these results actually let a team do next?",
+      "summary": "Connect what a result establishes to the requirements of the action you recommend.",
       "cardSummary": "An online shop wants fewer overnight alerts. A team wants to move its order records. Explore what each result supports—and what the next step still requires.",
       "problemTitle": "A result answers a question. A decision depends on what the next step requires.",
       "introduction": [
@@ -198,26 +198,26 @@
             "An online shop sends an urgent notification to the engineer responsible for fixing problems when purchases start failing. The point is to get someone’s attention so they can investigate and help customers buy again. But short-lived problems also trigger alerts, waking the engineer even when the problem has already passed.",
             "The team received 18 overnight alerts last week. Someone proposes making the rule less sensitive, so it waits for failures to become more common before notifying anyone. Applied to last week’s activity, it would have sent only four alerts."
           ],
-          "impression": "“Four alerts instead of eighteen. Let’s change the rule.”",
-          "tension": "Fewer interruptions would help the engineer. But the rule still needs to call someone in when customers cannot buy. Has the team checked whether it would do that?",
-          "comparisonTitle": "Fewer alerts and reliable detection answer different questions",
+          "impression": "“The less sensitive rule would have sent four alerts instead of eighteen last week. Let’s adopt it.”",
+          "tension": "Fewer interruptions would help the engineer. But the rule still needs to call someone in when needed.",
+          "comparisonTitle": "An alert count does not tell us what the alerts were for",
           "columns": [
             "Count the interruptions",
-            "Check whether help would still arrive"
+            "Connect alerts to incidents"
           ],
           "comparison": [
             {
               "label": "Question",
               "values": [
                 "How many alerts would the new rule send?",
-                "Would it still notify someone about problems that need attention?"
+                "What incidents triggered the alerts, how serious were they, and which needed intervention?"
               ]
             },
             {
               "label": "Finding",
               "values": [
                 "Four alerts instead of eighteen on last week’s activity.",
-                "During Thursday’s purchase failure, the errors never became common enough to trigger the proposed rule. Nobody would have been notified by that rule."
+                "A purchase failure needed intervention. The current rule alerted the engineer; the proposed rule would not have alerted them."
               ]
             }
           ],
@@ -227,27 +227,37 @@
               {
                 "id": "page-count",
                 "label": "Only the number of alerts",
-                "title": "Fewer interruptions. We still don’t know what would be missed.",
-                "evidence": "The proposed rule would have sent four alerts last week. Nobody has checked whether the removed alerts include customer problems that needed attention.",
-                "recommendation": "Keep the current rule while checking how the proposed rule would have behaved during known purchase failures.",
-                "reason": "The next check must ask whether someone would still be notified in time to help. Counting alerts again cannot answer that.",
-                "boundedConclusion": "“The proposed rule would reduce last week’s alerts from 18 to 4. We have not checked which customer problems it would miss. I recommend testing it against known purchase failures before changing the rule: fewer interruptions only help if someone is still notified when help is needed.”",
-                "followup": "Use records of past purchase failures to compare whether and when each rule would notify the engineer. Check the failures that would no longer trigger an alert."
+                "title": "The count is lower. The incidents behind it are still unexamined.",
+                "evidence": "Nobody has reviewed what happened after each alert: what kind of incident triggered it, how serious it was, or whether someone had to intervene.",
+                "recommendation": "Before changing the rule, review the incidents behind the alerts it would remove.",
+                "reason": "",
+                "boundedConclusion": "“The less sensitive rule would have sent four alerts instead of eighteen last week. We have not reviewed the incidents behind the alerts it removes. I recommend checking their severity and whether they needed intervention before adopting the rule.”",
+                "followup": "For each removed alert, review the incident and the team’s response. Record which incidents needed intervention and whether the proposed rule would still have alerted someone."
               },
               {
                 "id": "outage-replay",
-                "label": "They also checked Thursday’s purchase failure",
-                "title": "The quieter rule would have missed a problem that needed help.",
-                "evidence": "On Thursday, customers could not complete purchases. The current rule notified the engineer. The proposed rule would have stayed silent because the failures never became common enough to trigger it.",
-                "recommendation": "Do not adopt this version of the rule. Keep the current rule while looking for a way to reduce needless interruptions without hiding purchase failures that need attention.",
-                "reason": "The reduction from 18 alerts to 4 is still a real result. It does not justify a change that would miss a customer problem the team needs to detect.",
-                "boundedConclusion": "“The proposed rule would reduce last week’s alerts from 18 to 4, but it would miss Thursday’s purchase failure. I recommend keeping the current rule while we revise the proposal. This version does not meet our need to notify someone when customers need help.”",
-                "followup": "Revise the rule, then check it against past failures and short-lived problems before adopting it."
+                "label": "Also the incidents behind the alerts",
+                "title": "The proposed rule removes an alert that led to necessary intervention.",
+                "evidence": "The team reviewed the incidents behind the alerts. One involved customers being unable to buy and required the engineer to intervene.",
+                "recommendation": "Revise the proposed rule before adopting it.",
+                "reason": "It reduces the alert count, but would also miss an incident that needed intervention.",
+                "boundedConclusion": "“The less sensitive rule would have sent four alerts instead of eighteen last week, but it would remove an alert for a purchase failure that needed intervention. The current rule alerted the engineer; the proposed rule would not. I recommend revising the rule before adopting it.”",
+                "followup": "Revise which incidents trigger an alert. Recheck the revised rule against incidents that needed intervention and those that did not.",
+                "ruleComparison": [
+                  {
+                    "label": "Current rule",
+                    "text": "Alerted the engineer to that incident."
+                  },
+                  {
+                    "label": "Proposed rule",
+                    "text": "Would not have alerted the engineer: the failures did not reach its higher trigger point."
+                  }
+                ]
               }
             ]
           },
           "takeawayTitle": "The missing connection",
-          "takeaway": "Reducing interruptions and detecting customer problems are different requirements. The count answers one question; the failure check tells us whether this particular change meets another essential requirement."
+          "takeaway": "Eighteen alerts becoming four tells us about interruptions. Reviewing the incidents tells us what those alerts were for. That connection determines whether fewer alerts supports adopting this rule."
         },
         {
           "id": "migration-scope",
