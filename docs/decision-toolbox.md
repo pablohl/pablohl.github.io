@@ -4,7 +4,7 @@
 
 The Decision Toolbox offers reusable questions for unclear decisions. Readers should be able to recognize a situation and understand the reasoning without an engineering, machine-learning, or research background.
 
-A tool's origin and its example serve different purposes. Sources preserve where the idea came from; examples demonstrate where it can help. A tool learned through technical work can use an everyday example. Engineering-specific scenarios belong primarily in the separate Engineering Toolbox (see [engineering-toolbox.md](engineering-toolbox.md)).
+A tool's origin and its example serve different purposes. Sources preserve where the idea came from; examples demonstrate where it can help. A tool learned through technical work can use an everyday example. Engineering-specific scenarios belong primarily in the Engineering guides collection (see [engineering-toolbox.md](engineering-toolbox.md)).
 
 ## Complete entry
 

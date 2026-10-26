@@ -6,7 +6,7 @@
 .starting-points-list { list-style: none; padding: 0; margin: 1.5rem 0; }
 .starting-point { padding: 1.5rem 0; border-top: 1px solid var(--toolbox-rule); }
 .starting-point:last-child { border-bottom: 1px solid var(--toolbox-rule); }
-.starting-point h3 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
+.starting-point h4 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
 .starting-point p { max-width: 48rem; margin: .6rem 0; line-height: 1.6; }
 .starting-point-primary a { font-weight: 650; }
 .starting-point-label { font-weight: 600; }
@@ -24,3 +24,6 @@
 .catalogue-heading button { flex-shrink: 0; }
 .catalogue-lens[hidden] { display: none; }
 .catalogue-heading + .catalogue-lens { margin: 0 0 1.5rem; }
+
+body#page .toolbox-page.site-main { padding-top: 2rem; }
+.toolbox-page > header { margin-bottom: 1.5rem; }

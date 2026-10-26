@@ -170,3 +170,20 @@ body#page .engineering-page.site-main { padding-top: 1.5rem; }
 @media (max-width: 760px) {
 .decision-summary > div { grid-template-columns: 1fr; gap: .35rem; }
 }
+
+/* A shared entry point explains the two routes before the catalogue. */
+.toolbox-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin: 1.5rem 0 2.5rem; }
+.toolbox-paths section { padding: 1.5rem; border: 1px solid var(--color-border); background: var(--color-surface); }
+.toolbox-paths h2 { margin: .5rem 0 .75rem; font-size: 1.5rem; }
+.toolbox-paths h2 a { color: var(--color-text); }
+.toolbox-paths p { line-height: 1.6; margin: .75rem 0; }
+.toolbox-paths section > a { display: inline-block; margin-top: .5rem; font-weight: 600; }
+.toolbox-paths .toolbox-path-example { color: var(--color-text-secondary); font-size: .9375rem; }
+.toolbox-paths a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.toolbox-library-intro { border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1rem; }
+.toolbox-library-intro p { max-width: 48rem; line-height: 1.7; }
+#decision-tools { scroll-margin-top: 6rem; }
+@media (max-width: 760px) {
+.toolbox-paths { grid-template-columns: 1fr; gap: 1rem; }
+.toolbox-paths section { padding: 1.2rem; }
+}
