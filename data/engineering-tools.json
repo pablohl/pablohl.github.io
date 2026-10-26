@@ -33,7 +33,7 @@
               ]
             }
           ],
-          "takeaway": "The first response sets aside an identified risk when recommending release. The second turns that risk into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
+          "takeaway": "When they name the risk, they set aside an identified concern when recommending release. When they act on the risk, they turn that concern into a check before release. These are different observations about judgment in this discussion. Whether the candidate can revise their reasoning with guidance or apply it to a new problem remains uncertain.",
           "conditions": [],
           "discussionCases": [
             {
@@ -79,7 +79,7 @@
           "conditions": [
             {
               "label": "What the interviewer supplied matters.",
-              "text": "In the second response, you explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
+              "text": "When you observed a problem in the reasoning, you had explained repeated delivery. Assess how they used that explanation; this does not show whether they would have identified the risk independently."
             },
             {
               "label": "The role changes the forecast.",
@@ -152,7 +152,8 @@
           "text": "One interview response does not establish performance across unfamiliar problems. Name the role, support, and conditions your expectation assumes so it can be questioned and revisited."
         }
       ],
-      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step]."
+      "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step].",
+      "distinction": "What you observed is evidence. What you expect them to do at work is a prediction. Keep the uncertainty visible."
     },
     {
       "id": "results-to-decisions",
