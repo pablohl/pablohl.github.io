@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F6F2EA">
-  <meta itemprop="name" content="Toolbox">
+  <meta itemprop="name" content="Decision Toolbox">
   <meta itemprop="description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
-  <meta property="og:title" content="Toolbox">
+  <meta property="og:title" content="Decision Toolbox">
   <meta property="og:description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pablohl.github.io/toolbox/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Toolbox">
+  <meta name="twitter:title" content="Decision Toolbox">
   <meta name="twitter:description" content="Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <title>Toolbox</title>
+  <title>Decision Toolbox</title>
   <link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/toolbox.css?v=20260930">
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
   <script src="/js/editorial-nav.js?v=20261017" defer></script>
-<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261023d"></head>
+<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261026b"></head>
 <body id="page">
 <header class="editorial-header">
   <div class="editorial-header__inner section-inner">
@@ -40,25 +40,33 @@
   </div>
 </header>
 <main class="site-main section-inner toolbox-page animated fadeIn faster">
-  <header>
-    <span class="tool-eyebrow">Not rules. Questions worth trying.</span>
-    <h1>Toolbox</h1>
-    <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
-  </header>
-  <nav class="toolbox-collections" aria-label="Toolbox collections">
-    <a href="#decision-tools"><strong>Decision Toolbox</strong><span>Reusable lenses for evidence, uncertainty, and trade-offs.</span></a>
-    <a href="/toolbox/engineering/"><strong>Engineering Toolbox →</strong><span>Concrete scenarios for engineering judgment. Start with what an interview actually tells you.</span></a>
+  <nav class="toolbox-collection-nav" aria-label="Toolbox collections">
+    <a href="/toolbox/" aria-current="page">Decision Toolbox</a>
+    <a href="/toolbox/engineering/">Engineering Toolbox</a>
   </nav>
-  <h2 id="decision-tools">Decision Toolbox</h2>
-  <aside class="catalogue-lens" data-random-lens data-initial-lens="shape-of-the-evidence" aria-labelledby="catalogue-lens-title">
-    <span class="tool-eyebrow">Give me a lens</span>
+  <header id="decision-tools">
+    <h1>Decision Toolbox</h1>
+    <p class="toolbox-intro">Questions that help you examine unclear decisions.</p>
+    <p class="starting-points-intro">Start with a choice or difficulty you’re facing. Pick one question that seems relevant, read its example, and ask what it changes about your understanding or next step. You don’t need to use every tool.</p>
+  </header>
+  <section class="starting-points" aria-labelledby="starting-points">
+    <h2 id="starting-points">Start with a situation</h2>
+    <p>Find a situation close to yours. Start with the suggested tool; consider the alternative if its distinction fits your problem better.</p>
+    <ol class="starting-points-list"><li class="starting-point"><h3>A result looks impressive, but I’m unsure whether to trust it.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/shape-of-the-evidence/">The Shape of the Evidence</a><span class="starting-point-description">Check whether the surrounding observations fit the explanation.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/what-did-the-metric-throw-away/">What Did the Metric Throw Away?</a><span class="starting-point-description">The headline number may hide differences that matter.</span></p></li><li class="starting-point"><h3>I understand the findings, but I’m unsure what we should do.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/decision-complete/">Decision-Complete</a><span class="starting-point-description">Examine the reasoning connecting the findings to a practical choice.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/what-is-worth-learning/">What Is Worth Learning?</a><span class="starting-point-description">That reasoning reveals an unanswered question, and you need to decide what to investigate.</span></p></li><li class="starting-point"><h3>We keep gathering information without getting closer to a decision.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/what-is-worth-learning/">What Is Worth Learning?</a><span class="starting-point-description">Identify which uncertainty could actually change the choice.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/two-clocks/">Two Clocks</a><span class="starting-point-description">Further learning may help, but you need to consider what waiting could cost.</span></p></li><li class="starting-point"><h3>I’m unsure whether to act now or wait.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/two-clocks/">Two Clocks</a><span class="starting-point-description">Consider how information and available options change during the delay.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/position-before-you-know/">Position Before You Know</a><span class="starting-point-description">You cannot commit yet, but could prepare in ways that help across plausible outcomes.</span></p></li><li class="starting-point"><h3>Something feels wrong, but I can’t explain why.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/from-intuition-to-argument/">From Intuition to Argument</a><span class="starting-point-description">Identify what your concern is noticing and make the reasoning inspectable.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/look-at-the-boundary/">Look at the Boundary</a><span class="starting-point-description">The concern involves different areas of expertise, and understanding their connection may reveal the problem.</span></p></li><li class="starting-point"><h3>A detailed plan includes things we haven’t actually agreed on.</h3><p class="starting-point-primary"><span class="starting-point-label">Start here:</span> <a href="/toolbox/surface-the-hidden-decisions/">Surface the Hidden Decisions</a><span class="starting-point-description">Separate agreed commitments from assumptions and suggestions.</span></p><p class="starting-point-alternative"><span class="starting-point-label">Also consider:</span> <a href="/toolbox/change-the-representation/">Change the Representation</a><span class="starting-point-description">People agree on the wording but understand its scope or consequences differently.</span></p></li></ol>
+    <p class="starting-points-footer">None of these fits? <a href="#all-tools">Browse all 21 decision tools below.</a></p>
+  </section>
+  <div class="catalogue-heading">
+    <h2 id="all-tools">Browse all decision tools</h2>
+    <button type="button" class="lens-refresh" data-lens-suggest aria-expanded="false" aria-controls="random-lens">Suggest a tool</button>
+  </div>
+  <aside id="random-lens" class="catalogue-lens" hidden data-random-lens data-initial-lens="shape-of-the-evidence" aria-labelledby="catalogue-lens-title">
     <p class="lens-question" data-lens-question>What would I expect to see around this result if my explanation were actually right?</p>
     <div class="lens-context">
       <strong id="catalogue-lens-title" data-lens-name>The Shape of the Evidence</strong>
       <span data-lens-source>From: Quantitative trading, Machine learning</span>
     </div>
     <div class="lens-actions">
-      <button class="lens-refresh" type="button" data-lens-refresh>Another lens</button>
+      <button class="lens-refresh" type="button" data-lens-refresh>Suggest another</button>
       <a class="lens-open" href="/toolbox/shape-of-the-evidence/" data-lens-link>Open tool →</a>
     </div>
   </aside>
@@ -265,12 +273,13 @@
 </article>
   </section>
   <p class="empty-state" data-empty-state hidden>No tools match both filters. Try another problem or source.</p>
+
 </main>
 <footer id="site-footer" class="section-inner thin animated fadeIn faster">
   <p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
 </footer>
 <script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
 <script src="/js/toolbox-data.js"></script>
-<script src="/js/toolbox.js"></script>
+<script src="/js/toolbox.js?v=20261026c"></script>
 </body>
 </html>

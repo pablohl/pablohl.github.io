@@ -166,6 +166,30 @@ def tool_card(tool: dict, problems: dict[str, dict], sources: dict[str, dict]) -
 </article>"""
 
 
+def render_starting_points(published: list[dict]) -> str:
+    tools = {tool["id"]: tool for tool in published}
+    entries = json.loads((ROOT / "data" / "toolbox-starting-points.json").read_text())
+    rows = []
+    for entry in entries:
+        if not entry.get("situation", "").strip():
+            raise ValueError("Starting point must have a situation")
+        links = []
+        for role, label in (("primary", "Start here"), ("alternative", "Also consider")):
+            choice = entry[role]
+            if choice["tool"] not in tools or not choice.get("description", "").strip():
+                raise ValueError(f"Invalid {role} in starting point: {entry['situation']}")
+            tool = tools[choice["tool"]]
+            links.append(
+                f'<p class="starting-point-{role}"><span class="starting-point-label">{label}:</span> '
+                f'<a href="/toolbox/{esc(tool["id"])}/">{esc(tool["name"])}</a>'
+                f'<span class="starting-point-description">{esc(choice["description"])}</span></p>'
+            )
+        if entry["primary"]["tool"] == entry["alternative"]["tool"]:
+            raise ValueError("Starting point alternatives must be distinct")
+        rows.append(f'<li class="starting-point"><h3>{esc(entry["situation"])}</h3>{"".join(links)}</li>')
+    return '<ol class="starting-points-list">' + "".join(rows) + '</ol>'
+
+
 def render_catalogue(data: dict, published: list[dict], problems: dict, sources: dict) -> None:
     used_source_types = {
         sources[source]["type"] for tool in published for source in tool["sources"]
@@ -179,35 +203,44 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
         f'<button type="button" data-problem-filter="{esc(problem["id"])}" aria-pressed="false">{esc(problem["name"])}</button>'
         for problem in data["problems"]
     )
+    starting_points = render_starting_points(published)
     cards = "\n".join(tool_card(tool, problems, sources) for tool in published)
     initial_lens = next(tool for tool in published if tool["random_enabled"])
     initial_sources = ", ".join(sources[item]["name"] for item in initial_lens["sources"])
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261023d"></head>')}
+{site_head('Decision Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261026b"></head>')}
 <body id="page">
 {site_header()}
 <main class="site-main section-inner toolbox-page animated fadeIn faster">
-  <header>
-    <span class="tool-eyebrow">Not rules. Questions worth trying.</span>
-    <h1>Toolbox</h1>
-    <p class="toolbox-intro">A collection of reusable lenses for unclear decisions. Start with a problem, or explore ideas gathered from research, startups, trading, mentoring, games, and other places.</p>
-  </header>
-  <nav class="toolbox-collections" aria-label="Toolbox collections">
-    <a href="#decision-tools"><strong>Decision Toolbox</strong><span>Reusable lenses for evidence, uncertainty, and trade-offs.</span></a>
-    <a href="/toolbox/engineering/"><strong>Engineering Toolbox →</strong><span>Concrete scenarios for engineering judgment. Start with what an interview actually tells you.</span></a>
+  <nav class="toolbox-collection-nav" aria-label="Toolbox collections">
+    <a href="/toolbox/" aria-current="page">Decision Toolbox</a>
+    <a href="/toolbox/engineering/">Engineering Toolbox</a>
   </nav>
-  <h2 id="decision-tools">Decision Toolbox</h2>
-  <aside class="catalogue-lens" data-random-lens data-initial-lens="{esc(initial_lens['id'])}" aria-labelledby="catalogue-lens-title">
-    <span class="tool-eyebrow">Give me a lens</span>
+  <header id="decision-tools">
+    <h1>Decision Toolbox</h1>
+    <p class="toolbox-intro">Questions that help you examine unclear decisions.</p>
+    <p class="starting-points-intro">Start with a choice or difficulty you’re facing. Pick one question that seems relevant, read its example, and ask what it changes about your understanding or next step. You don’t need to use every tool.</p>
+  </header>
+  <section class="starting-points" aria-labelledby="starting-points">
+    <h2 id="starting-points">Start with a situation</h2>
+    <p>Find a situation close to yours. Start with the suggested tool; consider the alternative if its distinction fits your problem better.</p>
+    {starting_points}
+    <p class="starting-points-footer">None of these fits? <a href="#all-tools">Browse all {len(published)} decision tools below.</a></p>
+  </section>
+  <div class="catalogue-heading">
+    <h2 id="all-tools">Browse all decision tools</h2>
+    <button type="button" class="lens-refresh" data-lens-suggest aria-expanded="false" aria-controls="random-lens">Suggest a tool</button>
+  </div>
+  <aside id="random-lens" class="catalogue-lens" hidden data-random-lens data-initial-lens="{esc(initial_lens['id'])}" aria-labelledby="catalogue-lens-title">
     <p class="lens-question" data-lens-question>{esc(initial_lens['question'])}</p>
     <div class="lens-context">
       <strong id="catalogue-lens-title" data-lens-name>{esc(initial_lens['name'])}</strong>
       <span data-lens-source>From: {esc(initial_sources)}</span>
     </div>
     <div class="lens-actions">
-      <button class="lens-refresh" type="button" data-lens-refresh>Another lens</button>
+      <button class="lens-refresh" type="button" data-lens-refresh>Suggest another</button>
       <a class="lens-open" href="/toolbox/{esc(initial_lens['id'])}/" data-lens-link>Open tool →</a>
     </div>
   </aside>
@@ -235,10 +268,11 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     {cards}
   </section>
   <p class="empty-state" data-empty-state hidden>No tools match both filters. Try another problem or source.</p>
+
 </main>
 {site_footer()}
 <script src="/js/toolbox-data.js"></script>
-<script src="/js/toolbox.js"></script>
+<script src="/js/toolbox.js?v=20261026c"></script>
 </body>
 </html>
 """
