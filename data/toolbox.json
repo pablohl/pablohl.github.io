@@ -6,19 +6,18 @@
     "conversation_id": "6abd9b5a-4000-83ea-9627-364f64097744",
     "post_inventory_url": "https://pablohl.github.io/posts/",
     "notes": [
-      "The conversation labels its table as 13 candidate tools, but the table defines 14. All 14 are preserved.",
       "Tool wording, categories, sources, and primary/supporting relationships follow the final conversation table. Source aliases are normalized; problem descriptions and post summaries are editorial descriptions.",
       "All 14 launch tools were approved for publication on 2026-09-30. The example JSON's featured selection (Shape of the Evidence) is retained, and random_enabled defaults to true. Consumers should filter status=published before public display.",
       "Two Clocks was added as a fifteenth published tool on 2026-09-30.",
       "The Right Level of Reasoning was added as a sixteenth published tool on 2026-09-30.",
-      "The one related-tool connection and the example are taken from the conversation. Other unspecified examples and lineage are null; unspecified related tools are empty arrays.",
       "Post titles, dates, topics, and URLs were checked against the writing archive. Its September 28 date for A Result Is Not the Decision supersedes the illustrative September 27 date in the conversation. Hello World's URL could not be resolved and is null.",
       "Two Clocks was added when it was published and is linked as supporting material for Preserve the Option.",
       "Position Before You Know was added as a published tool alongside its football essay on 2026-10-05.",
       "What Is Worth Learning? was added as a published tool alongside its essay on 2026-10-08.",
       "The Executive Summary Is Not a Summary was added as a supporting post for Decision-Complete on 2026-10-09.",
       "Connect Work to Consequences was added as a published tool alongside What Counts as Good Work? on 2026-10-15.",
-      "Surface the Hidden Decisions was added as a published tool alongside The Friction AI Removes on 2026-10-22."
+      "Surface the Hidden Decisions was added as a published tool alongside The Friction AI Removes on 2026-10-22.",
+      "Decision Toolbox editorial revision: all 21 tools have illustrative worked examples for a general audience. Legacy example strings are cleared; related-tool complements are reciprocal. Reviewed against docs/decision-toolbox.md; reader testing has not been performed."
     ]
   },
   "problems": [
@@ -585,25 +584,40 @@
         "machine-learning"
       ],
       "use_when": [
-        "Experiments",
-        "benchmarks",
-        "model selection",
-        "vendor comparisons",
-        "apparently exceptional results"
+        "Comparing unusually strong results",
+        "Evaluating a successful trial",
+        "Choosing between providers",
+        "Checking whether an improvement is repeatable"
       ],
       "watch_for": "Real phenomena can have thresholds and discontinuities; smoothness is evidence, not proof.",
-      "example": "A model performs best at one exact parameter value while nearby configurations perform poorly. Before selecting it, ask whether the spike represents a real phenomenon or experimental noise.",
+      "example": null,
       "posts": {
         "primary": "a-result-is-not-the-decision",
         "supporting": [
           "quantitative-research-and-machine-learning"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "start-with-a-hypothesis",
+          "relationship": "complements"
+        },
+        {
+          "id": "what-did-the-metric-throw-away",
+          "relationship": "complements"
+        }
+      ],
       "lineage": "Skepticism about unusually good quantitative research results developed into examining the structure of surrounding evidence.",
       "status": "published",
       "featured": true,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "One unusually successful market day",
+        "situation": "A community group tests three prices for its fundraising lunch on different market days. The middle price brings in far more money than either of the others. The group must choose a price for its next event.",
+        "tempting_conclusion": "The middle price clearly works best; use it again.",
+        "evidence": "That day also coincided with a nearby festival. If the price attracted more buyers, you would expect stronger sales under comparable conditions too. Comparing attendance and sales per visitor, or repeating the price on an ordinary day, helps distinguish the price explanation from the extra crowd. The exceptional result needs an explanation beyond its size.",
+        "conclusion": "Treat the middle price as a promising candidate, not an established winner. Seek surrounding evidence consistent with the explanation before planning revenue around it. A genuine price threshold is possible; an isolated result is a reason to investigate, not automatically reject it."
+      }
     },
     {
       "id": "what-did-the-metric-throw-away",
@@ -620,11 +634,10 @@
         "product-work"
       ],
       "use_when": [
-        "Model evaluation",
-        "KPIs",
-        "averages",
-        "rankings",
-        "performance comparisons"
+        "Comparing averages",
+        "Choosing between services",
+        "Reviewing rankings",
+        "Interpreting performance measures"
       ],
       "watch_for": "Don't respond by measuring everything. Missing information matters only if it could alter the decision.",
       "example": null,
@@ -634,17 +647,26 @@
           "pommerman"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "shape-of-the-evidence",
+          "relationship": "complements"
+        },
+        {
+          "id": "decision-complete",
+          "relationship": "complements"
+        }
+      ],
       "lineage": "Pommerman's distinction between training reward and winning developed into asking which decision-relevant information a metric removes.",
       "status": "published",
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Higher accuracy, more time lost",
-        "situation": "Two models route the same 100 support tickets. Model A gets 92 right; Model B gets 90 right. The team is choosing which model to use.",
-        "tempting_conclusion": "“Model A has higher accuracy, so it is the better choice.”",
-        "evidence": "A misses six urgent tickets and unnecessarily escalates two routine ones. B misses two urgent tickets and escalates eight routine ones. For illustration, suppose each missed urgent ticket causes 60 minutes of avoidable work and each unnecessary escalation costs five minutes. A then costs 370 minutes; B costs 160. Accuracy counted those two kinds of mistake equally.",
-        "conclusion": "B has the lower estimated burden under these assumptions, despite lower accuracy. The next useful evidence is whether those error consequences are credible in this workflow. Different consequences could change the choice again; the lesson is to inspect the distinction that could affect this decision, rather than collect every possible metric."
+        "title": "Two commutes with the same average",
+        "situation": "You need to reach childcare pickup by six. Two routes average 30 minutes. One usually takes 25–35 minutes; the other often takes 15 minutes but sometimes takes an hour. You must choose a route and departure time.",
+        "tempting_conclusion": "The average is the same, so either route is equally suitable.",
+        "evidence": "An early arrival does not cancel the consequences of a late pickup. The average removes the distinction that matters: how often each route exceeds the time available. Compare arrival times for the hours you actually travel, including any unusually bad days.",
+        "conclusion": "Choose the route and departure time with an acceptable risk of arriving late. The more predictable route may suit this trip even if the average is identical. With no fixed arrival time, you might choose differently. You need the information that can change this choice, not every possible travel statistic."
       }
     },
     {
@@ -664,12 +686,12 @@
         "knowledge-boundary-research"
       ],
       "use_when": [
-        "Cross-functional decisions",
-        "customer/engineering disagreements",
-        "handoffs",
-        "architecture/business decisions"
+        "Coordinating people with different expertise",
+        "Planning handoffs",
+        "Investigating missed requirements",
+        "Resolving disagreements about a shared task"
       ],
-      "watch_for": "The goal isn't for everyone to understand everything or to defer automatically to another expert.",
+      "watch_for": "You do not need to replace another expert or defer to them automatically. Check your interpretation with the people involved; apparent fluency in their language is not proof that you understand their constraints.",
       "example": null,
       "posts": {
         "primary": "problems-at-the-boundary",
@@ -677,11 +699,31 @@
           "crossing-boundaries"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "change-the-representation",
+          "relationship": "complements"
+        },
+        {
+          "id": "which-game-are-we-playing",
+          "relationship": "complements"
+        },
+        {
+          "id": "surface-the-hidden-decisions",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A reminder that arrives too late",
+        "situation": "A community center sends appointment reminders by text. Staff confirm that messages are delivered, but volunteers report that some visitors still arrive without a required document. Both teams think the other has missed something.",
+        "tempting_conclusion": "The reminder is working, so visitors must not be reading it carefully.",
+        "evidence": "The volunteers explain that visitors need several days to obtain the document. The scheduling team sends reminders the evening before because that works well for confirming attendance. Neither team lacks competence: one sees successful delivery, while the other sees the preparation needed before arrival. The connection between timing and preparation was never discussed.",
+        "conclusion": "Walk through the visitor’s preparation with both teams and send document instructions early enough to use. Keep a later attendance reminder if useful. This addresses an identified mismatch; it does not establish that every missed document has the same cause."
+      }
     },
     {
       "id": "change-the-representation",
@@ -698,10 +740,10 @@
         "product-work"
       ],
       "use_when": [
-        "Estimation",
-        "scope discussions",
-        "product vs engineering disagreement",
-        "dependency analysis"
+        "Estimating a proposed change",
+        "Coordinating schedules",
+        "Discussing scope",
+        "Comparing visible effort with downstream consequences"
       ],
       "watch_for": "A more complicated representation isn't automatically the more relevant one. Ask which representation matters for the decision.",
       "example": null,
@@ -709,17 +751,22 @@
         "primary": "problems-at-the-boundary",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "look-at-the-boundary",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "One column on the screen, three integrations behind it",
-        "situation": "A product proposal adds a “Latest delivery status” column to an orders dashboard. In the screen sketch, it looks like a small addition.",
-        "tempting_conclusion": "“It is one extra column, so it should be a small piece of work.”",
-        "evidence": "A dependency map shows that the status would have to come from three carriers with different event formats, update times, and missing-data behavior. The screen sketch represents the display change; the map exposes the work needed to make the value trustworthy. If an existing feed already supplies that value, the same column could indeed be a small change.",
-        "conclusion": "Separate displaying an existing status from creating a reliable status feed. Estimate those scopes separately, or limit the first version to orders the existing feed covers. The dependency map explains implementation work; it does not, by itself, establish how valuable the column is."
+        "title": "Moving a meeting by one hour",
+        "situation": "An organizer proposes moving a regular meeting from four to five. On the shared calendar, this looks like a small adjustment. One participant says it would be difficult and asks to keep the original time.",
+        "tempting_conclusion": "It is only an hour; accommodating it should be straightforward.",
+        "evidence": "The participant explains that the new finish time misses their usual train and overlaps with childcare pickup. The calendar represents the meeting alone. Their daily schedule shows the dependencies that make the change costly. Another participant with a flexible evening may genuinely experience it as a small adjustment.",
+        "conclusion": "Compare the affected schedules before choosing a time. A shorter meeting or another day may meet the organizer’s goal with less disruption. The broader representation reveals consequences; it does not automatically mean this participant’s preference must decide the outcome."
       }
     },
     {
@@ -739,10 +786,10 @@
         "technical-judgment"
       ],
       "use_when": [
-        "Disagreements",
-        "architecture reviews",
-        "risk concerns",
-        "expert intuition"
+        "Explaining a concern",
+        "Reviewing a proposal",
+        "Discussing a disagreement",
+        "Checking an experienced first reaction"
       ],
       "watch_for": "Don't use reasoning merely to rationalize the initial reaction. Investigation may show that the intuition was wrong.",
       "example": null,
@@ -750,17 +797,26 @@
         "primary": "this-feels-wrong",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "right-level-of-reasoning",
+          "relationship": "complements"
+        },
+        {
+          "id": "raise-the-resolution-of-feedback",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A retry that feels unsafe",
-        "situation": "An engineer sees a proposal to retry a failed order-processing workflow and says, “This feels fragile.” The team needs to decide whether the retry design is acceptable.",
-        "tempting_conclusion": "“They have seen systems like this fail, so we should block the design.”",
-        "evidence": "Trace a timeout after the workflow has already sent a confirmation. If the retry sends it again, the concern has a specific mechanism: repeating a completed external action. If a durable request identifier prevents that action from repeating, including after a restart, the original objection weakens.",
-        "conclusion": "Ask for a trace and a failure test around duplicate actions. The claim is now narrow enough to examine: this retry may repeat a completed action after a timeout. Revise or withdraw it if the evidence shows that case is already handled; “fragile” alone does not settle the review."
+        "title": "A trip plan that feels too tight",
+        "situation": "A friend proposes an itinerary with a short connection between a train and the last ferry to an island. You have made similar trips and feel uneasy, but cannot initially explain why.",
+        "tempting_conclusion": "I have traveled more, so we should reject this itinerary.",
+        "evidence": "Checking the route reveals a bus transfer between the station and ferry terminal. Your concern becomes specific: a modest train delay could leave too little transfer time, with no later ferry. If the bus is coordinated with the train or another crossing exists, the concern may weaken. Experience suggested a question; the timetable lets everyone inspect it.",
+        "conclusion": "Check transfer times and the consequence of missing the ferry, then choose whether an earlier train is worth the extra time. Replace “it feels risky” with the actual failure path. Withdraw the objection if the connection is adequately protected."
       }
     },
     {
@@ -778,14 +834,13 @@
         "academic-research-to-applied-r-and-d"
       ],
       "use_when": [
-        "Experiments",
-        "technical reports",
-        "recommendations",
-        "research handoffs",
-        "Writing executive summaries"
+        "Writing recommendations",
+        "Reviewing a trial",
+        "Preparing an executive summary",
+        "Deciding whether findings justify action"
       ],
       "watch_for": "Sometimes the defensible conclusion really is “we don't know yet.” Don't force a recommendation.",
-      "example": "A report shows that Model A reduces error. Writing the executive summary reveals that nobody has established whether the improvement saves enough time to justify deployment. The next step is to investigate that implication before recommending a rollout.",
+      "example": null,
       "posts": {
         "primary": "when-is-an-experiment-actually-done",
         "supporting": [
@@ -794,6 +849,10 @@
         ]
       },
       "related_tools": [
+        {
+          "id": "what-did-the-metric-throw-away",
+          "relationship": "complements"
+        },
         {
           "id": "what-is-worth-learning",
           "relationship": "complements"
@@ -806,7 +865,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A shorter queue is not yet a staffing decision",
+        "situation": "A library tests adding a staff member to the returns desk. Queues become shorter. The trial report describes the improvement accurately, and the manager must decide whether to make the change permanent.",
+        "tempting_conclusion": "The trial worked, so keep the extra person at returns.",
+        "evidence": "The person was moved from helping visitors find books. The report does not establish whether those visitors now wait longer or whether the busiest return periods can be covered differently. The queue result answers the trial’s narrow question but leaves a gap between that finding and the staffing decision.",
+        "conclusion": "Summarize what improved, the trade-off still unknown, and the evidence needed to compare staffing options. A defensible recommendation could be limited peak-hour coverage or a further trial. Completing the analysis means making that reasoning explicit, not forcing a permanent change."
+      }
     },
     {
       "id": "preserve-the-option",
@@ -825,12 +891,10 @@
         "star-trek"
       ],
       "use_when": [
-        "Architecture",
-        "customer commitments",
-        "pricing",
-        "security",
-        "integrations",
-        "difficult-to-reverse choices"
+        "Making bookings",
+        "Entering commitments",
+        "Choosing between flexible and fixed arrangements",
+        "Considering choices that are costly to reverse"
       ],
       "watch_for": "Preserving optionality has a cost. Don't spend heavily protecting against every imaginable future.",
       "example": null,
@@ -840,17 +904,26 @@
           "six-years-of-applied-ml"
         ]
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "two-clocks",
+          "relationship": "complements"
+        },
+        {
+          "id": "position-before-you-know",
+          "relationship": "complements"
+        }
+      ],
       "lineage": "Reversibility and one-way/two-way doors in Six Years of Applied ML developed into the Kirk/Spock discussion of preserving future options.",
       "status": "published",
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A pilot integration that may become a public API",
-        "situation": "A team is connecting its first document-storage provider for a pilot. Exposing the provider’s identifiers and response format directly would be fastest. Suppose a small translation layer would take two extra days.",
-        "tempting_conclusion": "“Use the direct integration now. We can always change providers later.”",
-        "evidence": "Both approaches use the same provider today. But if customers build against its format, switching later requires coordinating their migrations as well as changing the backend. A small translation layer can keep that change internal. It costs time now, and it does not remove every future switching cost.",
-        "conclusion": "For a disposable demo needed tomorrow, the direct integration may be reasonable. For an API about to gain long-lived customers, the boundary may justify its cost. Preserve the specific option to replace this provider; that does not require building a framework for every provider you might someday use."
+        "title": "Paying for a refundable booking",
+        "situation": "You are booking accommodation for a family visit whose dates may change. A nonrefundable room costs less; the same room with cancellation until a week before arrival costs extra. Both meet your needs if the visit goes ahead.",
+        "tempting_conclusion": "Choose the cheaper room because the stay itself is identical.",
+        "evidence": "The extra payment buys a future choice, not a better room. If the dates change within the cancellation window, the refundable booking can be released without losing the full room price. If the dates are already firm, that option may have little value. The deadline also matters: cancellation protection may expire before the uncertainty is resolved.",
+        "conclusion": "Compare the premium with the plausible cost of changing plans and when you expect confirmation. Paying for flexibility can be reasonable, but it is not automatically worth any price. Preserve the specific option you may need, rather than purchasing every available safeguard."
       }
     },
     {
@@ -887,6 +960,10 @@
           "relationship": "complements"
         },
         {
+          "id": "position-before-you-know",
+          "relationship": "complements"
+        },
+        {
           "id": "what-is-worth-learning",
           "relationship": "complements"
         }
@@ -894,7 +971,14 @@
       "lineage": "Builds on the discussion of optionality and reversibility in Kirk/Spock by examining how information and available options change while a decision is delayed.",
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Waiting for a friend to confirm a trip",
+        "situation": "A friend will know on Friday whether they can join a weekend away. Today is Monday, and you need accommodation large enough for the group. Waiting would clarify the number of guests.",
+        "tempting_conclusion": "Wait until Friday; making the booking with better information must be better.",
+        "evidence": "Rooms are filling up, and the few larger places may be gone by Friday. Two things are changing: your information will improve, and the available accommodation may deteriorate. Check remaining availability and alternatives rather than assuming the same choice will still be available. If there are plenty of suitable places, waiting may cost very little.",
+        "conclusion": "Decide whether the expected clarification justifies the likely loss of choice. A cancellable reservation may help if its terms fit. Do not compare the clocks as numerical rates: ask what you could learn and what you could lose during this particular delay."
+      }
     },
     {
       "id": "what-is-worth-learning",
@@ -919,18 +1003,18 @@
         "Deciding whether more investigation would be useful"
       ],
       "watch_for": "Not all useful discovery begins with a known decision. Use this lens for focused investigation without eliminating exploratory learning. Refining the question also has a cost; seek evidence when further analysis is unlikely to help.",
-      "example": "Before broadly researching how banks work, identify the design choice at stake and the assumption it depends on. Target conversations that could reveal whether that assumption holds beyond the current environment.",
+      "example": null,
       "posts": {
         "primary": "what-is-worth-learning",
         "supporting": []
       },
       "related_tools": [
         {
-          "id": "two-clocks",
+          "id": "decision-complete",
           "relationship": "complements"
         },
         {
-          "id": "decision-complete",
+          "id": "two-clocks",
           "relationship": "complements"
         },
         {
@@ -941,7 +1025,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Which question should the interviews answer?",
+        "situation": "A community group is considering moving its weekly class online. Members propose a broad survey about everyone’s technology habits. The immediate decision is whether regular attendees could participate from home.",
+        "tempting_conclusion": "Collect as much information as possible before choosing a format.",
+        "evidence": "The organizer identifies the assumption behind the move: attendees have a suitable device, a connection, and a place to join. A few targeted conversations followed by a short practice session can test that assumption more directly than a long general survey. The practice session is useful because reported confidence alone may not reveal access difficulties.",
+        "conclusion": "Gather evidence about the uncertainty that could change the format decision. If access is a barrier, consider an in-person option before investigating unrelated preferences. Start small, but include people likely to face difficulties; a convenient sample of confident users would not resolve the question."
+      }
     },
     {
       "id": "position-before-you-know",
@@ -982,7 +1073,14 @@
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Preparing an event before the forecast settles",
+        "situation": "You are arranging a small outdoor gathering. The forecast is uncertain, and deciding everything on the morning of the event would leave too little preparation time. An indoor room is available but needs organizing.",
+        "tempting_conclusion": "Either commit to outdoors now or postpone all preparation until the weather is clear.",
+        "evidence": "Some work is useful in either setting: choosing portable food, confirming attendance, and arranging movable seating. Clearing the indoor room costs effort now but protects against a consequential change in weather. Preparing elaborate decorations for both settings would add little protection for its cost.",
+        "conclusion": "Do the shared preparation and keep a workable rain plan. Set a decision time before guests travel, then commit to one location when the forecast is useful enough. Positioning is active preparation for important possibilities; continuing to prepare both venues after choosing would waste effort."
+      }
     },
     {
       "id": "explore-then-exploit",
@@ -1000,12 +1098,12 @@
         "research"
       ],
       "use_when": [
-        "New products",
-        "ambiguous technical problems",
-        "optimization",
-        "experimentation"
+        "Investigating an unclear problem",
+        "Trying new approaches",
+        "Planning small experiments",
+        "Deciding where to concentrate effort"
       ],
-      "watch_for": "Exploration can become endless experimentation. Shift modes once enough structure appears.",
+      "watch_for": "Exploration can become endless experimentation. Concentrate effort when evidence identifies a promising direction, but reconsider it if the situation changes.",
       "example": null,
       "posts": {
         "primary": "six-years-of-applied-ml",
@@ -1015,12 +1113,27 @@
         {
           "id": "what-is-worth-learning",
           "relationship": "complements"
+        },
+        {
+          "id": "start-simple",
+          "relationship": "complements"
+        },
+        {
+          "id": "start-with-a-hypothesis",
+          "relationship": "complements"
         }
       ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Finding why attendance is falling",
+        "situation": "A neighborhood club has fewer attendees. The organizer starts polishing its invitation emails, but does not yet know whether the problem is publicity, timing, or the activities themselves.",
+        "tempting_conclusion": "Keep improving the invitation until attendance recovers.",
+        "evidence": "A few conversations with former attendees and small trials of a different time and activity can reveal where the problem lies. If people already read the invitations but cannot attend at that hour, further wording changes have little room to help. These early trials should distinguish possible explanations rather than perfect one solution.",
+        "conclusion": "Explore a few meaningfully different directions, then invest in the promising one. If timing repeatedly emerges as the obstacle, refine the schedule and assess attendance over several meetings. Do not keep changing every variable indefinitely; exploration earns its cost by directing later effort."
+      }
     },
     {
       "id": "look-before-you-model",
@@ -1037,10 +1150,10 @@
         "applied-machine-learning"
       ],
       "use_when": [
-        "ML/data problems",
-        "product discovery",
-        "technical design",
-        "choosing tools"
+        "Choosing a tool or service",
+        "Investigating a recurring difficulty",
+        "Planning improvements",
+        "Understanding a routine before changing it"
       ],
       "watch_for": "Inspection can itself become analysis paralysis. The objective is better hypotheses, not perfect understanding.",
       "example": null,
@@ -1048,11 +1161,27 @@
         "primary": "six-years-of-applied-ml",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "start-simple",
+          "relationship": "complements"
+        },
+        {
+          "id": "solve-the-constrained-problem",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Buying storage before looking at the clutter",
+        "situation": "You want to make the hallway easier to use and begin comparing shoe cabinets. Before ordering, you spend a week noticing what blocks the space and when.",
+        "tempting_conclusion": "A larger cabinet will solve the clutter problem.",
+        "evidence": "The main obstruction turns out to be bags and wet coats dropped near the door. Most shoes already fit in the existing storage. Observing the actual items and household routine changes the problem from insufficient shoe capacity to a lack of convenient places for arriving home with full hands.",
+        "conclusion": "Try hooks and a reachable bag shelf before buying a larger cabinet. This does not prove that more storage will never help; it gives you a better starting hypothesis. Stop inspecting once you understand enough to try a proportionate change and learn from its use."
+      }
     },
     {
       "id": "start-simple",
@@ -1070,10 +1199,10 @@
         "machine-learning"
       ],
       "use_when": [
-        "Early experiments",
-        "architecture",
-        "prototypes",
-        "selecting models"
+        "Trying a new routine",
+        "Testing an idea",
+        "Planning a pilot",
+        "Deciding whether added complexity is needed"
       ],
       "watch_for": "Simplicity is a starting strategy, not a belief that simple solutions are always sufficient.",
       "example": null,
@@ -1086,17 +1215,28 @@
       "related_tools": [
         {
           "id": "explore-then-exploit",
-          "relationship": "contrasts"
+          "relationship": "complements"
         },
         {
-          "id": "right-level-of-reasoning",
+          "id": "look-before-you-model",
+          "relationship": "complements"
+        },
+        {
+          "id": "solve-the-constrained-problem",
           "relationship": "complements"
         }
       ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Trying a meal plan before buying a system",
+        "situation": "A household wants to reduce wasted groceries. You consider a subscription service that tracks ingredients and plans every meal, but have not established what causes the waste.",
+        "tempting_conclusion": "A comprehensive system will handle the problem more effectively than a basic routine.",
+        "evidence": "For two weeks, list three planned dinners on paper and check the fridge before shopping. This small trial tests whether coordinating meals and purchases changes what gets thrown away. If it helps, you have evidence for the core idea. If irregular schedules defeat the plan, more elaborate tracking may not address the real obstacle.",
+        "conclusion": "Use the trial to decide what additional support is actually needed. A simple approach provides a baseline and exposes limitations cheaply. It does not mean paper is always sufficient, or that the shortest trial can capture every busy week or seasonal change."
+      }
     },
     {
       "id": "which-game-are-we-playing",
@@ -1120,25 +1260,32 @@
         "Working across teams"
       ],
       "watch_for": "People may have several competing objectives, and their stated goals may be incomplete. Treat your explanation of their motives as a hypothesis to investigate.",
-      "example": "Before emphasizing technical depth in an interview, clarify whether the interviewer is assessing technical knowledge, collaboration, judgment, or some combination.",
+      "example": null,
       "posts": {
         "primary": "which-game-are-we-playing",
         "supporting": []
       },
       "related_tools": [
         {
-          "id": "right-level-of-reasoning",
+          "id": "look-at-the-boundary",
           "relationship": "complements"
         },
         {
-          "id": "look-at-the-boundary",
+          "id": "right-level-of-reasoning",
           "relationship": "complements"
         }
       ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A proposal aimed at the wrong priority",
+        "situation": "You ask a colleague to share responsibility for an event and prepare a pitch about how much attention it will receive. They remain hesitant even after you explain its visibility.",
+        "tempting_conclusion": "They need more convincing that the event will be successful.",
+        "evidence": "You ask what would make the commitment workable. They explain that their main concern is unpredictable evening work, not recognition. Your pitch was answering a question they were not using to decide. A clear schedule and division of responsibilities may matter more than a larger audience.",
+        "conclusion": "Check whether predictable hours would change their willingness before revising the proposal. Their explanation is useful evidence, not a complete account of every motive. The next step is to understand and test the relevant priority, rather than assume they value the opportunity in the same way you do."
+      }
     },
     {
       "id": "right-level-of-reasoning",
@@ -1165,21 +1312,32 @@
         "Assessing whether stated intentions predict behavior"
       ],
       "watch_for": "Neither simplicity nor sophistication proves an explanation correct. Avoid assuming hidden motives without evidence, but do not dismiss strategic behavior when observations support it.",
-      "example": "A customer says they are interested but stops replying. Before constructing a bargaining explanation, ask whether they will schedule a concrete next meeting. Their response provides evidence, even if it does not establish their motive.",
+      "example": null,
       "posts": {
         "primary": "the-right-level-of-reasoning",
         "supporting": []
       },
       "related_tools": [
         {
-          "id": "start-simple",
+          "id": "from-intuition-to-argument",
+          "relationship": "complements"
+        },
+        {
+          "id": "which-game-are-we-playing",
           "relationship": "complements"
         }
       ],
       "lineage": "Draws on research into how learning agents model other agents, using The Prestige and Succession to illustrate the risks of both excessive and insufficient strategic reasoning.",
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "A delayed reply to an invitation",
+        "situation": "A friend has not answered your invitation. You wonder whether they are busy, unsure about the plan, or deliberately waiting for you to offer a different arrangement.",
+        "tempting_conclusion": "The delay is a signal; I should work out what response they are trying to provoke.",
+        "evidence": "You currently have only silence, which fits several explanations. A brief follow-up with a clear date and an easy way to decline produces more useful evidence than another theory. If the friend explains a scheduling conflict, a complex strategic account becomes less necessary. Repeated bargaining around similar invitations could justify considering a different model.",
+        "conclusion": "Use the least elaborate explanation that fits the available evidence, while staying open to revision. The follow-up may clarify the next action without revealing the friend’s full motives. Sophisticated speculation earns its place through observations, not through how convincing a story sounds."
+      }
     },
     {
       "id": "start-with-a-hypothesis",
@@ -1197,10 +1355,10 @@
         "machine-learning"
       ],
       "use_when": [
-        "Backtesting",
-        "repeated experiments",
-        "feature discovery",
-        "exploratory analysis"
+        "Comparing new routines",
+        "Evaluating repeated trials",
+        "Investigating an apparent improvement",
+        "Distinguishing discovery from confirmation"
       ],
       "watch_for": "Not all discovery should be hypothesis-first. Exploration can legitimately generate hypotheses; just distinguish discovery from confirmation.",
       "example": null,
@@ -1208,11 +1366,27 @@
         "primary": "quantitative-research-and-machine-learning",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "shape-of-the-evidence",
+          "relationship": "complements"
+        },
+        {
+          "id": "explore-then-exploit",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Did the new study routine help?",
+        "situation": "You try a new study routine and afterward search your results for improvement. One quiz score is higher, so you consider declaring the routine a success.",
+        "tempting_conclusion": "The higher score shows that the new routine works.",
+        "evidence": "You also changed study time, chose an easier topic, and looked at several outcomes before selecting the improved one. The result can suggest a hypothesis, but it is weak confirmation. Before the next trial, specify what you expect to improve, how you will compare similar material, and what result would count against the idea.",
+        "conclusion": "Use a fresh comparison to test the expectation instead of repeatedly redefining success around the results. This cannot remove every source of variation, but it makes the evidence easier to interpret. Exploration can generate the hypothesis; it should not be presented as if it had already tested it."
+      }
     },
     {
       "id": "solve-the-constrained-problem",
@@ -1230,10 +1404,10 @@
         "applied-machine-learning"
       ],
       "use_when": [
-        "Engineering trade-offs",
-        "deadlines",
-        "prototypes",
-        "resource constraints"
+        "Planning under a deadline",
+        "Working with limited resources",
+        "Balancing requirements",
+        "Choosing a feasible first version"
       ],
       "watch_for": "“Pragmatic” shouldn't become an excuse for ignoring requirements that genuinely determine success. Sometimes complexity really is necessary.",
       "example": null,
@@ -1241,11 +1415,27 @@
         "primary": "pommerman",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "look-before-you-model",
+          "relationship": "complements"
+        },
+        {
+          "id": "start-simple",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Serving dinner with one oven",
+        "situation": "You are cooking for eight people with one oven and an hour before they arrive. Your preferred menu requires three dishes at different temperatures. One guest also has a food allergy.",
+        "tempting_conclusion": "The best dinner is the full menu, so work faster to make it happen.",
+        "evidence": "The oven schedule makes that menu infeasible within the time available. A cold starter, one baked main, and a ready-made dessert can meet the actual goal of feeding everyone well. The allergy remains a firm requirement; reducing complexity does not justify ignoring it.",
+        "conclusion": "Choose a menu that works with the available time, equipment, and dietary needs. Accepting a less ambitious dessert may improve the whole meal. Check which constraints are real and which are preferences before compromising: a later serving time could change the options if the guests are comfortable with it."
+      }
     },
     {
       "id": "productive-struggle",
@@ -1268,17 +1458,33 @@
         "onboarding",
         "teaching"
       ],
-      "watch_for": "Struggle is only productive while the learner has a reasonable path forward. Withholding help indefinitely isn't development.",
+      "watch_for": "Struggle is useful only while the learner has a reasonable path forward. Adjust support to their skills, frustration, time, and the consequences of failure; withholding help indefinitely is not development.",
       "example": null,
       "posts": {
         "primary": "how-to-be-a-great-supervisor",
         "supporting": []
       },
-      "related_tools": [],
+      "related_tools": [
+        {
+          "id": "raise-the-resolution-of-feedback",
+          "relationship": "complements"
+        },
+        {
+          "id": "connect-work-to-consequences",
+          "relationship": "complements"
+        }
+      ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Helping without taking over the puzzle",
+        "situation": "A child is stuck on a puzzle and asks you to finish a difficult section. You can quickly see where several pieces belong. There is time to continue, and the child still wants to solve it.",
+        "tempting_conclusion": "Putting the pieces in for them is the most helpful response because it removes the frustration.",
+        "evidence": "You ask them to sort the edge pieces and look for matching colors, then let them try. This reduces the obstacle while leaving the useful reasoning to them. If they become exhausted or lack a basic strategy, continued withholding would stop serving learning.",
+        "conclusion": "Offer the smallest amount of help that restores a reasonable path forward, and check whether it actually helps. Completing the puzzle and learning how to approach it are different goals. When time or distress makes completion the priority, more direct help can be appropriate; struggle is not valuable simply because it is difficult."
+      }
     },
     {
       "id": "raise-the-resolution-of-feedback",
@@ -1296,13 +1502,12 @@
         "writing"
       ],
       "use_when": [
-        "Drafts",
-        "designs",
-        "research reviews",
-        "mentoring",
-        "asking experts for help"
+        "Requesting feedback on a draft",
+        "Planning a workshop",
+        "Reviewing a proposal",
+        "Asking for help with a specific concern"
       ],
-      "watch_for": "Don't polish prematurely when what you actually need is early directional feedback. Match artifact maturity to the feedback sought.",
+      "watch_for": "Make the part relevant to the requested feedback concrete. Premature polish can waste effort or make tentative choices appear settled; identify what remains open.",
       "example": null,
       "posts": {
         "primary": "how-to-be-a-great-supervisor",
@@ -1312,14 +1517,29 @@
       },
       "related_tools": [
         {
-          "id": "connect-work-to-consequences",
+          "id": "from-intuition-to-argument",
+          "relationship": "complements"
+        },
+        {
+          "id": "productive-struggle",
+          "relationship": "complements"
+        },
+        {
+          "id": "surface-the-hidden-decisions",
           "relationship": "complements"
         }
       ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "Getting useful feedback on a workshop",
+        "situation": "You ask a colleague whether your proposed workshop sounds good. You describe the topic and receive only “seems useful.” You need feedback on whether participants will understand the central idea.",
+        "tempting_conclusion": "The colleague needs to think harder or provide more detailed comments.",
+        "evidence": "Your description gives them little evidence about the teaching. You share a short opening explanation and one sample activity instead. Now they can point to an unfamiliar term and a step where participants may get lost. The artifact exposes the issue you wanted reviewed without requiring a finished slide deck.",
+        "conclusion": "Make the relevant part concrete enough for the feedback you need. Use a sample explanation to test understanding and a rough outline to discuss overall direction. More polish is not always more informative; complete visual design would add little to this particular review."
+      }
     },
     {
       "id": "connect-work-to-consequences",
@@ -1346,7 +1566,7 @@
         "Planning feedback after a launch"
       ],
       "watch_for": "Outcomes alone do not establish the quality of a decision or an individual's contribution. Other people, external conditions, chance, and delayed effects can influence what happens.",
-      "example": "A well-built feature sees little use. Before judging the work, investigate whether people could find it, whether it addressed their need, and whether something made it difficult to use.",
+      "example": null,
       "posts": {
         "primary": "what-counts-as-good-work",
         "supporting": []
@@ -1357,14 +1577,21 @@
           "relationship": "complements"
         },
         {
-          "id": "raise-the-resolution-of-feedback",
+          "id": "productive-struggle",
           "relationship": "complements"
         }
       ],
       "lineage": null,
       "status": "published",
       "featured": false,
-      "random_enabled": true
+      "random_enabled": true,
+      "worked_example": {
+        "title": "An event that few people attended",
+        "situation": "You organized a community event carefully, but attendance was low. Feedback says the arrangements were clear. You still do not know whether your work was useful or what to change next time.",
+        "tempting_conclusion": "Low attendance means the organizing was poor, so improve the invitations and logistics.",
+        "evidence": "Conversations with invitees reveal that many wanted to come but could not manage the time. Those who attended describe helpful introductions, and two later arrange a shared project. These observations separate the quality of preparation, barriers to attendance, and consequences of attending. They do not establish that your organizing alone caused the later collaboration.",
+        "conclusion": "Follow up on both participation barriers and what attendees gained before choosing what to improve. A different time may matter more than more polished invitations. Treat outcomes as evidence to investigate alongside your decisions and external circumstances, rather than as a simple score for your contribution."
+      }
     },
     {
       "id": "surface-the-hidden-decisions",
@@ -1401,7 +1628,7 @@
         },
         {
           "id": "raise-the-resolution-of-feedback",
-          "relationship": "contrasts"
+          "relationship": "complements"
         }
       ],
       "lineage": null,
@@ -1409,11 +1636,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A correction feature becomes a training commitment",
-        "situation": "The team agrees that analysts should be able to correct a model’s labels. A detailed draft specification also says that those corrections will retrain the model overnight.",
-        "tempting_conclusion": "“The specification is complete. We can estimate and build the whole feature.”",
-        "evidence": "In the discussion, people agreed on editing labels. They did not decide whether edits should become training data automatically, how a new model would be checked, or who would authorize its release. The draft has turned one agreed capability into several apparent commitments.",
-        "conclusion": "Keep label correction as an agreed requirement. Mark overnight retraining as a proposal, and resolve the training and release questions before estimating that automation. This does not mean rejecting retraining or reopening decisions the team has already made."
+        "title": "An itinerary that becomes a commitment",
+        "situation": "Friends agree to spend a weekend together. One person drafts a detailed itinerary that includes a rental car and two expensive guided activities, then sends it to the person handling bookings.",
+        "tempting_conclusion": "The plan looks complete, so the booker can reserve everything.",
+        "evidence": "The group agreed on dates and destination, but not transport, budget, or activities. The draft filled those gaps with plausible suggestions. Once passed to the booker, those suggestions look like settled requirements and could create costs others never accepted.",
+        "conclusion": "Mark the dates and destination as agreed, and the car and activities as proposals. Clarify the budget and preferences before making nonrefundable bookings. Focus on details that change commitments; there is no need for a separate group decision about every coffee stop. Completeness of presentation does not establish agreement."
       }
     }
   ]
