@@ -6,7 +6,7 @@ from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_foot
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261025">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261025b">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
         script += '<script src="/js/engineering-decisions.js?v=20261024" defer></script>'
@@ -71,9 +71,9 @@ def render_story_guide(tool):
     related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
     return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering</a> / {esc(tool['sectionLabel'])}</nav>
 <header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
-<section class="story-opening" aria-labelledby="problem-title"><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}</section>
+<section class="engineering-framework story-distinction" aria-labelledby="problem-title"><p class="engineering-eyebrow">The distinction</p><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}<p class="framework-flow">{flow}</p></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
-<section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><p class="framework-flow">{flow}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
+<section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
 <section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering Toolbox</a></section>'''
 
 

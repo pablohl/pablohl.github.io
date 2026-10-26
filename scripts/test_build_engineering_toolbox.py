@@ -79,12 +79,12 @@ class EngineeringRebuildTests(unittest.TestCase):
             report = re.search(r'<blockquote>(.*?)</blockquote>', content, re.S)
             self.assertIsNotNone(report, branch)
             reports[branch] = report.group(1)
-        self.assertIn('We have not checked which incidents it would miss', reports['on-call-alerts-page-count'])
+        self.assertIn('We have not checked which customer problems it would miss', reports['on-call-alerts-page-count'])
         self.assertNotIn('Thursday', reports['on-call-alerts-page-count'])
         self.assertIn('miss Thursday', reports['on-call-alerts-outage-replay'])
-        self.assertIn('recommend a staged move', reports['migration-scope-staged'])
-        self.assertIn('recommend holding the full migration', reports['migration-scope-all-records'])
-        self.assertNotIn('recommend a staged move', reports['migration-scope-all-records'])
+        self.assertIn('recommend a limited move', reports['migration-scope-staged'])
+        self.assertIn('recommend holding the complete move', reports['migration-scope-all-records'])
+        self.assertNotIn('recommend a limited move', reports['migration-scope-all-records'])
         self.assertEqual(len(set(reports.values())), 4)
 
     def test_story_fallback_and_short_ending(self):
@@ -97,7 +97,7 @@ class EngineeringRebuildTests(unittest.TestCase):
         for attrs in panels + outcomes:
             self.assertNotIn('hidden', attrs)
         self.assertFalse(any(tag == 'input' and attrs.get('type') == 'checkbox' for tag, attrs in elements))
-        self.assertLess(source.index('id="examples"'), source.index('class="framework-flow"'))
+        self.assertLess(source.index('class="framework-flow"'), source.index('id="examples"'))
         ending = source.split('id="discussion"', 1)[1].split('<section class="engineering-section related-lenses"', 1)[0]
         self.assertNotIn('hiring-structure', ending)
         self.assertNotIn('Thursday', ending)
