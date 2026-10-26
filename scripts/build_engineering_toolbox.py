@@ -6,7 +6,7 @@ from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_foot
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
         script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
@@ -76,12 +76,12 @@ def render_story_guide(tool):
     examples = ''.join(render_story_example(e) for e in tool['examples'])
     flow = ' <span aria-hidden="true">→</span><span class="visually-hidden">then</span> '.join(esc(label) for label in tool['frameworkLabels'])
     related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
-    return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering</a> / {esc(tool['sectionLabel'])}</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1></header>
+    return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / {esc(tool['sectionLabel'])}</nav>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1></header>
 <section class="engineering-framework story-distinction" aria-labelledby="problem-title"><p class="engineering-eyebrow">The distinction</p><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}<p class="framework-flow">{flow}</p></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
 <section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
-<section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering Toolbox</a></section>'''
+<section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering guides</a></section>'''
 
 
 def render_card(tool, route):
@@ -121,20 +121,21 @@ def build():
         framework = ''.join(f'<div><dt>{esc(d["label"])}</dt><dd>{esc(d["question"])}</dd></div>' for d in tool['discussion'])
         lessons = ''.join(f'<div><h3>{esc(lesson["title"])}</h3> <p>{esc(lesson["text"])}</p></div>' for lesson in tool['lessons'])
         related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
-        body = f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering</a> / Hiring</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox / Hiring</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
+        body = f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Hiring</nav>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Hiring</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
 <section class="engineering-problem" aria-labelledby="problem-title"><p class="engineering-eyebrow">01 / The problem</p><h2 id="problem-title">From observation to prediction</h2>{introduction}</section>
 <section class="engineering-framework" aria-labelledby="distinction-title"><p class="engineering-eyebrow">02 / The distinction</p><h2 id="distinction-title">{esc(tool['distinction'])}</h2><dl class="framework-questions">{framework}</dl></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">03 / Examples</p><h2 id="examples-title">Compare the evidence</h2><div class="example-controls"><div class="case-selector" data-example-tabs hidden>{navigation}</div><p class="example-disclaimer">Two illustrative scenarios.</p></div><noscript><p>Both examples are shown below. With JavaScript enabled, you can select one at a time.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What this distinction helps us notice ↓</a></section>
 <section class="engineering-section" id="discussion"><p class="engineering-eyebrow">04 / Discussion</p><h2>What this distinction helps us notice</h2><div class="discussion-lessons">{lessons}</div>
 <div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool["discussionTemplate"])}</blockquote><p>If the capability wasn’t tested, name that gap directly:</p><blockquote>{esc(tool["insufficientEvidenceTemplate"])}</blockquote></div><p class="discussion-caution"><strong>Check the standard, too.</strong> If you call a gap “learnable” for one candidate and “disqualifying” for another, explain which requirement of the role justifies the difference.</p></section>
-<section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering Toolbox</a></section>'''
+<section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul>{related}</ul><a href="/toolbox/engineering/">← Engineering guides</a></section>'''
         destination = ROOT / route.strip('/') / 'index.html'
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(page(tool['title'], tool['summary'], route, body, interactive=True))
         cards.append(render_card(tool, route))
-    body = '''<nav class="toolbox-collection-nav" aria-label="Toolbox collections"><a href="/toolbox/">Decision Toolbox</a><a href="/toolbox/engineering/" aria-current="page">Engineering Toolbox</a></nav><header class="engineering-intro"><p class="engineering-eyebrow">Engineering Toolbox</p><h1>Engineering judgment, made concrete.</h1><p class="engineering-lead">Work through situations where the details change what you would do. Each guide connects an engineering question to examples you can bring into your own decisions.</p></header>''' + ''.join(cards) + '<section class="engineering-section"><h2>Start with a situation</h2><p>Explore hiring and technical decisions: what an observation supports, what it leaves open, and how those limits change the next step.</p><p>For broader questions about evidence, uncertainty, and trade-offs, explore the <a href="/toolbox/#decision-tools">Decision Toolbox</a>.</p></section>'
-    (ROOT / 'toolbox/engineering/index.html').write_text(page('Engineering Toolbox', 'Concrete examples for reasoning through engineering decisions.', '/toolbox/engineering/', body))
+    body = '''<nav class="toolbox-collection-nav" aria-label="Toolbox navigation"><a href="/toolbox/">← Toolbox</a><a href="/toolbox/#decision-tools">Decision tools</a><a href="/toolbox/engineering/" aria-current="page">Engineering guides</a></nav><header class="engineering-intro"><h1>Engineering guides</h1><p class="engineering-lead">Work through hiring and technical decisions. See how evidence and requirements change what you can recommend.</p><p>Choose a guide below. Each uses concrete situations to explain the reasoning, with conditions you can compare.</p></header>''' + ''.join(cards) + '<section class="engineering-section"><h2>Looking for a question to apply to your own decision?</h2><p>The <a href="/toolbox/#decision-tools">decision tools</a> offer reusable questions about evidence, uncertainty, timing, and trade-offs. These guides show how that reasoning works in specific engineering situations.</p></section>'
+    (ROOT / 'toolbox/engineering/index.html').write_text(page('Engineering guides', 'Worked situations for hiring and technical recommendations.', '/toolbox/engineering/', body))
+
     sitemap = ROOT / 'sitemap.xml'
     source = re.sub(r'\s*<!-- engineering:start -->.*?<!-- engineering:end -->\s*', '\n', sitemap.read_text(), flags=re.S)
     routes = ['/toolbox/engineering/'] + [f'/toolbox/engineering/{t["id"]}/' for t in tools]

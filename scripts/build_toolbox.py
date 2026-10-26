@@ -186,7 +186,7 @@ def render_starting_points(published: list[dict]) -> str:
             )
         if entry["primary"]["tool"] == entry["alternative"]["tool"]:
             raise ValueError("Starting point alternatives must be distinct")
-        rows.append(f'<li class="starting-point"><h3>{esc(entry["situation"])}</h3>{"".join(links)}</li>')
+        rows.append(f'<li class="starting-point"><h4>{esc(entry["situation"])}</h4>{"".join(links)}</li>')
     return '<ol class="starting-points-list">' + "".join(rows) + '</ol>'
 
 
@@ -210,22 +210,37 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Decision Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026b"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261026b"></head>')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261026nav"></head>')}
 <body id="page">
 {site_header()}
 <main class="site-main section-inner toolbox-page animated fadeIn faster">
-  <nav class="toolbox-collection-nav" aria-label="Toolbox collections">
-    <a href="/toolbox/" aria-current="page">Decision Toolbox</a>
-    <a href="/toolbox/engineering/">Engineering Toolbox</a>
-  </nav>
-  <header id="decision-tools">
-    <h1>Decision Toolbox</h1>
-    <p class="toolbox-intro">Questions that help you examine unclear decisions.</p>
-    <p class="starting-points-intro">Start with a choice or difficulty you’re facing. Pick one question that seems relevant, read its example, and ask what it changes about your understanding or next step. You don’t need to use every tool.</p>
+  <header>
+    <h1>Toolbox</h1>
+    <p class="toolbox-intro">Questions to use in your own decisions. Guides that show the reasoning in practice.</p>
   </header>
+  <nav class="toolbox-paths" aria-label="Choose where to start">
+    <section aria-labelledby="decision-path-title">
+      <p class="tool-eyebrow">For a decision you’re facing</p>
+      <h2 id="decision-path-title"><a href="#decision-tools">Decision tools →</a></h2>
+      <p>Choose a question to examine evidence, uncertainty, timing, or trade-offs. Use it in everyday choices or at work.</p>
+      <p class="toolbox-path-example">“I understand the findings, but what should we do?”</p>
+      <a href="#decision-tools">Find a question for your situation →</a>
+    </section>
+    <section aria-labelledby="engineering-path-title">
+      <p class="tool-eyebrow">For an engineering situation</p>
+      <h2 id="engineering-path-title"><a href="/toolbox/engineering/">Engineering guides →</a></h2>
+      <p>Work through concrete examples of hiring and technical recommendations. Change a condition and examine what it supports.</p>
+      <p class="toolbox-path-example">Start with <a href="/toolbox/engineering/hiring-forecast/">hiring evidence</a> or <a href="/toolbox/engineering/results-to-decisions/">turning results into a recommendation</a>.</p>
+      <a href="/toolbox/engineering/">Browse engineering guides →</a>
+    </section>
+  </nav>
+  <section class="toolbox-library-intro" aria-labelledby="decision-tools">
+    <h2 id="decision-tools">Decision tools</h2>
+    <p>Start with a situation below, or <a href="#all-tools">browse all {len(published)} questions</a>. Each tool explains a question through an example; you don’t need to use every tool.</p>
+  </section>
   <section class="starting-points" aria-labelledby="starting-points">
-    <h2 id="starting-points">Start with a situation</h2>
-    <p>Find a situation close to yours. Start with the suggested tool; consider the alternative if its distinction fits your problem better.</p>
+    <h3 id="starting-points">Find your situation</h3>
+    <p>Choose the suggested question, or the alternative if it fits your difficulty better.</p>
     {starting_points}
     <p class="starting-points-footer">None of these fits? <a href="#all-tools">Browse all {len(published)} decision tools below.</a></p>
   </section>
@@ -345,7 +360,7 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
 <body id="page">
 {site_header()}
 <main class="site-main section-inner tool-page animated fadeIn faster">
-  <a class="back-link" href="/toolbox/">← Explore the toolbox</a>
+  <a class="back-link" href="/toolbox/#decision-tools">← Decision tools</a>
   <div class="tool-tags">{problem_tags(tool, problems)}</div>
   <h1>{esc(tool['name'])}</h1>
   <blockquote class="tool-question-lead">{esc(tool['question'])}</blockquote>
