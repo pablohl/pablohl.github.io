@@ -8,6 +8,8 @@ Show how Pablo reasons through engineering decisions by making the reasoning con
 
 Use a recognizable problem → proposed distinction → examples or exploration → discussion pattern. An example needs a situation, a plausible initial interpretation, relevant evidence or conditions, and a bounded interpretation. The discussion should add a broader insight rather than repeat a completed example. Choose interactions only when they serve that purpose; a worksheet, score, or simulation is not the default.
 
+Use the [full reader journey](reader-journey.md) to review the invitation, arrival, reading or action, contribution, recovery, and onward destination. A guide card must set expectations for its actual format. Static contexts, selectable stories, and changeable premises are distinct experiences; do not promise a simulation or require extra controls to make them uniform. A reader arriving at a guide or scenario fragment should have enough context without first reading its siblings.
+
 The collection has three guides:
 
 | Guide | Current format and intended distinction |

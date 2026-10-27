@@ -2,6 +2,8 @@
 
 This repository publishes the website as checked-in HTML, CSS, JavaScript, and data. Read the relevant current documentation before proposing or implementing a change. Start with [the documentation index](docs/README.md); do not infer requirements from archived design iterations.
 
+For reader-facing changes, also apply the [full reader journey](docs/reader-journey.md) to the affected entry points and transitions, including the invitation and destination around changed links. Scope the review to the change; do not assume a static page needs interactive controls.
+
 ## Choose the applicable guidance
 
 | Change | Read before working |
