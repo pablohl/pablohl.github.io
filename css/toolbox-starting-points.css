@@ -25,5 +25,5 @@
 .catalogue-lens[hidden] { display: none; }
 .catalogue-heading + .catalogue-lens { margin: 0 0 1.5rem; }
 
-body#page .toolbox-page.site-main { padding-top: 2rem; }
+body#page .toolbox-page.site-main { padding-top: var(--page-top); }
 .toolbox-page > header { margin-bottom: 1.5rem; }

@@ -1,5 +1,5 @@
 """Render one local observation interpreted in three dependency contexts."""
-from build_toolbox import esc, reader_orientation
+from build_toolbox import esc, reader_orientation, breadcrumb
 
 
 def render(tool):
@@ -24,7 +24,7 @@ def render(tool):
 <p class="recommendation-label">A possible recommendation</p>
 <blockquote>{esc(c['recommendation'])}</blockquote>{followup}
 </section>''')
-    return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Architectural consequences</nav>
+    return f'''{breadcrumb("Engineering guides", "/toolbox/engineering/", tool["title"])}
 <header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Architectural consequences</p><h1>{esc(tool['title'])}</h1>{reader_orientation(tool['use_when'], tool['expected_outcome'])}</header>
 <section class="engineering-framework story-distinction"><p class="engineering-eyebrow">The distinction</p><h2>A component can work well while changing what the rest of the system must do.</h2><p>The test tells us how the component behaved. What depends on that behavior determines how far we can carry the result.</p><p class="framework-flow">Observed benefit → Dependencies and assumptions → Recommendation</p></section>
 <section class="engineering-section" aria-labelledby="setup-title"><p class="engineering-eyebrow">01 / A promising change</p><h2 id="setup-title">“Did the change save, or should I try again?”</h2>

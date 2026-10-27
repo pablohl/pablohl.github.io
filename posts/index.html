@@ -47,8 +47,8 @@
 		.post-item[hidden], .posts-group[hidden] { display: none; }
 		@media (max-width: 520px) { .post-card .post-heading { align-items: flex-start; } }
 	</style>
-  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -56,6 +56,7 @@
 <body id="page">
 	
 	<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="editorial-header__inner section-inner">
     <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
     <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
@@ -70,7 +71,7 @@
 </header>
 
 
-	<main class="site-main section-inner writing-page animated fadeIn faster">
+	<main class="site-main section-inner writing-page animated fadeIn faster" id="main-content" tabindex="-1">
 		<h1>Writing</h1>
 		<p class="writing-intro">Essays on building AI systems, making decisions with incomplete evidence, and the boundaries between technical work and real organizations.</p>
 		<nav class="topic-filter" aria-label="Filter writing by theme">

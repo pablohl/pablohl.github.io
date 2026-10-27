@@ -47,8 +47,8 @@
 		.elsewhere a { color: var(--accent); }
 		@media (max-width: 620px) { .about-intro { grid-template-columns: 1fr; } .about-photo { width: 150px; height: 150px; } }
 	</style>
-  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
@@ -56,6 +56,7 @@
 <body id="page">
 	
 	<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="editorial-header__inner section-inner">
     <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
     <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
@@ -70,7 +71,7 @@
 </header>
 
 
-	<main class="site-main section-inner about-page animated fadeIn faster">
+	<main class="site-main section-inner about-page animated fadeIn faster" id="main-content" tabindex="-1">
 		<h1>About</h1>
 		<div class="content">
 			<section class="about-section about-intro"><img class="about-photo" src="/img/pablo_photo.jpg" alt="Portrait of Pablo Hernandez Leal" width="180" height="180"><div><h2>Today</h2><p class="about-lead">I’m CTO at MultiplAI, where I build AI-assisted compliance systems for regulated financial institutions.</p><p>My work focuses on document understanding, model validation, and trustworthy AI that operates with clear evidence, traceability, and human oversight.</p></div></section>

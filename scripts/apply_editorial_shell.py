@@ -13,6 +13,7 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 HEADER = """<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="editorial-header__inner section-inner">
     <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
     <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
@@ -107,6 +108,18 @@ def apply(path: Path) -> bool:
         source = OLD_HEADER.sub(HEADER, source, count=1)
     elif "editorial-header" not in source:
         source = re.sub(r"(<body\b[^>]*>)", r"\1\n" + HEADER, source, count=1)
+    source = re.sub(r'<header class="editorial-header">.*?</header>', HEADER, source, count=1, flags=re.S)
+    main = re.search(r'<main\b([^>]*)>', source)
+    if main:
+        attrs = main.group(1)
+        target = re.search(r'\bid="([^"]+)"', attrs)
+        if not target:
+            attrs += ' id="main-content"'
+        if 'tabindex=' not in attrs:
+            attrs += ' tabindex="-1"'
+        source = source[:main.start()] + '<main' + attrs + '>' + source[main.end():]
+        if target:
+            source = source.replace('class="skip-link" href="#main-content"', f'class="skip-link" href="#{target.group(1)}"')
     source = add_experiments_nav(source)
 
     if path == ROOT / "index.html":
@@ -122,12 +135,12 @@ def apply(path: Path) -> bool:
     if '/css/editorial.css' not in source:
         source = source.replace(
             "</head>",
-            '  <link rel="stylesheet" href="/css/editorial.css?v=20261017">\n'
-            '  <script src="/js/editorial-nav.js?v=20261017" defer></script>\n</head>',
+            '  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">\n'
+            '  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>\n</head>',
             1,
         )
-    source = re.sub(r'/css/editorial\.css\?v=\d+', '/css/editorial.css?v=20261017', source)
-    source = source.replace('/js/editorial-nav.js"', '/js/editorial-nav.js?v=20261017"')
+    source = re.sub(r'/css/editorial\.css\?v=[a-zA-Z0-9-]+', '/css/editorial.css?v=20261027comfort', source)
+    source = re.sub(r'/js/editorial-nav\.js(?:\?v=[a-zA-Z0-9-]+)?', '/js/editorial-nav.js?v=20261027comfort', source)
     source = source.replace('content="#494f5c"', 'content="#F6F2EA"')
     source = add_post_actions(path, source)
     if source != original:
