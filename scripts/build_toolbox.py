@@ -20,7 +20,7 @@ GLOBAL_CSS = f"{SITE_URL}/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a755247
 GLOBAL_CSS_INTEGRITY = "sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs="
 BUNDLE_JS = f"{SITE_URL}/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js"
 BUNDLE_JS_INTEGRITY = "sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg="
-TOOLBOX_CSS = "/css/toolbox.css?v=20260930"
+TOOLBOX_CSS = "/css/toolbox.css?v=20261027comfort"
 SOURCE_TYPE_LABELS = {
     "work": "Work",
     "research": "Research",
@@ -44,6 +44,20 @@ def reader_orientation(situation: str, outcome: str) -> str:
     outcome = outcome[0].lower() + outcome[1:]
     return (f'<div class="reader-orientation"><p><strong>Use this when</strong> {esc(situation)}</p>'
             f'<p><strong>You’ll be able to</strong> {esc(outcome)}</p></div>')
+
+
+
+def breadcrumb(collection: str, route: str, title: str) -> str:
+    return (f'<nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a>'
+            f'<span aria-hidden="true">/</span><a href="{esc(route)}">{esc(collection)}</a>'
+            f'<span aria-hidden="true">/</span><span aria-current="page">{esc(title)}</span></nav>')
+
+
+def collection_nav(current: str) -> str:
+    links = (('/toolbox/', 'Toolbox'), ('/toolbox/#decision-tools', 'Decision tools'), ('/toolbox/engineering/', 'Engineering guides'))
+    return '<nav class="toolbox-collection-nav" aria-label="Toolbox navigation">' + ''.join(
+        f'<a href="{route}"' + (' aria-current="page"' if label == current else '') + f'>{label}</a>'
+        for route, label in links) + '</nav>'
 
 
 def load_data() -> dict:
@@ -140,8 +154,8 @@ def site_head(title: str, description: str, url: str) -> str:
   <link rel="stylesheet" href="{TOOLBOX_CSS}">
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
-  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
 </head>"""
 
 
@@ -220,10 +234,11 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261026nav"></head>')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261027comfort"></head>')}
 <body id="page">
 {site_header()}
-<main class="site-main section-inner toolbox-page animated fadeIn faster">
+<main id="main-content" tabindex="-1" class="site-main section-inner toolbox-page animated fadeIn faster">
+  {collection_nav("Toolbox")}
   <header>
     <h1>Toolbox</h1>
     <p class="toolbox-intro">Questions to use in your own decisions. Guides that show the reasoning in practice.</p>
@@ -343,7 +358,7 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
         )
 
     worked_example = ""
-    head = site_head(tool['name'], tool['observation'], f'{SITE_URL}/toolbox/{tool["id"]}/').replace(TOOLBOX_CSS, '/css/toolbox.css?v=20261027')
+    head = site_head(tool['name'], tool['observation'], f'{SITE_URL}/toolbox/{tool["id"]}/')
     if tool.get("worked_example"):
         example = tool["worked_example"]
         fields = (
@@ -369,8 +384,8 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
 {head}
 <body id="page">
 {site_header()}
-<main class="site-main section-inner tool-page animated fadeIn faster">
-  <a class="back-link" href="/toolbox/#decision-tools">← Decision tools</a>
+<main id="main-content" tabindex="-1" class="site-main section-inner tool-page animated fadeIn faster">
+  {breadcrumb("Decision tools", "/toolbox/#decision-tools", tool["name"])}
   <div class="tool-tags">{problem_tags(tool, problems)}</div>
   <h1>{esc(tool['name'])}</h1>
   <blockquote class="tool-question-lead">{esc(tool['question'])}</blockquote>

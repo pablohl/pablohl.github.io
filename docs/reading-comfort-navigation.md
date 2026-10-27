@@ -1,0 +1,13 @@
+# Reading comfort and navigation
+
+The shared editorial styles use a 1040px outer frame for collection pages and a prose measure capped at 68ch or 42rem, whichever is narrower. Guides and decision-tool narratives use 18px text at the default browser size; comparison cells and supporting descriptions use 16px; metadata and compact labels use 14px. Essay prose retains its existing 18px serif treatment. The homepage keeps the distinct Engineering guides and Decision tools routes.
+
+Comparison tables retain their two-column desktop structure and all original evidence and qualifications. Long cells separate their opening observation from the following qualification. At widths of 900px and below, the same content appears in stacked cards. Tables can use the wider outer frame while surrounding paragraphs stay within the reading measure.
+
+Global navigation marks the current section with `aria-current="location"` on detail pages. Collection pages share Toolbox / Decision tools / Engineering guides navigation, including the Decision tools hash destination. Detail pages use the same breadcrumb pattern. The static shell adds a keyboard skip link and focusable main target to published pages. Mobile navigation remains visible without JavaScript; enhancement adds the collapsible menu. Escape dismisses an open menu and returns focus to its button, without moving focus when the menu is already closed.
+
+The palette is retained after measuring contrast: secondary text is 5.42:1 against cream and 5.91:1 against the card background; green text on cream is 5.92:1. The hiring comparison's blue and ochre headings measure 5.44:1 and 5.23:1 against their respective backgrounds.
+
+Validation: all nine existing Python regression checks pass, navigation JavaScript passes its syntax check, and the toolbox build plus editorial-shell pass is stable on repetition. Verified 381 local links and anchors across the homepage, Writing and Experiments indexes, and all toolbox pages. Browser checks at 375px found no horizontal overflow across seven page types. Both other engineering guides and a representative essay also reflowed at 375px and 640px. Checked mobile-menu expansion, Escape/focus return, and the decision-tool breadcrumb's destination and current collection indication. Desktop previews were reviewed at 1280px.
+
+Regenerate with `python3 scripts/build_toolbox.py` followed by `python3 scripts/apply_editorial_shell.py`. Asset versions must be updated in both the shared shell and page generators when shared styles or navigation change. Interactive experiment layouts retain their specialized diagram widths.

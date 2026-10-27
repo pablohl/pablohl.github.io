@@ -2,15 +2,15 @@
 """Build example-led engineering guides using the existing site shell."""
 import json
 import re
-from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_footer, reader_orientation
+from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_footer, reader_orientation, breadcrumb, collection_nav
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('/css/toolbox.css?v=20260930', '/css/toolbox.css?v=20261027').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
         script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
-    return f'<!DOCTYPE html>\n<html lang="en-us">{head}<body id="page">{site_header()}<main class="site-main section-inner engineering-page">{body}</main>{site_footer()}{script}</body></html>\n'
+    return f'<!DOCTYPE html>\n<html lang="en-us">{head}<body id="page">{site_header()}<main id="main-content" tabindex="-1" class="site-main section-inner engineering-page">{body}</main>{site_footer()}{script}</body></html>\n'
 
 
 def case_references(text, columns):
@@ -21,11 +21,17 @@ def case_references(text, columns):
     return result
 
 
+def comparison_text(value):
+    # Separate the observation from its qualification without dropping any words.
+    parts = re.split(r'(?<=[.!?])\s+', value, maxsplit=1) if len(value) > 180 else [value]
+    return ''.join(f'<p>{esc(part)}</p>' for part in parts)
+
+
 def render_example(example, number):
-    rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th>' + ''.join(f'<td>{esc(v)}</td>' for v in row['values']) + '</tr>' for row in example['comparison'])
+    rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th>' + ''.join(f'<td>{comparison_text(v)}</td>' for v in row['values']) + '</tr>' for row in example['comparison'])
     columns = ''.join(f'<th scope="col">{esc(c)}</th>' for c in example['columns'])
     # Mobile cards use the same content as the semantic desktop comparison table.
-    mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<p><strong>{esc(row["label"])}</strong>{esc(row["values"][i])}</p>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
+    mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<div><p class="case-mobile-label">{esc(row["label"])}</p>{comparison_text(row["values"][i])}</div>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
     conditions = ''.join(f'<p class="case-conditions"><strong>{esc(condition["label"])}</strong> {case_references(condition["text"], example["columns"])}</p>\n' for condition in example['conditions'])
     if example.get('discussionCases'):
         discussion = '<div class="discussion-cases">' + ''.join(f'<section><h4>{esc(case["label"])}</h4><blockquote>{esc(case["boundedConclusion"])}</blockquote><p><strong>A useful follow-up:</strong> {esc(case["followup"])}</p></section>' for case in example['discussionCases']) + '</div>'
@@ -57,9 +63,9 @@ def render_decision(interaction, example_id):
 
 
 def render_story_example(example):
-    rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th>' + ''.join(f'<td>{esc(v)}</td>' for v in row['values']) + '</tr>' for row in example['comparison'])
+    rows = ''.join('<tr><th scope="row">' + esc(row['label']) + '</th>' + ''.join(f'<td>{comparison_text(v)}</td>' for v in row['values']) + '</tr>' for row in example['comparison'])
     columns = ''.join(f'<th scope="col">{esc(c)}</th>' for c in example['columns'])
-    mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<p><strong>{esc(row["label"])}</strong>{esc(row["values"][i])}</p>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
+    mobile = ''.join(f'<section><h4>{esc(column)}</h4>' + ''.join(f'<div><p class="case-mobile-label">{esc(row["label"])}</p>{comparison_text(row["values"][i])}</div>' for row in example['comparison']) + '</section>' for i, column in enumerate(example['columns']))
     scenario = ''.join(f'<p class="case-scenario">{esc(p)}</p>' for p in example['scenario'])
     return f'''<article class="engineering-case story-case" id="{esc(example['id'])}" aria-labelledby="{esc(example['id'])}-title">
 <h3 class="case-title" id="{esc(example['id'])}-title">{esc(example['title'])}</h3>{scenario}
@@ -76,7 +82,7 @@ def render_story_guide(tool):
     examples = ''.join(render_story_example(e) for e in tool['examples'])
     flow = ' <span aria-hidden="true">→</span><span class="visually-hidden">then</span> '.join(esc(label) for label in tool['frameworkLabels'])
     related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
-    return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / {esc(tool['sectionLabel'])}</nav>
+    return f'''{breadcrumb("Engineering guides", "/toolbox/engineering/", tool["title"])}
 <header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1>{reader_orientation(tool['use_when'], tool['expected_outcome'])}</header>
 <section class="engineering-framework story-distinction" aria-labelledby="problem-title"><p class="engineering-eyebrow">The distinction</p><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}<p class="framework-flow">{flow}</p></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
@@ -130,7 +136,7 @@ def build():
         framework = ''.join(f'<div><dt>{esc(d["label"])}</dt><dd>{esc(d["question"])}</dd></div>' for d in tool['discussion'])
         lessons = ''.join(f'<div><h3>{esc(lesson["title"])}</h3> <p>{esc(lesson["text"])}</p></div>' for lesson in tool['lessons'])
         related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
-        body = f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Hiring</nav>
+        body = f'''{breadcrumb("Engineering guides", "/toolbox/engineering/", tool["title"])}
 <header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Hiring</p><h1>{esc(tool['title'])}</h1>{reader_orientation(tool['use_when'], tool['expected_outcome'])}</header>
 <section class="engineering-problem" aria-labelledby="problem-title"><p class="engineering-eyebrow">01 / The problem</p><h2 id="problem-title">From observation to prediction</h2>{introduction}</section>
 <section class="engineering-framework" aria-labelledby="distinction-title"><p class="engineering-eyebrow">02 / The distinction</p><h2 id="distinction-title">{esc(tool['distinction'])}</h2><dl class="framework-questions">{framework}</dl></section>
@@ -142,7 +148,7 @@ def build():
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(page(tool['title'], tool['summary'], route, body, interactive=True))
         cards.append(render_card(tool, route))
-    body = '''<nav class="toolbox-collection-nav" aria-label="Toolbox navigation"><a href="/toolbox/">← Toolbox</a><a href="/toolbox/#decision-tools">Decision tools</a><a href="/toolbox/engineering/" aria-current="page">Engineering guides</a></nav><header class="engineering-intro"><h1>Engineering guides</h1><p class="engineering-lead">Work through hiring and technical decisions. See how evidence and requirements change what you can recommend.</p><p>Choose a guide below. Each uses concrete situations to explain the reasoning, with conditions you can compare.</p></header>''' + ''.join(cards) + '<section class="engineering-section"><h2>Looking for a question to apply to your own decision?</h2><p>The <a href="/toolbox/#decision-tools">decision tools</a> offer reusable questions about evidence, uncertainty, timing, and trade-offs. These guides show how that reasoning works in specific engineering situations.</p></section>'
+    body = collection_nav('Engineering guides') + '''<header class="engineering-intro"><h1>Engineering guides</h1><p class="engineering-lead">Work through hiring and technical decisions. See how evidence and requirements change what you can recommend.</p><p>Choose a guide below. Each uses concrete situations to explain the reasoning, with conditions you can compare.</p></header>''' + ''.join(cards) + '<section class="engineering-section"><h2>Looking for a question to apply to your own decision?</h2><p>The <a href="/toolbox/#decision-tools">decision tools</a> offer reusable questions about evidence, uncertainty, timing, and trade-offs. These guides show how that reasoning works in specific engineering situations.</p></section>'
     (ROOT / 'toolbox/engineering/index.html').write_text(page('Engineering guides', 'Worked situations for hiring and technical recommendations.', '/toolbox/engineering/', body))
 
     sitemap = ROOT / 'sitemap.xml'
