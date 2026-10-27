@@ -153,7 +153,9 @@
         }
       ],
       "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step].",
-      "distinction": "What you observed is evidence. What you expect them to do at work is a prediction. Keep the uncertainty visible."
+      "distinction": "What you observed is evidence. What you expect them to do at work is a prediction. Keep the uncertainty visible.",
+      "use_when": "You’re discussing an interview and need to distinguish observed behavior from expectations about future work.",
+      "expected_outcome": "Describe what an answer supports, what remains untested, and a useful follow-up check."
     },
     {
       "id": "results-to-decisions",
@@ -332,7 +334,9 @@
       ],
       "storyFirst": true,
       "endingTitle": "Name what the gap changes.",
-      "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action."
+      "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action.",
+      "use_when": "A technical result looks promising, but the next action is unclear.",
+      "expected_outcome": "State what the result supports, the conditions on your recommendation, and what still needs checking."
     },
     {
       "id": "eligible-is-not-selected",
@@ -409,7 +413,9 @@
           "recommendation": "I would favor background processing if using an old address causes only occasional, inexpensive corrections. If it could trigger an action we cannot readily undo, I would preserve confirmation of a completed save until we understand that dependency.",
           "followup": "Which integration uses the address next, and what happens if it gets the old one?"
         }
-      ]
+      ],
+      "use_when": "A component works well in a test and you need to assess its consequences for the rest of the system.",
+      "expected_outcome": "Identify the dependencies and assumptions that determine whether a local improvement supports a wider change."
     }
   ]
 }

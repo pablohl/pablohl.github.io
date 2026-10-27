@@ -36,6 +36,16 @@ def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
+def reader_orientation(situation: str, outcome: str) -> str:
+    """A concise situation and practical payoff, available without JavaScript."""
+    if not situation.strip() or not outcome.strip():
+        raise ValueError('Reader orientation needs a situation and an outcome')
+    situation = situation[0].lower() + situation[1:]
+    outcome = outcome[0].lower() + outcome[1:]
+    return (f'<div class="reader-orientation"><p><strong>Use this when</strong> {esc(situation)}</p>'
+            f'<p><strong>You’ll be able to</strong> {esc(outcome)}</p></div>')
+
+
 def load_data() -> dict:
     data = json.loads(DATA_PATH.read_text())
     required = {"schema_version", "metadata", "problems", "sources", "posts", "tools"}
@@ -333,7 +343,7 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
         )
 
     worked_example = ""
-    head = site_head(tool['name'], tool['observation'], f'{SITE_URL}/toolbox/{tool["id"]}/')
+    head = site_head(tool['name'], tool['observation'], f'{SITE_URL}/toolbox/{tool["id"]}/').replace(TOOLBOX_CSS, '/css/toolbox.css?v=20261027')
     if tool.get("worked_example"):
         example = tool["worked_example"]
         fields = (
@@ -364,16 +374,13 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
   <div class="tool-tags">{problem_tags(tool, problems)}</div>
   <h1>{esc(tool['name'])}</h1>
   <blockquote class="tool-question-lead">{esc(tool['question'])}</blockquote>
+  {reader_orientation(tool["situation"], tool["expected_outcome"])}
   <article class="tool-narrative">
     <section class="tool-explanation">
       <h2>The idea</h2>
       <p>{esc(tool['observation'])}</p>
     </section>
 {worked_example}    <div class="tool-supporting">
-    <section class="tool-section">
-      <h2>Situation</h2>
-      <p>{esc(tool['situation'])}</p>
-    </section>
     <section class="tool-section">
       <h2>Useful when</h2>
       <div class="use-list">{use_when}</div>
