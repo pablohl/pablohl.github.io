@@ -1,13 +1,33 @@
-# Reading comfort and navigation
+# Reading comfort and shared navigation
 
-The shared editorial styles use a 1040px outer frame for collection pages and a prose measure capped at 68ch or 42rem, whichever is narrower. Guides and decision-tool narratives use 18px text at the default browser size; comparison cells and supporting descriptions use 16px; metadata and compact labels use 14px. Essay prose retains its existing 18px serif treatment. The homepage keeps the distinct Engineering guides and Decision tools routes.
+Current shared presentation reference, reconciled with the implementation after PR #69. [Toolbox navigation](toolbox-navigation.md) owns collection roles and link destinations. The [historical snapshot](history/reading-comfort-navigation-2026-10-27.md) records the measurements and verification reported for that change; they are not fresh checks or a certification of the whole site.
 
-Comparison tables retain their two-column desktop structure and all original evidence and qualifications. Long cells separate their opening observation from the following qualification. At widths of 900px and below, the same content appears in stacked cards. Tables can use the wider outer frame while surrounding paragraphs stay within the reading measure.
+## Presentation defaults
 
-Global navigation marks the current section with `aria-current="location"` on detail pages. Collection pages share Toolbox / Decision tools / Engineering guides navigation, including the Decision tools hash destination. Detail pages use the same breadcrumb pattern. The static shell adds a keyboard skip link and focusable main target to published pages. Mobile navigation remains visible without JavaScript; enhancement adds the collapsible menu. Escape dismisses an open menu and returns focus to its button, without moving focus when the menu is already closed.
+Preserve the cream background, green accent, Source Serif 4 editorial headings/essay prose, and DM Sans controls, supporting text, and comparisons. Reuse the shared tokens in [editorial.css](../css/editorial.css) rather than creating independent theme copies.
 
-The palette is retained after measuring contrast: secondary text is 5.42:1 against cream and 5.91:1 against the card background; green text on cream is 5.92:1. The hiring comparison's blue and ochre headings measure 5.44:1 and 5.23:1 against their respective backgrounds.
+| Role | Current shared treatment at the default browser text size |
+| --- | --- |
+| Collection outer frame | Up to 1040px, with responsive side margins shared by header and footer |
+| Reading measure | `--reading-width: min(68ch, 42rem)` for designated prose blocks; comparisons and diagrams may be wider |
+| Guide and decision-tool narrative | `--font-body: 1.125rem` (18px with the browser's 16px default); line height 1.65 |
+| Comparison cells and supporting descriptions | `--font-support: 1rem` (16px at that default); comparison cells have additional padding |
+| Metadata and compact labels | `--font-meta: .875rem` (14px at that default) |
+| Essay prose | Existing 18px serif treatment and 1.65 line height |
+| Shared page-top spacing | `--page-top: 3rem`, reducing to `2rem` at 820px and below |
 
-Validation: all nine existing Python regression checks pass, navigation JavaScript passes its syntax check, and the toolbox build plus editorial-shell pass is stable on repetition. Verified 381 local links and anchors across the homepage, Writing and Experiments indexes, and all toolbox pages. Browser checks at 375px found no horizontal overflow across seven page types. Both other engineering guides and a representative essay also reflowed at 375px and 640px. Checked mobile-menu expansion, Escape/focus return, and the decision-tool breadcrumb's destination and current collection indication. Desktop previews were reviewed at 1280px.
+These describe the shared defaults, not a claim that every specialized label uses the same size. Interactive experiment layouts retain their specialized diagram widths. [home.css](../css/home.css), collection sheets, and individual experiment styles may refine the shared frame for their content.
 
-Regenerate with `python3 scripts/build_toolbox.py` followed by `python3 scripts/apply_editorial_shell.py`. Asset versions must be updated in both the shared shell and page generators when shared styles or navigation change. Interactive experiment layouts retain their specialized diagram widths.
+The hiring/story comparison tables use the wider engineering frame. Long cells separate an opening observation from its qualification without dropping content. At viewport widths of **900px and below**, the comparison appears as stacked labeled cards. The framework questions and paired discussion statements also stack at that breakpoint in [engineering-toolbox.css](../css/engineering-toolbox.css). Architectural dependency diagrams have their own responsive rules in [engineering-selection.css](../css/engineering-selection.css); do not infer their breakpoint from the table rule.
+
+## Global navigation and keyboard behavior
+
+The same primary header serves the site. With JavaScript, its current link uses `aria-current="page"` for the matching destination and `aria-current="location"` for a containing section on detail pages. Toolbox collection navigation is a separate local level, with roles defined in its [owning reference](toolbox-navigation.md).
+
+Each shared shell has a **Skip to content** link targeting its focusable main element. At 820px and below, the enhanced header offers a collapsible Menu button. Without JavaScript the navigation remains visible. Escape dismisses an open menu and returns focus to its button; it does not move focus when the menu is already closed. Link activation and a switch to desktop close the enhanced menu.
+
+The shared shell is maintained by [apply_editorial_shell.py](../scripts/apply_editorial_shell.py); [editorial-nav.js](../js/editorial-nav.js) owns menu and current-state enhancement. Asset versions must stay consistent between generators, the shell applicator, and published pages. See the [source map and commands](README.md#source-files-and-commands).
+
+## Evidence limits
+
+Check actual rendered text, background, and state combinations when changing colors or type; do not assume the palette or a token alone guarantees accessibility. Preserve keyboard focus and readable reflow. Follow the relevant [experiment verification guidance](../experiments/README.md#11-review-and-verification) for interactive experiences and [multi-perspective review](multi-perspective-review.md) for explanatory judgments. Old measurements, a passing build, or a fitting viewport do not establish reader comprehension, zoom support, or an assistive-technology journey.

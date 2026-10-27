@@ -1,98 +1,38 @@
-# Engineering Toolbox: example-led hiring guide
+# Engineering guides
 
-## Purpose on the website
+Current collection and implementation reference. For documentation roles, see [the index](README.md). Past design iterations and reported verification are retained in the [historical snapshot](history/engineering-toolbox-2026-10-27.md).
 
-Show how Pablo reasons through engineering decisions by making the reasoning concrete. The visitor's likely first goal is to understand an idea and decide whether it is useful. A form demanded effort before demonstrating value, and its output merely reformatted the visitor's inputs.
+## Purpose and format
 
-The guide now starts with recognizable interview situations and comparisons that expose where an impression goes beyond the evidence. Its useful result is a better question or a more precise claim for a real hiring discussion. We do not assume visitors will evaluate candidates on this website.
+Show how Pablo reasons through engineering decisions by making the reasoning concrete. Readers should recognize a situation, understand the distinction, and decide whether it helps their own reasoning. Do not assume visitors will evaluate candidates or run an operational procedure on this website.
 
-## Information structure
+Use a recognizable problem → proposed distinction → examples or exploration → discussion pattern. An example needs a situation, a plausible initial interpretation, relevant evidence or conditions, and a bounded interpretation. The discussion should add a broader insight rather than repeat a completed example. Choose interactions only when they serve that purpose; a worksheet, score, or simulation is not the default.
 
-- Toolbox remains in primary navigation; existing decision-lens URLs remain intact.
-- Engineering Toolbox introduces the first guide without empty category filters.
-- The hiring guide opens with the gap between observing interview behavior and predicting future work. A concise Evidence → Expectation → Uncertainty relationship and three questions introduce the proposed distinction.
-- An accessible selector defaults to ML evaluation and displays one example at a time. Each example contains the role and interview scenario, a tempting conclusion, two contrasting cases, what each supports, and an explanation immediately connected to those cases.
-- An optional disclosure explains that its statements are sample wording for the hiring team. Both compared responses have a matching statement and specific follow-up.
-- The closing discussion draws four lessons that stand on their own without requiring both examples. Reusable wording accommodates a specific expectation or concern, with a separate variant for a capability that has not been tested. The worked conclusions appear only beside their examples, without a repeated application table in section 4.
-- Related decision lenses explain the broader reasoning.
+The collection has three guides:
 
-## What changed after review
+| Guide | Current format and intended distinction |
+| --- | --- |
+| [What Did the Interview Actually Tell You?](../toolbox/engineering/hiring-forecast/index.html) | Two selectable interview examples; distinguish observed evidence, conditional expectations about work, and remaining uncertainty |
+| [What Does This Result Let Us Decide?](results-to-decisions.md) | Two selectable stories with reversible conditions; connect a result to what the next action requires |
+| [This Works Here. What Changes Elsewhere?](system-selection-guide.md) | Three visible static contexts; interpret the same local result through dependencies and consequences |
 
-Removed the six-field form, completion counter, copy control, forecast preview, and detached interpretation notes. Replaced the abstract instruction about consequential behavior with an ML example where noticing a risk either changes the release recommendation or does not. Replaced the abstract missing-evidence warning with a System design example contrasting an unasked question with an observed difficulty. Support needs and uncertainty appear inside a concrete discussion example rather than as six compulsory fields.
+Each guide and its index card states when it is relevant and what the reader will be able to do. [Toolbox navigation](toolbox-navigation.md) owns destinations and collection roles. [Reading comfort](reading-comfort-navigation.md) owns shared type, widths, comparison breakpoints, and header behavior; do not copy those mutable values into this reference.
 
-The examples are illustrative, not actual candidate evaluations or a validated hiring instrument. They support narrow, contextual claims rather than hire/no-hire recommendations.
+## Hiring guide
 
-## Presentation and reuse
+The opening separates observation from prediction. The distinction panel introduces Evidence → Expectation → Uncertainty with three questions. The ML evaluation and System design examples use different contrast labels because they test different evidence gaps; consistency does not require identical conclusions.
 
-Use the site's existing cream, green, serif headings, and sans serif body text. The problem introduces the topic, followed by a full-width distinction panel. Its central sentence separates observed evidence from a prediction about work; the three framework questions sit beneath it in columns and stack below 760px. Reduced section gaps, heading sizes, panel padding, and repeated text keep the examples close to the introduction. Comparisons appear as labeled tables at wide widths and as stacked, fully labeled cases below 760px. Optional discussion examples use native disclosures, with two matching columns on wide screens and stacked statements on narrow screens. Section 3 uses one visible heading, a compact tempting conclusion, the comparison, and a short interpretation. Prompting and role notes appear inside the optional discussion rather than interrupting that sequence. A small progressive enhancement script provides the example selector, including arrow keys, Home/End, roving focus, and direct example links. Without JavaScript, both complete examples remain visible. No visitor input, storage, or clipboard access is used.
+- ML evaluation compares naming a leakage risk with acting on it. Recommending release without resolving an identified risk is observed behavior in that answer; response to guidance remains unknown. A retest must use information available at payment time, not merely later transactions.
+- System design separates an untested reliability capability from an observed reasoning difficulty. Unfamiliarity with a particular queue product does not itself establish inability to reason about repeated deliveries and recovery.
+- Optional native disclosures contain explicitly labeled sample wording for the hiring discussion, matching each compared case. Prompting, role expectations, support, and follow-up questions remain contextual.
+- Closing lessons stand without reading both scenarios. Reusable wording accommodates an expectation or concern, with a separate variant for a capability that was not tested. Related decision tools explain the broader reasoning.
 
-`data/engineering-tools.json` contains the guide's scenarios, comparisons, explanations, and discussion questions. `scripts/build_engineering_toolbox.py` renders them with the existing shared site shell. `css/engineering-toolbox.css` owns their presentation. Run `python3 scripts/build_toolbox.py` to regenerate both collections and sitemap entries.
+The selector defaults to ML evaluation unless a valid scenario fragment selects another panel. Enhancement supports arrow keys, Home/End, roving tab focus, and fragment links. Without JavaScript both complete examples remain readable. The fictional scenarios support contextual claims, not hire/no-hire verdicts or a validated hiring instrument.
 
-Each example's `conditions` hold notes about prompting or role expectations. The guide’s `discussionTemplate` supports an expectation or concern; `insufficientEvidenceTemplate` handles an untested capability. Section 4 contains shared lessons and reusable wording, so the selector only switches the example panels. Edit these source fields rather than the generated HTML.
+Blue and ochre identify the two cases across table headers, narrow-screen cards, prose references, and sample statements. Labels carry the meaning independently of color; the accents do not rate candidates.
 
-When the contrasting cases need different discussion conclusions, use `discussionCases` with a label, `boundedConclusion`, and `followup` for each case. Match the labels to the comparison columns so readers can tell which evidence each conclusion addresses. Otherwise, the example's single `boundedConclusion` and `followup` remain supported.
+## Sources and review
 
-Run `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts -p 'test_build_engineering_toolbox.py'` to check that rebuilding preserves the published guide, every tab has a readable static panel, and repeated builds are stable.
+[engineering-tools.json](../data/engineering-tools.json) owns scenarios, comparisons, discussion wording, and orientation fields. Edit those fields rather than the generated pages. `discussionCases` supports a matched statement and follow-up for each contrast; `boundedConclusion` and `followup` also support a single discussion statement. `discussionTemplate` and `insufficientEvidenceTemplate` own reusable wording. See the [source map and rebuild commands](README.md#source-files-and-commands).
 
-The reusable editorial pattern is recognizable problem → proposed distinction → selectable examples → discussion. Each example contains a situation, tempting conclusion, contrasting evidence, and bounded interpretation. Future tools can use a different interaction if it helps visitors understand the decision; a worksheet is not the default requirement.
-
-## Verification
-
-Desktop layout and example selection visually inspected. ML defaults to selected, switching hides the other panel, arrow-key and End navigation change selection, Tab enters the selected panel, and direct system-design links select that example. Both comparison cases appear with their labels; discussion disclosures checked. Rebuilding is reproducible; sitemap parses; generated links resolve locally. No form or worksheet script remains in the guide.
-
-The October 24 readability revision was also inspected at 375px: comparisons and discussion statements stack without horizontal overflow. Not checked: browser zoom, independent-reader usability. Editorial inspection and regression checks do not establish reader comprehension.
-
-The first version was merged in PR #50. PR #60 continues the revisions on `codex/hiring-discussion-cases` in an isolated worktree.
-
-
-## Readability review · October 24, 2026
-
-Reviewed using `experiments/README.md` and `docs/multi-perspective-review.md`. This is an explanatory guide with scenario navigation and optional reveals; simulation, stochastic replay, and numerical model checks are not applicable. Central discovery: an interview observation supports a conditional expectation about work, not a general verdict about a person.
-
-These are separate editorial perspectives from one reviewer, not independent user studies. Each was considered before synthesis; none establishes that a new reader will understand the page.
-
-| Perspective / success criterion | Questions inspected | Strength; weakness; smallest revision |
-| --- | --- | --- |
-| Practitioner: usable hiring discussion | Which response is being described? What work does it suggest? What would I ask next? | Bounded expectations and follow-ups remain useful. One ML statement versus two System design statements made the purpose uneven. Give each compared response matched sample wording and label the purpose explicitly. |
-| Newer reader: a clear first reading | What is leakage here? What should I read next? Must I read the other example? | Concrete interview situations help. Abstract leakage wording, several competing questions, and references to an unseen example hindered reading. Use a payment-time example, one reading sequence, and standalone closing lessons. |
-| Subject expert: evidence matches the claim | Is leakage established or only suspected? Does a later-data test exclude unavailable inputs? Is untested ability being confused with observed difficulty? | Conditional claims and role context are preserved. A later-data test alone would not remove leaked information. Explicitly restrict the retest to information available at payment time; retain different column labels for different contrasts. |
-| Information designer: consistent comparison | Do both examples share row labels? Are conclusions matched to the columns? Do optional statements reflow and work by keyboard? | Existing tabs and static fallback support navigation. Repeated headings and unmatched statements created competing paths. Remove redundant titles, share row labels, and pair statements using the same labels as the comparison. |
-
-Shared strength: recognizable scenarios connect observed behavior to a limited expectation and a next check. Convergence: terminology and visual repetition obscured that connection. Complementary finding: the abstract leakage definition also hid what a valid follow-up test would do. Unique expert finding: later transactions alone are insufficient if the retest still uses later-known inputs.
-
-Priority and synthesis: competing headings → unclear reading order → readers lose the comparison → remove scenario questions and comparison/takeaway subheadings. Mismatched discussion examples → unclear relationship to the evidence → readers cannot map conclusions → give both examples two labeled statements. Abstract leakage and cross-example references → assumed context → readers cannot follow a single scenario → use a concrete payment-time explanation and standalone lessons.
-
-Tension resolved: consistency of presentation does not require identical evidence categories. Preserve ML evaluation’s risk-naming/action distinction and System design’s untested/observed-difficulty distinction. Rejected: forcing identical column headings, adding controls or another explanatory stage, or replacing the guide with a candidate-scoring form.
-
-Verification: **Pass** — rebuilt output matches the source; three regression tests pass; both tabs, arrow-key navigation, Enter disclosure operation, and matching application blocks checked in the browser. **Pass** — expanded sample statements visually checked at desktop and 375px, with no horizontal overflow; both comparisons retain their labels. **Pass (editorial inspection)** — the main path uses the same situation → comparison → interpretation → optional wording order, and closing lessons do not depend on an unseen scenario. **Not checked** — independent-reader comprehension, assistive-technology journey, browser zoom. **Not applicable** — simulation arithmetic, animation, randomness, reset, and numerical comparison encodings.
-
-
-## Follow-up: precise claims and a shorter ending
-
-The earlier readability review above records the intermediate version; this follow-up supersedes its application-table design. Applied both guidelines again to the same discovery: distinguish what an interview showed, the conditional prediction it supports, and the remaining uncertainty.
-
-| Editorial perspective | Questions checked | Assessment and smallest change |
-| --- | --- | --- |
-| Practitioner | Can the wording express a concern? Can it name support? Can it admit insufficient evidence? | Contextual statements and follow-ups work; a positive-only template did not cover all cases. Generalize it and add an explicit untested-capability variant. |
-| Newer reader | What was observed in ML evaluation? What is unknown? Does section 4 add something new? | Concrete scenarios and matched labels remain useful. “Untested” understated the observed release recommendation, and the ending repeated a completed conclusion. State the concern directly and remove the repeated application. |
-| Subject expert | Did they merely name a risk? What recommendation followed? What does the interview establish about revision with guidance? | The candidate actually recommended release without resolving the identified risk. That supports a concern about this answer; response to guidance remains unknown. Make this distinction in the comparison, takeaway, and sample statement. |
-| Information designer | Do the tabs still select complete panels? Are conclusions repeated? Does the shortened ending reflow? | Preserve the paired sample statements and native disclosures. Remove the redundant synthesis table and its selector dependency, source fields, and styles. Keep broader lessons and reusable wording at the end. |
-
-These are separate editorial perspectives from one reviewer, not independent user studies. Convergence: make each section add value rather than restating a conclusion. Complementarity: a neutral template accommodates the expert’s narrower interpretation. Unique expert finding: a problematic recommendation is observed evidence, even when ability to improve with guidance is unknown.
-
-Priority / synthesis: observed recommendation described as missing evidence → misleading distinction → name the local concern and separate the unknown response to guidance. Positive-only template → pressure to invent a contribution → allow expectations, concerns, or explicit insufficient evidence. Repeated worked synthesis → extra reading without a new comparison → retain the worked statements by each example and shorten section 4. Rejected: adding more controls, identical contrast categories, a scoring form, or another explanatory stage. Tension resolved: remove redundant repetition while preserving the three-part framework in the opening and the paired, concrete discussion statements.
-
-Verification: **Pass** — build and three regression checks; keyboard scenario selection and disclosure operation; both static panels preserved for readers without JavaScript. **Pass** — desktop and 375px inspection of the changed ML statement and shorter ending, with no horizontal overflow. **Pass (editorial inspection)** — observation, concern, and uncertainty are separate; the reusable wording handles all three evidence situations; section 4 no longer repeats a completed example. **Not checked** — independent-reader comprehension, browser zoom, screen-reader journey. **Not applicable** — simulation arithmetic, random sampling, replay, or animation. These checks establish implementation and editorial consistency, not validated comprehension.
-
-
-## Case references and distinction emphasis · October 25, 2026
-
-Replaced “first” and “second” references in the hiring examples with their case labels, including the note about what the interviewer explained. Named references in the interpretation use the same accent as their comparison and discussion label. Labels remain explicit in text, so meaning does not depend on color or position.
-
-The hiring comparisons use blue for the case shown on the left and ochre for the case shown on the right, carried through table headers, narrow-screen cards, prose references, and discussion headings. These accents identify cases, not a rating of the candidate; System design distinguishes untested ability from observed difficulty. The accents are scoped to hiring so the technical-decision stories retain their existing presentation.
-
-The distinction now has a full-width panel with one prominent statement and the three framework questions underneath. This prioritizes the central idea without adding another stage, control, or explanation. Checked the rebuilt guide on desktop and at 375px, including both case presentations and keyboard selection/disclosure operation. Six regression checks pass and there is no horizontal overflow at phone width. Independent-reader comprehension, browser zoom, and a screen-reader journey remain untested.
-
-## Architectural consequences guide
-
-“This Works Here. What Changes Elsewhere?” keeps one account-update test result fixed while changing the context: an internal nickname, an address needed for the next invoice, and a contact address with partly understood dependencies. Static diagrams show the known sequences; the unknown ordering is stated as a question rather than drawn as established. Each context connects known uses, interpretation, assumptions, and a possible recommendation. All content is visible without interaction. See [the design and multi-perspective review](system-selection-guide.md).
+For substantive changes, apply [multi-perspective review](multi-perspective-review.md). For controls and comparisons, also apply the relevant [experiment guidance](../experiments/README.md), identifying inapplicable simulation requirements explicitly. Past editorial and browser checks in the history are not a fresh review or proof of comprehension.
