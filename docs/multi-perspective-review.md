@@ -1,5 +1,7 @@
 # Multi-Perspective Review Guideline
 
+Current review-method guideline. See [the documentation index](README.md) for content, interaction, and presentation standards; this document owns the assessment and synthesis method.
+
 **Purpose:** Evaluate explanatory tools, engineering decision aids, and interactive experiments through several distinct perspectives before deciding what to improve.
 
 The objective is not to maximize features, interactivity, or actionability. It is to improve the clarity, depth, and experience of the tool's central idea.
@@ -41,7 +43,7 @@ For each perspective, document:
 5. **Recommendation:** The smallest meaningful improvement.
 6. **Limitations:** What was inspected, inferred, or not tested.
 
-Keep reviews independent before performing synthesis.
+Keep assessments separate before performing synthesis. State whether they came from different reviewers or from one reviewer considering several perspectives. Separate editorial perspectives from one reviewer are not independent reviewers or user studies; do not imply agreement beyond the evidence.
 
 ## Step 4 — Compare and classify findings
 

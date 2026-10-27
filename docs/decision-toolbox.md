@@ -1,5 +1,8 @@
 # Decision Toolbox content standard
 
+Current editorial guideline for general-audience decision tools. [Toolbox navigation](toolbox-navigation.md) owns destinations; [reading comfort](reading-comfort-navigation.md) owns shared presentation; the [documentation index](README.md) maps the other references.
+
+
 ## Purpose and audience
 
 The Decision Toolbox offers reusable questions for unclear decisions. Readers should be able to recognize a situation and understand the reasoning without an engineering, machine-learning, or research background.
@@ -12,6 +15,7 @@ Each published tool should have:
 
 - One stable ID and one canonical question, reused consistently across views.
 - A short situation that helps readers recognize when the tool is relevant.
+- An `expected_outcome` stating what the reader will be able to recognize, question, or do; together with `situation`, it renders the opening “Use this when / You’ll be able to” orientation.
 - An observation explaining why the question can help.
 - One worked example that demonstrates a change in reasoning or next action.
 - Three to five concrete use cases where practical, without padding to meet a quota.
@@ -44,7 +48,7 @@ Aim for roughly 100–180 words when that is sufficient. Clarity and completenes
 
 ## Existing data structure
 
-Edit `data/toolbox.json`, not generated tool pages. The builder in `scripts/build_toolbox.py` already supports this object:
+Edit `data/toolbox.json`, not generated tool pages. See the [source map and commands](README.md#source-files-and-commands) for regeneration. The builder in `scripts/build_toolbox.py` already supports this object:
 
 ```json
 "worked_example": {

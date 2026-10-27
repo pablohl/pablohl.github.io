@@ -1,5 +1,8 @@
 # Designing Interactive Experiments
 
+Current experiment-design and interaction guideline. [The documentation index](../docs/README.md) maps related content and review guidance. [Reading comfort and shared navigation](../docs/reading-comfort-navigation.md) owns shared presentation defaults and header behavior; experiment-specific composition and verification requirements remain here.
+
+
 Version 2 · October 2026
 
 Experiments on this site are small interactive models for exploring an idea by changing something and seeing what happens. The default is an **explorable explanation**: let a reader experience a question, make a choice, notice a consequence, and revise their understanding. Some experiments connect to an essay; others stand on their own.
