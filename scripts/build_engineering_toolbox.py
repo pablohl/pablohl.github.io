@@ -2,11 +2,11 @@
 """Build example-led engineering guides using the existing site shell."""
 import json
 import re
-from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_footer
+from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_footer, reader_orientation
 
 
 def page(title, summary, route, body, interactive=False, decisions=False):
-    head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav">\n</head>')
+    head = site_head(title, summary, SITE_URL + route).replace('/css/toolbox.css?v=20260930', '/css/toolbox.css?v=20261027').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261024c" defer></script>' if interactive else ''
     if decisions:
         script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
@@ -77,7 +77,7 @@ def render_story_guide(tool):
     flow = ' <span aria-hidden="true">→</span><span class="visually-hidden">then</span> '.join(esc(label) for label in tool['frameworkLabels'])
     related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
     return f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / {esc(tool['sectionLabel'])}</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1></header>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / {esc(tool['sectionLabel'])}</p><h1>{esc(tool['title'])}</h1>{reader_orientation(tool['use_when'], tool['expected_outcome'])}</header>
 <section class="engineering-framework story-distinction" aria-labelledby="problem-title"><p class="engineering-eyebrow">The distinction</p><h2 id="problem-title">{esc(tool['problemTitle'])}</h2>{introduction}<p class="framework-flow">{flow}</p></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">01 / Follow a decision</p><h2 id="examples-title">{esc(tool['examplesTitle'])}</h2><div class="example-controls"><div class="case-selector" data-example-tabs data-examples-label="{esc(tool['examplesLabel'])}" hidden>{navigation}</div><p class="example-disclaimer">{esc(tool['examplesDisclaimer'])}</p></div><noscript><p>Both stories and their outcomes are shown below. With JavaScript enabled, select a story and change its condition.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What connects these decisions? ↓</a></section>
 <section class="engineering-section story-ending" id="discussion"><p class="engineering-eyebrow">02 / Take the idea with you</p><h2>{esc(tool['endingTitle'])}</h2><p>{esc(tool['ending'])}</p><div class="hiring-template"><h3>Wording to take with you</h3><blockquote>{esc(tool['discussionTemplate'])}</blockquote></div></section>
@@ -85,8 +85,7 @@ def render_story_guide(tool):
 
 
 def render_card(tool, route):
-    summary = tool.get('cardSummary', 'Explore two interview scenarios: what an answer supports, what it leaves open, and how that changes the hiring discussion.')
-    return f'<a class="engineering-tool-card" href="{route}"><span class="engineering-eyebrow">{esc(tool["category"])}</span><h2>{esc(tool["title"])}</h2><p>{esc(summary)}</p><strong>Explore the examples →</strong></a>'
+    return f'<a class="engineering-tool-card" href="{route}"><span class="engineering-eyebrow">{esc(tool["category"])}</span><h2>{esc(tool["title"])}</h2>{reader_orientation(tool["use_when"], tool["expected_outcome"])}<strong>Explore the examples →</strong></a>'
 
 
 def build():
@@ -132,7 +131,7 @@ def build():
         lessons = ''.join(f'<div><h3>{esc(lesson["title"])}</h3> <p>{esc(lesson["text"])}</p></div>' for lesson in tool['lessons'])
         related = ''.join(f'<li><a href="/toolbox/{esc(r["id"])}/">{esc(r["title"])}</a> — {esc(r["reason"])}</li>' for r in tool['related'])
         body = f'''<nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Hiring</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Hiring</p><h1>{esc(tool['title'])}</h1><p class="engineering-lead">{esc(tool['summary'])}</p></header>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Hiring</p><h1>{esc(tool['title'])}</h1>{reader_orientation(tool['use_when'], tool['expected_outcome'])}</header>
 <section class="engineering-problem" aria-labelledby="problem-title"><p class="engineering-eyebrow">01 / The problem</p><h2 id="problem-title">From observation to prediction</h2>{introduction}</section>
 <section class="engineering-framework" aria-labelledby="distinction-title"><p class="engineering-eyebrow">02 / The distinction</p><h2 id="distinction-title">{esc(tool['distinction'])}</h2><dl class="framework-questions">{framework}</dl></section>
 <section class="engineering-section example-explorer" id="examples" aria-labelledby="examples-title"><p class="engineering-eyebrow">03 / Examples</p><h2 id="examples-title">Compare the evidence</h2><div class="example-controls"><div class="case-selector" data-example-tabs hidden>{navigation}</div><p class="example-disclaimer">Two illustrative scenarios.</p></div><noscript><p>Both examples are shown below. With JavaScript enabled, you can select one at a time.</p></noscript>{examples}<a class="discussion-link" href="#discussion">What this distinction helps us notice ↓</a></section>

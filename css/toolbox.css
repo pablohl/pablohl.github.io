@@ -464,3 +464,8 @@
     transition: none;
   }
 }
+
+/* Shared orientation for decision tools, engineering guides, and guide cards. */
+.reader-orientation { max-width: 72ch; margin: 1rem 0 1.5rem; }
+.reader-orientation p { margin: .5rem 0; line-height: 1.6; }
+.reader-orientation strong { color: var(--color-accent); }

@@ -18,7 +18,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <title>This Works Here. What Changes Elsewhere?</title>
   <link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/toolbox.css?v=20260930">
+  <link rel="stylesheet" href="/css/toolbox.css?v=20261027">
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261017">
@@ -38,7 +38,7 @@
     </nav>
   </div>
 </header><main class="site-main section-inner engineering-page"><nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Architectural consequences</nav>
-<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Architectural consequences</p><h1>This Works Here. What Changes Elsewhere?</h1><p class="engineering-lead">A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.</p></header>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Architectural consequences</p><h1>This Works Here. What Changes Elsewhere?</h1><div class="reader-orientation"><p><strong>Use this when</strong> a component works well in a test and you need to assess its consequences for the rest of the system.</p><p><strong>You’ll be able to</strong> identify the dependencies and assumptions that determine whether a local improvement supports a wider change.</p></div></header>
 <section class="engineering-framework story-distinction"><p class="engineering-eyebrow">The distinction</p><h2>A component can work well while changing what the rest of the system must do.</h2><p>The test tells us how the component behaved. What depends on that behavior determines how far we can carry the result.</p><p class="framework-flow">Observed benefit → Dependencies and assumptions → Recommendation</p></section>
 <section class="engineering-section" aria-labelledby="setup-title"><p class="engineering-eyebrow">01 / A promising change</p><h2 id="setup-title">“Did the change save, or should I try again?”</h2>
 <p>A support agent edits a customer’s account. On busy days, the screen waits, then reports that the request took too long. The agent opens the account again to find out whether the change was saved.</p>

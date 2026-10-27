@@ -617,7 +617,8 @@
         "tempting_conclusion": "The middle price clearly works best; use it again.",
         "evidence": "That day also coincided with a nearby festival. If the price attracted more buyers, you would expect stronger sales under comparable conditions too. Comparing attendance and sales per visitor, or repeating the price on an ordinary day, helps distinguish the price explanation from the extra crowd. The exceptional result needs an explanation beyond its size.",
         "conclusion": "Treat the middle price as a promising candidate, not an established winner. Seek surrounding evidence consistent with the explanation before planning revenue around it. A genuine price threshold is possible; an isolated result is a reason to investigate, not automatically reject it."
-      }
+      },
+      "expected_outcome": "Name the surrounding evidence that would make an unusually strong result more convincing."
     },
     {
       "id": "what-did-the-metric-throw-away",
@@ -667,7 +668,8 @@
         "tempting_conclusion": "The average is the same, so either route is equally suitable.",
         "evidence": "An early arrival does not cancel the consequences of a late pickup. The average removes the distinction that matters: how often each route exceeds the time available. Compare arrival times for the hours you actually travel, including any unusually bad days.",
         "conclusion": "Choose the route and departure time with an acceptable risk of arriving late. The more predictable route may suit this trip even if the average is identical. With no fixed arrival time, you might choose differently. You need the information that can change this choice, not every possible travel statistic."
-      }
+      },
+      "expected_outcome": "Identify an omitted distinction that could change the choice behind a headline metric."
     },
     {
       "id": "look-at-the-boundary",
@@ -723,7 +725,8 @@
         "tempting_conclusion": "The reminder is working, so visitors must not be reading it carefully.",
         "evidence": "The volunteers explain that visitors need several days to obtain the document. The scheduling team sends reminders the evening before because that works well for confirming attendance. Neither team lacks competence: one sees successful delivery, while the other sees the preparation needed before arrival. The connection between timing and preparation was never discussed.",
         "conclusion": "Walk through the visitor’s preparation with both teams and send document instructions early enough to use. Keep a later attendance reminder if useful. This addresses an identified mismatch; it does not establish that every missed document has the same cause."
-      }
+      },
+      "expected_outcome": "Find an assumption or handoff between specialties that needs checking together."
     },
     {
       "id": "change-the-representation",
@@ -767,7 +770,8 @@
         "tempting_conclusion": "It is only an hour; accommodating it should be straightforward.",
         "evidence": "The participant explains that the new finish time misses their usual train and overlaps with childcare pickup. The calendar represents the meeting alone. Their daily schedule shows the dependencies that make the change costly. Another participant with a flexible evening may genuinely experience it as a small adjustment.",
         "conclusion": "Compare the affected schedules before choosing a time. A shorter meeting or another day may meet the organizer’s goal with less disruption. The broader representation reveals consequences; it does not automatically mean this participant’s preference must decide the outcome."
-      }
+      },
+      "expected_outcome": "Restate a comparison so that different descriptions can be checked against the same facts."
     },
     {
       "id": "from-intuition-to-argument",
@@ -817,7 +821,8 @@
         "tempting_conclusion": "I have traveled more, so we should reject this itinerary.",
         "evidence": "Checking the route reveals a bus transfer between the station and ferry terminal. Your concern becomes specific: a modest train delay could leave too little transfer time, with no later ferry. If the bus is coordinated with the train or another crossing exists, the concern may weaken. Experience suggested a question; the timetable lets everyone inspect it.",
         "conclusion": "Check transfer times and the consequence of missing the ferry, then choose whether an earlier train is worth the extra time. Replace “it feels risky” with the actual failure path. Withdraw the objection if the connection is adequately protected."
-      }
+      },
+      "expected_outcome": "Turn a concern into an explicit claim, supporting reasons, and a check others can examine."
     },
     {
       "id": "decision-complete",
@@ -872,7 +877,8 @@
         "tempting_conclusion": "The trial worked, so keep the extra person at returns.",
         "evidence": "The person was moved from helping visitors find books. The report does not establish whether those visitors now wait longer or whether the busiest return periods can be covered differently. The queue result answers the trial’s narrow question but leaves a gap between that finding and the staffing decision.",
         "conclusion": "Summarize what improved, the trade-off still unknown, and the evidence needed to compare staffing options. A defensible recommendation could be limited peak-hour coverage or a further trial. Completing the analysis means making that reasoning explicit, not forcing a permanent change."
-      }
+      },
+      "expected_outcome": "Connect a finding to a practical choice and name the missing reasoning if that connection is incomplete."
     },
     {
       "id": "preserve-the-option",
@@ -924,7 +930,8 @@
         "tempting_conclusion": "Choose the cheaper room because the stay itself is identical.",
         "evidence": "The extra payment buys a future choice, not a better room. If the dates change within the cancellation window, the refundable booking can be released without losing the full room price. If the dates are already firm, that option may have little value. The deadline also matters: cancellation protection may expire before the uncertainty is resolved.",
         "conclusion": "Compare the premium with the plausible cost of changing plans and when you expect confirmation. Paying for flexibility can be reasonable, but it is not automatically worth any price. Preserve the specific option you may need, rather than purchasing every available safeguard."
-      }
+      },
+      "expected_outcome": "Identify which future choices an action closes and whether keeping them open is worth the cost."
     },
     {
       "id": "two-clocks",
@@ -978,7 +985,8 @@
         "tempting_conclusion": "Wait until Friday; making the booking with better information must be better.",
         "evidence": "Rooms are filling up, and the few larger places may be gone by Friday. Two things are changing: your information will improve, and the available accommodation may deteriorate. Check remaining availability and alternatives rather than assuming the same choice will still be available. If there are plenty of suitable places, waiting may cost very little.",
         "conclusion": "Decide whether the expected clarification justifies the likely loss of choice. A cancellable reservation may help if its terms fit. Do not compare the clocks as numerical rates: ask what you could learn and what you could lose during this particular delay."
-      }
+      },
+      "expected_outcome": "Compare the value of further learning with the cost of losing time or options."
     },
     {
       "id": "what-is-worth-learning",
@@ -1032,7 +1040,8 @@
         "tempting_conclusion": "Collect as much information as possible before choosing a format.",
         "evidence": "The organizer identifies the assumption behind the move: attendees have a suitable device, a connection, and a place to join. A few targeted conversations followed by a short practice session can test that assumption more directly than a long general survey. The practice session is useful because reported confidence alone may not reveal access difficulties.",
         "conclusion": "Gather evidence about the uncertainty that could change the format decision. If access is a barrier, consider an in-person option before investigating unrelated preferences. Start small, but include people likely to face difficulties; a convenient sample of confident users would not resolve the question."
-      }
+      },
+      "expected_outcome": "Choose an unanswered question whose answer could change your decision."
     },
     {
       "id": "position-before-you-know",
@@ -1080,7 +1089,8 @@
         "tempting_conclusion": "Either commit to outdoors now or postpone all preparation until the weather is clear.",
         "evidence": "Some work is useful in either setting: choosing portable food, confirming attendance, and arranging movable seating. Clearing the indoor room costs effort now but protects against a consequential change in weather. Preparing elaborate decorations for both settings would add little protection for its cost.",
         "conclusion": "Do the shared preparation and keep a workable rain plan. Set a decision time before guests travel, then commit to one location when the forecast is useful enough. Positioning is active preparation for important possibilities; continuing to prepare both venues after choosing would waste effort."
-      }
+      },
+      "expected_outcome": "Identify a useful preparation you can make before the next development becomes clear."
     },
     {
       "id": "explore-then-exploit",
@@ -1133,7 +1143,8 @@
         "tempting_conclusion": "Keep improving the invitation until attendance recovers.",
         "evidence": "A few conversations with former attendees and small trials of a different time and activity can reveal where the problem lies. If people already read the invitations but cannot attend at that hour, further wording changes have little room to help. These early trials should distinguish possible explanations rather than perfect one solution.",
         "conclusion": "Explore a few meaningfully different directions, then invest in the promising one. If timing repeatedly emerges as the obstacle, refine the schedule and assess attendance over several meetings. Do not keep changing every variable indefinitely; exploration earns its cost by directing later effort."
-      }
+      },
+      "expected_outcome": "Choose where to try a small intervention and what would justify concentrating effort there."
     },
     {
       "id": "look-before-you-model",
@@ -1181,7 +1192,8 @@
         "tempting_conclusion": "A larger cabinet will solve the clutter problem.",
         "evidence": "The main obstruction turns out to be bags and wet coats dropped near the door. Most shoes already fit in the existing storage. Observing the actual items and household routine changes the problem from insufficient shoe capacity to a lack of convenient places for arriving home with full hands.",
         "conclusion": "Try hooks and a reachable bag shelf before buying a larger cabinet. This does not prove that more storage will never help; it gives you a better starting hypothesis. Stop inspecting once you understand enough to try a proportionate change and learn from its use."
-      }
+      },
+      "expected_outcome": "Describe the problem, observations, and constraints before choosing a technique."
     },
     {
       "id": "start-simple",
@@ -1236,7 +1248,8 @@
         "tempting_conclusion": "A comprehensive system will handle the problem more effectively than a basic routine.",
         "evidence": "For two weeks, list three planned dinners on paper and check the fridge before shopping. This small trial tests whether coordinating meals and purchases changes what gets thrown away. If it helps, you have evidence for the core idea. If irregular schedules defeat the plan, more elaborate tracking may not address the real obstacle.",
         "conclusion": "Use the trial to decide what additional support is actually needed. A simple approach provides a baseline and exposes limitations cheaply. It does not mean paper is always sufficient, or that the shortest trial can capture every busy week or seasonal change."
-      }
+      },
+      "expected_outcome": "Choose a simple baseline that reveals whether added complexity earns its place."
     },
     {
       "id": "which-game-are-we-playing",
@@ -1285,7 +1298,8 @@
         "tempting_conclusion": "They need more convincing that the event will be successful.",
         "evidence": "You ask what would make the commitment workable. They explain that their main concern is unpredictable evening work, not recognition. Your pitch was answering a question they were not using to decide. A clear schedule and division of responsibilities may matter more than a larger audience.",
         "conclusion": "Check whether predictable hours would change their willingness before revising the proposal. Their explanation is useful evidence, not a complete account of every motive. The next step is to understand and test the relevant priority, rather than assume they value the opportunity in the same way you do."
-      }
+      },
+      "expected_outcome": "Check what the other person is trying to achieve before choosing your response."
     },
     {
       "id": "right-level-of-reasoning",
@@ -1337,7 +1351,8 @@
         "tempting_conclusion": "The delay is a signal; I should work out what response they are trying to provoke.",
         "evidence": "You currently have only silence, which fits several explanations. A brief follow-up with a clear date and an easy way to decline produces more useful evidence than another theory. If the friend explains a scheduling conflict, a complex strategic account becomes less necessary. Repeated bargaining around similar invitations could justify considering a different model.",
         "conclusion": "Use the least elaborate explanation that fits the available evidence, while staying open to revision. The follow-up may clarify the next action without revealing the friend’s full motives. Sophisticated speculation earns its place through observations, not through how convincing a story sounds."
-      }
+      },
+      "expected_outcome": "Choose an explanation to investigate without assuming more strategic intent than the evidence supports."
     },
     {
       "id": "start-with-a-hypothesis",
@@ -1386,7 +1401,8 @@
         "tempting_conclusion": "The higher score shows that the new routine works.",
         "evidence": "You also changed study time, chose an easier topic, and looked at several outcomes before selecting the improved one. The result can suggest a hypothesis, but it is weak confirmation. Before the next trial, specify what you expect to improve, how you will compare similar material, and what result would count against the idea.",
         "conclusion": "Use a fresh comparison to test the expectation instead of repeatedly redefining success around the results. This cannot remove every source of variation, but it makes the evidence easier to interpret. Exploration can generate the hypothesis; it should not be presented as if it had already tested it."
-      }
+      },
+      "expected_outcome": "State a prediction and a check that could challenge it before running another experiment."
     },
     {
       "id": "solve-the-constrained-problem",
@@ -1435,7 +1451,8 @@
         "tempting_conclusion": "The best dinner is the full menu, so work faster to make it happen.",
         "evidence": "The oven schedule makes that menu infeasible within the time available. A cold starter, one baked main, and a ready-made dessert can meet the actual goal of feeding everyone well. The allergy remains a firm requirement; reducing complexity does not justify ignoring it.",
         "conclusion": "Choose a menu that works with the available time, equipment, and dietary needs. Accepting a less ambitious dessert may improve the whole meal. Check which constraints are real and which are preferences before compromising: a later serving time could change the options if the guests are comfortable with it."
-      }
+      },
+      "expected_outcome": "State the real constraints and compare approaches that can work within them."
     },
     {
       "id": "productive-struggle",
@@ -1484,7 +1501,8 @@
         "tempting_conclusion": "Putting the pieces in for them is the most helpful response because it removes the frustration.",
         "evidence": "You ask them to sort the edge pieces and look for matching colors, then let them try. This reduces the obstacle while leaving the useful reasoning to them. If they become exhausted or lack a basic strategy, continued withholding would stop serving learning.",
         "conclusion": "Offer the smallest amount of help that restores a reasonable path forward, and check whether it actually helps. Completing the puzzle and learning how to approach it are different goals. When time or distress makes completion the priority, more direct help can be appropriate; struggle is not valuable simply because it is difficult."
-      }
+      },
+      "expected_outcome": "Choose a hint or intervention that helps someone progress while keeping the reasoning theirs."
     },
     {
       "id": "raise-the-resolution-of-feedback",
@@ -1539,7 +1557,8 @@
         "tempting_conclusion": "The colleague needs to think harder or provide more detailed comments.",
         "evidence": "Your description gives them little evidence about the teaching. You share a short opening explanation and one sample activity instead. Now they can point to an unfamiliar term and a step where participants may get lost. The artifact exposes the issue you wanted reviewed without requiring a finished slide deck.",
         "conclusion": "Make the relevant part concrete enough for the feedback you need. Use a sample explanation to test understanding and a rough outline to discuss overall direction. More polish is not always more informative; complete visual design would add little to this particular review."
-      }
+      },
+      "expected_outcome": "Give feedback about a specific moment, action, and possible improvement."
     },
     {
       "id": "connect-work-to-consequences",
@@ -1591,7 +1610,8 @@
         "tempting_conclusion": "Low attendance means the organizing was poor, so improve the invitations and logistics.",
         "evidence": "Conversations with invitees reveal that many wanted to come but could not manage the time. Those who attended describe helpful introductions, and two later arrange a shared project. These observations separate the quality of preparation, barriers to attendance, and consequences of attending. They do not establish that your organizing alone caused the later collaboration.",
         "conclusion": "Follow up on both participation barriers and what attendees gained before choosing what to improve. A different time may matter more than more polished invitations. Treat outcomes as evidence to investigate alongside your decisions and external circumstances, rather than as a simple score for your contribution."
-      }
+      },
+      "expected_outcome": "Trace how work affected a decision or outcome and identify what to improve next."
     },
     {
       "id": "surface-the-hidden-decisions",
@@ -1641,7 +1661,8 @@
         "tempting_conclusion": "The plan looks complete, so the booker can reserve everything.",
         "evidence": "The group agreed on dates and destination, but not transport, budget, or activities. The draft filled those gaps with plausible suggestions. Once passed to the booker, those suggestions look like settled requirements and could create costs others never accepted.",
         "conclusion": "Mark the dates and destination as agreed, and the car and activities as proposals. Clarify the budget and preferences before making nonrefundable bookings. Focus on details that change commitments; there is no need for a separate group decision about every coffee stop. Completeness of presentation does not establish agreement."
-      }
+      },
+      "expected_outcome": "Identify assumptions in a document that still need an explicit decision or agreement."
     }
   ]
 }
