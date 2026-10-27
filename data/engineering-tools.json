@@ -333,6 +333,83 @@
       "storyFirst": true,
       "endingTitle": "Name what the gap changes.",
       "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action."
+    },
+    {
+      "id": "eligible-is-not-selected",
+      "kind": "system-selection",
+      "title": "This Works Here. What Changes Elsewhere?",
+      "summary": "A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.",
+      "category": "Engineering judgment · Architectural consequences",
+      "cardSummary": "One promising test, three contexts. See how dependencies and assumptions change the recommendation.",
+      "contexts": [
+        {
+          "id": "internal-nickname",
+          "title": "1. An internal nickname",
+          "known": "The update changes the nickname staff use to recognize an account. Here, the nickname is only a display label: invoices, deliveries, and account matching use other fields. Staff can see when a change is pending.",
+          "lanes": [
+            {
+              "label": "Nothing needs the new label immediately",
+              "steps": [
+                "Nickname received",
+                "Saved later",
+                "New label appears"
+              ]
+            }
+          ],
+          "interpretation": "Background processing could remove a frustrating wait without holding up another task. That makes it promising here, provided the delay is acceptable to staff.",
+          "assumption": "Staff can tolerate seeing the old nickname while the change is pending. The test established eventual saving, not how long staff would be willing to wait. If a save fails, staff need to know whether they can simply repeat the edit or must investigate what happened.",
+          "recommendation": "Use background processing for nicknames if the delay is acceptable to staff and failed saves are easy to recognize and recover from."
+        },
+        {
+          "id": "billing-address",
+          "title": "2. A billing address used for the next invoice",
+          "known": "The update changes a billing address. The invoicing system submits that change, waits for confirmation, then creates the invoice using the saved address.",
+          "lanes": [
+            {
+              "label": "Current approach",
+              "steps": [
+                "Address saved",
+                "Confirmation",
+                "Invoice uses the new address"
+              ]
+            },
+            {
+              "label": "New approach, if invoicing treats “received” as “saved”",
+              "steps": [
+                "Update received",
+                "Invoice created",
+                "Invoice could use the old address"
+              ]
+            }
+          ],
+          "interpretation": "When the invoice is created, the address might still be waiting to save. A prompt acknowledgment no longer tells invoicing what it needs to know. The test did not produce a wrong invoice; this is a possible consequence of leaving invoicing unchanged.",
+          "assumption": "Background processing could still work if invoicing waits until the address is saved. Someone must take responsibility for that change.",
+          "recommendation": "Keep confirmation of a completed save for this workflow unless we also change invoicing to wait. Changing the account service alone is insufficient."
+        },
+        {
+          "id": "contact-address",
+          "title": "3. A contact address with partly understood uses",
+          "known": "The update changes a contact address. One system reads it overnight; that use could tolerate a delay if the change is saved before the overnight read. Several older integrations also read it, but the team has not established when they do so or what they do with it.",
+          "lanes": [
+            {
+              "label": "The dependency is only partly understood",
+              "steps": [
+                "Update received",
+                "Saved later",
+                "Other systems use it—but when?"
+              ]
+            }
+          ],
+          "interpretation": "There is no demonstrated failure. There is also no basis for assuming that every use tolerates a delay.",
+          "alternatives": [
+            "If a stale address only causes something easy to correct, the benefit of a prompt response may justify accepting that risk.",
+            "If a stale address triggers an action that is difficult to undo, preserving confirmation of a completed save may matter more than the prompt response."
+          ],
+          "assumption": "How often corrections would be needed, and how much work they would create, remain unknown.",
+          "recommendation": "I would favor background processing if using an old address causes only occasional, inexpensive corrections. If it could trigger an action we cannot readily undo, I would preserve confirmation of a completed save until we understand that dependency.",
+          "followup": "Which integration uses the address next, and what happens if it gets the old one?"
+        }
+      ]
     }
   ]
 }
