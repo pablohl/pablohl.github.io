@@ -9,6 +9,8 @@ The Decision Toolbox offers reusable questions for unclear decisions. Readers sh
 
 A tool's origin and its example serve different purposes. Sources preserve where the idea came from; examples demonstrate where it can help. A tool learned through technical work can use an everyday example. Engineering-specific scenarios belong primarily in the Engineering guides collection (see [engineering-toolbox.md](engineering-toolbox.md)).
 
+Apply the [full reader journey](reader-journey.md) from the situation-based entry, collection card, related link, or direct URL. The invitation should help readers recognize when the canonical question is relevant; the opening and worked example should fulfill that promise. Reading and comparing reasoning are meaningful steps for a static tool. Do not add a required input, worksheet, or interaction merely to make the journey look actionable. Related tools and collection returns should provide predictable destinations.
+
 ## Complete entry
 
 Each published tool should have:

@@ -6,6 +6,7 @@ Use this index to find the current guidance before proposing, reviewing, or impl
 
 | Document | Owns |
 | --- | --- |
+| [Full reader journey](reader-journey.md) | Expectations and transitions from preview and direct arrival through reading/action, consequence, recovery, and onward navigation |
 | [Reading comfort and shared navigation](reading-comfort-navigation.md) | Shared presentation defaults, responsive comparison behavior, global header, and keyboard navigation |
 | [Toolbox navigation](toolbox-navigation.md) | Homepage destinations, collection roles, breadcrumbs, and collection return links |
 | [Decision Toolbox](decision-toolbox.md) | General-audience tool content, worked examples, completeness, and relationships |
@@ -24,7 +25,7 @@ These documents have different roles: guidelines state intended standards; guide
 - Separate prior reviews and implementation events from current instructions. Preserve their revision context under `history/`; do not present an old pass or an old unchecked item as a fresh assessment.
 - When guidance and implementation disagree, state whether the change repairs the implementation or reconciles an outdated description. Do not rewrite a standard merely to declare an existing implementation compliant.
 - Preserve evidence boundaries: editorial inspection, automated checks, browser journeys, and unfamiliar-reader observations answer different questions.
-- Keep review-process/template changes and additional automation explicit in their own scope. This cleanup does not add a PR template or a new test runner.
+- Keep review-process/template changes and additional automation explicit in their own scope. A written guideline does not by itself introduce a PR template, a new test runner, or automated enforcement.
 
 ## Source files and commands
 

@@ -16,8 +16,11 @@ Before reviewing, identify:
 - What distinction or mechanism are we proposing?
 - What should the examples or interactions reveal?
 - What should the reader understand differently afterward?
+- Where will the reader arrive from, and what promise does that invitation make?
 
 Use this as the reference point for all subsequent recommendations.
+
+Apply the [full reader journey](reader-journey.md) to the affected transitions, including direct arrival where relevant. The journey guideline owns the questions to inspect across entry points, orientation, action or reading, consequences, recovery, and onward movement; this document owns how to assess and synthesize the findings.
 
 ## Step 2 — Select complementary reviewers
 
@@ -82,14 +85,18 @@ Do not introduce forms, scoring, gamification, or decision automation unless the
 
 After implementation, check:
 
+- Does the entry preview predict the actual destination and activity, and can a directly arriving reader orient themselves?
 - Is the problem immediately recognizable?
 - Is the proposed distinction understandable?
 - Do the examples demonstrate rather than repeat the idea?
 - Does the interaction contribute to understanding?
 - Does the discussion add a broader insight?
 - Did the revision preserve simplicity and coherence?
+- Can the reader compare or recover where appropriate, then reach a bounded takeaway or a predictable onward destination?
 
 When possible, distinguish editorial inspection from evidence gathered through real users.
+
+Follow the journey guideline's [transition verification](reader-journey.md#verify-transitions-not-just-isolated-screens). State the entry point and inspected path, not just the page title. A functional transition and a reader's comprehension may have different evidence and different review statuses.
 
 ## Expected review output
 

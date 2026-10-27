@@ -11,6 +11,8 @@ Use interaction when it reveals a relationship more effectively than a paragraph
 
 These guidelines apply to new experiments and revisions. They describe design requirements, not a requirement to retrofit every existing page immediately. Existing experiments are references to learn from, not proof that every requirement has been met.
 
+Apply the [full reader journey](../docs/reader-journey.md) before and around the experiment: its homepage or collection invitation should predict the actual activity, and direct arrival should provide enough context to begin. That guideline owns cross-page expectations and onward movement; the sections below own the experiment's consequential learning loop. Assess the invitation and the rendered destination together instead of assuming a working experiment is discoverable.
+
 ## 1. Choose one discovery and the right format
 
 Write the central discovery in one sentence. Identify the reader's likely initial assumption and the visible event that could challenge it. Keep adjacent lessons out of the main path unless they are necessary for that discovery.
@@ -146,7 +148,7 @@ Link to an essay when it develops the same idea, and add a contextual return lin
 
 Keep this brief short enough to guide implementation:
 
-1. **Primary format and discovery:** one sentence each.
+1. **Primary format and discovery:** one sentence each, with the intended entry point and the preview's promise identified using the reader-journey guideline.
 2. **Reader's starting assumption:** what might the interaction challenge?
 3. **Stage plan:** use the table in section 2; omit unnecessary stages.
 4. **Visual comparison:** baseline, change encoding, units, and color roles.
@@ -161,6 +163,8 @@ If the brief cannot identify a consequential action and a visible comparison, re
 ## 11. Review and verification
 
 Review the rendered experience, not only the source or screenshots of the opening. Record checks as **Pass / Needs work / Not checked / Not applicable**, with brief evidence. Do not claim compliance from the presence of a control or a methods paragraph alone.
+
+Start from the affected preview or contextual link and also inspect direct arrival where relevant. Use the [reader-journey transition checks](../docs/reader-journey.md#checks-at-each-transition) to verify that the invitation, opening, first action, result, recovery, and ending form one understandable path. Preserve the distinction between a predictable destination, a functioning interaction, and evidence that an unfamiliar reader understands either.
 
 For a complementary review of the central idea from practitioner, newer-reader, subject-matter, and interaction-design perspectives, use the [Multi-Perspective Review Guideline](../docs/multi-perspective-review.md).
 
