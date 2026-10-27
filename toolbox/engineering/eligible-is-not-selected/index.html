@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F6F2EA">
+  <meta itemprop="name" content="This Works Here. What Changes Elsewhere?">
+  <meta itemprop="description" content="A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.">
+  <meta property="og:title" content="This Works Here. What Changes Elsewhere?">
+  <meta property="og:description" content="A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pablohl.github.io/toolbox/engineering/eligible-is-not-selected/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="This Works Here. What Changes Elsewhere?">
+  <meta name="twitter:description" content="A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>This Works Here. What Changes Elsewhere?</title>
+  <link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/toolbox.css?v=20260930">
+  <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/editorial.css?v=20261017">
+  <script src="/js/editorial-nav.js?v=20261017" defer></script>
+<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261026nav">
+<link rel="stylesheet" href="/css/engineering-selection.css?v=20261027-contexts">
+</head><body id="page"><header class="editorial-header">
+  <div class="editorial-header__inner section-inner">
+    <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+    <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+    <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
+      <a href="/about/#research">Research</a>
+      <a href="/toolbox/">Toolbox</a>
+    </nav>
+  </div>
+</header><main class="site-main section-inner engineering-page"><nav class="engineering-breadcrumb" aria-label="Breadcrumb"><a href="/toolbox/">Toolbox</a> / <a href="/toolbox/engineering/">Engineering guides</a> / Architectural consequences</nav>
+<header class="engineering-intro"><p class="engineering-eyebrow">Engineering guides / Architectural consequences</p><h1>This Works Here. What Changes Elsewhere?</h1><p class="engineering-lead">A team finds a faster way to accept account updates. The same result means something different depending on who needs the data next.</p></header>
+<section class="engineering-framework story-distinction"><p class="engineering-eyebrow">The distinction</p><h2>A component can work well while changing what the rest of the system must do.</h2><p>The test tells us how the component behaved. What depends on that behavior determines how far we can carry the result.</p><p class="framework-flow">Observed benefit → Dependencies and assumptions → Recommendation</p></section>
+<section class="engineering-section" aria-labelledby="setup-title"><p class="engineering-eyebrow">01 / A promising change</p><h2 id="setup-title">“Did the change save, or should I try again?”</h2>
+<p>A support agent edits a customer’s account. On busy days, the screen waits, then reports that the request took too long. The agent opens the account again to find out whether the change was saved.</p>
+<p>The engineering team tries a different approach: the screen immediately says <strong>“Update received”</strong> and shows the change as pending while it saves in the background.</p>
+<p>In a test with many updates arriving together, every update is eventually saved correctly. The screen responds promptly instead of leaving the agent wondering whether the request went through.</p>
+<div class="case-impression"><blockquote>“Should we use this approach for account updates?”</blockquote></div>
+<p>Before answering, someone asks: <strong>“What are we updating—and what needs that update next?”</strong></p>
+</section>
+<section class="engineering-section" aria-labelledby="contexts-title"><p class="engineering-eyebrow">02 / Same result, different consequences</p><h2 id="contexts-title">What needs the new value next?</h2>
+<p>Keep the proposed change and the test result the same. Consider three contexts: two where the use is known, and one where it is only partly understood.</p>
+<section class="architecture-context" aria-labelledby="internal-nickname">
+<h3 id="internal-nickname">1. An internal nickname</h3>
+<p>The update changes the nickname staff use to recognize an account. Here, the nickname is only a display label: invoices, deliveries, and account matching use other fields. Staff can see when a change is pending.</p>
+<figure class="dependency-diagram" aria-label="1. An internal nickname: update sequence"><div class="dependency-lane"><h4>Nothing needs the new label immediately</h4><ol><li><strong>Nickname received</strong></li><li><strong>Saved later</strong></li><li><strong>New label appears</strong></li></ol></div></figure>
+<p>Background processing could remove a frustrating wait without holding up another task. That makes it promising here, provided the delay is acceptable to staff.</p>
+<p><strong>This depends on:</strong> Staff can tolerate seeing the old nickname while the change is pending. The test established eventual saving, not how long staff would be willing to wait. If a save fails, staff need to know whether they can simply repeat the edit or must investigate what happened.</p>
+<p class="recommendation-label">A possible recommendation</p>
+<blockquote>Use background processing for nicknames if the delay is acceptable to staff and failed saves are easy to recognize and recover from.</blockquote>
+</section><section class="architecture-context" aria-labelledby="billing-address">
+<h3 id="billing-address">2. A billing address used for the next invoice</h3>
+<p>The update changes a billing address. The invoicing system submits that change, waits for confirmation, then creates the invoice using the saved address.</p>
+<figure class="dependency-diagram" aria-label="2. A billing address used for the next invoice: update sequence"><div class="dependency-lane"><h4>Current approach</h4><ol><li><strong>Address saved</strong></li><li><strong>Confirmation</strong></li><li><strong>Invoice uses the new address</strong></li></ol></div><div class="dependency-lane"><h4>New approach, if invoicing treats “received” as “saved”</h4><ol><li><strong>Update received</strong></li><li><strong>Invoice created</strong></li><li><strong>Invoice could use the old address</strong></li></ol></div></figure>
+<p>When the invoice is created, the address might still be waiting to save. A prompt acknowledgment no longer tells invoicing what it needs to know. The test did not produce a wrong invoice; this is a possible consequence of leaving invoicing unchanged.</p>
+<p><strong>This depends on:</strong> Background processing could still work if invoicing waits until the address is saved. Someone must take responsibility for that change.</p>
+<p class="recommendation-label">A possible recommendation</p>
+<blockquote>Keep confirmation of a completed save for this workflow unless we also change invoicing to wait. Changing the account service alone is insufficient.</blockquote>
+</section><section class="architecture-context" aria-labelledby="contact-address">
+<h3 id="contact-address">3. A contact address with partly understood uses</h3>
+<p>The update changes a contact address. One system reads it overnight; that use could tolerate a delay if the change is saved before the overnight read. Several older integrations also read it, but the team has not established when they do so or what they do with it.</p>
+<p><strong>What is unknown:</strong> Do the other systems read the address before or after the queued change is saved?</p>
+<p>There is no demonstrated failure. There is also no basis for assuming that every use tolerates a delay.</p><ul><li>If a stale address only causes something easy to correct, the benefit of a prompt response may justify accepting that risk.</li><li>If a stale address triggers an action that is difficult to undo, preserving confirmation of a completed save may matter more than the prompt response.</li></ul>
+<p><strong>This depends on:</strong> How often corrections would be needed, and how much work they would create, remain unknown.</p>
+<p class="recommendation-label">A possible recommendation</p>
+<blockquote>I would favor background processing if using an old address causes only occasional, inexpensive corrections. If it could trigger an action we cannot readily undo, I would preserve confirmation of a completed save until we understand that dependency.</blockquote><p><strong>The next question:</strong> Which integration uses the address next, and what happens if it gets the old one?</p>
+</section>
+</section>
+<section class="engineering-section story-ending"><p class="engineering-eyebrow">03 / Take the idea with you</p><h2>What becomes someone else’s job?</h2>
+<p>The component passed the same test in all three contexts. What changed was the meaning of its response to the rest of the system. The field’s name is a clue; how people and systems use it determines the consequence.</p>
+<p>A local improvement can move work elsewhere: waiting for completion, recognizing failure, correcting an action, or investigating an uncertain outcome. Whether that is worthwhile depends on who takes on that work and what happens if they get it wrong.</p>
+<div class="hiring-template"><blockquote>“This works better here. What must be true elsewhere for it to be a better change?”</blockquote></div>
+<p class="example-disclaimer">About this example: the story and test results are fictional, written to explore the reasoning behind an architectural choice.</p>
+</section>
+<section class="engineering-section related-lenses"><h2>Explore the reasoning behind this</h2><ul><li><a href="/toolbox/engineering/results-to-decisions/">What Does This Result Let Us Decide?</a> — Connect evidence and requirements to a recommendation.</li><li><a href="/toolbox/what-did-the-metric-throw-away/">What Did the Metric Throw Away?</a> — Ask which omitted distinction could change the choice.</li></ul><a href="/toolbox/engineering/">← Engineering guides</a></section></main><footer id="site-footer" class="section-inner thin animated fadeIn faster">
+  <p>&copy; 2026 <a href="https://pablohl.github.io/about">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+</footer>
+<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script></body></html>

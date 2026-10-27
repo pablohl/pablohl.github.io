@@ -97,6 +97,16 @@ def build():
     for tool in tools:
         if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', tool['id']):
             raise ValueError('Invalid engineering tool ID')
+        if tool.get('kind') == 'system-selection':
+            from build_system_selection import render
+            route = f'/toolbox/engineering/{tool["id"]}/'
+            destination = ROOT / route.strip('/') / 'index.html'
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            html = page(tool['title'], tool['summary'], route, render(tool))
+            html = html.replace('</head>', '<link rel="stylesheet" href="/css/engineering-selection.css?v=20261027-contexts">\n</head>')
+            destination.write_text(html)
+            cards.append(render_card(tool, route))
+            continue
         if not tool['examples'] or len({e['id'] for e in tool['examples']}) != len(tool['examples']):
             raise ValueError('Examples must have unique IDs')
         for example in tool['examples']:
