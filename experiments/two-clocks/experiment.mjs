@@ -9,6 +9,7 @@ function sync(){const now=performance.now();if(run.running&&last)advance(run,(no
 function render(){
  const scenario=SCENARIOS[run.index],time=review?replayTime:run.time,s=viewAt(run,time),available=s.options.filter(o=>o.available);
  $('#previous').disabled=run.index===0;
+ $('#opening-instruction').hidden=run.started;
  $('#replay').hidden=!run.started; $('#reset').hidden=!run.started; $('#previous').hidden=run.index===0;
  set('#inquiry-title',s.evidence.length?'What else would you like to know?':'What would you like to ask?');
  set('#stage-label',`Scenario ${run.index+1} of 3`);set('#stage-title',run.index===0?'An offer to consider':'The same offer, another conversation');
@@ -56,7 +57,7 @@ function render(){
   $(`#choose-${o.id}`).parentElement.classList.toggle('expired',!o.available);
  });
  $('#decline').disabled=!run.started||review||!!run.decision||run.ended==='closed';
- let message=!run.started?'Read the offers first. Start enables conversations and decisions; the clock is stopped until then.':s.evidence.length===2?(run.story==='fit'?'You like what you’ve heard. Would you join?':s.options[0].available?'The full role may not suit you. Would a smaller role with a mentor?':'You don’t have to say yes just because they made an offer.'):'You can ask another question, or give them your answer.';
+ let message=!run.started?'Both roles are open. Compare their scope and support before starting.':s.evidence.length===2?(run.story==='fit'?'You like what you’ve heard. Would you join?':s.options[0].available?'The full role may not suit you. Would a smaller role with a mentor?':'You don’t have to say yes just because they made an offer.'):'You can ask another question, or give them your answer.';
  if(run.pending&&!run.ended)message=`Waiting for the ${run.pending.id==='manager'?'manager':'teammate'}. You can still decide before the answer arrives.`;
  if(run.ended==='closed')message='The recruiter calls: they’ve filled the role.';
  if(run.ended==='limit')message='The minute ended. The remaining offer is still yours to accept or decline.';

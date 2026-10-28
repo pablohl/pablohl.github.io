@@ -200,3 +200,8 @@ body#page .engineering-page.site-main { padding-top: var(--page-top); }
 .engineering-page .decision-outcome p { font-size: 1rem; }
 .engineering-tool-card { max-width: none; }
 .engineering-tool-card .reader-orientation { font-size: 1rem; }
+
+/* Instructions name the navigation or premise change beside its controls. */
+.example-instruction { font-size: 1rem; margin: 1rem 0 .75rem; }
+.example-instruction[hidden] { display: none; }
+.condition-instruction { font-size: 1rem; margin: .35rem 0 .75rem; }

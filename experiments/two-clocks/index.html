@@ -9,11 +9,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
   <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
-  <link rel="stylesheet" href="./styles.css?v=decision-layout-1">
+  <link rel="stylesheet" href="./styles.css?v=20261028-header">
   <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
-  <script type="module" src="./experiment.mjs?v=decision-layout-1"></script>
+  <script type="module" src="./experiment.mjs?v=20261028instructions"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/interactive-previews.css?v=20261028">
 </head>
 <body id="page">
   <header class="editorial-header">
@@ -33,11 +34,12 @@
 
   <main class="site-main section-inner clocks-page" id="main-content" tabindex="-1">
     <a class="back" href="/experiments/">← All experiments</a>
-    <header class="intro"><h1>Two Clocks</h1><p>As the picture clears, the opening to act can close.</p></header>
+    <header class="intro"><span class="activity-label">Interactive experiment</span><h1>Two Clocks</h1><p>As the picture clears, the opening to act can close.</p></header>
     <p class="setup">You receive an offer from a small company to lead a new product. The work sounds exciting, but you’ve had a job that swallowed your evenings before. This time, you want room to grow, someone to learn from, and a life outside work. Before you say yes, you’d like to know the people you’d be joining.</p>
     <section class="experience" aria-label="Explore the offer">
     <section class="stage" aria-labelledby="stage-title"><div><p id="stage-label" class="eyebrow"></p><h2 id="stage-title" tabindex="-1"></h2></div><button id="previous" class="reset">Previous scenario</button></section>
     <p id="story-note" class="comparison-hint"></p>
+    <p class="interaction-instruction" id="opening-instruction">Read the offers below, then press <strong>Start</strong> to enable questions and decisions. Time moves during the run; you can <strong>Pause</strong> to inspect it.</p>
     <div class="clock-bar"><div class="timeline"><div class="timeline-labels"><span id="time-label"></span><span>60 seconds</span></div><progress id="progress" max="60" value="0" aria-label="Elapsed illustration time"></progress><div class="timeline-ticks" aria-hidden="true"><span>0</span><span>15</span><span>30</span><span>45</span><span>60s</span></div></div><div class="controls"><button id="play" class="primary" aria-label="Start"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Start</span></button><button id="replay" class="reset">Inspect replay</button><button id="reset" class="reset">Start again</button></div>
     <p id="change" class="consequence" role="status" aria-live="polite" aria-atomic="true"></p>
     <p id="updates" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>

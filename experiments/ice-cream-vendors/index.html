@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
   <link rel="stylesheet" href="./styles.css?v=20261020-1">
   <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
-  <script type="module" src="./experiment.mjs?v=20261020-1"></script>
+  <script type="module" src="./experiment.mjs?v=20261028instructions"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/interactive-previews.css?v=20261028">
 </head>
 <body id="page">
   <header class="editorial-header">
@@ -43,7 +44,7 @@
       <div class="story-heading">
         <p class="story-step" data-step-label>Part 1 of 4</p>
         <h2 data-stage-title tabindex="-1">Pick your spot</h2>
-        <p data-stage-prompt>Drag the green A stand around the shore. Each dot is a customer choosing the nearest stand.</p>
+        <p data-stage-prompt>Drag stand A around the shore, or use the “Move A with a slider” control. Watch how many customers choose A; each dot chooses its nearest stand.</p>
       </div>
       <ol class="story-progress" aria-label="Experiment progress">
         <li data-progress aria-current="step">Your spot</li>
@@ -77,7 +78,7 @@
             <span data-key-tie hidden><i class="beach-key__tie" aria-hidden="true"></i> shared customer</span>
             <span data-key-previous hidden><i class="beach-key__previous" aria-hidden="true"></i> dashed ring: earlier stand position</span>
           </div>
-          <p class="beach-hint" data-beach-hint>Drag A; the dot colors show where customers go.</p>
+          <p class="beach-hint" data-beach-hint>Drag A or use its position slider; the totals show where customers go.</p>
         </div>
 
         <div class="results-panel">
