@@ -612,11 +612,11 @@
       "featured": true,
       "random_enabled": true,
       "worked_example": {
-        "title": "One unusually successful market day",
-        "situation": "A community group tests three prices for its fundraising lunch on different market days. The middle price brings in far more money than either of the others. The group must choose a price for its next event.",
-        "tempting_conclusion": "The middle price clearly works best; use it again.",
-        "evidence": "That day also coincided with a nearby festival. If the price attracted more buyers, you would expect stronger sales under comparable conditions too. Comparing attendance and sales per visitor, or repeating the price on an ordinary day, helps distinguish the price explanation from the extra crowd. The exceptional result needs an explanation beyond its size.",
-        "conclusion": "Treat the middle price as a promising candidate, not an established winner. Seek surrounding evidence consistent with the explanation before planning revenue around it. A genuine price threshold is possible; an isolated result is a reason to investigate, not automatically reject it."
+        "title": "Choosing a price for a fundraising lunch",
+        "situation": "A community group sells lunch at three weekend events to raise funds. They try a different price each time, and the middle price brings in much more money than the other two. Now they’re planning another lunch and wondering what to charge.",
+        "tempting_conclusion": "The middle price seems to be the sweet spot. Why not use it again?",
+        "evidence": "The day with the strongest sales also had a festival nearby, so there may simply have been more people around. If the price was the reason for the success, you’d expect it to do well on other days with similar crowds. Attendance and sales per visitor could help make sense of what happened, as could trying that price again on a day without a festival.",
+        "conclusion": "The middle price still looks promising, but one busy day leaves some uncertainty about why it worked. A strong showing with a more typical crowd would make the price explanation more convincing. It could be a price people respond especially well to; the festival just makes that harder to tell from this result alone."
       },
       "expected_outcome": "Name the surrounding evidence that would make an unusually strong result more convincing."
     },
@@ -666,8 +666,8 @@
         "title": "Two commutes with the same average",
         "situation": "You need to reach childcare pickup by six. Two routes average 30 minutes. One usually takes 25–35 minutes; the other often takes 15 minutes but sometimes takes an hour. You must choose a route and departure time.",
         "tempting_conclusion": "The average is the same, so either route is equally suitable.",
-        "evidence": "An early arrival does not cancel the consequences of a late pickup. The average removes the distinction that matters: how often each route exceeds the time available. Compare arrival times for the hours you actually travel, including any unusually bad days.",
-        "conclusion": "Choose the route and departure time with an acceptable risk of arriving late. The more predictable route may suit this trip even if the average is identical. With no fixed arrival time, you might choose differently. You need the information that can change this choice, not every possible travel statistic."
+        "evidence": "Getting there early most days doesn't help on the day you miss pickup. Both routes average 30 minutes, but one can occasionally take an hour. What matters here is how often each route would get you there after six, given when you usually leave.",
+        "conclusion": "For a pickup by six, the more predictable route may be a better fit, even though its average is no faster. On a day without a deadline, you might prefer the route that's often quicker. The same average can hide a difference that matters for one trip and less for another."
       },
       "expected_outcome": "Identify an omitted distinction that could change the choice behind a headline metric."
     },
@@ -720,11 +720,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A reminder that arrives too late",
-        "situation": "A community center sends appointment reminders by text. Staff confirm that messages are delivered, but volunteers report that some visitors still arrive without a required document. Both teams think the other has missed something.",
-        "tempting_conclusion": "The reminder is working, so visitors must not be reading it carefully.",
-        "evidence": "The volunteers explain that visitors need several days to obtain the document. The scheduling team sends reminders the evening before because that works well for confirming attendance. Neither team lacks competence: one sees successful delivery, while the other sees the preparation needed before arrival. The connection between timing and preparation was never discussed.",
-        "conclusion": "Walk through the visitor’s preparation with both teams and send document instructions early enough to use. Keep a later attendance reminder if useful. This addresses an identified mismatch; it does not establish that every missed document has the same cause."
+        "title": "An empty table near closing time",
+        "situation": "A restaurant has a table free at 8:45 PM, so the person taking bookings offers it to a couple who call. The kitchen closes at 9 PM, and the chef is unhappy about the late booking.",
+        "tempting_conclusion": "The table is free and we’re still open. Why turn people away?",
+        "evidence": "The chef explains that some dishes take 40 minutes to prepare. From the booking desk, there’s room for two more guests. From the kitchen, there may not be time to cook what they order before closing. The question is no longer just whether a table is free, but what meal the restaurant can offer at that time.",
+        "conclusion": "Talking it through could lead to an earlier last booking or a smaller menu later in the evening. The booking team could then tell guests what to expect. Seeing the table and the meal together makes it easier to find a plan that works for both the guests and the kitchen."
       },
       "expected_outcome": "Find an assumption or handoff between specialties that needs checking together."
     },
@@ -766,10 +766,10 @@
       "random_enabled": true,
       "worked_example": {
         "title": "Moving a meeting by one hour",
-        "situation": "An organizer proposes moving a regular meeting from four to five. On the shared calendar, this looks like a small adjustment. One participant says it would be difficult and asks to keep the original time.",
-        "tempting_conclusion": "It is only an hour; accommodating it should be straightforward.",
-        "evidence": "The participant explains that the new finish time misses their usual train and overlaps with childcare pickup. The calendar represents the meeting alone. Their daily schedule shows the dependencies that make the change costly. Another participant with a flexible evening may genuinely experience it as a small adjustment.",
-        "conclusion": "Compare the affected schedules before choosing a time. A shorter meeting or another day may meet the organizer’s goal with less disruption. The broader representation reveals consequences; it does not automatically mean this participant’s preference must decide the outcome."
+        "situation": "Someone suggests moving a regular meeting from 4 PM to 5 PM. It’s a small shift on the shared calendar, but one person asks to keep the original time.",
+        "tempting_conclusion": "It’s only an hour. Surely we can make that work.",
+        "evidence": "They explain that finishing later would mean missing their usual train and being late for childcare pickup. On the meeting calendar, you’re moving one box. In their day, you’re changing how they get home and who picks up their child. Someone with a free evening might barely notice the change.",
+        "conclusion": "Looking at the meeting alongside the rest of the day gives everyone a clearer picture of what moving it would mean. A shorter meeting or a different day might work better. There may still be competing needs, but “only an hour” no longer tells the whole story."
       },
       "expected_outcome": "Restate a comparison so that different descriptions can be checked against the same facts."
     },
@@ -819,8 +819,8 @@
         "title": "A trip plan that feels too tight",
         "situation": "A friend proposes an itinerary with a short connection between a train and the last ferry to an island. You have made similar trips and feel uneasy, but cannot initially explain why.",
         "tempting_conclusion": "I have traveled more, so we should reject this itinerary.",
-        "evidence": "Checking the route reveals a bus transfer between the station and ferry terminal. Your concern becomes specific: a modest train delay could leave too little transfer time, with no later ferry. If the bus is coordinated with the train or another crossing exists, the concern may weaken. Experience suggested a question; the timetable lets everyone inspect it.",
-        "conclusion": "Check transfer times and the consequence of missing the ferry, then choose whether an earlier train is worth the extra time. Replace “it feels risky” with the actual failure path. Withdraw the objection if the connection is adequately protected."
+        "evidence": "Looking more closely, you notice there’s a bus ride between the station and the ferry. If the train is even a little late, you might miss the last boat. That’s what was bothering you. Your friend can now look at the connection with you: how much time is there, and is there another way to reach the island if you miss it?",
+        "conclusion": "You now have something more useful to discuss than a feeling that the plan is risky. An earlier train might be worth it if missing the ferry would leave you stuck for the night. But if there’s plenty of time for the bus ride, or a reasonable backup, you might feel comfortable with the original plan after all."
       },
       "expected_outcome": "Turn a concern into an explicit claim, supporting reasons, and a check others can examine."
     },
@@ -981,19 +981,19 @@
       "random_enabled": true,
       "worked_example": {
         "title": "Waiting for a friend to confirm a trip",
-        "situation": "A friend will know on Friday whether they can join a weekend away. Today is Monday, and you need accommodation large enough for the group. Waiting would clarify the number of guests.",
-        "tempting_conclusion": "Wait until Friday; making the booking with better information must be better.",
-        "evidence": "Rooms are filling up, and the few larger places may be gone by Friday. Two things are changing: your information will improve, and the available accommodation may deteriorate. Check remaining availability and alternatives rather than assuming the same choice will still be available. If there are plenty of suitable places, waiting may cost very little.",
-        "conclusion": "Decide whether the expected clarification justifies the likely loss of choice. A cancellable reservation may help if its terms fit. Do not compare the clocks as numerical rates: ask what you could learn and what you could lose during this particular delay."
+        "situation": "You’re booking a weekend away with friends. It’s Monday, and one friend won’t know until Friday whether they can come. You could wait until then so you know how many beds you need.",
+        "tempting_conclusion": "I’ll book on Friday, once everyone has confirmed.",
+        "evidence": "Places are getting booked, and only a few have room for everyone. By Friday, you may know who’s coming but have fewer places to stay. If there are still plenty of suitable places, waiting might be fine. If the larger ones are nearly gone, those extra days could make the trip harder to arrange.",
+        "conclusion": "If you’d struggle to find somewhere for the whole group later, booking now may make sense. A place you can cancel without a fee could give your friend time to answer, as long as the cancellation deadline is late enough. If there’s plenty of room elsewhere, you may be happy to wait. Knowing more on Friday helps only if you can still make a booking that works."
       },
       "expected_outcome": "Compare the value of further learning with the cost of losing time or options."
     },
     {
       "id": "what-is-worth-learning",
       "name": "What Is Worth Learning?",
-      "question": "What uncertainty could change this decision, and what is the cheapest credible way to reduce it?",
-      "situation": "The need for more information is expanding into research without a clear stopping point.",
-      "observation": "Starting from a specific decision can narrow a broad information problem. Identify the uncertainty that could change the choice, then work backward to the evidence needed and a credible way to obtain it.",
+      "question": "What could I learn that would change my choice, and what’s a simple, reliable way to find out?",
+      "situation": "You keep looking for more information but aren’t sure what would be enough.",
+      "observation": "More information helps when it could change what you do. Thinking about what would make you choose differently can reveal a smaller, more useful question to ask.",
       "problems": [
         "decisions",
         "evidence",
@@ -1010,7 +1010,7 @@
         "Choosing the next experiment",
         "Deciding whether more investigation would be useful"
       ],
-      "watch_for": "Not all useful discovery begins with a known decision. Use this lens for focused investigation without eliminating exploratory learning. Refining the question also has a cost; seek evidence when further analysis is unlikely to help.",
+      "watch_for": "Sometimes you’re exploring without a particular decision in mind, and that can be useful too. This question helps when you have a choice to make. It can also become another way to delay: at some point, trying something may teach you more than planning another study.",
       "example": null,
       "posts": {
         "primary": "what-is-worth-learning",
@@ -1035,13 +1035,13 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Which question should the interviews answer?",
-        "situation": "A community group is considering moving its weekly class online. Members propose a broad survey about everyone’s technology habits. The immediate decision is whether regular attendees could participate from home.",
-        "tempting_conclusion": "Collect as much information as possible before choosing a format.",
-        "evidence": "The organizer identifies the assumption behind the move: attendees have a suitable device, a connection, and a place to join. A few targeted conversations followed by a short practice session can test that assumption more directly than a long general survey. The practice session is useful because reported confidence alone may not reveal access difficulties.",
-        "conclusion": "Gather evidence about the uncertainty that could change the format decision. If access is a barrier, consider an in-person option before investigating unrelated preferences. Start small, but include people likely to face difficulties; a convenient sample of confident users would not resolve the question."
+        "title": "Can the dog come too?",
+        "situation": "You’re choosing a cottage for a week away with your family and your dog. You’ve found one you like, but the listing doesn’t say whether pets are allowed. Meanwhile, you keep comparing its reviews, kitchen, and nearby walks with other places.",
+        "tempting_conclusion": "A bit more browsing might help me decide whether this is the right place.",
+        "evidence": "If the dog can’t come, you’d choose somewhere else, however good the reviews are. A quick message to the host could answer that question. If dogs are welcome, any fees or restrictions might also affect whether the cottage suits the trip.",
+        "conclusion": "The host’s reply could take this cottage off the list or make it worth considering further. It won’t settle every preference, but it would tell you whether more time comparing this place is worthwhile."
       },
-      "expected_outcome": "Choose an unanswered question whose answer could change your decision."
+      "expected_outcome": "See what you still need to find out before making a choice."
     },
     {
       "id": "position-before-you-know",
@@ -1656,11 +1656,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "An itinerary that becomes a commitment",
-        "situation": "Friends agree to spend a weekend together. One person drafts a detailed itinerary that includes a rental car and two expensive guided activities, then sends it to the person handling bookings.",
-        "tempting_conclusion": "The plan looks complete, so the booker can reserve everything.",
-        "evidence": "The group agreed on dates and destination, but not transport, budget, or activities. The draft filled those gaps with plausible suggestions. Once passed to the booker, those suggestions look like settled requirements and could create costs others never accepted.",
-        "conclusion": "Mark the dates and destination as agreed, and the car and activities as proposals. Clarify the budget and preferences before making nonrefundable bookings. Focus on details that change commitments; there is no need for a separate group decision about every coffee stop. Completeness of presentation does not establish agreement."
+        "title": "Did we agree to book all this?",
+        "situation": "A group of friends is planning a weekend away. One friend puts together a detailed itinerary with a rental car and two expensive guided activities, then sends it to the friend making the bookings.",
+        "tempting_conclusion": "Everything’s in the plan. Looks like we’re ready to book.",
+        "evidence": "Everyone agreed on the dates and destination, but they haven’t talked about the car, the activities, or how much they want to spend. Those were ideas added while writing the plan. To the friend making the bookings, though, they could look like things everyone has already agreed to.",
+        "conclusion": "A quick note could make the difference clear: “The dates and destination are agreed; the car and activities are still suggestions.” That gives the group a chance to talk about the cost before anyone pays for something they can’t cancel. They probably don’t need to agree on every coffee stop—just the choices that would be awkward or expensive to undo."
       },
       "expected_outcome": "Identify assumptions in a document that still need an explicit decision or agreement."
     }
