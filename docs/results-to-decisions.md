@@ -17,6 +17,8 @@ The tab labels are **Overnight alerts** and **Active orders and the archive**.
 
 Each story preserves a labeled baseline and places the selected condition above **Evidence and next step**. Changing a radio choice changes what the evidence establishes, the next step, and the matching report wording together. Only changed summary rows receive the border and “Changed” label. A compact status message announces the selected condition and summary values.
 
+“Choose a situation” explains scenario navigation beside the enhanced tabs. Inside each condition fieldset, a short instruction names the **Evidence and next step** area that will update. These instructions describe different actions; the scenario instruction is hidden when enhancement is unavailable, and the condition instruction follows its fieldset's existing static fallback behavior.
+
 Detailed reasoning is in **Why this follows**; report wording is a separate native disclosure. The ending connects both situations to the requirement behind the recommendation. Scenario tabs navigate examples; condition choices change fictional premises, not real systems or measured outcomes. The events and numbers are illustrative, not a simulation or validated operational procedure.
 
 Without JavaScript both stories and all four outcomes remain readable. With enhancement, scenario tabs support keyboard navigation and fragment links, and radio choices show the relevant outcome. The condition switch does not introduce automatic scrolling or focus movement.

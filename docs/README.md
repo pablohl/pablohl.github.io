@@ -32,6 +32,7 @@ These documents have different roles: guidelines state intended standards; guide
 | Area | Source files |
 | --- | --- |
 | Homepage | [index.html](../index.html), [home.css](../css/home.css) |
+| Experiment invitations and opening hints | [Experiments index](../experiments/index.html), homepage experiment cards, [interactive-previews.css](../css/interactive-previews.css), activity diagrams under [img/experiments](../img/experiments/), and each experiment's page/interaction script |
 | Shared presentation | [editorial.css](../css/editorial.css), with collection/experiment-specific sheets where needed |
 | Shared static shell | [apply_editorial_shell.py](../scripts/apply_editorial_shell.py) |
 | Global and collection current-state behavior | [editorial-nav.js](../js/editorial-nav.js) |

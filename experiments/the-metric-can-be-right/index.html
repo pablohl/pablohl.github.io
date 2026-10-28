@@ -14,6 +14,7 @@
   <script type="module" src="./experiment.mjs?v=20261021"></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/interactive-previews.css?v=20261028">
 </head>
 <body id="page">
   <header class="editorial-header">
@@ -66,6 +67,7 @@
             <button type="button" data-choice="unsure" aria-pressed="false">Gather more evidence</button>
           </div>
         </fieldset>
+        <p class="interaction-instruction">Choose <strong>Model A</strong>, <strong>Model B</strong>, or <strong>Gather more evidence</strong>, then select <strong>Reveal the outcomes</strong>. You’ll revisit this decision as more evidence appears.</p>
         <p class="fine-print">These are invented figures for one test, not measured bank results. “To process” is only the cost of running each model on those transactions; it does not include investigating alerts or the consequences of mistakes.</p>
       </section>
 
@@ -156,7 +158,7 @@
       </section>
     </div>
 
-    <div class="metric-actions"><button type="button" class="secondary" data-back hidden>← Previous step</button><button type="button" class="primary" data-continue disabled>Continue →</button><button type="button" class="reset" data-reset>Start over</button></div>
+    <div class="metric-actions"><button type="button" class="secondary" data-back hidden>← Previous step</button><button type="button" class="primary" data-continue disabled>Reveal the outcomes →</button><button type="button" class="reset" data-reset>Start over</button></div>
     <details class="metric-method"><summary>How this illustrative model works</summary><p>The test contains 10,000 transactions, including 200 fraudulent ones. Model A misses 60 fraud cases and falsely declines 20 legitimate ones; Model B misses 20 and falsely declines 80. Thus Model A has 9,920 correct predictions (99.2%) and Model B has 9,900 (99.0%). The marks show a representative one-tenth slice of that evaluation, not a separate measurement.</p><p>The cost comparison assumes $600 per missed fraud case, a reader-adjustable amount per false decline, and the stated model running costs. The human review projection uses 160 Model A alerts or 260 Model B alerts per 10,000 transactions, illustrative case times of 10 and 2 minutes, and $40 per analyst-hour. It does not establish actual review times, true loss distributions, customer effects, or a deployment recommendation. All figures and interfaces are invented to expose the decision boundary.</p></details>
   </main>
   <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>

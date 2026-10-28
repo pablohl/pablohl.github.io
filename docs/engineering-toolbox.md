@@ -31,6 +31,8 @@ The opening separates observation from prediction. The distinction panel introdu
 
 The selector defaults to ML evaluation unless a valid scenario fragment selects another panel. Enhancement supports arrow keys, Home/End, roving tab focus, and fragment links. Without JavaScript both complete examples remain readable. The fictional scenarios support contextual claims, not hire/no-hire verdicts or a validated hiring instrument.
 
+The enhanced selector has a visible “Choose an interview scenario” instruction describing the comparison. The instruction stays hidden with the selector when enhancement is unavailable, so the complete static examples do not promise absent controls.
+
 Blue and ochre identify the two cases across table headers, narrow-screen cards, prose references, and sample statements. Labels carry the meaning independently of color; the accents do not rate candidates.
 
 ## Sources and review

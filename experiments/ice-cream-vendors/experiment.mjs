@@ -223,7 +223,7 @@ function renderStageText() {
     "Tomorrow, everyone chooses again",
   ];
   const prompts = [
-    "Drag the green A stand around the shore. Each dot is a customer choosing the nearest stand.",
+    "Drag stand A around the shore, or use the “Move A with a slider” control. Watch how many customers choose A; each dot chooses its nearest stand.",
     "Keep A where you placed it. Drag orange B and watch what happens to A's customers.",
     "The stands stay exactly where they are. Compare evenly spread customers with a crowd along one quarter of the shore.",
     "Keep the selected customer pattern. Choose A's position before knowing where B and C will go, then predict the result.",
@@ -242,7 +242,7 @@ function renderStageText() {
   });
   ui.beachHint.textContent =
     stage === 0
-      ? "Drag A; the dot colors show where customers go."
+      ? "Drag A or use its position slider; the totals show where customers go."
       : stage === 1
         ? "Drag B. Dark outlines mark customers whose chosen stand changed."
         : stage === 2

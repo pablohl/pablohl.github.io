@@ -1,0 +1,18 @@
+/* Activity previews share the site's type and color tokens. */
+.home-experiment-grid > a { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto 1fr auto; }
+.home-experiment-grid .experiment-kicker, .home-experiment-grid h3 { grid-column: 1; }
+.home-experiment-grid .experiment-preview { grid-column: 1; grid-row: 3; width: 100%; height: auto; margin-top: .75rem; aspect-ratio: 20 / 9; object-fit: contain; }
+.home-experiment-grid .experiment-kicker { font-size: var(--font-meta); }
+.home-experiment-grid .experiment-arrow { text-decoration: underline; text-underline-offset: .2em; }
+.experiment-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 360px); gap: 2rem; align-items: center; color: var(--color-text); text-decoration: none; }
+.experiment-entry h2 { margin-block: .5rem; }
+.experiment-entry:hover h2 { color: var(--color-accent); text-decoration: underline; }
+.experiment-entry .experiment-preview { width: 100%; height: auto; aspect-ratio: 20 / 9; border: 1px solid var(--color-border); border-radius: 3px; }
+.experiment-entry-action { display: inline-block; margin-top: .85rem; color: var(--color-accent); font-size: 1rem; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+.activity-label { display: block; margin-bottom: .6rem; color: var(--color-accent); font-size: var(--font-meta); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.interaction-instruction { max-width: var(--reading-width); padding: .75rem 1rem; border-left: 3px solid var(--color-accent); background: var(--color-surface); color: var(--color-text); font: 400 1rem/1.6 var(--font-sans); }
+.interaction-instruction[hidden] { display: none; }
+@media (max-width: 760px) {
+  .experiment-entry { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .experiment-entry .experiment-preview { max-width: 400px; }
+}

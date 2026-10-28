@@ -52,5 +52,10 @@
 
   if (selectFromHash() === -1) select(0);
   selector.hidden = false;
+  const instruction = document.querySelector('[data-example-instruction]');
+  if (instruction) {
+    instruction.hidden = false;
+    selector.setAttribute('aria-describedby', instruction.id);
+  }
   window.addEventListener('hashchange', selectFromHash);
 })();

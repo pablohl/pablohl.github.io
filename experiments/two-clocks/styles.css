@@ -2,9 +2,10 @@
 body#page .clocks-page.site-main { padding-top: 1rem; }
 .clocks-page [hidden] { display: none !important; }
 .clocks-page .back { color: var(--color-text-secondary); font-size: .8125rem; }
-.intro { display: flex; align-items: baseline; gap: 1rem; margin: .5rem 0; }
+.clocks-page .intro { display: block; margin: 1rem 0; }
+.clocks-page .intro .activity-label { margin-bottom: .6rem; }
 .intro h1 { margin: 0; font: 500 2.1rem/1.15 var(--font-serif); }
-.intro p { margin: 0; font: 400 1.12rem/1.4 var(--font-serif); color: var(--color-text-secondary); }
+.intro p { margin: .5rem 0 0; font: 400 1.12rem/1.4 var(--font-serif); color: var(--color-text-secondary); }
 .setup { max-width: 840px; font-size: .9375rem; line-height: 1.6; margin: .75rem 0 1.25rem; }
 .experience { scroll-margin-top: .5rem; }
 .stage { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px solid var(--color-border); }
