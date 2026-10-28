@@ -58,7 +58,7 @@ window.toolboxLenses = [
   {
     "id": "what-is-worth-learning",
     "name": "What Is Worth Learning?",
-    "question": "What uncertainty could change this decision, and what is the cheapest credible way to reduce it?",
+    "question": "What could I learn that would change my choice, and what’s a simple, reliable way to find out?",
     "source": "Research, Product work",
     "url": "/toolbox/what-is-worth-learning/"
   },
