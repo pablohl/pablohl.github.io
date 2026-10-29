@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Position Before You Know — An Interactive Experiment</title><meta name="description" content="Explore where to position a supporting player, then when to commit to a run as a cross becomes clear."><link rel="icon" href="/favicon-32x32.png"><link rel="stylesheet" href="/css/editorial.css?v=20261027comfort"><link rel="stylesheet" href="./styles.css?v=20261029mobilelinks"><script defer src="/js/editorial-nav.js?v=20261027comfort"></script><script type="module" src="./experiment.mjs?v=20261029mobilelinks"></script><script type="module" src="./run-view.mjs?v=20261029mobilelinks"></script></head><body>  <header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="editorial-header__inner section-inner">
+    <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+    <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+    <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
+      <a href="/about/#research">Research</a>
+      <a href="/toolbox/">Toolbox</a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="main-content" class="section-inner position-page" tabindex="-1">
+<a href="/experiments/">← All experiments</a>
+<header class="intro"><p class="eyebrow">An interactive experiment</p><h1>Position Before You Know</h1><p>Your teammate is about to pass. You can support the attack, but possession could change. Where would you stand?</p></header>
+<nav class="view-switch" aria-label="Choose a scenario"><a href="#position" id="position-link" aria-current="page">1 · Choose your position</a><a href="#run" id="run-link">2 · Then make the run</a></nav><p class="view-preservation">Switch views at any time; your progress in each is kept.</p>
+<section id="position-view" aria-labelledby="question"><div class="task-heading"><h2 id="question">Where could you help next?</h2><p>Drag the person labeled <strong>You</strong> inside the shaded area, or use the position sliders. Your team attacks to the right →</p><p class="run-essay-link">This explores preparing for a change in the play. <a href="/posts/position-before-you-know/#positioned-for-losing">Read “Positioned for losing” →</a></p></div>
+<div class="workspace"><div class="pitch-panel">
+<div id="position-mobile-context"></div>
+<svg id="pitch" viewBox="0 0 720 440" role="img" aria-labelledby="pitch-title pitch-desc"><title id="pitch-title">Choose your supporting position</title><desc id="pitch-desc">The person labeled You is the player you control. Your teammate has the ball; the opponent is ahead of them. The square marks receiving space; the diamond marks space to cover after a turnover. Position sliders follow the diagram.</desc>
+<defs><symbol id="person-icon" viewBox="0 0 32 32"><circle cx="16" cy="9" r="5" fill="white"/><path d="M6 28v-5a10 10 0 0 1 20 0v5z" fill="white"/></symbol><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#49634e"/></marker></defs>
+<rect class="field" x="30" y="30" width="660" height="370" rx="3"/><path class="field-line" d="M360 30V400 M690 120H628V310H690 M30 120H92V310H30"/><circle class="field-line" cx="360" cy="215" r="58"/>
+<rect id="support-zone" x="210" y="150" width="224" height="160" rx="4"/><text class="zone-label" x="215" y="333">YOUR STARTING AREA</text>
+<g id="targets"><rect class="target attack" x="518" y="150" width="22" height="22"/><text class="target-label receive-label" x="529" y="136" text-anchor="middle">Receive pass</text><path class="target cover" d="M171 258l13 13-13 13-13-13z"/><text class="target-label cover-label" x="80" y="312">Cover the break</text></g>
+<g id="previous-layer"></g><g id="route-layer"></g>
+<g id="teammate"><circle class="teammate" cx="450.8" cy="271" r="21"/><use href="#person-icon" x="434.8" y="255" width="32" height="32"/><text class="actor-label" x="450.8" y="316" text-anchor="middle">Teammate</text></g>
+<g id="defender"><rect class="defender" x="453" y="203" width="42" height="42" rx="5"/><use href="#person-icon" x="458" y="208" width="32" height="32"/><text class="actor-label" x="490" y="193" text-anchor="middle">Opponent</text></g>
+<circle id="ball" cx="467" cy="288" r="6"/>
+<g id="player"><circle class="control-ring" r="27"/><circle class="you" r="22"/><use href="#person-icon" x="-16" y="-16" width="32" height="32"/><rect class="you-label-bg" x="-36" y="-60" width="72" height="28" rx="5"/><text class="you-label" y="-40" text-anchor="middle">You</text><circle id="player-hit" r="32" fill="transparent"/></g>
+<text class="orientation" x="40" y="425">Deeper ←</text><text class="orientation" x="680" y="425" text-anchor="end">Further forward →</text>
+</svg>
+<p class="key"><span id="path-key" hidden>Solid: this run · dashed path and ring: previous run</span></p>
+<div class="position-controls"><label for="depth">Forward position <output id="depth-value"></output><input id="depth" type="range" min="25" max="65" value="60" step="1"></label><label for="width">Across (top → bottom) <output id="width-value"></output><input id="width" type="range" min="18" max="50" value="26" step="1"></label></div>
+<div id="position-mobile-primary"></div>
+</div><aside class="play-panel" aria-label="Play and result">
+<p class="eyebrow">One position, two possible futures</p><p id="position-rules" class="rules">You have <strong>3 model seconds</strong> to reach the space, moving at 10 pitch units per second. Choose either continuation.</p>
+<div id="position-actions" class="continuations" role="group" aria-label="Choose and play a continuation"><button id="attack" aria-pressed="true">Play completed pass</button><button id="cover" aria-pressed="false">Play turnover</button></div>
+<p id="fixed-note" class="small">These are two curated possibilities. Neither is more likely in this illustration.</p>
+<section id="result" tabindex="-1" aria-labelledby="result-title"><p class="eyebrow" id="result-label">Before the pass</p><h3 id="result-title">Choose where to stand.</h3><p id="result-consequence" class="consequence" hidden></p><p id="result-detail">Then play either continuation to see what you can reach.</p><div id="comparison" hidden></div><p id="difference"></p></section>
+<div class="recovery"><button id="restore" hidden>Restore previous position</button><button id="reset">Start over</button></div>
+<div id="position-mobile-comparison"></div>
+<p id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+</aside></div>
+<section class="reflection" id="reflection" hidden><h2>What did your position make possible?</h2><p id="cross-comparison"></p><p>Your starting position changes which responses remain possible after the play becomes clear. There is no single score here: the illustration assigns neither probabilities nor values to the two futures.</p><p class="small">Reaching a space gives you an opportunity to help. It does not guarantee a completed pass, a goal, or a stopped counterattack.</p><a href="/posts/position-before-you-know/#positioned-for-losing">Read the essay: Position Before You Know →</a></section>
+<details class="methods"><summary>How this illustration works</summary><p>This is a simplified movement model inspired by the essay’s football example, not measured match data or a tactical recommendation. Coordinates use a 100 × 60 unit section of pitch. You start at forward position 25–65 and across-pitch position 18–50. Receiving space is at (82, 20); cover space is at (18, 42).</p><p>You move directly toward the selected space at 10 units per model second, with 3 model seconds available. Travel time = straight-line distance ÷ 10. Arrival margin = 3 − travel time. Zero means arriving exactly as the window closes. Numbers are rounded for display, not for classifying arrival.</p><p>The teammate’s starting position and the two destinations remain fixed. The ball path identifies the continuation; your movement begins after that continuation becomes visible. Replaying fixes all conditions; switching continuation changes the destination but preserves your starting position. No random outcomes, collisions, offside, reaction delay, or opponent adaptation are modeled. Playback motion is shortened; it is not a real-time clock.</p></details>
+<noscript><p>This experiment needs JavaScript for positioning and comparisons.</p></noscript>
+<p class="next-view"><a href="#run">Next: when do you make the run? →</a></p></section>
+<section id="run-view" aria-labelledby="run-question" hidden>
+  <div class="task-heading"><h2 id="run-question" tabindex="-1">When do you make the run?</h2><p>You are the striker. A cross could reach either post. Start a run, or let the play develop one second at a time.</p><p class="run-essay-link">This explores the essay’s next step: when the play becomes clear, commit. <a href="/posts/position-before-you-know/#then-make-the-run">Read “Then make the run” →</a></p></div>
+  <div class="workspace run-workspace">
+    <div class="pitch-panel">
+      <div id="run-mobile-context"></div>
+      <svg id="run-pitch" viewBox="0 0 720 440" role="img" aria-labelledby="run-pitch-title run-pitch-desc">
+        <defs><marker id="flight-arrow" viewBox="0 0 12 12" refX="17" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M1 1L11 6L1 11z" fill="#315d97"/></marker><marker id="preparation-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#60645b" stroke-width="1.5"/></marker><clipPath id="run-field-clip"><rect x="30" y="30" width="660" height="370"/></clipPath></defs><title id="run-pitch-title">A striker waiting for a cross</title><desc id="run-pitch-desc">Your player begins between the two receiving spaces. The reachable area shrinks as time passes. Controls follow the graphic.</desc>
+        <rect class="field" x="30" y="30" width="660" height="370" rx="3"/>
+        <path class="field-line" d="M690 100H560V330H690 M690 170H652V260H690"/>
+        <path class="run-goal" d="M690 170h16v90h-16"/>
+        <g id="run-reach-area" clip-path="url(#run-field-clip)"></g><g id="run-prior-path"></g><g id="run-current-path"></g>
+        <g id="near-post"><circle class="post-zone" cx="540.4" cy="175" r="24"/><text class="run-target-label" x="493" y="147" text-anchor="end">Near post</text><text id="near-availability" class="run-availability" x="493" y="205" text-anchor="end"></text></g>
+        <g id="far-post"><circle class="post-zone" cx="540.4" cy="295" r="24"/><text class="run-target-label" x="510" y="342" text-anchor="middle">Far post</text><text id="far-availability" class="run-availability" x="490" y="364" text-anchor="middle"></text></g>
+        <g><circle class="teammate" cx="501.2" cy="90" r="20"/><use href="#person-icon" x="485.2" y="74" width="32" height="32"/><text class="actor-label" x="398" y="82" text-anchor="middle">Teammate</text></g>
+        <path id="cross-preparation" class="cross-preparation" hidden/>
+        <path id="cross-flight-halo" class="cross-flight-halo" hidden/>
+        <path id="cross-flight" class="observed-flight" marker-end="url(#flight-arrow)" hidden/>
+        <g id="cross-direction" hidden><path id="cross-destination-brackets" class="cross-destination-brackets"/><text id="cross-direction-label" class="cross-direction-label"></text></g>
+        <circle id="cross-ball-halo" class="cross-ball-halo" r="15" hidden/>
+        <circle id="cross-ball" cx="529.2" cy="90" r="8"/><circle id="cross-ball-center" r="3"/>
+        <g id="striker"><circle class="control-ring" r="27"/><circle class="you" r="22"/><use href="#person-icon" x="-16" y="-16" width="32" height="32"/><text class="striker-label" x="-37" y="5" text-anchor="end">You</text></g>
+      </svg>
+      <div class="run-clock" aria-label="Cross progress"><span id="run-clock-label"></span><div id="run-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <p class="key">Shaded area: where you can still arrive. Green line: your run. Dashed: previous run.<span id="flight-key" class="flight-key" hidden>Blue trail and corner marks: the cross’s observed direction, separate from whether you can reach it.</span></p>
+      <div id="run-reach-summary" class="run-reach-summary"></div>
+      <div id="run-mobile-controls"></div>
+    </div>
+    <aside class="play-panel" aria-label="Cross scenario controls and result">
+      <p class="eyebrow">View 2 · Then make the run</p>
+      <p id="run-cue" class="run-cue"></p>
+      <p id="run-step-rules" class="small">Each action advances <strong>1 model second</strong>. Reading takes no time. The cross arrives at 4 seconds; you move 10 pitch units per second.</p>
+      <div id="run-actions" class="run-actions"><button id="run-near">Run toward near post (+1 s)</button><button id="run-far">Run toward far post (+1 s)</button><button id="run-advance">Let play develop (+1 s)</button></div>
+      <p id="run-action-note" class="small">You stay central until you choose a run. Afterward, advancing continues that run; choosing the other post changes direction.</p>
+      <section id="run-result" class="run-result" tabindex="-1" aria-labelledby="run-result-title" hidden><p class="eyebrow">At the arrival of the cross</p><h3 id="run-result-title"></h3><p id="run-result-detail"></p><p id="run-result-history" class="run-history"></p></section>
+      <div class="recovery"><button id="run-replay">Retry the same cross</button><button id="run-alternate">Switch to a far-post cross</button></div>
+      <p id="run-reset-note" class="small">Retry keeps the same cross and cues, resetting time and your movement. Switching views keeps your progress.</p>
+      <section id="run-comparison" class="run-comparison" hidden aria-label="Previous run comparison"></section>
+      <p id="run-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    </aside>
+  </div>
+  <section id="run-takeaway" class="reflection" hidden><h2>When keeping options open costs you the chance</h2><p>Your starting position kept both posts reachable. As time passed, the space you could still reach shrank. A run gives up some alternatives to make you available somewhere specific.</p><p>A successful early run does not prove you knew the destination. A late run can miss even when you choose the right post. Replay the same cross to change only your actions and their timing.</p><p class="small">This demonstrates reachability under fixed movement rules. Reaching the cross is an opportunity to receive it, not a guaranteed goal. Neither cross is assigned a probability.</p><a href="/posts/position-before-you-know/#then-make-the-run">Read the essay: Then make the run →</a></section>
+  <details class="methods"><summary>How this cross works</summary><p>This is a curated, deterministic illustration. Both posts begin reachable. Your initial position is (68,35); the near and far receiving spaces are (84,23) and (84,47). You move 10 units per model second. The cross arrives at 4 seconds. A run moves you one second toward the chosen space; advancing continues your current run or holds your initial position if you have not chosen one. You can redirect with the other run button.</p><p>At 1 second the teammate’s preparation suggests a destination; at 2 seconds the cross’s direction is explicit. These cues are part of the chosen story, not a probability estimate. The gray preparation hint is tentative. Blue flight and corner marks appear only once the ball is in flight; the trail ends at the ball’s observed position, with no future flight segment drawn. Blue shows the destination indicated by the curated cue, while teal/amber/slate independently show your reachability. The graphic reveals only the flight already observed. Each receiving space is a point; no collisions, offside, acceleration, reaction delay, opponent adaptation, or finishing ability are modeled. The shaded region is the remaining straight-line travel budget, not a region of likely ball destinations.</p><p>Replay keeps the cross and its cues fixed, but you now know what happened. A replay isolates movement and timing; it cannot measure your original foresight. Trying the other cross resets time and movement and explicitly changes the story. A saved completed run stays labeled with its original cross.</p></details>
+  <p><a href="#position">← Return to view 1: choose your position</a></p>
+</section>
+</main>  <footer id="site-footer" class="section-inner thin"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+</body>
+</html>

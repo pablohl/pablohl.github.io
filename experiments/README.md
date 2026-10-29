@@ -209,3 +209,7 @@ These are design lessons, not certifications of the current implementations.
 | [Two Clocks](two-clocks/index.html) | The tension between learning and losing options; explicit model assumptions. | A nominal action that only records a preference; new totals without deltas; a deadline that barely changes visually; optional lessons overwhelming the main discovery. |
 
 The standard is not how many stages, controls, or explanations an experiment contains. It is whether the reader can act, see a meaningful consequence, and use that experience to understand the question more clearly.
+
+## Position Before You Know prototype
+
+[Position Before You Know](position-before-you-know/index.html) explores starting position through fixed continuation comparisons. Its [current reference](position-before-you-know/README.md) owns the prototype rules, recovery behavior, and verification entry points.
