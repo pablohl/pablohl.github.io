@@ -1,0 +1,27 @@
+#!/bin/sh
+# Guard this personal repository against an inherited work identity.
+set -eu
+
+fail() {
+    printf '%s\n' "Commit blocked: $1" 'See docs/git-identity.md for this repository’s Git setup.' >&2
+    exit 1
+}
+
+expected_identity='Pablo Hernandez Leal <hlealpablo@gmail.com>'
+expected_fingerprint='SHA256:kiiiyF2w31d+inhdHrymzuTrM/zYqckUkgErQtoih84'
+
+# git var includes environment overrides and the author selected by git commit.
+for role in AUTHOR COMMITTER; do
+    identity=$(git var "GIT_${role}_IDENT") || fail "Cannot read $role identity."
+    case "$identity" in
+        "$expected_identity "*) ;;
+        *) fail "$role must be $expected_identity." ;;
+    esac
+done
+
+[ "$(git config --get gpg.format || true)" = ssh ] || fail 'Configure SSH commit signing.'
+[ "$(git config --bool --get commit.gpgsign || true)" = true ] || fail 'Enable commit signing.'
+signing_key=$(git config --get user.signingkey || true)
+[ -n "$signing_key" ] || fail 'Configure your personal SSH signing key.'
+fingerprint=$(ssh-keygen -lf "$signing_key" 2>/dev/null | awk '{print $2}') || fail 'Cannot read the configured SSH signing key.'
+[ "$fingerprint" = "$expected_fingerprint" ] || fail 'The signing key does not match the pablohl personal key.'

@@ -25,6 +25,7 @@ Apply only relevant requirements. A static guide does not need a simulation or a
 - Preserve stable routes, IDs, and target anchors unless the task explicitly changes them.
 - When shared CSS or navigation changes, keep asset versions consistent in the generators, shell applicator, and affected published pages.
 - Use a `codex/` branch for new work. Keep unrelated working changes out of the PR.
+- Before committing, follow [Personal Git identity](docs/git-identity.md), activate the repository hook in this checkout, and check the effective author/committer and personal signing key. Use the `pablohl` account for pushes; do not bypass the hook to use an inherited work identity.
 
 ## Keep documentation and evidence accurate
 

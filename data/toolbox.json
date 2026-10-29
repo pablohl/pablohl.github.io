@@ -928,8 +928,8 @@
         "title": "Paying for a refundable booking",
         "situation": "You are booking accommodation for a family visit whose dates may change. A nonrefundable room costs less; the same room with cancellation until a week before arrival costs extra. Both meet your needs if the visit goes ahead.",
         "tempting_conclusion": "Choose the cheaper room because the stay itself is identical.",
-        "evidence": "The extra payment buys a future choice, not a better room. If the dates change within the cancellation window, the refundable booking can be released without losing the full room price. If the dates are already firm, that option may have little value. The deadline also matters: cancellation protection may expire before the uncertainty is resolved.",
-        "conclusion": "Compare the premium with the plausible cost of changing plans and when you expect confirmation. Paying for flexibility can be reasonable, but it is not automatically worth any price. Preserve the specific option you may need, rather than purchasing every available safeguard."
+        "evidence": "You’d be paying extra for the chance to cancel and get your money back if the dates change. That could help while the visit is still being planned. But if you won’t know the dates until a few days before arrival, the cancellation deadline will already have passed. And if the dates are settled, you may not need that flexibility.",
+        "conclusion": "The refundable room might be worth the extra cost if there’s a real chance the dates will change and you’ll know before the deadline. If the price difference is large, or you’d find out too late to cancel, it may not help much. The useful question is whether this booking gives you room to change the plan when you might need to."
       },
       "expected_outcome": "Identify which future choices an action closes and whether keeping them open is worth the cost."
     },
@@ -1138,11 +1138,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Finding why attendance is falling",
-        "situation": "A neighborhood club has fewer attendees. The organizer starts polishing its invitation emails, but does not yet know whether the problem is publicity, timing, or the activities themselves.",
-        "tempting_conclusion": "Keep improving the invitation until attendance recovers.",
-        "evidence": "A few conversations with former attendees and small trials of a different time and activity can reveal where the problem lies. If people already read the invitations but cannot attend at that hour, further wording changes have little room to help. These early trials should distinguish possible explanations rather than perfect one solution.",
-        "conclusion": "Explore a few meaningfully different directions, then invest in the promising one. If timing repeatedly emerges as the obstacle, refine the schedule and assess attendance over several meetings. Do not keep changing every variable indefinitely; exploration earns its cost by directing later effort."
+        "title": "Finding exercise you’ll keep doing",
+        "situation": "You want to exercise more regularly. You’ve made a running plan and keep adjusting the distance and pace, but you rarely get out for a run.",
+        "tempting_conclusion": "Maybe a better running plan would help me stick with it.",
+        "evidence": "Running might not be the best fit for you right now. Trying a few walks, swims, or group classes could tell you more than another change to the plan. You might find that you enjoy a class with other people, or that a walk at lunchtime is easier to fit into your day.",
+        "conclusion": "Once you find something you enjoy and can make time for, it may be worth building a routine around it. Then details like when to go or how much to do have a clearer purpose. You don’t have to keep trying everything, though a change in your schedule or interests might be a reason to try something else later."
       },
       "expected_outcome": "Choose where to try a small intervention and what would justify concentrating effort there."
     },
@@ -1243,11 +1243,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Trying a meal plan before buying a system",
-        "situation": "A household wants to reduce wasted groceries. You consider a subscription service that tracks ingredients and plans every meal, but have not established what causes the waste.",
-        "tempting_conclusion": "A comprehensive system will handle the problem more effectively than a basic routine.",
-        "evidence": "For two weeks, list three planned dinners on paper and check the fridge before shopping. This small trial tests whether coordinating meals and purchases changes what gets thrown away. If it helps, you have evidence for the core idea. If irregular schedules defeat the plan, more elaborate tracking may not address the real obstacle.",
-        "conclusion": "Use the trial to decide what additional support is actually needed. A simple approach provides a baseline and exposes limitations cheaply. It does not mean paper is always sufficient, or that the shortest trial can capture every busy week or seasonal change."
+        "title": "Trying a meal plan before paying for an app",
+        "situation": "You keep throwing away groceries that never get used. You’re thinking about paying for an app that tracks what’s in the kitchen and plans your meals, but you’re not sure why so much food is going to waste.",
+        "tempting_conclusion": "An app that organizes everything should help us waste less.",
+        "evidence": "You could try planning three dinners on paper and checking the fridge before shopping for a couple of weeks. If less food ends up in the bin, planning meals around what you buy seems to help. If plans keep falling apart because everyone gets home at different times, tracking more ingredients might not be what you need.",
+        "conclusion": "The app might still be useful, but you’d have a better idea of what you want it to help with. Maybe the paper plan is enough, or maybe it’s hard to keep everyone’s plans in one place. A couple of weeks won’t tell you how this works through every busy spell, but it could give you a useful start before paying for more features."
       },
       "expected_outcome": "Choose a simple baseline that reveals whether added complexity earns its place."
     },
@@ -1293,11 +1293,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A proposal aimed at the wrong priority",
-        "situation": "You ask a colleague to share responsibility for an event and prepare a pitch about how much attention it will receive. They remain hesitant even after you explain its visibility.",
-        "tempting_conclusion": "They need more convincing that the event will be successful.",
-        "evidence": "You ask what would make the commitment workable. They explain that their main concern is unpredictable evening work, not recognition. Your pitch was answering a question they were not using to decide. A clear schedule and division of responsibilities may matter more than a larger audience.",
-        "conclusion": "Check whether predictable hours would change their willingness before revising the proposal. Their explanation is useful evidence, not a complete account of every motive. The next step is to understand and test the relevant priority, rather than assume they value the opportunity in the same way you do."
+        "title": "Choosing flights for a family holiday",
+        "situation": "You’re planning a holiday with your partner and two young children. You find cheaper flights with a connection, but your partner keeps coming back to a more expensive direct flight.",
+        "tempting_conclusion": "Maybe if I find an even cheaper fare, they’ll see why the connection is worth it.",
+        "evidence": "When you talk about it, your partner says they’re worried about getting two tired children through another airport and possibly missing the next flight. You’ve been looking for a good price; they’ve been thinking about how the journey will feel. A bigger saving might matter, but it doesn’t make the transfer any easier.",
+        "conclusion": "The conversation can now include both the price and the journey. You might pay more to fly direct, or find a connection with enough time and a manageable departure hour. Neither choice has to win automatically. You have a better chance of finding a flight you’re both happy with once you understand what each of you is weighing up."
       },
       "expected_outcome": "Check what the other person is trying to achieve before choosing your response."
     },
@@ -1346,11 +1346,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A delayed reply to an invitation",
-        "situation": "A friend has not answered your invitation. You wonder whether they are busy, unsure about the plan, or deliberately waiting for you to offer a different arrangement.",
-        "tempting_conclusion": "The delay is a signal; I should work out what response they are trying to provoke.",
-        "evidence": "You currently have only silence, which fits several explanations. A brief follow-up with a clear date and an easy way to decline produces more useful evidence than another theory. If the friend explains a scheduling conflict, a complex strategic account becomes less necessary. Repeated bargaining around similar invitations could justify considering a different model.",
-        "conclusion": "Use the least elaborate explanation that fits the available evidence, while staying open to revision. The follow-up may clarify the next action without revealing the friend’s full motives. Sophisticated speculation earns its place through observations, not through how convincing a story sounds."
+        "title": "Is there really another buyer?",
+        "situation": "You’re looking at a secondhand car and make an offer below the asking price. The seller says someone else is coming to see it tomorrow. You wonder whether they’re trying to get you to pay more.",
+        "tempting_conclusion": "They’re bluffing. I’ll hold my offer and wait for them to come back.",
+        "evidence": "Another viewing is quite possible. The seller could also be using it to put pressure on you—or both could be true. Asking whether they’d accept your offer today gives you something more to go on, though their answer won’t prove whether another buyer exists. If they later come back with a lower price, that changes what you can negotiate, even if you still don’t know why.",
+        "conclusion": "You can take the possibility of another buyer seriously without raising your offer just because the seller mentions one. What you’re willing to pay, and whether you’d be happy to keep looking, still matter. Their next response may help you judge how much room there is to bargain; you don’t need to be certain they’re bluffing to decide what to offer."
       },
       "expected_outcome": "Choose an explanation to investigate without assuming more strategic intent than the evidence supports."
     },
@@ -1446,11 +1446,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Serving dinner with one oven",
-        "situation": "You are cooking for eight people with one oven and an hour before they arrive. Your preferred menu requires three dishes at different temperatures. One guest also has a food allergy.",
-        "tempting_conclusion": "The best dinner is the full menu, so work faster to make it happen.",
-        "evidence": "The oven schedule makes that menu infeasible within the time available. A cold starter, one baked main, and a ready-made dessert can meet the actual goal of feeding everyone well. The allergy remains a firm requirement; reducing complexity does not justify ignoring it.",
-        "conclusion": "Choose a menu that works with the available time, equipment, and dietary needs. Accepting a less ambitious dessert may improve the whole meal. Check which constraints are real and which are preferences before compromising: a later serving time could change the options if the guests are comfortable with it."
+        "title": "Moving out by Sunday",
+        "situation": "You need to leave your flat empty on Sunday. The moving van arrives that morning, and you have two evenings left to pack. You’d like to sell the furniture you’re not taking and get a good price for each piece.",
+        "tempting_conclusion": "I’ll list everything separately and wait for decent offers. There’s no point giving away things I could sell.",
+        "evidence": "Taking photos, answering messages, and arranging collections all take time—and a buyer might not turn up. Selling every piece for a good price could leave you with furniture still in the flat on Sunday. You might have time to sell the most valuable items and arrange a confirmed donation collection for the rest, if one is available before you leave.",
+        "conclusion": "Getting less money for some things may be worth it if it means the flat is empty on time. A sale only helps if the buyer can collect before you leave. If you can get a few extra days or have somewhere to store things, you may have more room to wait for better offers."
       },
       "expected_outcome": "State the real constraints and compare approaches that can work within them."
     },
@@ -1553,10 +1553,10 @@
       "random_enabled": true,
       "worked_example": {
         "title": "Getting useful feedback on a workshop",
-        "situation": "You ask a colleague whether your proposed workshop sounds good. You describe the topic and receive only “seems useful.” You need feedback on whether participants will understand the central idea.",
-        "tempting_conclusion": "The colleague needs to think harder or provide more detailed comments.",
-        "evidence": "Your description gives them little evidence about the teaching. You share a short opening explanation and one sample activity instead. Now they can point to an unfamiliar term and a step where participants may get lost. The artifact exposes the issue you wanted reviewed without requiring a finished slide deck.",
-        "conclusion": "Make the relevant part concrete enough for the feedback you need. Use a sample explanation to test understanding and a rough outline to discuss overall direction. More polish is not always more informative; complete visual design would add little to this particular review."
+        "situation": "You tell a colleague about a workshop you’re planning and ask what they think. “Sounds useful,” they say. That’s encouraging, but you were hoping to find out whether people would understand the main idea.",
+        "tempting_conclusion": "I wish they’d give me something more useful than “sounds good.”",
+        "evidence": "So far, they’ve only heard the topic. You send them the explanation you plan to open with and one activity you’d like people to try. This time, they point out a term people might not know and a step in the activity that’s hard to follow. Having something to read and try gives them more to respond to.",
+        "conclusion": "You didn’t need a finished slide deck to get those comments. A short explanation and a sample activity were enough to start talking about where people might get stuck. If you wanted feedback on the workshop’s overall direction, a rough outline might have been more useful. What you share can match the question you’re asking."
       },
       "expected_outcome": "Give feedback about a specific moment, action, and possible improvement."
     },
@@ -1605,11 +1605,11 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "An event that few people attended",
-        "situation": "You organized a community event carefully, but attendance was low. Feedback says the arrangements were clear. You still do not know whether your work was useful or what to change next time.",
-        "tempting_conclusion": "Low attendance means the organizing was poor, so improve the invitations and logistics.",
-        "evidence": "Conversations with invitees reveal that many wanted to come but could not manage the time. Those who attended describe helpful introductions, and two later arrange a shared project. These observations separate the quality of preparation, barriers to attendance, and consequences of attending. They do not establish that your organizing alone caused the later collaboration.",
-        "conclusion": "Follow up on both participation barriers and what attendees gained before choosing what to improve. A different time may matter more than more polished invitations. Treat outcomes as evidence to investigate alongside your decisions and external circumstances, rather than as a simple score for your contribution."
+        "title": "Signs that look clear but leave people lost",
+        "situation": "You’ve made signs to help people find registration at an event. The text is easy to read, the arrows are clear, and the organizer likes them. You’re pleased with how they turned out.",
+        "tempting_conclusion": "The signs look good and everyone’s happy with them. That job’s done.",
+        "evidence": "At the event, you notice visitors stopping to ask where registration is. You walk in from the entrance and realize the first sign is after the turn where people get confused. A volunteer moves it before the turn, and you watch the next arrivals to see whether they can find their way more easily.",
+        "conclusion": "Seeing people arrive tells you something the design review couldn’t: where they need help. If fewer people stop to ask after the sign moves, that suggests the new position helps. A volunteer giving directions could also make a difference, so it’s worth noticing what else is happening. For the next event, you have a clearer idea of where to put the signs and what to check."
       },
       "expected_outcome": "Trace how work affected a decision or outcome and identify what to improve next."
     },
