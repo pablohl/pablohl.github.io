@@ -11,7 +11,7 @@ Use this index to find the current guidance before proposing, reviewing, or impl
 | [Reading comfort and shared navigation](reading-comfort-navigation.md) | Shared presentation defaults, responsive comparison behavior, global header, and keyboard navigation |
 | [Toolbox navigation](toolbox-navigation.md) | Homepage destinations, collection roles, breadcrumbs, and collection return links |
 | [Decision Toolbox](decision-toolbox.md) | General-audience tool content, worked examples, completeness, and relationships |
-| [Engineering guides](engineering-toolbox.md) | Engineering collection purpose, content pattern, hiring-guide behavior, and links to other guide references |
+| [Engineering guides](engineering-toolbox.md) | Engineering collection design intention and repeatable design notes, content pattern, hiring-guide behavior, and links to other guide references |
 | [Results to decisions](results-to-decisions.md) | The current two-story guide, condition changes, baselines, and evidence limits |
 | [Architectural consequences](system-selection-guide.md) | The current static three-context guide and its evidence limits |
 | [Experiment guidelines](../experiments/README.md) | Experiment design, meaningful interactions, model honesty, accessibility, and experience verification |
