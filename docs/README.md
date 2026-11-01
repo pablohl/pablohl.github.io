@@ -40,6 +40,7 @@ These documents have different roles: guidelines state intended standards; guide
 | Decision tools and starting points | [toolbox.json](../data/toolbox.json), [toolbox-starting-points.json](../data/toolbox-starting-points.json), [build_toolbox.py](../scripts/build_toolbox.py) |
 | Engineering guides | [engineering-tools.json](../data/engineering-tools.json), [build_engineering_toolbox.py](../scripts/build_engineering_toolbox.py), [build_system_selection.py](../scripts/build_system_selection.py) |
 | Guide presentation and controls | [engineering-toolbox.css](../css/engineering-toolbox.css), [engineering-selection.css](../css/engineering-selection.css), [engineering-examples.js](../js/engineering-examples.js), [engineering-decisions.js](../js/engineering-decisions.js) |
+| Engineering collection invitations and previews | `collection` fields in [engineering-tools.json](../data/engineering-tools.json), [build_engineering_toolbox.py](../scripts/build_engineering_toolbox.py), [engineering-collection.css](../css/engineering-collection.css) |
 | Experiments | Each directory under `experiments/` owns its page, styles, interaction code, and any model/journey tests |
 
 Run from the repository root when rebuilding toolbox content or its shell:

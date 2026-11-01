@@ -18,7 +18,11 @@ The collection has three guides:
 | [What Does This Result Let Us Decide?](results-to-decisions.md) | Two selectable stories with reversible conditions; connect a result to what the next action requires |
 | [This Works Here. What Changes Elsewhere?](system-selection-guide.md) | Three visible static contexts; interpret the same local result through dependencies and consequences |
 
-Each guide and its index card states when it is relevant and what the reader will be able to do. [Toolbox navigation](toolbox-navigation.md) owns destinations and collection roles. [Reading comfort](reading-comfort-navigation.md) owns shared type, widths, comparison breakpoints, and header behavior; do not copy those mutable values into this reference.
+Each guide states when it is relevant and what the reader will be able to do. The collection opens with “What does the evidence actually justify?” and presents situation-led questions, HTML/CSS previews, secondary formal guide titles, and format-specific invitations. Hiring previews distinguish observation, support, and untested transfer; technical-results previews show the illustrative alert-rule comparison; the system preview asks whether an update has saved before the next invoice needs it. These are linked previews, not live controls or additional test results. The architectural card explicitly describes three static contexts; the collection does not label every guide interactive.
+
+The `collection` fields in `engineering-tools.json` own the card questions, situations, formats, and actions. The builder owns the corresponding preview compositions, and `engineering-collection.css` applies only to the collection page. Keep the alert counts in that preview and card consistent with the guide's illustrative baseline when revising its scenario.
+
+[Toolbox navigation](toolbox-navigation.md) owns destinations and collection roles. [Reading comfort](reading-comfort-navigation.md) owns shared type, widths, comparison breakpoints, and header behavior; do not copy those mutable values into this reference.
 
 ## Hiring guide
 
