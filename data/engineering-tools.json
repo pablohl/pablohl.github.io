@@ -155,7 +155,15 @@
       "insufficientEvidenceTemplate": "We haven’t tested [capability], so we don’t yet have enough evidence to predict [how they would handle specific work]. We could check it by [next step].",
       "distinction": "What you observed is evidence. What you expect them to do at work is a prediction. Keep the uncertainty visible.",
       "use_when": "You’re discussing an interview and need to distinguish observed behavior from expectations about future work.",
-      "expected_outcome": "Describe what an answer supports, what remains untested, and a useful follow-up check."
+      "expected_outcome": "Describe what an answer supports, what remains untested, and a useful follow-up check.",
+      "collection": {
+        "label": "Hiring",
+        "question": "They spotted the risk. What does that tell you?",
+        "situation": "An interview answer sounds promising. Compare what two responses support—and what neither has tested.",
+        "format": "Two selectable interview scenarios",
+        "action": "Compare interview responses",
+        "preview": "hiring"
+      }
     },
     {
       "id": "results-to-decisions",
@@ -336,7 +344,15 @@
       "endingTitle": "Name what the gap changes.",
       "ending": "Reviewing the incidents behind the alerts can show that a quieter rule would miss a problem needing intervention. The archive can stay in the old system if staff can still do their work with active orders in the new one. Explain which requirement connects the result to your recommended action.",
       "use_when": "A technical result looks promising, but the next action is unclear.",
-      "expected_outcome": "State what the result supports, the conditions on your recommendation, and what still needs checking."
+      "expected_outcome": "State what the result supports, the conditions on your recommendation, and what still needs checking.",
+      "collection": {
+        "label": "Technical recommendations",
+        "question": "18 alerts could become 4. Is that better?",
+        "situation": "Fewer overnight interruptions sound good. Change what you know about the missed incidents and see what you can recommend.",
+        "format": "Two stories with changeable conditions",
+        "action": "Change one condition",
+        "preview": "results"
+      }
     },
     {
       "id": "eligible-is-not-selected",
@@ -415,7 +431,15 @@
         }
       ],
       "use_when": "A component works well in a test and you need to assess its consequences for the rest of the system.",
-      "expected_outcome": "Identify the dependencies and assumptions that determine whether a local improvement supports a wider change."
+      "expected_outcome": "Identify the dependencies and assumptions that determine whether a local improvement supports a wider change.",
+      "collection": {
+        "label": "System consequences",
+        "question": "The update is received. What happens next?",
+        "situation": "An account update saves in the background. Follow what that delay means for a nickname, an invoice, and a partly understood integration.",
+        "format": "Three static contexts to compare",
+        "action": "Trace the dependency",
+        "preview": "system"
+      }
     }
   ]
 }

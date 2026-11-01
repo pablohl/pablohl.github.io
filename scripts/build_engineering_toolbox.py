@@ -5,8 +5,10 @@ import re
 from build_toolbox import ROOT, SITE_URL, esc, site_head, site_header, site_footer, reader_orientation, breadcrumb, collection_nav
 
 
-def page(title, summary, route, body, interactive=False, decisions=False):
+def page(title, summary, route, body, interactive=False, decisions=False, collection=False):
     head = site_head(title, summary, SITE_URL + route).replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261028interactive">\n</head>')
+    if collection:
+        head = head.replace('</head>', '<link rel="stylesheet" href="/css/engineering-collection.css?v=20261031">\n</head>')
     script = '<script src="/js/engineering-examples.js?v=20261028interactive" defer></script>' if interactive else ''
     if decisions:
         script += '<script src="/js/engineering-decisions.js?v=20261026" defer></script>'
@@ -91,7 +93,13 @@ def render_story_guide(tool):
 
 
 def render_card(tool, route):
-    return f'<a class="engineering-tool-card" href="{route}"><span class="engineering-eyebrow">{esc(tool["category"])}</span><h2>{esc(tool["title"])}</h2>{reader_orientation(tool["use_when"], tool["expected_outcome"])}<strong>Explore the examples →</strong></a>'
+    entry = tool['collection']
+    previews = {
+        'hiring': '''<div class="guide-preview preview-hiring" aria-hidden="true"><div><span>Observed</span><strong>Names a risk</strong></div><div><span>What it supports</span><strong>Recognizes this risk</strong></div><div class="preview-open"><span>Still untested</span><strong>Judgment in a new case?</strong></div></div>''',
+        'results': '''<div class="guide-preview preview-results" aria-hidden="true"><p>Same week · different alert rule</p><div class="preview-counts"><div><strong>18</strong><span>Current rule</span></div><span class="preview-arrow">→</span><div><strong>4</strong><span>Proposed rule</span></div></div><p class="preview-open">Fewer alerts.<br><strong>But what was missed?</strong></p></div>''',
+        'system': '''<div class="guide-preview preview-system" aria-hidden="true"><div class="preview-node">Update received</div><span class="preview-connector">↓</span><div class="preview-node preview-open">Saved yet?</div><span class="preview-connector">↓</span><div class="preview-node">Needed for the next invoice</div><p>What if it is read before it saves?</p></div>'''
+    }
+    return f'''<a class="guide-investigation" href="{route}" aria-labelledby="card-{esc(tool['id'])}" aria-describedby="format-{esc(tool['id'])}">{previews[entry['preview']]}<div class="guide-invitation"><p class="engineering-eyebrow">{esc(entry['label'])}</p><h2 id="card-{esc(tool['id'])}">{esc(entry['question'])}</h2><p class="guide-situation">{esc(entry['situation'])}</p><p class="guide-formal-title">Guide: {esc(tool['title'])}</p><p class="guide-format" id="format-{esc(tool['id'])}">{esc(entry['format'])}</p><span class="guide-action">{esc(entry['action'])} <span aria-hidden="true">→</span></span></div></a>'''
 
 
 def build():
@@ -148,8 +156,8 @@ def build():
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(page(tool['title'], tool['summary'], route, body, interactive=True))
         cards.append(render_card(tool, route))
-    body = collection_nav('Engineering guides') + '''<header class="engineering-intro"><h1>Engineering guides</h1><p class="engineering-lead">Work through hiring and technical decisions. See how evidence and requirements change what you can recommend.</p><p>Choose a guide below. Each uses concrete situations to explain the reasoning, with conditions you can compare.</p></header>''' + ''.join(cards) + '<section class="engineering-section"><h2>Looking for a question to apply to your own decision?</h2><p>The <a href="/toolbox/#decision-tools">decision tools</a> offer reusable questions about evidence, uncertainty, timing, and trade-offs. These guides show how that reasoning works in specific engineering situations.</p></section>'
-    (ROOT / 'toolbox/engineering/index.html').write_text(page('Engineering guides', 'Worked situations for hiring and technical recommendations.', '/toolbox/engineering/', body))
+    body = collection_nav('Engineering guides') + '''<header class="engineering-intro guide-collection-intro"><p class="engineering-eyebrow">Toolbox / Engineering guides</p><h1>What does the evidence<br>actually justify?</h1><p class="engineering-lead">Investigate hiring judgments, technical recommendations, and what a system change means elsewhere. Compare responses, change a condition, or follow a dependency.</p></header><div class="guide-investigations">''' + ''.join(cards) + '</div><section class="engineering-section guide-collection-onward"><h2>Bring a question to your own decision</h2><p>The <a href="/toolbox/#decision-tools">decision tools</a> offer reusable questions about evidence, uncertainty, timing, and trade-offs. These guides show that reasoning in specific engineering situations.</p></section>'
+    (ROOT / 'toolbox/engineering/index.html').write_text(page('Engineering guides', 'What does the evidence actually justify? Compare hiring responses, change technical conditions, and follow system dependencies.', '/toolbox/engineering/', body, collection=True))
 
     sitemap = ROOT / 'sitemap.xml'
     source = re.sub(r'\s*<!-- engineering:start -->.*?<!-- engineering:end -->\s*', '\n', sitemap.read_text(), flags=re.S)
