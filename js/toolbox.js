@@ -8,6 +8,8 @@
     var cards = Array.prototype.slice.call(catalogue.querySelectorAll("[data-tool-card]"));
     var problemButtons = Array.prototype.slice.call(document.querySelectorAll("[data-problem-filter]"));
     var sourceSelect = document.querySelector("[data-source-filter]");
+    var sourceDetails = document.querySelector("[data-source-filters]");
+    var sourceStatus = document.querySelector("[data-source-status]");
     var clearButton = document.querySelector("[data-clear-filters]");
     var count = document.querySelector("[data-result-count]");
     var empty = document.querySelector("[data-empty-state]");
@@ -40,6 +42,8 @@
         card.hidden = !(matchesProblem && matchesSource);
         if (!card.hidden) visible += 1;
       });
+      if (clearButton) clearButton.hidden = selectedProblem === "all" && selectedSource === "all";
+      if (sourceStatus) sourceStatus.textContent = selectedSource === "all" ? "" : " · Source: " + sourceSelect.options[sourceSelect.selectedIndex].text;
       if (count) count.textContent = visible + (visible === 1 ? " tool" : " tools");
       if (empty) empty.hidden = visible !== 0;
       if (updateAddress) updateUrl();
@@ -83,6 +87,7 @@
     if (hasInitialSource) {
       selectedSource = initialSource;
       sourceSelect.value = initialSource;
+      if (sourceDetails) sourceDetails.open = true;
     }
     applyFilters(false);
   }

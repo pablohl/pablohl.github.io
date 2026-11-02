@@ -180,10 +180,13 @@ def problem_tags(tool: dict, problems: dict[str, dict]) -> str:
 def tool_card(tool: dict, problems: dict[str, dict], sources: dict[str, dict]) -> str:
     source_names = ", ".join(sources[item]["name"] for item in tool["sources"])
     source_types = dict.fromkeys(sources[item]["type"] for item in tool["sources"])
+    context = tool.get("catalogue_context", tool["situation"])
+    context = context[0].lower() + context[1:]
     return f"""<article class="tool-card" data-tool-card data-problems="{esc(' '.join(tool['problems']))}" data-sources="{esc(' '.join(source_types))}">
   <a href="/toolbox/{esc(tool['id'])}/">
     <h2>{esc(tool['name'])}</h2>
     <p class="tool-question">{esc(tool['question'])}</p>
+    <p class="tool-card-context">Use when {esc(context)}</p>
     <div class="tool-meta">{problem_tags(tool, problems)}</div>
     <span class="source-note">From: {esc(source_names)}</span>
   </a>
@@ -197,21 +200,29 @@ def render_starting_points(published: list[dict]) -> str:
     for entry in entries:
         if not entry.get("situation", "").strip():
             raise ValueError("Starting point must have a situation")
-        links = []
-        for role, label in (("primary", "Start here"), ("alternative", "Also consider")):
+        for role in ("primary", "alternative"):
             choice = entry[role]
             if choice["tool"] not in tools or not choice.get("description", "").strip():
                 raise ValueError(f"Invalid {role} in starting point: {entry['situation']}")
-            tool = tools[choice["tool"]]
-            links.append(
-                f'<p class="starting-point-{role}"><span class="starting-point-label">{label}:</span> '
-                f'<a href="/toolbox/{esc(tool["id"])}/">{esc(tool["name"])}</a>'
-                f'<span class="starting-point-description">{esc(choice["description"])}</span></p>'
-            )
         if entry["primary"]["tool"] == entry["alternative"]["tool"]:
             raise ValueError("Starting point alternatives must be distinct")
-        rows.append(f'<li class="starting-point"><h4>{esc(entry["situation"])}</h4>{"".join(links)}</li>')
-    return '<ol class="starting-points-list">' + "".join(rows) + '</ol>'
+        primary, alternative = entry["primary"], entry["alternative"]
+        primary_tool, alternative_tool = tools[primary["tool"]], tools[alternative["tool"]]
+        rows.append(
+            f'<li class="starting-point"><h3>{esc(entry["situation"])}</h3>'
+            f'<p class="starting-point-primary"><a href="/toolbox/{esc(primary_tool["id"])}/">'
+            f'{esc(primary_tool["name"])} →</a>'
+            f'<span class="starting-point-description">{esc(primary["description"])}</span></p>'
+            f'<details class="starting-point-alternative"><summary>Another angle'
+            f'<span class="visually-hidden"> for {esc(entry["situation"])}</span></summary>'
+            f'<p><a href="/toolbox/{esc(alternative_tool["id"])}/">{esc(alternative_tool["name"])} →</a>'
+            f'<span class="starting-point-description">{esc(alternative["description"])}</span></p></details></li>'
+        )
+    initial = '<ol class="starting-points-list">' + "".join(rows[:4]) + '</ol>'
+    if len(rows) > 4:
+        initial += (f'<details class="starting-points-more"><summary>More situations ({len(rows) - 4})</summary>'
+                    '<ol class="starting-points-list">' + "".join(rows[4:]) + '</ol></details>')
+    return initial
 
 
 def render_catalogue(data: dict, published: list[dict], problems: dict, sources: dict) -> None:
@@ -234,44 +245,27 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261027comfort"></head>')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261101catalogue"></head>')}
 <body id="page">
 {site_header()}
 <main id="main-content" tabindex="-1" class="site-main section-inner toolbox-page animated fadeIn faster">
   {collection_nav("Toolbox")}
-  <header>
-    <h1>Toolbox</h1>
-    <p class="toolbox-intro">Questions to use in your own decisions. Guides that show the reasoning in practice.</p>
+  <header class="toolbox-opening">
+    <p class="tool-eyebrow">Toolbox</p>
+    <h1>Find a useful question for the decision you’re facing.</h1>
+    <p class="toolbox-intro">Start with a situation you recognize. Each tool explores a question through an example.</p>
+    <nav class="toolbox-opening-links toolbox-collection-routes" aria-label="More ways to explore">
+      <div><span class="collection-route-label">Decision tools</span><strong>A question to use.</strong><p>Portable questions for a decision of your own.</p><a href="#all-tools">Browse all {len(published)} questions →</a></div>
+      <div><span class="collection-route-label">Engineering guides</span><strong>Reasoning in practice.</strong><p>Worked situations showing how evidence can change a decision.</p><a href="/toolbox/engineering/">Explore engineering guides →</a></div>
+    </nav>
   </header>
-  <nav class="toolbox-paths" aria-label="Choose where to start">
-    <section aria-labelledby="decision-path-title">
-      <p class="tool-eyebrow">For a decision you’re facing</p>
-      <h2 id="decision-path-title"><a href="#decision-tools">Decision tools →</a></h2>
-      <p>Choose a question to examine evidence, uncertainty, timing, or trade-offs. Use it in everyday choices or at work.</p>
-      <p class="toolbox-path-example">“I understand the findings, but what should we do?”</p>
-      <a href="#decision-tools">Find a question for your situation →</a>
-    </section>
-    <section aria-labelledby="engineering-path-title">
-      <p class="tool-eyebrow">For an engineering situation</p>
-      <h2 id="engineering-path-title"><a href="/toolbox/engineering/">Engineering guides →</a></h2>
-      <p>Work through concrete examples of hiring and technical recommendations. Change a condition and examine what it supports.</p>
-      <p class="toolbox-path-example">Start with <a href="/toolbox/engineering/hiring-forecast/">hiring evidence</a> or <a href="/toolbox/engineering/results-to-decisions/">turning results into a recommendation</a>.</p>
-      <a href="/toolbox/engineering/">Browse engineering guides →</a>
-    </section>
-  </nav>
-  <section class="toolbox-library-intro" aria-labelledby="decision-tools">
-    <h2 id="decision-tools">Decision tools</h2>
-    <p>Start with a situation below, or <a href="#all-tools">browse all {len(published)} questions</a>. Each tool explains a question through an example; you don’t need to use every tool.</p>
-  </section>
-  <section class="starting-points" aria-labelledby="starting-points">
-    <h3 id="starting-points">Find your situation</h3>
-    <p>Choose the suggested question, or the alternative if it fits your difficulty better.</p>
+  <section class="starting-points" id="decision-tools" aria-labelledby="starting-points">
+    <h2 id="starting-points">Find your situation</h2>
     {starting_points}
-    <p class="starting-points-footer">None of these fits? <a href="#all-tools">Browse all {len(published)} decision tools below.</a></p>
   </section>
   <div class="catalogue-heading">
     <h2 id="all-tools">Browse all decision tools</h2>
-    <button type="button" class="lens-refresh" data-lens-suggest aria-expanded="false" aria-controls="random-lens">Suggest a tool</button>
+    <button type="button" class="lens-refresh" data-lens-suggest aria-expanded="false" aria-controls="random-lens">Show me a random question</button>
   </div>
   <aside id="random-lens" class="catalogue-lens" hidden data-random-lens data-initial-lens="{esc(initial_lens['id'])}" aria-labelledby="catalogue-lens-title">
     <p class="lens-question" data-lens-question>{esc(initial_lens['question'])}</p>
@@ -280,7 +274,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
       <span data-lens-source>From: {esc(initial_sources)}</span>
     </div>
     <div class="lens-actions">
-      <button class="lens-refresh" type="button" data-lens-refresh>Suggest another</button>
+      <button class="lens-refresh" type="button" data-lens-refresh>Show another question</button>
       <a class="lens-open" href="/toolbox/{esc(initial_lens['id'])}/" data-lens-link>Open tool →</a>
     </div>
   </aside>
@@ -292,17 +286,20 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
         {problem_buttons}
       </div>
     </div>
-    <div class="filter-group">
-      <label class="filter-label" for="source-filter">Or explore by source type</label>
+    <details class="source-filters" data-source-filters>
+      <summary>More filters<span class="source-filter-status" data-source-status></span></summary>
+      <div class="filter-group">
+      <label class="filter-label" for="source-filter">Source type</label>
       <select id="source-filter" class="source-filter" data-source-filter>
         <option value="all">All source types</option>
         {source_options}
       </select>
-    </div>
+      </div>
+    </details>
   </section>
   <div class="catalogue-meta">
     <span data-result-count aria-live="polite">{len(published)} tools</span>
-    <button class="clear-filters" type="button" data-clear-filters>Clear filters</button>
+    <button class="clear-filters" type="button" data-clear-filters hidden>Clear filters</button>
   </div>
   <section class="tool-grid" data-tool-catalogue aria-label="Published tools">
     {cards}
@@ -312,7 +309,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
 </main>
 {site_footer()}
 <script src="/js/toolbox-data.js"></script>
-<script src="/js/toolbox.js?v=20261026c"></script>
+<script src="/js/toolbox.js?v=20261101filters"></script>
 </body>
 </html>
 """
