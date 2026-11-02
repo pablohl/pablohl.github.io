@@ -7,6 +7,7 @@ Use this index to find the current guidance before proposing, reviewing, or impl
 | Document | Owns |
 | --- | --- |
 | [Personal Git identity](git-identity.md) | Personal commit identity, signing-key guard, and local hook activation |
+| [Homepage design](homepage-design.md) | Editorial hierarchy, featured exploration, reader paths, selected work, and supporting professional context |
 | [Full reader journey](reader-journey.md) | Expectations and transitions from preview and direct arrival through reading/action, consequence, recovery, and onward navigation |
 | [Reading comfort and shared navigation](reading-comfort-navigation.md) | Shared presentation defaults, responsive comparison behavior, global header, and keyboard navigation |
 | [Toolbox navigation](toolbox-navigation.md) | Homepage destinations, collection roles, breadcrumbs, and collection return links |
