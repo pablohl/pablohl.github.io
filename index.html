@@ -30,11 +30,10 @@
 	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
 
   <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
-  <link rel="stylesheet" href="/css/home.css?v=20261027comfort">
+  <link rel="stylesheet" href="/css/home.css?v=20261101guides">
   <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/interactive-previews.css?v=20261028">
 </head>
 
 <body id="page">
@@ -54,55 +53,54 @@
 </header>
 	
 	<main id="spotlight" tabindex="-1">
-		<div id="home-center">
-			<section class="home-person" aria-labelledby="home-person-title">
-				<div>
-					<h1 id="home-person-title">Pablo Hernandez Leal</h1>
-					<p class="home-role">CTO at MultiplAI</p>
-					<p class="home-intro">I build AI systems for regulated financial workflows and write about applied AI, decision-making, experimentation, and the problems that appear when technology meets the real world.</p>
-				</div>
-				<div id="home-social">
+  <div id="home-center">
+    <section class="home-person" aria-labelledby="home-person-title">
+      <p class="home-eyebrow">Pablo Hernandez Leal · CTO at MultiplAI</p>
+      <h1 id="home-person-title">A good result is not always<br> a good decision.</h1>
+      <p class="home-intro">I build AI systems for regulated financial workflows, and explore how evidence, constraints, and technical choices shape the decisions we make.</p>
+    </section>
+
+    <section class="home-featured-exploration" aria-labelledby="home-featured-title"><div class="home-error-intro"><p class="home-eyebrow">Try an interactive experiment</p><h2 id="home-featured-title">Similar scores.<br>Different mistakes.</h2><a class="home-featured-action" href="/experiments/the-metric-can-be-right/">Try The Metric Can Be Right <span aria-hidden="true">→</span></a></div><figure class="home-error-figure home-error-pairs"><div role="img" aria-label="In 10000 payments, Model A misses 60 fraud cases and blocks 20 valid payments. Model B misses 20 fraud cases and blocks 80 valid payments. Both charts use the same zero-to-80 scale."><div aria-hidden="true"><div class="home-error-bar-group"><h3>Fraud missed</h3><div class="home-error-bar-row"><span>Model A</span><div class="home-error-track"><span class="home-error-bar home-error-model-A" style="width:75%"></span></div><strong>60</strong></div><div class="home-error-bar-row"><span>Model B</span><div class="home-error-track"><span class="home-error-bar home-error-model-B" style="width:25%"></span></div><strong>20</strong></div></div><div class="home-error-bar-group"><h3>Valid payments blocked</h3><div class="home-error-bar-row"><span>Model A</span><div class="home-error-track"><span class="home-error-bar home-error-model-A" style="width:25%"></span></div><strong>20</strong></div><div class="home-error-bar-row"><span>Model B</span><div class="home-error-track"><span class="home-error-bar home-error-model-B" style="width:100%"></span></div><strong>80</strong></div></div></div></div><figcaption>Illustrative errors from the same 10,000 payments.<br>Both comparisons use the same 0–80 scale.</figcaption></figure></section>
+
+    <nav class="home-reader-paths" aria-label="Find a way into the site"><a href="#selected-writing"><span class="nav-label">Read an idea <span aria-hidden="true">↓</span></span><span class="nav-note">Essays</span></a><a href="#explore-decision"><span class="nav-label">Explore a decision <span aria-hidden="true">↓</span></span><span class="nav-note">Examples</span></a><a href="/toolbox/#decision-tools"><span class="nav-label">Borrow a question <span aria-hidden="true">→</span></span><span class="nav-note">Tools</span></a></nav>
+
+    <section class="selected-writing" id="selected-writing" aria-labelledby="selected-writing-title">
+      <div class="home-section-heading"><h2 id="selected-writing-title">Selected writing</h2><a href="/posts/">View all writing →</a></div>
+      <a class="home-featured-essay" href="/posts/the-executive-summary-is-not-a-summary/">
+        <h3>The Executive Summary Is Not a Summary</h3>
+        <p>A report can explain what you found and still leave the reader wondering what to do. An executive summary connects the findings to the decision.</p>
+        <span class="home-essay-action">Read the essay <span aria-hidden="true">→</span></span>
+      </a>
+      <div class="home-supporting-essays">
+        <a class="essay-link" href="/posts/kirk-spock/"><span class="essay-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span><span class="essay-summary">When should a decision preserve options, and when is it time to commit?</span><span class="essay-date">Sep 2026</span></a>
+        <a class="essay-link" href="/posts/what-is-worth-learning/"><span class="essay-title">What Is Worth Learning?</span><span class="essay-summary">What could you find out that would change your choice?</span><span class="essay-date">Oct 2026</span></a>
+      </div>
+    </section>
+
+    <section class="home-library" id="explore-decision" aria-labelledby="home-explore-title">
+      <h2 id="home-explore-title">Explore further</h2>
+      <section class="home-library-row home-library-lead" aria-labelledby="home-start-title">
+        <p class="home-library-label">Engineering guides</p>
+        <div><h3 id="home-start-title">What does the evidence actually justify?</h3><p>Compare interview responses, change a technical condition, or follow a system dependency.</p><div class="home-library-links"><a href="/toolbox/engineering/">Browse engineering guides →</a></div></div>
+      </section>
+      <section class="home-library-row home-library-compact" aria-labelledby="home-two-clocks-title">
+        <p class="home-library-label" id="home-experiments-title">Interactive experiments</p>
+        <div><h3 id="home-two-clocks-title">Two Clocks</h3><p>A job offer, new information, and less time to answer.</p><div class="home-library-links"><a href="/experiments/two-clocks/">Try the experiment →</a><a href="/experiments/">View all experiments →</a></div></div>
+      </section>
+      <section class="home-library-row home-library-compact" aria-labelledby="toolbox-teaser-title">
+        <p class="home-library-label">Decision tools</p>
+        <div><h3 id="toolbox-teaser-title">What does this decision make possible or impossible afterward?</h3><div class="home-library-links"><a href="/toolbox/preserve-the-option/">Explore this question →</a><a href="/toolbox/#decision-tools">Browse all decision tools →</a></div></div>
+      </section>
+    </section>
+
+    <section class="home-about" aria-labelledby="home-focus-title">
+      <div><h2 id="home-focus-title">From research to systems people use</h2><p>As CTO at MultiplAI, I work on AI systems for regulated financial workflows, where accuracy, traceability, and human review matter. My work connects research, engineering, and the people making decisions with the results.</p><a href="/about/">More about me and my work →</a></div>
+      <div id="home-social">
 					<a href="https://twitter.com/pablohleal" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.linkedin.com/in/pablo-hernandez-leal-ba3a2538/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="mailto:hleal.pablo@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
 				</div>
-			</section>
-			<section class="home-focus" aria-labelledby="home-focus-title">
-				<h2 id="home-focus-title">What I work on</h2>
-				<div class="home-focus-grid">
-					<div><h3>AI systems in regulated environments</h3><p>Building for accuracy, evidence, traceability, and human review.</p></div>
-					<div><h3>From research to production</h3><p>Turning experimental findings into engineering decisions under operational constraints.</p></div>
-					<div><h3>Technical decisions and teams</h3><p>Working across engineering, product, and domain expertise when requirements or evidence are incomplete.</p></div>
-				</div>
-			</section>
-			<section class="home-start" aria-labelledby="home-start-title">
-				<span class="tool-eyebrow">Engineering guides</span>
-				<h2 id="home-start-title">Work through an engineering decision</h2>
-				<p>Explore examples of hiring and technical decisions. See what the evidence supports, what remains uncertain, and how that changes the recommendation.</p>
-				<a class="home-start-primary" href="/toolbox/engineering/">Browse engineering guides →</a>
-			</section>
-			<section class="selected-writing" aria-labelledby="selected-writing-title">
-				<div class="home-section-heading"><h2 id="selected-writing-title">Selected writing</h2><a href="/posts/">View all writing →</a></div>
-				<a class="essay-link" href="/posts/kirk-spock/"><span class="essay-title">Sometimes You Need Kirk. Sometimes You Need Spock.</span><span class="essay-date">Sep 2026</span><span class="essay-summary">When should a decision preserve options, and when is it time to commit?</span></a>
-				<a class="essay-link" href="/posts/the-executive-summary-is-not-a-summary/"><span class="essay-title">The Executive Summary Is Not a Summary</span><span class="essay-date">Oct 2026</span><span class="essay-summary">An abstract says what the work found. An executive summary explains what it means for the decision.</span></a>
-				<a class="essay-link" href="/posts/the-metric-can-be-right/"><span class="essay-title">The Metric Can Be Right and the Decision Can Still Be Wrong</span><span class="essay-date">Sep 2026</span><span class="essay-summary">Why a correct metric can still support the wrong decision when it measures only part of the system.</span></a>
-			</section>
-			<section class="home-experiments" aria-labelledby="home-experiments-title">
-				<div class="home-section-heading"><h2 id="home-experiments-title">Interactive experiments</h2><a href="/experiments/">View all experiments →</a></div>
-				<p class="home-section-intro">Small models you can change to see how a decision unfolds.</p>
-				<div class="home-experiment-grid">
-					<a href="/experiments/two-clocks/"><span class="experiment-kicker">Interactive experiment</span><h3>Two Clocks</h3><img class="experiment-preview" src="/img/experiments/two-clocks-activity.svg" alt="Ask questions and consider an answer while time remains." width="400" height="180" loading="lazy"><p>Explore a job offer while information and available options change. Choose what to ask and when to answer.</p><span class="experiment-arrow">Try the experiment →</span></a>
-					<a href="/experiments/the-metric-can-be-right/"><span class="experiment-kicker">Interactive experiment</span><h3>The Metric Can Be Right</h3><img class="experiment-preview" src="/img/experiments/metric-choice.svg" alt="Model A has 99.2% accuracy; Model B has 99.0%. An initial choice starts the comparison." width="400" height="180" loading="lazy"><p>Make an initial model choice, then revisit it as errors, costs, and review work become visible.</p><span class="experiment-arrow">Try the experiment →</span></a>
-				</div>
-			</section>
-			<section class="toolbox-teaser" aria-labelledby="toolbox-teaser-title">
-				<div>
-					<span class="tool-eyebrow">Decision tools</span>
-					<h2 id="toolbox-teaser-title">Find a question for your decision</h2>
-					<p>Choose a reusable question to examine evidence, uncertainty, timing, or trade-offs in a decision you’re facing.</p>
-				</div>
-				<a class="toolbox-link" href="/toolbox/#decision-tools">Browse decision tools →</a>
-			</section>
-		</div>
-	</main>
+    </section>
+  </div>
+</main>
 	<footer id="home-footer">
 			<p>
 				&copy; 2026 <a href="https://pablohl.github.io">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a> &#183; <a href="https://pablohl.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>

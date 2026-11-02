@@ -8,6 +8,7 @@ For reader-facing changes, also apply the [full reader journey](docs/reader-jour
 
 | Change | Read before working |
 | --- | --- |
+| Homepage composition, featured work, or reader paths | [Homepage design](docs/homepage-design.md), plus the shared presentation and relevant destination guidance |
 | Shared typography, colors, layout, header, or keyboard navigation | [Reading comfort and shared navigation](docs/reading-comfort-navigation.md) |
 | Homepage Toolbox routes, collection links, breadcrumbs, or return destinations | [Toolbox navigation](docs/toolbox-navigation.md), plus the shared presentation reference |
 | Decision-tool content or examples | [Decision Toolbox](docs/decision-toolbox.md) |

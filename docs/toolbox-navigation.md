@@ -6,8 +6,10 @@ Current reference for collection roles and destinations. See [reading comfort an
 
 | Location | Purpose and destination |
 | --- | --- |
-| Homepage Engineering guides section | “Browse engineering guides” opens `/toolbox/engineering/`, allowing readers to choose a situation rather than prioritizing one example |
-| Homepage Decision tools section | “Browse decision tools” opens `/toolbox/#decision-tools`, directly at the situation-based tool entries |
+| Homepage Explore a decision path | Opens `/#explore-decision`, where one shared list offers engineering guides, an experiment, and a Toolbox question; [Homepage design](homepage-design.md) owns the presentation |
+| Homepage Engineering guides invitation | “Browse engineering guides” opens `/toolbox/engineering/`, allowing readers to choose a situation rather than prioritizing one example |
+| Homepage Borrow a question path and browse-all tool link | Open `/toolbox/#decision-tools`, directly at the situation-based tool entries |
+| Homepage featured Toolbox question | Opens `/toolbox/preserve-the-option/`; its canonical question makes the destination explicit |
 | Primary navigation: Toolbox | Opens `/toolbox/`, the shared entry point for both collections |
 | Toolbox entry | Explains the two routes before showing the question catalogue; guide examples inside its entry card are optional shortcuts |
 | Decision tools | Reusable questions for decisions at work or elsewhere, with situation-based starting points, filters, and the complete published catalogue |
