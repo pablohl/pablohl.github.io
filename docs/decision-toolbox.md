@@ -17,6 +17,7 @@ Each published tool should have:
 
 - One stable ID and one canonical question, reused consistently across views.
 - A short situation that helps readers recognize when the tool is relevant.
+- A concise `catalogue_context` line for the card’s “Use when” invitation; it should use familiar language and preserve the tool’s particular purpose. The builder falls back to `situation` when absent.
 - An `expected_outcome` stating what the reader will be able to recognize, question, or do; together with `situation`, it renders the opening “Use this when / You’ll be able to” orientation.
 - An observation explaining why the question can help.
 - One worked example that demonstrates a change in reasoning or next action.
@@ -47,6 +48,10 @@ Use these principles:
 - Vary settings across the collection: everyday life, work, relationships, learning, and collaboration. Do not force every tool into the same domain or require every example to transfer outside its natural setting.
 
 Aim for roughly 100–180 words when that is sufficient. Clarity and completeness take priority over this range.
+
+## Situation recommendations
+
+The collection’s primary entry uses recognizable situations and a recommended tool, with an optional alternative. [Toolbox navigation](toolbox-navigation.md#situation-led-entry-design) owns the current layout, disclosures, and preserved fragments. Edit the primary/alternative relationships and descriptions in `data/toolbox-starting-points.json`; keep both recommendations relevant and distinct. The catalogue and individual tools retain their canonical questions.
 
 ## Existing data structure
 

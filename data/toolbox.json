@@ -618,7 +618,8 @@
         "evidence": "The day with the strongest sales also had a festival nearby, so there may simply have been more people around. If the price was the reason for the success, you’d expect it to do well on other days with similar crowds. Attendance and sales per visitor could help make sense of what happened, as could trying that price again on a day without a festival.",
         "conclusion": "The middle price still looks promising, but one busy day leaves some uncertainty about why it worked. A strong showing with a more typical crowd would make the price explanation more convincing. It could be a price people respond especially well to; the festival just makes that harder to tell from this result alone."
       },
-      "expected_outcome": "Name the surrounding evidence that would make an unusually strong result more convincing."
+      "expected_outcome": "Name the surrounding evidence that would make an unusually strong result more convincing.",
+      "catalogue_context": "A result looks convincing, but you’re unsure why."
     },
     {
       "id": "what-did-the-metric-throw-away",
@@ -669,7 +670,8 @@
         "evidence": "Getting there early most days doesn't help on the day you miss pickup. Both routes average 30 minutes, but one can occasionally take an hour. What matters here is how often each route would get you there after six, given when you usually leave.",
         "conclusion": "For a pickup by six, the more predictable route may be a better fit, even though its average is no faster. On a day without a deadline, you might prefer the route that's often quicker. The same average can hide a difference that matters for one trip and less for another."
       },
-      "expected_outcome": "Identify an omitted distinction that could change the choice behind a headline metric."
+      "expected_outcome": "Identify an omitted distinction that could change the choice behind a headline metric.",
+      "catalogue_context": "The headline number doesn’t tell the whole story."
     },
     {
       "id": "look-at-the-boundary",
@@ -726,7 +728,8 @@
         "evidence": "The chef explains that some dishes take 40 minutes to prepare. From the booking desk, there’s room for two more guests. From the kitchen, there may not be time to cook what they order before closing. The question is no longer just whether a table is free, but what meal the restaurant can offer at that time.",
         "conclusion": "Talking it through could lead to an earlier last booking or a smaller menu later in the evening. The booking team could then tell guests what to expect. Seeing the table and the meal together makes it easier to find a plan that works for both the guests and the kitchen."
       },
-      "expected_outcome": "Find an assumption or handoff between specialties that needs checking together."
+      "expected_outcome": "Find an assumption or handoff between specialties that needs checking together.",
+      "catalogue_context": "People see different problems from different sides."
     },
     {
       "id": "change-the-representation",
@@ -771,7 +774,8 @@
         "evidence": "They explain that finishing later would mean missing their usual train and being late for childcare pickup. On the meeting calendar, you’re moving one box. In their day, you’re changing how they get home and who picks up their child. Someone with a free evening might barely notice the change.",
         "conclusion": "Looking at the meeting alongside the rest of the day gives everyone a clearer picture of what moving it would mean. A shorter meeting or a different day might work better. There may still be competing needs, but “only an hour” no longer tells the whole story."
       },
-      "expected_outcome": "Restate a comparison so that different descriptions can be checked against the same facts."
+      "expected_outcome": "Restate a comparison so that different descriptions can be checked against the same facts.",
+      "catalogue_context": "The same change looks small to one person and large to another."
     },
     {
       "id": "from-intuition-to-argument",
@@ -822,7 +826,8 @@
         "evidence": "Looking more closely, you notice there’s a bus ride between the station and the ferry. If the train is even a little late, you might miss the last boat. That’s what was bothering you. Your friend can now look at the connection with you: how much time is there, and is there another way to reach the island if you miss it?",
         "conclusion": "You now have something more useful to discuss than a feeling that the plan is risky. An earlier train might be worth it if missing the ferry would leave you stuck for the night. But if there’s plenty of time for the bus ride, or a reasonable backup, you might feel comfortable with the original plan after all."
       },
-      "expected_outcome": "Turn a concern into an explicit claim, supporting reasons, and a check others can examine."
+      "expected_outcome": "Turn a concern into an explicit claim, supporting reasons, and a check others can examine.",
+      "catalogue_context": "Something feels wrong, but you can’t yet explain it."
     },
     {
       "id": "decision-complete",
@@ -878,7 +883,8 @@
         "evidence": "The person was moved from helping visitors find books. The report does not establish whether those visitors now wait longer or whether the busiest return periods can be covered differently. The queue result answers the trial’s narrow question but leaves a gap between that finding and the staffing decision.",
         "conclusion": "Summarize what improved, the trade-off still unknown, and the evidence needed to compare staffing options. A defensible recommendation could be limited peak-hour coverage or a further trial. Completing the analysis means making that reasoning explicit, not forcing a permanent change."
       },
-      "expected_outcome": "Connect a finding to a practical choice and name the missing reasoning if that connection is incomplete."
+      "expected_outcome": "Connect a finding to a practical choice and name the missing reasoning if that connection is incomplete.",
+      "catalogue_context": "You have findings, but no clear recommendation."
     },
     {
       "id": "preserve-the-option",
@@ -931,7 +937,8 @@
         "evidence": "You’d be paying extra for the chance to cancel and get your money back if the dates change. That could help while the visit is still being planned. But if you won’t know the dates until a few days before arrival, the cancellation deadline will already have passed. And if the dates are settled, you may not need that flexibility.",
         "conclusion": "The refundable room might be worth the extra cost if there’s a real chance the dates will change and you’ll know before the deadline. If the price difference is large, or you’d find out too late to cancel, it may not help much. The useful question is whether this booking gives you room to change the plan when you might need to."
       },
-      "expected_outcome": "Identify which future choices an action closes and whether keeping them open is worth the cost."
+      "expected_outcome": "Identify which future choices an action closes and whether keeping them open is worth the cost.",
+      "catalogue_context": "A choice now could limit what you can do later."
     },
     {
       "id": "two-clocks",
@@ -986,7 +993,8 @@
         "evidence": "Places are getting booked, and only a few have room for everyone. By Friday, you may know who’s coming but have fewer places to stay. If there are still plenty of suitable places, waiting might be fine. If the larger ones are nearly gone, those extra days could make the trip harder to arrange.",
         "conclusion": "If you’d struggle to find somewhere for the whole group later, booking now may make sense. A place you can cancel without a fee could give your friend time to answer, as long as the cancellation deadline is late enough. If there’s plenty of room elsewhere, you may be happy to wait. Knowing more on Friday helps only if you can still make a booking that works."
       },
-      "expected_outcome": "Compare the value of further learning with the cost of losing time or options."
+      "expected_outcome": "Compare the value of further learning with the cost of losing time or options.",
+      "catalogue_context": "Waiting could help, but your options may disappear."
     },
     {
       "id": "what-is-worth-learning",
@@ -1041,7 +1049,8 @@
         "evidence": "If the dog can’t come, you’d choose somewhere else, however good the reviews are. A quick message to the host could answer that question. If dogs are welcome, any fees or restrictions might also affect whether the cottage suits the trip.",
         "conclusion": "The host’s reply could take this cottage off the list or make it worth considering further. It won’t settle every preference, but it would tell you whether more time comparing this place is worthwhile."
       },
-      "expected_outcome": "See what you still need to find out before making a choice."
+      "expected_outcome": "See what you still need to find out before making a choice.",
+      "catalogue_context": "You’re gathering information without getting closer to a choice."
     },
     {
       "id": "position-before-you-know",
@@ -1090,7 +1099,8 @@
         "evidence": "Some work is useful in either setting: choosing portable food, confirming attendance, and arranging movable seating. Clearing the indoor room costs effort now but protects against a consequential change in weather. Preparing elaborate decorations for both settings would add little protection for its cost.",
         "conclusion": "Do the shared preparation and keep a workable rain plan. Set a decision time before guests travel, then commit to one location when the forecast is useful enough. Positioning is active preparation for important possibilities; continuing to prepare both venues after choosing would waste effort."
       },
-      "expected_outcome": "Identify a useful preparation you can make before the next development becomes clear."
+      "expected_outcome": "Identify a useful preparation you can make before the next development becomes clear.",
+      "catalogue_context": "You can prepare now, even if you can’t commit yet."
     },
     {
       "id": "explore-then-exploit",
@@ -1144,7 +1154,8 @@
         "evidence": "Running might not be the best fit for you right now. Trying a few walks, swims, or group classes could tell you more than another change to the plan. You might find that you enjoy a class with other people, or that a walk at lunchtime is easier to fit into your day.",
         "conclusion": "Once you find something you enjoy and can make time for, it may be worth building a routine around it. Then details like when to go or how much to do have a clearer purpose. You don’t have to keep trying everything, though a change in your schedule or interests might be a reason to try something else later."
       },
-      "expected_outcome": "Choose where to try a small intervention and what would justify concentrating effort there."
+      "expected_outcome": "Choose where to try a small intervention and what would justify concentrating effort there.",
+      "catalogue_context": "You’re unsure where to focus your effort."
     },
     {
       "id": "look-before-you-model",
@@ -1193,7 +1204,8 @@
         "evidence": "The main obstruction turns out to be bags and wet coats dropped near the door. Most shoes already fit in the existing storage. Observing the actual items and household routine changes the problem from insufficient shoe capacity to a lack of convenient places for arriving home with full hands.",
         "conclusion": "Try hooks and a reachable bag shelf before buying a larger cabinet. This does not prove that more storage will never help; it gives you a better starting hypothesis. Stop inspecting once you understand enough to try a proportionate change and learn from its use."
       },
-      "expected_outcome": "Describe the problem, observations, and constraints before choosing a technique."
+      "expected_outcome": "Describe the problem, observations, and constraints before choosing a technique.",
+      "catalogue_context": "You’re choosing a solution before understanding the problem."
     },
     {
       "id": "start-simple",
@@ -1249,7 +1261,8 @@
         "evidence": "You could try planning three dinners on paper and checking the fridge before shopping for a couple of weeks. If less food ends up in the bin, planning meals around what you buy seems to help. If plans keep falling apart because everyone gets home at different times, tracking more ingredients might not be what you need.",
         "conclusion": "The app might still be useful, but you’d have a better idea of what you want it to help with. Maybe the paper plan is enough, or maybe it’s hard to keep everyone’s plans in one place. A couple of weeks won’t tell you how this works through every busy spell, but it could give you a useful start before paying for more features."
       },
-      "expected_outcome": "Choose a simple baseline that reveals whether added complexity earns its place."
+      "expected_outcome": "Choose a simple baseline that reveals whether added complexity earns its place.",
+      "catalogue_context": "You’re making a solution complicated before trying the basics."
     },
     {
       "id": "which-game-are-we-playing",
@@ -1299,7 +1312,8 @@
         "evidence": "When you talk about it, your partner says they’re worried about getting two tired children through another airport and possibly missing the next flight. You’ve been looking for a good price; they’ve been thinking about how the journey will feel. A bigger saving might matter, but it doesn’t make the transfer any easier.",
         "conclusion": "The conversation can now include both the price and the journey. You might pay more to fly direct, or find a connection with enough time and a manageable departure hour. Neither choice has to win automatically. You have a better chance of finding a flight you’re both happy with once you understand what each of you is weighing up."
       },
-      "expected_outcome": "Check what the other person is trying to achieve before choosing your response."
+      "expected_outcome": "Check what the other person is trying to achieve before choosing your response.",
+      "catalogue_context": "You haven’t checked what matters to the other person."
     },
     {
       "id": "right-level-of-reasoning",
@@ -1352,7 +1366,8 @@
         "evidence": "Another viewing is quite possible. The seller could also be using it to put pressure on you—or both could be true. Asking whether they’d accept your offer today gives you something more to go on, though their answer won’t prove whether another buyer exists. If they later come back with a lower price, that changes what you can negotiate, even if you still don’t know why.",
         "conclusion": "You can take the possibility of another buyer seriously without raising your offer just because the seller mentions one. What you’re willing to pay, and whether you’d be happy to keep looking, still matter. Their next response may help you judge how much room there is to bargain; you don’t need to be certain they’re bluffing to decide what to offer."
       },
-      "expected_outcome": "Choose an explanation to investigate without assuming more strategic intent than the evidence supports."
+      "expected_outcome": "Choose an explanation to investigate without assuming more strategic intent than the evidence supports.",
+      "catalogue_context": "You may be reading too much strategy into someone’s behavior."
     },
     {
       "id": "start-with-a-hypothesis",
@@ -1402,7 +1417,8 @@
         "evidence": "You also changed study time, chose an easier topic, and looked at several outcomes before selecting the improved one. The result can suggest a hypothesis, but it is weak confirmation. Before the next trial, specify what you expect to improve, how you will compare similar material, and what result would count against the idea.",
         "conclusion": "Use a fresh comparison to test the expectation instead of repeatedly redefining success around the results. This cannot remove every source of variation, but it makes the evidence easier to interpret. Exploration can generate the hypothesis; it should not be presented as if it had already tested it."
       },
-      "expected_outcome": "State a prediction and a check that could challenge it before running another experiment."
+      "expected_outcome": "State a prediction and a check that could challenge it before running another experiment.",
+      "catalogue_context": "You keep trying things until the results look good."
     },
     {
       "id": "solve-the-constrained-problem",
@@ -1452,7 +1468,8 @@
         "evidence": "Taking photos, answering messages, and arranging collections all take time—and a buyer might not turn up. Selling every piece for a good price could leave you with furniture still in the flat on Sunday. You might have time to sell the most valuable items and arrange a confirmed donation collection for the rest, if one is available before you leave.",
         "conclusion": "Getting less money for some things may be worth it if it means the flat is empty on time. A sale only helps if the buyer can collect before you leave. If you can get a few extra days or have somewhere to store things, you may have more room to wait for better offers."
       },
-      "expected_outcome": "State the real constraints and compare approaches that can work within them."
+      "expected_outcome": "State the real constraints and compare approaches that can work within them.",
+      "catalogue_context": "Your preferred solution won’t fit the time, money, or rules."
     },
     {
       "id": "productive-struggle",
@@ -1502,7 +1519,8 @@
         "evidence": "You ask them to sort the edge pieces and look for matching colors, then let them try. This reduces the obstacle while leaving the useful reasoning to them. If they become exhausted or lack a basic strategy, continued withholding would stop serving learning.",
         "conclusion": "Offer the smallest amount of help that restores a reasonable path forward, and check whether it actually helps. Completing the puzzle and learning how to approach it are different goals. When time or distress makes completion the priority, more direct help can be appropriate; struggle is not valuable simply because it is difficult."
       },
-      "expected_outcome": "Choose a hint or intervention that helps someone progress while keeping the reasoning theirs."
+      "expected_outcome": "Choose a hint or intervention that helps someone progress while keeping the reasoning theirs.",
+      "catalogue_context": "You could help someone now, but they also need to learn."
     },
     {
       "id": "raise-the-resolution-of-feedback",
@@ -1558,7 +1576,8 @@
         "evidence": "So far, they’ve only heard the topic. You send them the explanation you plan to open with and one activity you’d like people to try. This time, they point out a term people might not know and a step in the activity that’s hard to follow. Having something to read and try gives them more to respond to.",
         "conclusion": "You didn’t need a finished slide deck to get those comments. A short explanation and a sample activity were enough to start talking about where people might get stuck. If you wanted feedback on the workshop’s overall direction, a rough outline might have been more useful. What you share can match the question you’re asking."
       },
-      "expected_outcome": "Give feedback about a specific moment, action, and possible improvement."
+      "expected_outcome": "Give feedback about a specific moment, action, and possible improvement.",
+      "catalogue_context": "You want useful feedback, but only get vague reactions."
     },
     {
       "id": "connect-work-to-consequences",
@@ -1611,7 +1630,8 @@
         "evidence": "At the event, you notice visitors stopping to ask where registration is. You walk in from the entrance and realize the first sign is after the turn where people get confused. A volunteer moves it before the turn, and you watch the next arrivals to see whether they can find their way more easily.",
         "conclusion": "Seeing people arrive tells you something the design review couldn’t: where they need help. If fewer people stop to ask after the sign moves, that suggests the new position helps. A volunteer giving directions could also make a difference, so it’s worth noticing what else is happening. For the next event, you have a clearer idea of where to put the signs and what to check."
       },
-      "expected_outcome": "Trace how work affected a decision or outcome and identify what to improve next."
+      "expected_outcome": "Trace how work affected a decision or outcome and identify what to improve next.",
+      "catalogue_context": "The work looks good, but you’re unsure whether it helped."
     },
     {
       "id": "surface-the-hidden-decisions",
@@ -1662,7 +1682,8 @@
         "evidence": "Everyone agreed on the dates and destination, but they haven’t talked about the car, the activities, or how much they want to spend. Those were ideas added while writing the plan. To the friend making the bookings, though, they could look like things everyone has already agreed to.",
         "conclusion": "A quick note could make the difference clear: “The dates and destination are agreed; the car and activities are still suggestions.” That gives the group a chance to talk about the cost before anyone pays for something they can’t cancel. They probably don’t need to agree on every coffee stop—just the choices that would be awkward or expensive to undo."
       },
-      "expected_outcome": "Identify assumptions in a document that still need an explicit decision or agreement."
+      "expected_outcome": "Identify assumptions in a document that still need an explicit decision or agreement.",
+      "catalogue_context": "A detailed plan may be mistaken for an agreed plan."
     }
   ]
 }

@@ -5,8 +5,7 @@
 .starting-points > p { max-width: 46rem; color: var(--toolbox-muted); }
 .starting-points-list { list-style: none; padding: 0; margin: 1.5rem 0; }
 .starting-point { padding: 1.5rem 0; border-top: 1px solid var(--toolbox-rule); }
-.starting-point:last-child { border-bottom: 1px solid var(--toolbox-rule); }
-.starting-point h4 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
+.starting-point h3 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
 .starting-point p { max-width: 48rem; margin: .6rem 0; line-height: 1.6; }
 .starting-point-primary a { font-weight: 650; }
 .starting-point-label { font-weight: 600; }
@@ -27,3 +26,41 @@
 
 body#page .toolbox-page.site-main { padding-top: var(--page-top); }
 .toolbox-page > header { margin-bottom: 1.5rem; }
+
+/* Situation-led opening; the catalogue retains its existing presentation. */
+.toolbox-page .toolbox-opening h1 { max-width: 24ch; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; }
+.toolbox-opening .tool-eyebrow { margin: 0 0 .65rem; }
+.toolbox-opening-links { display: flex; flex-wrap: wrap; gap: .6rem 1.75rem; margin-top: 1rem; font-size: var(--font-support); }
+.toolbox-page .toolbox-opening { margin-bottom: 2.25rem; }
+.starting-points > h2 { font-family: var(--font-sans); font-size: var(--font-support); color: var(--color-text-secondary); font-weight: 600; }
+.starting-point h3 { max-width: 46ch; margin-bottom: .65rem; }
+.starting-point { padding: 1.25rem 0; }
+.starting-point-primary { margin-bottom: .5rem; }
+.starting-point-description { font-size: var(--font-support); color: var(--color-text-secondary); }
+.starting-point-alternative summary, .starting-points-more > summary { width: fit-content; cursor: pointer; color: var(--color-accent); font-size: var(--font-meta); line-height: 1.6; padding: .35rem 0; text-decoration: underline; text-underline-offset: .18em; }
+.starting-point-alternative p { margin: .4rem 0 0; }
+.starting-points-more { border-top: 1px solid var(--color-border); padding-top: .6rem; }
+.starting-points-more > summary { font-size: var(--font-support); font-weight: 600; }
+.starting-points-more .starting-points-list { margin-top: .75rem; }
+.starting-point-alternative summary:focus-visible, .starting-points-more > summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+
+/* Compact collection identities, without introductory panels. */
+.toolbox-collection-routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; max-width: 50rem; margin-top: 1.25rem; }
+.collection-route-label { display: block; color: var(--color-text-secondary); font-size: var(--font-meta); margin-bottom: .25rem; }
+.toolbox-collection-routes strong { display: block; font-size: var(--font-support); }
+.toolbox-collection-routes p { margin: .25rem 0 .4rem; color: var(--color-text-secondary); font-size: var(--font-meta); line-height: 1.6; }
+.toolbox-collection-routes a { font-size: var(--font-meta); }
+/* Preserve the central question and full-card link as the primary invitation. */
+.toolbox-page .tool-card h2 { font-size: var(--font-meta); margin-bottom: .5rem; }
+.toolbox-page .tool-card .tool-question { margin-bottom: .6rem; }
+.tool-card-context { margin: 0 0 .9rem; font-size: var(--font-support); line-height: 1.5; color: var(--color-text-secondary); }
+.toolbox-page .tool-card > a { padding: 1.1rem; }
+.toolbox-page .tool-card:focus-within { border-color: var(--color-accent); }
+.toolbox-page .tool-card > a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+.toolbox-page .tool-card > a:focus-visible .tool-question { text-decoration: underline; text-underline-offset: .15em; }
+.source-filters { margin-top: 1rem; }
+.source-filters summary { width: fit-content; cursor: pointer; color: var(--color-accent); font-size: var(--font-support); line-height: 1.6; }
+.source-filters summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.source-filters .filter-group { margin-top: .75rem; }
+.clear-filters[hidden] { display: none; }
+@media(max-width:600px) { .toolbox-collection-routes { grid-template-columns: minmax(0,1fr); gap: 1rem; } }
