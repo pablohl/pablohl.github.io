@@ -1,8 +1,8 @@
-# When Doing It Myself Gets Cheaper — draft essay
+# When Doing It Myself Gets Cheaper — essay
 
-An unpublished personal essay for senior engineers about how AI changes the time saved by delegation. The route remains unchanged.
+A personal essay for senior engineers about how AI changes the time saved by delegation. The essay lives at `/posts/the-changing-economics-of-delegation/`.
 
-The page carries a **Local draft** label and `noindex, nofollow` metadata. It is not linked from the homepage or Writing index and is absent from feeds and the sitemap. This repository contains static HTML rather than a draft publishing engine; promotion into `posts/` is a separate editorial step.
+The page is included in Writing, both RSS feeds, and the sitemap. It has publication metadata and a canonical URL. The pull request remains a draft until it is ready to merge.
 
 ## Preview and edit
 
@@ -12,7 +12,7 @@ Serve the repository root so root-relative fonts, navigation, and shared styles 
 python3 -m http.server 8795 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8795/drafts/the-changing-economics-of-delegation/`.
+Open `http://127.0.0.1:8795/posts/the-changing-economics-of-delegation/`.
 
 - `index.html`: essay, hypothetical before/after AI comparison, three-outcome comparison, four scenarios, responsibility map, and model controls.
 - `style.css`: page-specific composition using tokens and fonts from `/css/editorial.css`.
@@ -24,7 +24,7 @@ The header, footer, fonts, mobile menu, palette, and reading scale reuse existin
 
 All numerical examples are illustrative, not observed hiring outcomes. The opening comparison counts only senior-engineer time: doing the task directly falls from 12 to 6 hours, while supporting delegation falls from 8 to 7 hours. Delegation changes from saving four hours to requiring one extra hour despite both options improving.
 
-The interactive model sits in a collapsed optional section after the essay’s conclusion. It counts the existing team's work avoided, onboarding, and supervision, measured against doing the delegated work directly with AI. It excludes the new hire's own working hours, compensation, recruiting, and learning benefits. The supervision decline is an assumption to explore, not a prediction of a person's development. Scenario buttons restore preset assumptions; sliders create a custom variation.
+The interactive model sits in an optional section after the essay’s conclusion, expanded by default. It counts the existing team's work avoided, onboarding, and supervision, measured against doing the delegated work directly with AI. It excludes the new hire's own working hours, compensation, recruiting, and learning benefits. The supervision decline is an assumption to explore, not a prediction of a person's development. Scenario buttons restore preset assumptions; sliders create a custom variation.
 
 The four imagined settings are shortened and specify how assignments, support, and decision-making opportunities differ. They are not evidence that company size causes independence. A real mentoring exchange, paraphrased from the author’s local transcripts, shows evidence brought by the intern and questions the author still supplied; it does not claim a measured before/after progression.
 
