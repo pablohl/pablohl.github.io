@@ -186,3 +186,11 @@ details p{margin:15px 0 0;max-width:690px}
 .delegation-draft .ai-comparison .ai-comparison-net th,.delegation-draft .ai-comparison .ai-comparison-net td{font-weight:600}
 .delegation-draft .ai-comparison #ai-comparison-note{font-family:var(--font-sans);font-size:.8125rem;line-height:1.6;color:var(--color-text-secondary);margin:13px 0 0}
 @media(max-width:480px){.delegation-draft .ai-comparison th:first-child{width:42%}.delegation-draft .ai-comparison th,.delegation-draft .ai-comparison td{padding:12px 7px}.delegation-draft .ai-comparison th:first-child{padding-left:0}.delegation-draft .ai-comparison caption{font-size:.875rem}}
+
+/* Keep the optional calculator outside the essay's main reading path. */
+.delegation-draft .model-appendix{margin-top:48px;border-top:1px solid var(--color-border)}
+.delegation-draft .model-disclosure{font-family:var(--font-sans);font-size:var(--font-support);margin:20px auto 0;max-width:820px;padding-top:0;border-top:0}
+.delegation-draft .model-disclosure>summary{padding:16px 0;color:var(--color-accent);font-weight:500}
+.delegation-draft .model-disclosure .prose{padding-top:18px}
+.delegation-draft .model-disclosure figure{margin-top:24px}
+@media print{.model-appendix{display:none}}
