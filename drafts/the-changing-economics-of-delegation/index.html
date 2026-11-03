@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A draft essay for senior engineers on the tradeoff between delivering with AI today and developing independent ownership over time.">
+<meta name="theme-color" content="#F6F2EA">
+<title>The Changing Economics of Delegation — Draft</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
+<link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261103-ai-comparison">
+<script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
+<script src="visuals.js" defer></script>
+</head>
+<body id="page" class="delegation-draft">
+<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="editorial-header__inner section-inner">
+    <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+    <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+    <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
+      <a href="/about/#research">Research</a>
+      <a href="/toolbox/">Toolbox</a>
+    </nav>
+  </div>
+</header>
+<main class="site-main section-inner page-layout" id="main-content" tabindex="-1">
+<aside class="contents"><nav aria-label="In this essay"><p>In this essay</p><a href="#ai">The AI tradeoff</a><a href="#scenarios">Four situations</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">Developing judgment</a><a href="#model">Explore the model</a><a href="#takeaway">The investment</a></nav></aside>
+<article id="essay">
+<header class="post-header article-header"><div class="post-meta"><span class="draft-label">Local draft</span><span>AI, teams &amp; responsibility</span></div><h1>The Changing Economics of Delegation</h1><p class="post-subtitle dek">AI can make a junior engineer faster while reducing the time a senior saves by delegating. Developing independent ownership is a different investment.</p>
+<details class="mobile-contents"><summary>In this essay</summary><nav aria-label="Essay sections"><a href="#ai">The AI tradeoff</a><a href="#scenarios">Four situations</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">Developing judgment</a><a href="#model">Explore the model</a><a href="#takeaway">The investment</a></nav></details></header>
+<div class="prose">
+<p>I recently completed a task with AI that would be suitable for an intern.</p>
+<p>I understood the context and the main problem. I wasn’t sure of the solution, but I had a clear goal. The work involved investigating code, making changes, testing, and reviewing results. With recent LLM models, I could focus on the decisions without doing any of the implementation myself.</p>
+<h2 id="ai">AI changes the alternative to delegation</h2>
+<p>Delegating would have meant explaining the problem, transferring context, answering questions, and reviewing the result. The relevant comparison was how much of my attention that would require versus doing the work directly with AI.</p>
+<p><strong>AI can make a junior engineer more productive while making the same task less worth delegating.</strong> Their implementation gets faster, but so does mine.</p>
+<p>AI can reduce supervision too: the engineer may use it to find context, investigate alternatives, and catch mistakes before review. The question is which side of the comparison gets cheaper faster.</p>
+<div class="ai-comparison" id="ai-comparison">
+<table aria-describedby="ai-comparison-note">
+<caption>A hypothetical comparison of the senior engineer’s time</caption>
+<thead><tr><th scope="col">For the same task</th><th scope="col">Before AI</th><th scope="col">With AI</th></tr></thead>
+<tbody>
+<tr><th scope="row">Doing it directly</th><td>12 hours</td><td>6 hours</td></tr>
+<tr><th scope="row">Supporting delegation</th><td>8 hours</td><td>7 hours</td></tr>
+<tr class="ai-comparison-net"><th scope="row">Time gained by delegating</th><td>4 hours saved</td><td>1 extra hour required</td></tr>
+</tbody>
+</table>
+<p id="ai-comparison-note">Illustrative numbers for one task. Only the senior engineer’s hours are counted; the junior engineer’s own working time is excluded.</p>
+</div>
+<p>Both options need less of the senior engineer’s time. Yet delegation changes from saving four hours to requiring one extra hour, because doing the work directly becomes cheaper faster.</p>
+<p>That creates a tension for a technical lead. Doing the work myself may be efficient today. Repeatedly making that choice also removes opportunities for someone else to develop the judgment that would make delegation useful later.</p>
+<p>When working with interns, I have invested time in helping them become <strong>independent enough to take responsibility for increasingly complex problems</strong>. That is a different objective from finishing the current task with the least supervision.</p>
+</div>
+<figure class="distinctions"><figcaption><span class="figure-number">01</span> Three outcomes of working with someone</figcaption><div class="three-columns"><section><h3>Complete the work</h3><p>A useful result gets delivered.</p><span>What got done?</span></section><section><h3>Develop capability</h3><p>Someone becomes better able to do the next assignment.</p><span>What did they learn?</span></section><section><h3>Create leverage</h3><p>The team gains capacity as someone takes responsibility.</p><span>How much capacity does the team gain?</span></section></div></figure>
+<div class="prose">
+<p>A useful deliverable can justify the assignment without establishing that anyone else has gained capacity. The distinction becomes clearer across four situations.</p>
+<h2 id="scenarios">Similar work, different economics</h2>
+<p>Consider four hypothetical situations. In each, the task is the same: someone investigates, implements, and validates an integration with an external service. AI is available to everyone, including the person delegating.</p>
+</div>
+<ul class="scenario-lenses" aria-label="Three factors to compare in every story">
+<li>Cost of attention</li><li>Duration</li><li>Responsibility</li>
+</ul>
+<div class="scenario-grid"><section class="scenario"><h3><span class="scenario-number">01</span>A two-person startup hires an intern for ten weeks.</h3>
+<p>The CTO understands the architecture and requirements. With AI, the integration would take six hours to implement and validate. The intern also uses AI, but needs onboarding, explanations, and reviews. Across the assignment, the CTO spends eight hours helping them complete it.</p>
+<p>The integration works and the intern learns. But this assignment has consumed two more hours of the CTO’s attention than doing it directly.</p>
+<dl class="scenario-factors"><div><dt>Attention</dt><dd>CTO spends 8 h; doing it directly takes 6 h.</dd></div><div><dt>Duration</dt><dd>Ten weeks to recover the initial effort.</dd></div><div><dt>Responsibility</dt><dd>Needs explanations and review.</dd></div></dl></section><section class="scenario"><h3><span class="scenario-number">02</span>The same startup hires a junior engineer for the long term.</h3>
+<p>The first integration is similarly expensive. Several months later, though, the engineer understands the product, recognizes common problems, and investigates new integrations with limited supervision. The early investment begins to create capacity.</p>
+<dl class="scenario-factors"><div><dt>Attention</dt><dd>Substantial guidance at the start.</dd></div><div><dt>Duration</dt><dd>Months to build context and independence.</dd></div><div><dt>Responsibility</dt><dd>Investigates new integrations with less supervision.</dd></div></dl></section><section class="scenario"><h3><span class="scenario-number">03</span>A 50-person company brings in an intern for ten weeks.</h3>
+<p>Documentation, integration patterns, automated tests, and a designated mentor are already in place. They reduce the effort needed to get the intern started on a bounded integration.</p>
+<p>The mentor’s time still counts. The difference is that each new assignment does not require the CTO to reconstruct all the context.</p>
+<dl class="scenario-factors"><div><dt>Attention</dt><dd>Established patterns reduce setup; the mentor still spends time.</dd></div><div><dt>Duration</dt><dd>Ten weeks, with support already in place.</dd></div><div><dt>Responsibility</dt><dd>Owns a bounded integration; key decisions are reviewed.</dd></div></dl></section><section class="scenario"><h3><span class="scenario-number">04</span>The same company hires a junior engineer permanently.</h3>
+<p>The engineer uses AI effectively and produces good technical work. But six months later, the technical lead still defines every task, resolves most ambiguities, and reviews every significant decision.</p>
+<p><strong>The company has added execution capacity. It may have gained less independence than it expected.</strong></p>
+<dl class="scenario-factors"><div><dt>Attention</dt><dd>Lead still resolves ambiguities and reviews decisions.</dd></div><div><dt>Duration</dt><dd>Permanent role; dependency persists after six months.</dd></div><div><dt>Responsibility</dt><dd>Completes tasks; the lead still directs the work.</dd></div></dl></section></div>
+<div class="prose">
+<h2 id="responsibility">Who is directing the investigation?</h2>
+<p>An integration can be implemented correctly while the lead still chooses the failure modes to investigate, the experiments to run, and the evidence needed to accept a solution. The code has moved to someone else; directing the work has not.</p>
+<p>I may remain accountable for the outcome after delegating. The capacity gain comes from someone else leading the investigation within agreed boundaries, rather than needing me to supply each decision.</p>
+<p class="independence-note"><strong><em>Knowing when to ask for help is part of that judgment. Fewer questions are useful only when the person can recognize what needs escalation.</em></strong></p>
+<h2 id="independence">Teaching the reasoning costs more at first</h2>
+<p>With interns, I initially defined experiments, explained the methodology, and reviewed results. Later, I gave the problem, constraints, and what we needed to learn. The next step was for them to propose experiments, choose metrics and stopping conditions, and explain how the evidence would inform a decision.</p>
+<p>Reviewing those choices could take more effort than making them myself. But supplying the answer each time would preserve the dependency. My part was to provide context, room to make decisions, and clear escalation boundaries—not simply less detailed instructions.</p>
+</div>
+<figure class="responsibility-map" id="responsibility-map">
+<figcaption id="responsibility-caption"><span class="figure-number">02</span> From completing tasks to owning the investigation</figcaption>
+<p class="map-intro">Who leads each decision as independence develops?</p>
+<table aria-labelledby="responsibility-caption" aria-describedby="responsibility-note">
+<thead><tr><th scope="col">Decision</th><th scope="col">Initially</th><th scope="col">Developing</th><th scope="col">More independent</th></tr></thead>
+<tbody>
+<tr><th scope="row">Frame the problem</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Propose experiments</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership intern">Intern-led<span class="ownership-detail">with review</span></span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Choose metrics</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Validate results</th><td><span class="ownership shared">Shared</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Recommend a decision</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+</tbody>
+</table>
+<div class="map-support"><span>At every stage</span><p>Ask for help, flag uncertainty, and escalate decisions beyond the agreed scope.</p></div>
+<p class="figure-note" id="responsibility-note">An illustrative progression within one area of work, not a fixed timeline or a scorecard. Different responsibilities can develop at different rates. “Intern-led” means leading the reasoning, with support and review available.</p>
+</figure>
+<div class="prose">
+<p>This progression is specific to an area of work. Owning an integration does not imply readiness to own the product, and faster AI-assisted implementation does not establish either.</p>
+<h2 id="time">The time available changes the return</h2>
+<p>Suppose onboarding takes 20 hours of a senior engineer’s attention, after which the new employee saves them three hours a week, net of supervision. Four productive weeks recover 12 hours; 40 weeks recover 120. The same initial effort leaves the senior eight hours behind in the first case and 100 hours ahead in the second.</p>
+<p>The company might choose the first tradeoff to develop someone it hopes to hire later. That can be intentional, but it has not provided extra capacity during those four weeks.</p>
+<h2 id="model">Explore the assumptions</h2>
+<p>The model compares time the existing team avoids spending on the work with time it spends onboarding and supervising. The alternative is the team doing the work directly with AI.</p>
+<p class="formula">Existing team’s net time gained = work avoided − onboarding − supervision</p>
+<p>Choose a scenario and adjust the assumptions. In particular, compare continued supervision with a gradual decrease in the direction the person needs.</p>
+</div>
+<figure class="model" id="attention-model"><figcaption><span class="figure-number">03</span> When does delegation free the existing team’s time?</figcaption>
+<p class="model-scope">All hours refer to the existing team: the CTO, mentor, and reviewers. The intern or new hire’s own working hours are excluded.</p>
+<div class="model-layout"><div class="model-inputs">
+<fieldset class="scenario-picker" id="scenario">
+<legend>Illustrative starting point</legend>
+<button type="button" data-scenario="startup-intern" aria-pressed="true"><span>Startup</span><span>10-week intern</span></button>
+<button type="button" data-scenario="startup-hire" aria-pressed="false"><span>Startup</span><span>Permanent hire</span></button>
+<button type="button" data-scenario="company-intern" aria-pressed="false"><span>Company</span><span>10-week intern</span></button>
+<button type="button" data-scenario="company-hire" aria-pressed="false"><span>Company</span><span>Permanent hire</span></button>
+</fieldset>
+<p id="scenario-status" class="scenario-status">Preset assumptions · change any value to explore.</p>
+<div class="controls">
+<label for="weeks">Engagement <output id="weeks-value"></output><input id="weeks" aria-label="Engagement" type="range" min="1" max="52" value="10"></label>
+<label for="onboard">Team’s onboarding time <output id="onboard-value"></output><input id="onboard" aria-label="Team’s onboarding time" type="range" min="0" max="40" value="20"></label>
+<label for="avoided">Team’s time saved on the work <output id="avoided-value"></output><input id="avoided" aria-label="Team’s time saved on the work" aria-describedby="avoided-help" type="range" min="0" max="10" step="0.5" value="3"><span class="control-help" id="avoided-help">Hours the existing team would otherwise spend doing this work with AI each week.</span></label>
+<label for="supervision">Team’s supervision time at the start <output id="supervision-value"></output><input id="supervision" aria-label="Team’s supervision time at the start" aria-describedby="supervision-help" type="range" min="0" max="10" step="0.5" value="5"><span class="control-help" id="supervision-help">Combined time the CTO, mentor, and reviewers spend guiding and reviewing each week.</span></label>
+<label for="decline" class="independence-control">Weekly decrease in team supervision <output id="decline-value"></output><input id="decline" aria-label="Weekly decrease in team supervision" aria-describedby="decline-help" type="range" min="0" max="30" value="15"><span class="control-help" id="decline-help">How quickly the need for supervision falls.</span></label>
+</div>
+</div><div class="model-visual">
+<div id="cumulative-chart" class="chart"></div><div class="legend"><span><i class="line teal"></i>Team time saved</span><span><i class="line coral"></i>Team time spent supporting</span></div>
+<p id="model-result" class="model-result" aria-live="polite"></p>
+</div></div>
+<details><summary>Assumptions and limits</summary><p>These presets are hypothetical starting points for recurring work, not measured versions of the integration examples. Onboarding uses the existing team’s time at week 0. Time spent supporting includes onboarding and ongoing supervision. Every productive week avoids the same amount of work for the existing team, measured against doing it with AI. Supervision in week <em>w</em> is initial supervision × (1 − weekly decrease)<sup>w − 1</sup>. Supervision counts attention from everyone providing it, not just the technical lead.</p><p>The model assumes suitable work is always available and output has been validated to the required quality. A weekly decrease compounds: 15% means 5 hours becomes 4.25 hours in week 2. It approaches zero over time. There is no explicit allowance for interruptions, minimum review requirements, or new domains that increase supervision. Break-even is the first productive week in which the existing team’s time saved covers its onboarding and supervision time.</p><p>This measures attention, not financial return or the value of learning. It excludes compensation, recruiting, retention, and any benefit after the engagement ends. A negative result does not mean a failed internship.</p></details>
+</figure>
+<div class="prose">
+<p>The model shows the consequences of the assumptions you choose. It cannot tell you how quickly a person will become independent. That judgment has to come from the work: what they can investigate, validate, and recommend with less direction.</p>
+<h2 id="takeaway">Choose which investment you are making</h2>
+<p>The risk is turning “I can do this faster with AI” into a permanent rule for assigning work. It can keep delivery moving while leaving every unfamiliar problem dependent on the same senior engineer.</p>
+<p>I would distinguish work chosen for immediate delivery from work chosen to develop ownership. On the latter, a slower assignment can be worthwhile if it changes who does the reasoning next time. That takes real decision-making authority and support from the lead; it also takes enough time and money for the investment to develop.</p>
+<p>I would look for a person who can frame the next investigation, challenge an AI-generated answer, and return with evidence and a recommendation I can trust. That is a change in our working relationship that faster implementation alone cannot provide.</p>
+<blockquote>The return on that investment is being able to review the reasoning instead of supplying it.</blockquote>
+</div>
+<footer class="article-footer"><span>Draft for review · All numerical examples are illustrative.</span><a href="#essay">Back to the beginning ↑</a><a href="/posts/">Return to Writing →</a></footer>
+</article>
+</main>
+<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+</body>
+</html>
