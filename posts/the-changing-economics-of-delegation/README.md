@@ -1,4 +1,4 @@
-# When Doing It Myself Gets Cheaper — essay
+# When It’s Faster to Do It Myself — essay
 
 A personal essay for senior engineers about how AI changes the time saved by delegation. The essay lives at `/posts/the-changing-economics-of-delegation/`.
 
