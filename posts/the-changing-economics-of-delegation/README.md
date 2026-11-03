@@ -14,7 +14,7 @@ python3 -m http.server 8795 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8795/posts/the-changing-economics-of-delegation/`.
 
-- `index.html`: essay, hypothetical before/after AI comparison, three-outcome comparison, four scenarios, responsibility map, and model controls.
+- `index.html`: essay, hypothetical before/after AI bar comparison, four scenarios, responsibility map, and model controls.
 - `style.css`: page-specific composition using tokens and fonts from `/css/editorial.css`.
 - `visuals.js`: attention model, scenario button selection, and essay section navigation.
 
@@ -45,3 +45,19 @@ The responsibility map illustrates leading the reasoning within an agreed area o
 - Opened and closed the optional model and selected the permanent-startup preset: 102.7 hours freed, with the first offset in week 18.
 - The real exchange is paraphrased, with names and internal model identifiers omitted. It supports a description of the discussion, not a claim of measured development over time.
 - These checks do not establish unfamiliar-reader comprehension or screen-reader access.
+
+## Reading time
+
+The essay and its static comparisons contain approximately 1,180 words before the optional model. The displayed estimate is six minutes at 200 words per minute; time spent exploring the model is additional. The same estimate appears in Writing and the article header.
+
+## Writing thumbnail
+
+`/img/posts/thumbnails/the-changing-economics-of-delegation.webp` is a 256 × 144 WebP displayed at 128 × 72 using the existing Writing card treatment. Generated with the built-in image tool: two people’s hands over a cream sheet with a pencil-drawn plan, one drawing and the other reviewing; soft warm side light, muted olive green, no legible text. The decorative image uses empty alt text because the linked title and summary carry the article’s meaning.
+
+## Related reading and response controls
+
+Related reading is owned by `data/related-reading.json` and rendered using `scripts/build_related_reading.py`. The email reply uses this essay’s title and canonical URL. Copy link and native Share reuse `/js/post-actions.js`; Share is shown only where the browser supports it.
+
+## Opening figure
+
+The opening comparison uses paired horizontal bars on matching 0–12 hour scales, direct values, and net outcomes (four hours saved before AI; one extra hour with AI). It counts only senior-engineer time. The old table and three-outcome figure are removed. Solid and hatched bars distinguish direct work and support without depending on color.

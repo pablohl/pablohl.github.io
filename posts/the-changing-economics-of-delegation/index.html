@@ -19,9 +19,10 @@
 <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
 <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261103-personal-essay">
+<link rel="stylesheet" href="style.css?v=20261103-opening-figure">
 <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
 <script src="visuals.js" defer></script>
+<script src="/js/post-actions.js" defer></script>
 </head>
 <body id="page" class="delegation-essay">
 <header class="editorial-header">
@@ -41,37 +42,41 @@
 <main class="site-main section-inner page-layout" id="main-content" tabindex="-1">
 <aside class="contents"><nav aria-label="In this essay"><p>In this essay</p><a href="#ai">The AI tradeoff</a><a href="#scenarios">The same task, four settings</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">A review I remember</a><a href="#takeaway">What I would do differently</a><a href="#model">Optional time model</a></nav></aside>
 <article id="essay">
-<header class="post-header article-header"><div class="post-meta"><time datetime="2026-11-03">November 3, 2026</time><span>AI, teams &amp; responsibility</span></div><h1>When Doing It Myself Gets Cheaper</h1><p class="post-subtitle dek">AI made a familiar task quicker to do myself. That left me wondering what I would be giving up by keeping it.</p>
+<header class="post-header article-header"><div class="post-meta"><time datetime="2026-11-03">November 3, 2026</time><span>6 min read · extra time for the optional model</span></div><h1>When Doing It Myself Gets Cheaper</h1><p class="post-subtitle dek">AI made a familiar task quicker to do myself. That left me wondering what I would be giving up by keeping it.</p>
 <details class="mobile-contents"><summary>In this essay</summary><nav aria-label="Essay sections"><a href="#ai">The AI tradeoff</a><a href="#scenarios">The same task, four settings</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">A review I remember</a><a href="#takeaway">What I would do differently</a><a href="#model">Optional time model</a></nav></details></header>
 <div class="prose">
 <p>I recently completed a task with AI that would be suitable for an intern.</p>
 <p>I understood the context and the main problem. I wasn’t sure of the solution, but I had a clear goal. With recent LLM models, I could investigate the code, make changes, and test them without doing the implementation myself. I was still deciding what to try and whether the results were good enough.</p>
-<p>That made me reconsider what I would gain by delegating the task. If an intern did the implementation while I continued making those decisions, I might spend just as much time on it. But part of what I want to help them learn is how to make those decisions themselves: to bring an approach, explain why they chose it, and show what they checked. <strong>I want to review their reasoning instead of supplying it.</strong> That takes time together, even when doing the current task myself would be quicker.</p>
-<h2 id="ai">AI changes the alternative to delegation</h2>
-<p>Delegating would have meant explaining the problem, transferring context, answering questions, and reviewing the result.</p>
-<p>AI can make an intern faster while reducing the time I save by delegating. That happens when it saves me more time doing the work than supporting them.</p>
-<p>AI can reduce supervision too: the engineer may use it to find context, investigate alternatives, and catch mistakes before review. The question is which side of the comparison gets cheaper faster.</p>
-<p>For example:</p>
-<div class="ai-comparison" id="ai-comparison">
-<table aria-describedby="ai-comparison-note">
-<caption>A hypothetical comparison of the senior engineer’s time</caption>
-<thead><tr><th scope="col">For the same task</th><th scope="col">Before AI</th><th scope="col">With AI</th></tr></thead>
-<tbody>
-<tr><th scope="row">Doing it directly</th><td>12 hours</td><td>6 hours</td></tr>
-<tr><th scope="row">Supporting delegation</th><td>8 hours</td><td>7 hours</td></tr>
-<tr class="ai-comparison-net"><th scope="row">Time gained by delegating</th><td>4 hours saved</td><td>1 extra hour required</td></tr>
-</tbody>
-</table>
-<p id="ai-comparison-note">Only the senior engineer’s hours are counted. This comparison says nothing about how much faster the junior engineer works, or how often this reversal happens.</p>
+<p>AI helps both of us work faster. But if doing the task myself now takes half the time, while explaining and reviewing it takes almost as long as before, I save less time by delegating. For example:</p>
 </div>
-<p>Here, both options get faster, but delegating no longer saves time.</p>
-<p>Doing it myself may save me time today. But if I keep choosing the approach and deciding what counts as enough evidence, the other person gets less practice doing either. I may finish this task faster while leaving the next one just as dependent on me.</p>
+<figure class="delegation-comparison" id="ai" aria-labelledby="comparison-title" aria-describedby="ai-comparison-note">
+<figcaption id="comparison-title"><span class="figure-number">01</span><span>Both get faster. I save less time by delegating.</span></figcaption>
+<p class="comparison-scope">Illustrative example · senior engineer’s time only · same task</p>
+<div class="comparison-panels" id="ai-comparison">
+<section class="comparison-panel" aria-labelledby="before-ai-title">
+<h3 id="before-ai-title">Before AI</h3>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Do the task myself</span><strong>12 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar direct" style="width:100%"></span></div></div>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Support someone else doing it</span><strong>8 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar support" style="width:66.6667%"></span></div></div>
+<div class="comparison-scale" aria-hidden="true"><span>0</span><span>6</span><span>12 hours</span></div>
+<p class="comparison-outcome saved"><span>By delegating, I save</span><strong>4 hours</strong></p>
+</section>
+<section class="comparison-panel" aria-labelledby="with-ai-title">
+<h3 id="with-ai-title">With AI</h3>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Do the task myself</span><strong>6 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar direct" style="width:50%"></span></div></div>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Support someone else doing it</span><strong>7 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar support" style="width:58.3333%"></span></div></div>
+<div class="comparison-scale" aria-hidden="true"><span>0</span><span>6</span><span>12 hours</span></div>
+<p class="comparison-outcome extra"><span>By delegating, I spend</span><strong>1 extra hour</strong></p>
+</section>
 </div>
-<figure class="distinctions"><figcaption><span class="figure-number">01</span> What I hope to gain by delegating</figcaption><div class="three-columns"><section><h3>The task gets done</h3><p>The result works as intended.</p></section><section><h3>They learn something</h3><p>They understand more of the system.</p></section><section><h3>I direct less next time</h3><p>They bring an investigation and a recommendation.</p></section></div></figure>
+<p class="figure-note" id="ai-comparison-note">Both pairs use the same 0–12 hour scale. Support includes explaining, answering questions, and reviewing. The intern’s own working hours are excluded. These numbers show how the tradeoff could change, not how often it happens.</p>
+</figure>
 <div class="prose">
-<p>The work can get done, and someone can learn from it, while I still need to direct the next task. That made me wonder when an assignment actually starts saving the person delegating it time.</p>
+<p>That makes doing it myself tempting. But if I keep making the decisions, when does someone else get to learn how?</p>
+<p>Part of what I want to help an intern learn is to bring an approach, explain why they chose it, and show what they checked. <strong>I want to review their reasoning instead of supplying it.</strong> That takes time together, even when doing the current task myself would be quicker.</p>
+<p>AI can reduce that support time too: the engineer may use it to find context, investigate alternatives, and catch mistakes before review. That changes how much time I save by delegating. It doesn’t settle whether the assignment is worthwhile. An intern can learn something valuable even if it never saves me time during the internship.</p>
+<p>The work can get done, and someone can learn from it, while I still need to direct the next task. That made me wonder what changes this over time.</p>
 <h2 id="scenarios">The same task, four settings</h2>
-<p>Imagine a task: investigate, implement, and test an integration with an external service. The four situations below all start with that task, and everyone has AI. I’m changing who helps the engineer, how long they work together, and who decides what to do next.</p>
+<p>Imagine an integration with an external service: someone needs to investigate, implement, and test it. Here are four combinations of support, time together, and room to make decisions, with AI available to everyone.</p>
 </div>
 <div class="scenario-grid">
 <section class="scenario"><h3><span class="scenario-number">01</span>A startup intern, for ten weeks</h3><p>The CTO could finish the integration with AI in six hours. Helping the intern takes eight. The integration works, but the CTO has spent two extra hours. With a ten-week internship, there are fewer future assignments where that learning can save the CTO time.</p></section>
@@ -86,11 +91,11 @@
 <p class="independence-note"><strong><em>Knowing when to ask for help is part of that judgment. Fewer questions are useful only when the person can recognize what needs escalation.</em></strong></p>
 <h2 id="independence">A review I remember</h2>
 <p>In one review, an intern brought examples of incorrect answers that our matching rule had counted as correct. That made our earlier accuracy results look less reliable. I asked what that meant for our evaluation and which earlier conclusions we needed to revisit.</p>
-<p>We had evidence to discuss, but I was still helping work out what to do with it. What I wanted them to bring next time was that next step too, the consequence, the “so what?”: what they thought the findings changed, and why.</p>
+<p>Asking those questions was part of the review; it didn’t mean the intern needed me to supply the answers. What I wanted them to bring next time was their view of the “so what?”: what the findings changed, what they would do next, and where they were unsure.</p>
 </div>
 <figure class="responsibility-map" id="responsibility-map">
 <figcaption id="responsibility-caption"><span class="figure-number">02</span> What I would gradually ask them to lead</figcaption>
-<p class="map-intro">A possible change in how we work together, rather than a record of that intern’s progress.</p>
+<p class="map-intro">Different parts of the work can change at different times. Someone might lead the validation while continuing to frame the problem with their mentor.</p>
 <table aria-labelledby="responsibility-caption" aria-describedby="responsibility-note">
 <thead><tr><th scope="col">Decision</th><th scope="col">Initially</th><th scope="col">Developing</th><th scope="col">More independent</th></tr></thead>
 <tbody>
@@ -109,7 +114,7 @@
 <h2 id="takeaway">What I would do differently</h2>
 <p>What we need to consider is how easily I could make the same decision on the next task, and the next, because each looks cheaper to do myself.</p>
 <p>I would now ask what I am leaving for someone else to learn to decide. If I keep the unfamiliar problems and delegate only the steps I have already worked out, I should not be surprised when I am still needed to work out the next one.</p>
-<p>That means sometimes accepting a slower assignment and reviewing an approach I could have chosen myself. It also means using AI to help the other engineer find context, test ideas, and catch mistakes before we talk. Whether that saves me time sooner is something to observe, not assume.</p>
+<p>I would look for work where someone can make real decisions, but a mistake or delay is manageable. I would ask for their approach before breaking the problem into steps myself. They could use AI to explore options and check their work before we talk.</p>
 </div>
 <section class="model-appendix" aria-labelledby="model">
 <div class="prose"><h2 id="model">Optional: put numbers to the time tradeoff</h2>
@@ -142,6 +147,28 @@
 </figure>
 </details>
 </section>
+<div class="article-end">
+			<!-- related-reading:start -->
+<section class="editorial-related-reading" aria-labelledby="related-reading-title">
+  <h2 id="related-reading-title">Related reading</h2>
+  <ul>
+    <li><a href="/posts/great_supervisor/"><strong>How to be a great supervisor (of an internship)?</strong><span>On giving interns context, feedback, and room to make decisions.</span></a></li>
+    <li><a href="/posts/what-counts-as-good-work/"><strong>What Counts as Good Work?</strong><span>On connecting useful work and feedback to what changes because of it.</span></a></li>
+  </ul>
+</section>
+<!-- related-reading:end -->
+			<hr class="post-end">
+<!-- post-conversation:start -->
+<aside class="post-conversation" aria-label="Respond and share">
+<p>Have a different take? <a href="mailto:hleal.pablo@gmail.com?subject=Re%3A%20When%20Doing%20It%20Myself%20Gets%20Cheaper&amp;body=Post%3A%20https%3A%2F%2Fpablohl.github.io%2Fposts%2Fthe-changing-economics-of-delegation%2F%0A%0A">Reply by email</a>.</p>
+<div class="post-share-actions" hidden>
+<button type="button" data-copy-link>Copy link</button>
+<button type="button" data-share-link hidden>Share</button>
+<span class="post-share-status" role="status" aria-live="polite"></span>
+</div>
+</aside>
+<!-- post-conversation:end -->
+</div>
 <footer class="article-footer"><span>All numerical examples are illustrative.</span><a href="#essay">Back to the beginning ↑</a><a href="/posts/">Return to Writing →</a></footer>
 </article>
 </main>
