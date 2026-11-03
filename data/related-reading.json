@@ -86,5 +86,13 @@
   "great_intern": [
     {"post": "great_supervisor", "reason": "What effective support looks like from the supervisor's side."},
     {"post": "thoughts", "reason": "More guidance for students entering AI and machine learning."}
+  ],
+  "the-changing-economics-of-delegation": [
+    {"post": "great_supervisor", "reason": "On giving interns context, feedback, and room to make decisions."},
+    {"post": "what-counts-as-good-work", "reason": "On connecting useful work and feedback to what changes because of it."}
+  ],
+  "the-friction-ai-removes": [
+    {"post": "crossing-boundaries", "reason": "On learning enough to connect different areas of expertise."},
+    {"post": "problems-at-the-boundary", "reason": "On gaps that appear between capable people and their domains."}
   ]
 }

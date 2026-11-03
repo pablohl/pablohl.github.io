@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A personal essay on how AI changes the time I save by delegating, and what I still need to help another engineer learn.">
+<link rel="canonical" href="https://pablohl.github.io/posts/the-changing-economics-of-delegation/">
+<meta property="og:title" content="When It’s Faster to Do It Myself">
+<meta property="og:description" content="AI makes doing a task yourself faster too. What does that change about the time saved by delegating, and who does the reasoning next time?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pablohl.github.io/posts/the-changing-economics-of-delegation/">
+<meta property="article:published_time" content="2026-11-03T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="When It’s Faster to Do It Myself">
+<meta name="twitter:description" content="AI makes doing a task yourself faster too. What does that change about the time saved by delegating, and who does the reasoning next time?">
+<meta name="theme-color" content="#F6F2EA">
+<title>When It’s Faster to Do It Myself</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css">
+<link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261103-opening-figure">
+<script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
+<script src="visuals.js" defer></script>
+<script src="/js/post-actions.js" defer></script>
+</head>
+<body id="page" class="delegation-essay">
+<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="editorial-header__inner section-inner">
+    <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+    <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+    <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
+      <a href="/about/#research">Research</a>
+      <a href="/toolbox/">Toolbox</a>
+    </nav>
+  </div>
+</header>
+<main class="site-main section-inner page-layout" id="main-content" tabindex="-1">
+<aside class="contents"><nav aria-label="In this essay"><p>In this essay</p><a href="#ai">The AI tradeoff</a><a href="#scenarios">The same task, four settings</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">A review I remember</a><a href="#takeaway">What I would do differently</a><a href="#model">Optional time model</a></nav></aside>
+<article id="essay">
+<header class="post-header article-header"><div class="post-meta"><time datetime="2026-11-03">November 3, 2026</time><span>6 min read · extra time for the optional model</span></div><h1>When It’s Faster to Do It Myself</h1><p class="post-subtitle dek">AI made a familiar task quicker to do myself. That left me wondering what I would be giving up by keeping it.</p>
+<details class="mobile-contents"><summary>In this essay</summary><nav aria-label="Essay sections"><a href="#ai">The AI tradeoff</a><a href="#scenarios">The same task, four settings</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">A review I remember</a><a href="#takeaway">What I would do differently</a><a href="#model">Optional time model</a></nav></details></header>
+<div class="prose">
+<p>I recently completed a task with AI that would be suitable for an intern.</p>
+<p>I understood the context and the main problem. I wasn’t sure of the solution, but I had a clear goal. With recent LLM models, I could investigate the code, make changes, and test them without doing the implementation myself. I was still deciding what to try and whether the results were good enough.</p>
+<p>AI helps both of us work faster. But if doing the task myself now takes half the time, while explaining and reviewing it takes almost as long as before, I save less time by delegating. For example:</p>
+</div>
+<figure class="delegation-comparison" id="ai" aria-labelledby="comparison-title" aria-describedby="ai-comparison-note">
+<figcaption id="comparison-title"><span class="figure-number">01</span><span>Both get faster. I save less time by delegating.</span></figcaption>
+<p class="comparison-scope">Illustrative example · senior engineer’s time only · same task</p>
+<div class="comparison-panels" id="ai-comparison">
+<section class="comparison-panel" aria-labelledby="before-ai-title">
+<h3 id="before-ai-title">Before AI</h3>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Do the task myself</span><strong>12 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar direct" style="width:100%"></span></div></div>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Support someone else doing it</span><strong>8 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar support" style="width:66.6667%"></span></div></div>
+<div class="comparison-scale" aria-hidden="true"><span>0</span><span>6</span><span>12 hours</span></div>
+<p class="comparison-outcome saved"><span>By delegating, I save</span><strong>4 hours</strong></p>
+</section>
+<section class="comparison-panel" aria-labelledby="with-ai-title">
+<h3 id="with-ai-title">With AI</h3>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Do the task myself</span><strong>6 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar direct" style="width:50%"></span></div></div>
+<div class="comparison-bar-row"><div class="comparison-bar-label"><span>Support someone else doing it</span><strong>7 h</strong></div><div class="comparison-track" aria-hidden="true"><span class="comparison-bar support" style="width:58.3333%"></span></div></div>
+<div class="comparison-scale" aria-hidden="true"><span>0</span><span>6</span><span>12 hours</span></div>
+<p class="comparison-outcome extra"><span>By delegating, I spend</span><strong>1 extra hour</strong></p>
+</section>
+</div>
+<p class="figure-note" id="ai-comparison-note">Both pairs use the same 0–12 hour scale. Support includes explaining, answering questions, and reviewing. The intern’s own working hours are excluded. These numbers show how the tradeoff could change, not how often it happens.</p>
+</figure>
+<div class="prose">
+<p>That makes doing it myself tempting. But if I keep making the decisions, when does someone else get to learn how?</p>
+<p>Part of what I want to help an intern learn is to bring an approach, explain why they chose it, and show what they checked. <strong>I want to review their reasoning instead of supplying it.</strong> That takes time together, even when doing the current task myself would be quicker.</p>
+<p>AI can reduce that support time too: the engineer may use it to find context, investigate alternatives, and catch mistakes before review. That changes how much time I save by delegating. It doesn’t settle whether the assignment is worthwhile. An intern can learn something valuable even if it never saves me time during the internship.</p>
+<p>The work can get done, and someone can learn from it, while I still need to direct the next task. That made me wonder what changes this over time.</p>
+<h2 id="scenarios">The same task, four settings</h2>
+<p>Imagine an integration with an external service: someone needs to investigate, implement, and test it. Here are four combinations of support, time together, and room to make decisions, with AI available to everyone.</p>
+</div>
+<div class="scenario-grid">
+<section class="scenario"><h3><span class="scenario-number">01</span>A startup intern, for ten weeks</h3><p>The CTO could finish the integration with AI in six hours. Helping the intern takes eight. The integration works, but the CTO has spent two extra hours. With a ten-week internship, there are fewer future assignments where that learning can save the CTO time.</p></section>
+<section class="scenario"><h3><span class="scenario-number">02</span>The same startup, a permanent hire</h3><p>The first integration costs just as much attention. On the next one, the CTO asks the engineer to propose the approach and explain the tests, then reviews their reasoning. Repeated assignments give them context; being trusted to choose an approach gives them practice making decisions. Hiring them for longer doesn’t make that happen on its own.</p></section>
+<section class="scenario"><h3><span class="scenario-number">03</span>A company intern, for ten weeks</h3><p>A working example, tests, and a mentor make the first integration easier to start. The mentor still spends time reviewing it, but does not have to explain the system from scratch. Those existing resources, rather than the company’s size itself, make the short engagement less costly.</p></section>
+<section class="scenario"><h3><span class="scenario-number">04</span>The same company, a permanent hire</h3><p>The lead keeps breaking every problem into steps and choosing what to investigate. The engineer gets faster with AI, but has little reason or room to propose the next step. Six months of completed tasks need not change that relationship. The dependency here is partly in how the lead assigns the work.</p></section>
+</div>
+<div class="prose">
+<h2 id="responsibility">Who is directing the investigation?</h2>
+<p>A task can be completed correctly while the lead still chooses what to investigate, what to try, and what evidence is enough. The work has moved to someone else; directing it has not.</p>
+<p>I may still review every significant decision, especially when the consequences demand it. That does not tell me whether delegation is working. What matters is whether I am examining someone’s reasoning or having to formulate it for them. I can remain accountable in either case.</p>
+<p class="independence-note"><strong><em>Knowing when to ask for help is part of that judgment. Fewer questions are useful only when the person can recognize what needs escalation.</em></strong></p>
+<h2 id="independence">A review I remember</h2>
+<p>In one review, an intern brought examples of incorrect answers that our matching rule had counted as correct. That made our earlier accuracy results look less reliable. I asked what that meant for our evaluation and which earlier conclusions we needed to revisit.</p>
+<p>Asking those questions was part of the review; it didn’t mean the intern needed me to supply the answers. What I wanted them to bring next time was their view of the “so what?”: what the findings changed, what they would do next, and where they were unsure.</p>
+</div>
+<figure class="responsibility-map" id="responsibility-map">
+<figcaption id="responsibility-caption"><span class="figure-number">02</span> What I would gradually ask them to lead</figcaption>
+<p class="map-intro">Different parts of the work can change at different times. Someone might lead the validation while continuing to frame the problem with their mentor.</p>
+<table aria-labelledby="responsibility-caption" aria-describedby="responsibility-note">
+<thead><tr><th scope="col">Decision</th><th scope="col">Initially</th><th scope="col">Developing</th><th scope="col">More independent</th></tr></thead>
+<tbody>
+<tr><th scope="row">Frame the problem</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Propose experiments</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership intern">Intern-led<span class="ownership-detail">with review</span></span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Choose metrics</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Validate results</th><td><span class="ownership shared">Shared</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+<tr><th scope="row">Recommend a decision</th><td><span class="ownership mentor">Mentor-led</span></td><td><span class="ownership shared">Shared</span></td><td><span class="ownership intern">Intern-led</span></td></tr>
+</tbody>
+</table>
+<div class="map-support"><span>At every stage</span><p>Ask for help, flag uncertainty, and escalate decisions beyond the agreed scope.</p></div>
+<p class="figure-note" id="responsibility-note">An illustrative progression within one area of work, not a fixed timeline or a scorecard. Different responsibilities can develop at different rates. “Intern-led” means leading the reasoning, with support and review available.</p>
+</figure>
+<div class="prose">
+<p>I would still expect questions, reviews, and disagreements. The change I am looking for is having an approach to discuss, rather than having to supply one. That can happen in one familiar part of a system long before it happens elsewhere.</p>
+<h2 id="takeaway">What I would do differently</h2>
+<p>What we need to consider is how easily I could make the same decision on the next task, and the next, because each looks cheaper to do myself.</p>
+<p>I would now ask what I am leaving for someone else to learn to decide. If I keep the unfamiliar problems and delegate only the steps I have already worked out, I should not be surprised when I am still needed to work out the next one.</p>
+<p>I would look for work where someone can make real decisions, but a mistake or delay is manageable. I would ask for their approach before breaking the problem into steps myself. They could use AI to explore options and check their work before we talk.</p>
+</div>
+<section class="model-appendix" aria-labelledby="model">
+<div class="prose"><h2 id="model">Optional: put numbers to the time tradeoff</h2>
+<p id="time">I kept the model below for exploring how long an initial time cost might take to recover. It assumes how supervision changes; it does not explain how someone learns, or tell us what usually happens. It measures the existing team’s time, not the full economics of hiring.</p></div>
+<details class="model-disclosure" open><summary>Illustrative time model</summary>
+<div class="prose"><p>The comparison is against the existing team doing the work directly with AI. Change the support time as well as the time saved: AI may reduce both.</p><p class="formula">Existing team’s net time gained = work avoided − onboarding − supervision</p></div>
+<figure class="model" id="attention-model"><figcaption><span class="figure-number">03</span> When does delegation free the existing team’s time?</figcaption>
+<p class="model-scope">All hours refer to the existing team: the CTO, mentor, and reviewers. The intern or new hire’s own working hours are excluded.</p>
+<div class="model-layout"><div class="model-inputs">
+<fieldset class="scenario-picker" id="scenario">
+<legend>Illustrative starting point</legend>
+<button type="button" data-scenario="startup-intern" aria-pressed="true"><span>Startup</span><span>10-week intern</span></button>
+<button type="button" data-scenario="startup-hire" aria-pressed="false"><span>Startup</span><span>Permanent hire</span></button>
+<button type="button" data-scenario="company-intern" aria-pressed="false"><span>Company</span><span>10-week intern</span></button>
+<button type="button" data-scenario="company-hire" aria-pressed="false"><span>Company</span><span>Permanent hire</span></button>
+</fieldset>
+<p id="scenario-status" class="scenario-status">Preset assumptions · change any value to explore.</p>
+<div class="controls">
+<label for="weeks">Engagement <output id="weeks-value"></output><input id="weeks" aria-label="Engagement" type="range" min="1" max="52" value="10"></label>
+<label for="onboard">Team’s onboarding time <output id="onboard-value"></output><input id="onboard" aria-label="Team’s onboarding time" type="range" min="0" max="40" value="20"></label>
+<label for="avoided">Team’s time saved on the work <output id="avoided-value"></output><input id="avoided" aria-label="Team’s time saved on the work" aria-describedby="avoided-help" type="range" min="0" max="10" step="0.5" value="3"><span class="control-help" id="avoided-help">Hours the existing team would otherwise spend doing this work with AI each week.</span></label>
+<label for="supervision">Team’s supervision time at the start <output id="supervision-value"></output><input id="supervision" aria-label="Team’s supervision time at the start" aria-describedby="supervision-help" type="range" min="0" max="10" step="0.5" value="5"><span class="control-help" id="supervision-help">Combined time the CTO, mentor, and reviewers spend guiding and reviewing each week.</span></label>
+<label for="decline" class="independence-control">Weekly decrease in team supervision <output id="decline-value"></output><input id="decline" aria-label="Weekly decrease in team supervision" aria-describedby="decline-help" type="range" min="0" max="30" value="15"><span class="control-help" id="decline-help">How quickly the need for supervision falls.</span></label>
+</div>
+</div><div class="model-visual">
+<div id="cumulative-chart" class="chart"></div><div class="legend"><span><i class="line teal"></i>Team time saved</span><span><i class="line coral"></i>Team time spent supporting</span></div>
+<p id="model-result" class="model-result" aria-live="polite"></p>
+</div></div>
+<details><summary>Assumptions and limits</summary><p>These presets are hypothetical starting points for recurring work, not measured versions of the integration examples. Onboarding uses the existing team’s time at week 0. Time spent supporting includes onboarding and ongoing supervision. Every productive week avoids the same amount of work for the existing team, measured against doing it with AI. Supervision in week <em>w</em> is initial supervision × (1 − weekly decrease)<sup>w − 1</sup>. Supervision counts attention from everyone providing it, not just the technical lead.</p><p>The model assumes suitable work is always available and output has been validated to the required quality. A weekly decrease compounds: 15% means 5 hours becomes 4.25 hours in week 2. It approaches zero over time. There is no explicit allowance for interruptions, minimum review requirements, or new domains that increase supervision. Break-even is the first productive week in which the existing team’s time saved covers its onboarding and supervision time.</p><p>This measures attention, not financial return or the value of learning. It excludes compensation, recruiting, retention, and any benefit after the engagement ends. A negative result does not mean a failed internship.</p></details>
+</figure>
+</details>
+</section>
+<div class="article-end">
+			<!-- related-reading:start -->
+<section class="editorial-related-reading" aria-labelledby="related-reading-title">
+  <h2 id="related-reading-title">Related reading</h2>
+  <ul>
+    <li><a href="/posts/great_supervisor/"><strong>How to be a great supervisor (of an internship)?</strong><span>On giving interns context, feedback, and room to make decisions.</span></a></li>
+    <li><a href="/posts/what-counts-as-good-work/"><strong>What Counts as Good Work?</strong><span>On connecting useful work and feedback to what changes because of it.</span></a></li>
+  </ul>
+</section>
+<!-- related-reading:end -->
+			<hr class="post-end">
+<!-- post-conversation:start -->
+<aside class="post-conversation" aria-label="Respond and share">
+<p>Have a different take? <a href="mailto:hleal.pablo@gmail.com?subject=Re%3A%20When%20It%E2%80%99s%20Faster%20to%20Do%20It%20Myself&amp;body=Post%3A%20https%3A%2F%2Fpablohl.github.io%2Fposts%2Fthe-changing-economics-of-delegation%2F%0A%0A">Reply by email</a>.</p>
+<div class="post-share-actions" hidden>
+<button type="button" data-copy-link>Copy link</button>
+<button type="button" data-share-link hidden>Share</button>
+<span class="post-share-status" role="status" aria-live="polite"></span>
+</div>
+</aside>
+<!-- post-conversation:end -->
+</div>
+<footer class="article-footer"><span>All numerical examples are illustrative.</span><a href="#essay">Back to the beginning ↑</a><a href="/posts/">Return to Writing →</a></footer>
+</article>
+</main>
+<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+</body>
+</html>
