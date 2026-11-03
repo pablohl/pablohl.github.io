@@ -37,11 +37,11 @@
 <details class="mobile-contents"><summary>In this essay</summary><nav aria-label="Essay sections"><a href="#ai">The AI tradeoff</a><a href="#scenarios">The same task, four settings</a><a href="#responsibility">Work &amp; responsibility</a><a href="#independence">A review I remember</a><a href="#takeaway">What I would do differently</a><a href="#model">Optional time model</a></nav></details></header>
 <div class="prose">
 <p>I recently completed a task with AI that would be suitable for an intern.</p>
-<p>I understood the context and the main problem. I wasn’t sure of the solution, but I had a clear goal. The work involved investigating code, making changes, testing, and reviewing results. With recent LLM models, I could focus on the decisions without doing any of the implementation myself.</p>
-<p>But when I work with an intern, I also want something to change between assignments. I want them to bring an approach, explain why they chose it, and show what they checked. <strong>I want to review their reasoning instead of supplying it.</strong> Getting the current task done does not necessarily get us there.</p>
+<p>I understood the context and the main problem. I wasn’t sure of the solution, but I had a clear goal. With recent LLM models, I could investigate the code, make changes, and test them without doing the implementation myself. I was still deciding what to try and whether the results were good enough.</p>
+<p>That made me reconsider what I would gain by delegating the task. If an intern did the implementation while I continued making those decisions, I might spend just as much time on it. But part of what I want to help them learn is how to make those decisions themselves: to bring an approach, explain why they chose it, and show what they checked. <strong>I want to review their reasoning instead of supplying it.</strong> That takes time together, even when doing the current task myself would be quicker.</p>
 <h2 id="ai">AI changes the alternative to delegation</h2>
 <p>Delegating would have meant explaining the problem, transferring context, answering questions, and reviewing the result. The relevant comparison was how much of my attention that would require versus doing the work directly with AI.</p>
-<p>I had been thinking about how much faster someone else could work with AI. This task made me notice the other side: I could do it faster too. If my time doing the work falls more than my time supporting someone else, delegation can save me less time even when their implementation gets faster.</p>
+<p>AI can make an intern faster while reducing the time I save by delegating. That happens when it saves me more time doing the work than supporting them.</p>
 <p>AI can reduce supervision too: the engineer may use it to find context, investigate alternatives, and catch mistakes before review. The question is which side of the comparison gets cheaper faster.</p>
 <p>Here is how that could happen. These are invented numbers, not measurements from my task.</p>
 <div class="ai-comparison" id="ai-comparison">
@@ -56,8 +56,7 @@
 </table>
 <p id="ai-comparison-note">Only the senior engineer’s hours are counted. This comparison says nothing about how much faster the junior engineer works, or how often this reversal happens.</p>
 </div>
-<p>Both options improve, but the time saved by delegating disappears. If AI reduced support from eight hours to three instead, delegation would still save three hours. The result depends on what changes in the actual work.</p>
-<p>In my case, I finished the task with AI; I did not also delegate it and measure the difference. What changed was my willingness to assume that handing it off would save me time.</p>
+<p>In this example, both options get faster, but delegating no longer saves time. I didn’t measure both in my own task. Finishing it with AI just made me question whether handing it off would have saved me time.</p>
 <p>Doing it myself may save me time today. But if I keep choosing the approach and deciding what counts as enough evidence, the other person gets less practice doing either. I may finish this task faster while leaving the next one just as dependent on me.</p>
 </div>
 <figure class="distinctions"><figcaption><span class="figure-number">01</span> What I might get from the same assignment</figcaption><div class="three-columns"><section><h3>The task gets done</h3><p>The integration works.</p></section><section><h3>They learn something</h3><p>They understand more of the system.</p></section><section><h3>I direct less next time</h3><p>They bring an investigation and a recommendation.</p></section></div></figure>
@@ -68,7 +67,7 @@
 </div>
 <div class="scenario-grid">
 <section class="scenario"><h3><span class="scenario-number">01</span>A startup intern, for ten weeks</h3><p>The CTO could finish the integration with AI in six hours. Helping the intern takes eight. The integration works, but the CTO has spent two extra hours. There are only a few weeks left for what the intern learned to make the next assignment easier.</p></section>
-<section class="scenario"><h3><span class="scenario-number">02</span>The same startup, a permanent hire</h3><p>The first integration costs just as much attention. On the next one, the CTO asks the engineer to propose the approach and explain the tests, then reviews their reasoning. Repeated assignments give them context; being trusted to choose an approach gives them practice making decisions. Neither follows automatically from a permanent contract.</p></section>
+<section class="scenario"><h3><span class="scenario-number">02</span>The same startup, a permanent hire</h3><p>The first integration costs just as much attention. On the next one, the CTO asks the engineer to propose the approach and explain the tests, then reviews their reasoning. Repeated assignments give them context; being trusted to choose an approach gives them practice making decisions. Hiring them for longer doesn’t make that happen on its own.</p></section>
 <section class="scenario"><h3><span class="scenario-number">03</span>A company intern, for ten weeks</h3><p>A working example, tests, and a mentor make the first integration easier to start. The mentor still spends time reviewing it, but does not have to explain the system from scratch. Those existing resources, rather than the company’s size itself, make the short engagement less costly.</p></section>
 <section class="scenario"><h3><span class="scenario-number">04</span>The same company, a permanent hire</h3><p>The lead keeps breaking every problem into steps and choosing what to investigate. The engineer gets faster with AI, but has little reason or room to propose the next step. Six months of completed tasks need not change that relationship. The dependency here is partly in how the lead assigns the work.</p></section>
 </div>
@@ -78,10 +77,8 @@
 <p>I may still review every significant decision, especially when the consequences demand it. That does not tell me whether delegation is working. What matters is whether I am examining someone’s reasoning or having to formulate it for them. I can remain accountable in either case.</p>
 <p class="independence-note"><strong><em>Knowing when to ask for help is part of that judgment. Fewer questions are useful only when the person can recognize what needs escalation.</em></strong></p>
 <h2 id="independence">A review I remember</h2>
-<p>One conversation with an intern made that distinction concrete. We were comparing two language models for extracting answers from documents. The intern had inspected the outputs and brought examples where paraphrasing left out important information or made an answer hard to judge. Their recommendation was conditional: at the same cost, they would choose the more reliable model.</p>
-<p>I still needed to ask why the earlier accuracy measure had looked promising. In the discussion, the intern explained that the matching rule could accept convincing but incorrect answers because they shared the expected words. I asked which earlier results now needed to be reconsidered.</p>
-<p>The intern had brought evidence I needed. I was still helping connect it to the evaluation and the decision. That exchange was more useful than a finished report alone, but it would be too neat to describe it as a completed transition to independence.</p>
-<p>It also changed what I needed from AI-assisted work. Generating more answers or running more comparisons would not resolve whether our measure was accepting the wrong things. We needed to inspect the results and question the evaluation itself. AI could help with that investigation too; someone still had to judge the evidence.</p>
+<p>In one review, an intern brought examples that made our earlier results look less reliable. They had found something important. I still had to ask what that meant for our evaluation and which earlier conclusions we needed to revisit.</p>
+<p>We had evidence to discuss, but I was still helping work out what to do with it. What I wanted them to bring next time was that next step too: what they thought the findings changed, and why.</p>
 </div>
 <figure class="responsibility-map" id="responsibility-map">
 <figcaption id="responsibility-caption"><span class="figure-number">02</span> What I would gradually ask them to lead</figcaption>
