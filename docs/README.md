@@ -7,6 +7,7 @@ Use this index to find the current guidance before proposing, reviewing, or impl
 | Document | Owns |
 | --- | --- |
 | [Personal Git identity](git-identity.md) | Personal commit identity, signing-key guard, and local hook activation |
+| [Post social previews](post-social-previews.md) | Existing-artwork mapping, generated sharing images, and Open Graph / X image metadata |
 | [Homepage design](homepage-design.md) | Editorial hierarchy, featured exploration, reader paths, selected work, and supporting professional context |
 | [Full reader journey](reader-journey.md) | Expectations and transitions from preview and direct arrival through reading/action, consequence, recovery, and onward navigation |
 | [Reading comfort and shared navigation](reading-comfort-navigation.md) | Shared presentation defaults, responsive comparison behavior, global header, and keyboard navigation |
@@ -37,6 +38,7 @@ These documents have different roles: guidelines state intended standards; guide
 | Experiment invitations and opening hints | [Experiments index](../experiments/index.html), homepage experiment cards, [interactive-previews.css](../css/interactive-previews.css), activity diagrams under [img/experiments](../img/experiments/), and each experiment's page/interaction script |
 | Shared presentation | [editorial.css](../css/editorial.css), with collection/experiment-specific sheets where needed |
 | Shared static shell | [apply_editorial_shell.py](../scripts/apply_editorial_shell.py) |
+| Post social previews | [post-social-images.json](../data/post-social-images.json), [build_post_social_images.py](../scripts/build_post_social_images.py), generated JPEGs under `img/posts/social/` |
 | Global and collection current-state behavior | [editorial-nav.js](../js/editorial-nav.js) |
 | Decision tools and starting points | [toolbox.json](../data/toolbox.json), [toolbox-starting-points.json](../data/toolbox-starting-points.json), [build_toolbox.py](../scripts/build_toolbox.py) |
 | Engineering guides | [engineering-tools.json](../data/engineering-tools.json), [build_engineering_toolbox.py](../scripts/build_engineering_toolbox.py), [build_system_selection.py](../scripts/build_system_selection.py) |

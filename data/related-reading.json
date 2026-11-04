@@ -94,5 +94,9 @@
   "the-friction-ai-removes": [
     {"post": "crossing-boundaries", "reason": "On learning enough to connect different areas of expertise."},
     {"post": "problems-at-the-boundary", "reason": "On gaps that appear between capable people and their domains."}
+  ],
+  "from-playing-with-ai-to-building-with-it": [
+    {"post": "the-friction-ai-removes", "reason": "On noticing the decisions AI fills in when an idea is incomplete."},
+    {"post": "the-changing-economics-of-delegation", "reason": "On helping someone direct the work while AI makes implementation faster."}
   ]
 }

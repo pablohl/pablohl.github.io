@@ -1,0 +1,132 @@
+{
+  "a-result-is-not-the-decision": {
+    "source": "img/posts/a-result-is-not-the-decision.webp",
+    "layout": "artwork",
+    "alt": "A tall golden form balances on an unstable stack of stones, while a smaller matte form stands securely on a broad, coherent foundation."
+  },
+  "crossing-boundaries": {
+    "source": "img/posts/crossing-boundaries.webp",
+    "layout": "artwork",
+    "alt": "A simple straight route on a translucent map hovers above a winding path leading toward two people in the real landscape."
+  },
+  "from-playing-with-ai-to-building-with-it": {
+    "source": "img/posts/from-playing-with-ai-to-building-with-it.webp",
+    "layout": "artwork",
+    "alt": "The restaurant game shows a large ice cream sundae and asks the player to classify it as healthy or unhealthy, with turn information and scores above."
+  },
+  "great_intern": {
+    "source": "img/pablo_photo.jpg",
+    "layout": "author",
+    "alt": "Pablo Hernandez Leal beside the essay title."
+  },
+  "great_supervisor": {
+    "source": "img/pablo_photo.jpg",
+    "layout": "author",
+    "alt": "Pablo Hernandez Leal beside the essay title."
+  },
+  "hello_world": {
+    "source": "img/pablo_photo.jpg",
+    "layout": "author",
+    "alt": "Pablo Hernandez Leal beside the essay title."
+  },
+  "industryvsacademia": {
+    "source": "img/product.png",
+    "layout": "artwork",
+    "alt": "A quoted social post about feedback loops and moving machine learning research into real-world applications."
+  },
+  "kirk-spock": {
+    "source": "img/posts/kirk-spock-optionality.webp",
+    "layout": "artwork",
+    "alt": "Two paths diverge from the same starting point: one reaches a bright immediate reward but only two future destinations, while the other preserves several branching possibilities."
+  },
+  "pommermanlessons": {
+    "source": "img/bom2.png",
+    "layout": "artwork",
+    "alt": "A scene from the Pommerman game."
+  },
+  "position-before-you-know": {
+    "source": "img/posts/position-before-you-know.webp",
+    "layout": "artwork",
+    "alt": "Two blue players advance against two ochre defenders while a third blue player holds a deeper position behind the attack."
+  },
+  "problems-at-the-boundary": {
+    "source": "img/posts/problems-at-the-boundary.webp",
+    "layout": "artwork",
+    "alt": "Two specialists work within separate, coherent systems while an incomplete glowing connection between their domains remains unnoticed."
+  },
+  "prompts": {
+    "source": "img/wizard2.png",
+    "layout": "artwork",
+    "alt": "Wizard illustration from the prompting essay."
+  },
+  "prompts2": {
+    "source": "img/wizard_small.png",
+    "layout": "artwork",
+    "alt": "Wizard illustration from the second prompting essay."
+  },
+  "simplicity": {
+    "source": "img/quantvsml.png",
+    "layout": "artwork",
+    "alt": "Illustration comparing quantitative research and machine learning."
+  },
+  "the-changing-economics-of-delegation": {
+    "source": "img/posts/thumbnails/the-changing-economics-of-delegation.webp",
+    "layout": "artwork",
+    "alt": "Two people’s hands drawing and reviewing a plan on paper."
+  },
+  "the-executive-summary-is-not-a-summary": {
+    "source": "img/posts/the-executive-summary-is-not-a-summary.webp",
+    "layout": "artwork",
+    "alt": "A magnifying lens focuses on a result in a report while the same illuminated line continues through an opening toward a distant landscape."
+  },
+  "the-friction-ai-removes": {
+    "source": "img/posts/the-friction-ai-removes.webp",
+    "layout": "artwork",
+    "alt": "A translucent patch places a confident check mark over an unresolved question on a document; the question remains visible underneath."
+  },
+  "the-metric-can-be-right": {
+    "source": "img/posts/the-metric-can-be-right.webp",
+    "layout": "artwork",
+    "alt": "Two three-dimensional forms share the same measured height and width, while one extends much farther in an unmeasured depth."
+  },
+  "the-right-level-of-reasoning": {
+    "source": "img/posts/right-level-of-reasoning.webp",
+    "layout": "artwork",
+    "alt": "A person pauses midway on a stone staircase, looking toward a simple sphere below and an intricate faceted form above."
+  },
+  "this-feels-wrong": {
+    "source": "img/posts/intuition-to-shared-understanding.webp",
+    "layout": "artwork",
+    "alt": "A private, ambiguous signal is transformed through structured reasoning and synthesis into a clear representation that a group can inspect together."
+  },
+  "thoughts": {
+    "source": "img/pablo_photo.jpg",
+    "layout": "author",
+    "alt": "Pablo Hernandez Leal beside the essay title."
+  },
+  "two-clocks": {
+    "source": "img/posts/two-clocks.webp",
+    "layout": "artwork",
+    "alt": "Two parallel sequences of stone rings move toward the same horizon, one emerging from haze while the other narrows."
+  },
+  "what-counts-as-good-work": {
+    "source": "img/posts/what-counts-as-good-work.webp",
+    "layout": "artwork",
+    "alt": "A hand tries to grasp the tiny handle of a carefully made cup, revealing a difficulty only visible in use."
+  },
+  "what-is-worth-learning": {
+    "source": "img/posts/what-is-worth-learning.webp",
+    "layout": "artwork",
+    "alt": "A field of hinged panels, some upright and others flipping down, with one panel picked out by warm light."
+  },
+  "when-is-an-experiment-actually-done": {
+    "source": "img/posts/experiment-evidence-decision-bridge.webp",
+    "layout": "artwork",
+    "alt": "Experimental observations and charts connect to a product decision across a bridge of analytical stages, with a translucent final segment indicating evidence that may still be missing."
+  },
+  "which-game-are-we-playing": {
+    "source": "img/posts/which-game-are-we-playing.webp",
+    "layout": "artwork",
+    "alt": "Overhead view of a circular beach with two lemonade stands set up close together while a third vendor holds a cart across the open sand."
+  }
+}
