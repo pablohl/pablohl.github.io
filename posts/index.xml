@@ -6,9 +6,10 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 03 Nov 2026 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Wed, 04 Nov 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://pablohl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-		<item>
+		<item><title>From Playing with AI to Building with It</title><link>https://pablohl.github.io/posts/from-playing-with-ai-to-building-with-it/</link><pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate><guid>https://pablohl.github.io/posts/from-playing-with-ai-to-building-with-it/</guid><description>Making a game with my son, and how a playable first version helped him keep directing the idea.</description></item>
+<item>
         <title>When It’s Faster to Do It Myself</title>
         <link>https://pablohl.github.io/posts/the-changing-economics-of-delegation/</link>
         <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>

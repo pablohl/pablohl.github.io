@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#F6F2EA">
+	<meta itemprop="name" content="From Playing with AI to Building with It">
+	<meta itemprop="description" content="Making a game with my son, and how a playable first version helped him keep directing the idea.">
+	<meta itemprop="datePublished" content="2026-11-04T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-11-04T00:00:00+00:00">
+	<meta property="og:title" content="From Playing with AI to Building with It">
+	<meta property="og:description" content="Making a game with my son, and how a playable first version helped him keep directing the idea.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://pablohl.github.io/posts/from-playing-with-ai-to-building-with-it/">
+	<meta property="article:section" content="posts">
+	<meta property="article:published_time" content="2026-11-04T00:00:00+00:00">
+	<meta name="twitter:title" content="From Playing with AI to Building with It">
+	<meta name="twitter:description" content="Making a game with my son, and how a playable first version helped him keep directing the idea.">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>From Playing with AI to Building with It</title>
+	<link rel="stylesheet" href="https://pablohl.github.io/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
+	<script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
+	<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<script src="/js/post-actions.js" defer></script>
+	<link rel="stylesheet" href="/css/toolbox.css?v=20261027comfort">
+<link rel="canonical" href="https://pablohl.github.io/posts/from-playing-with-ai-to-building-with-it/">
+<!-- social-preview:start -->
+<meta property="og:image" content="https://pablohl.github.io/img/posts/social/from-playing-with-ai-to-building-with-it.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The restaurant game shows a large ice cream sundae and asks the player to classify it as healthy or unhealthy, with turn information and scores above.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pablohl.github.io/img/posts/social/from-playing-with-ai-to-building-with-it.jpg">
+<meta name="twitter:image:alt" content="The restaurant game shows a large ice cream sundae and asks the player to classify it as healthy or unhealthy, with turn information and scores above.">
+<!-- social-preview:end -->
+</head>
+<body id="page">
+	<header class="editorial-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="editorial-header__inner section-inner">
+    <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
+    <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
+    <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/posts/">Writing</a>
+      <a href="/experiments/">Experiments</a>
+      <a href="/about/#research">Research</a>
+      <a href="/toolbox/">Toolbox</a>
+    </nav>
+  </div>
+</header>
+	<main class="site-main section-inner animated fadeIn faster" id="main-content" tabindex="-1">
+		<article class="thin">
+			<header class="post-header"><div class="post-meta"><time datetime="2026-11-04">November 4, 2026</time><span> · 6 min read</span></div><h1>From Playing with AI to Building with It</h1></header>
+			<div class="content">
+<p>My son had seen me using ChatGPT and some of the experiments on my website. One day, he said he had an idea for a game. Maybe we could use ChatGPT to make it.</p>
+<p>He already knew ChatGPT. We’d used it to invent and play games together, and he was comfortable challenging its rules, finding loopholes, and changing the direction of the game. But this time he wanted to build something he could play outside the conversation: a game about choosing healthy and unhealthy foods.</p>
+<p>I didn’t know all the rules he had in mind, but I thought it would be interesting to try.</p>
+<p>I wanted him to explore his idea and get to something playable before the process became frustrating. As an engineer, I was already thinking about how to make that possible.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>My first instruction was to build a simple game locally, in HTML. I wasn’t sure how difficult the implementation would be, but I wanted something we could run and change quickly.</p>
+<p>I’d seen impressive examples of AI generating more elaborate games and videos. But those can take considerable time to produce and iterate on. I didn’t want him to describe an idea and then spend a long time waiting to see whether it worked.</p>
+<p>I also asked the agent to keep the story and rules separate from the game mechanics. We barely knew what the game would be, so I expected things to change.</p>
+<p>We were mostly talking, not typing.</p>
+<p>My son described what he wanted: players taking turns, choosing foods, different difficulty levels, and surprise snacks. The description wasn’t always precise, but I was impressed by how well the agent understood what he meant.</p>
+<p>It asked questions, made suggestions, and kept track of the decisions.</p>
+<p>Every so often, I asked it to summarize what it understood and identify what was still missing.</p>
+<p>I wasn’t worried about whether the model could produce functional software. I was more concerned about the decisions it might make when the rules were incomplete.</p>
+<p>Some assumptions could significantly change the game. For example, what happens when a player makes a mistake? Does the player lose a turn, lose points, or get eliminated?</p>
+<p>I wanted my son to make those decisions.</p>
+<h2 id="keeping-the-first-version-small">Keeping the first version small</h2>
+<p>I mostly tried to let him describe the rules himself. When he had an idea, I wanted him to explain it to the agent, even if his first description wasn’t perfectly clear.</p>
+<p>But I also stepped in occasionally to simplify things.</p>
+<p>At one point, he proposed allowing players to send messages to trick each other. I suggested leaving that out of the first version.</p>
+<p>He also wanted difficulty to change depending on the player’s age. I suggested using broader categories: baby, child, and adult.</p>
+<p>He accepted both suggestions and explained the changes to the agent.</p>
+<p>These were familiar engineering decisions: limiting scope, separating components, and deciding what could wait until later.</p>
+<p>But the objective was different from a typical software project.</p>
+<p>I wasn’t trying to produce the most complete game or optimize the implementation. I wanted us to get to something playable while he was still interested in developing it.</p>
+<p>There was also a balance I was trying to maintain. I could have specified the rules myself and asked the agent to implement them. That probably would have been easier.</p>
+<p>But then it wouldn’t have been the same activity.</p>
+<p>My son was supposed to be designing the game. My role was to help him make progress without taking over the decisions.</p>
+<h2 id="from-conversation-to-something-playable">From conversation to something playable</h2>
+<p>Once we had enough of the rules, we started discussing how the game should look.</p>
+<p>He wanted a restaurant, pixel art like Minecraft, and cartoon characters. We looked at a visual preview, and he asked for changes.</p>
+<p>Then we asked the agent to build the first playable version.</p>
+<figure><img src="/img/posts/from-playing-with-ai-to-building-with-it.webp" alt="The restaurant game shows a large ice cream sundae and asks the player to classify it as healthy or unhealthy, with turn information and scores above." width="1020" height="756" loading="lazy"><figcaption>The first playable version of the game we made together.</figcaption></figure>
+<p>He started playing and immediately began noticing things that weren’t quite what he intended. At one point, a player could take over another player’s turn after losing. He considered that cheating.</p>
+<p>Some of these problems probably came from rules he hadn’t fully specified earlier.</p>
+<p>What interested me was how naturally he responded. He didn’t need to understand the implementation or explain which part of the code was wrong. He could describe what had happened, explain why it wasn’t right, and ask the agent to change it.</p>
+<p>We made a couple of corrections and played again.</p>
+<p>This was different from the games we had previously played with ChatGPT.</p>
+<p>In a conversational game, changing a rule can be as simple as saying that something should happen differently. The model can adapt the story in the next response.</p>
+<p>Now the rules existed in software. The game behaved in a particular way, regardless of whether that was what he originally intended.</p>
+<p>He could still challenge the agent, but now he had something concrete to evaluate.</p>
+<p>And I think having something playable helped him express parts of his idea that hadn’t been clear during the conversation.</p>
+<h2 id="what-the-shorter-feedback-loop-changed">What the shorter feedback loop changed</h2>
+<p>I’ve been thinking about my role in that process.</p>
+<p>My son came up with the game, described the rules, chose the visual elements, and decided whether the result matched what he wanted.</p>
+<p>The agent was remarkably capable of interpreting his descriptions and turning them into something functional.</p>
+<p>I was mostly shaping the process: keeping the scope manageable, asking which decisions were missing, separating things we might want to change, and choosing when we had enough to try a version.</p>
+<p>I recognized many of those decisions from software projects: how much to define before building, which assumptions matter, and when it makes more sense to try something than keep discussing it.</p>
+<p>But I also wanted him to remain the person directing the game. I didn’t want the model to fill every gap with an assumption and have him simply accept the result.</p>
+<p>At the same time, I didn’t want to turn the afternoon into a requirements exercise.</p>
+<p>AI made the implementation fast enough that we could move between discussing, building, playing, and correcting the game.</p>
+<p>That mattered more to me than the speed of generating code.</p>
+<p>If producing the first version had taken several days, I might have ended up doing most of the implementation while my son waited. Instead, he could participate throughout the process.</p>
+<p>He didn’t need to describe the entire game perfectly at the beginning. He could describe enough to start, see what the agent produced, and then make more precise decisions.</p>
+<p>The first playable version wasn’t just the result of our earlier conversation. It gave us another way to continue that conversation.</p>
+<p>I don’t know how much of this would have happened differently if he had worked with the agent alone. And I don’t think this experience tells us how children should learn programming or use AI.</p>
+<p>It was simply an afternoon spent making a game together.</p>
+</div>
+
+			
+			<!-- related-reading:start -->
+<section class="editorial-related-reading" aria-labelledby="related-reading-title">
+  <h2 id="related-reading-title">Related reading</h2>
+  <ul>
+    <li><a href="/posts/the-friction-ai-removes/"><strong>The Friction AI Removes</strong><span>On noticing the decisions AI fills in when an idea is incomplete.</span></a></li>
+    <li><a href="/posts/the-changing-economics-of-delegation/"><strong>When It’s Faster to Do It Myself</strong><span>On helping someone direct the work while AI makes implementation faster.</span></a></li>
+  </ul>
+</section>
+<!-- related-reading:end -->
+			<hr class="post-end">
+			<!-- post-conversation:start -->
+			<aside class="post-conversation" aria-label="Respond and share">
+				<p>Have a different take? <a href="mailto:hleal.pablo@gmail.com?subject=Re%3A%20From%20Playing%20with%20AI%20to%20Building%20with%20It&amp;body=Post%3A%20https%3A%2F%2Fpablohl.github.io%2Fposts%2Ffrom-playing-with-ai-to-building-with-it%2F%0A%0A">Reply by email</a>.</p>
+				<div class="post-share-actions" hidden>
+					<button type="button" data-copy-link>Copy link</button>
+					<button type="button" data-share-link hidden>Share</button>
+					<span class="post-share-status" role="status" aria-live="polite"></span>
+				</div>
+			</aside>
+			<!-- post-conversation:end -->
+			<footer class="post-info"><p>Pablo</p><p>Nov 4, 2026</p></footer>
+		</article>
+		<div class="post-nav thin"><a href="/posts/">Return to Writing →</a><a class="prev-post" href="/posts/the-changing-economics-of-delegation/">Older: When It’s Faster to Do It Myself</a></div>
+	</main>
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster"><p>&copy; 2026 <a href="/about/">Pablo Hernandez Leal</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p></footer>
+	<script src="https://pablohl.github.io/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+</body>
+</html>
