@@ -1,0 +1,35 @@
+/* Optional supporting detail; narrative typography stays in editorial.css. */
+.chat-summary { margin: 2rem 0; padding: 1rem 0; border-block: 1px solid var(--color-border); }
+.chat-summary > summary { cursor: pointer; color: var(--color-accent); font-family: var(--font-sans); font-size: var(--font-support); font-weight: 600; line-height: 1.6; }
+.chat-summary > summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.chat-summary-body { margin-top: 1rem; }
+.chat-summary table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: var(--font-meta); line-height: 1.6; }
+.chat-summary caption { text-align: left; font-weight: 600; margin-bottom: .6rem; }
+.chat-summary th, .chat-summary td { text-align: left; vertical-align: top; padding: .6rem .4rem; border-bottom: 1px solid var(--color-border); }
+.chat-summary th:first-child { width: 30%; }
+.chat-summary code { white-space: normal; overflow-wrap: anywhere; }
+
+/* Original chat turns, with one quiet rail and no card containers. */
+.game-timeline { margin: 3rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.game-timeline .game-timeline-eyebrow { margin: 0 0 .4rem; font-family: var(--font-sans); font-size: var(--font-meta); color: var(--color-accent); letter-spacing: .07em; text-transform: uppercase; font-weight: 600; }
+.game-timeline h2 { margin: 0 0 .75rem; }
+.game-timeline .game-timeline-intro { font-family: var(--font-sans); font-size: var(--font-support); line-height: 1.6; color: var(--color-text-secondary); margin-bottom: .75rem; max-width: 54ch; }
+.game-timeline .game-timeline-note { font-family: var(--font-sans); font-size: var(--font-meta); line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 1.75rem; max-width: 60ch; }
+.game-timeline ol { position: relative; list-style: none; margin: 0; padding: 0; }
+.game-timeline ol::before { content: ""; position: absolute; left: 2rem; top: 1rem; bottom: 2rem; width: 1px; background: var(--color-accent); opacity: .35; }
+.game-timeline li { position: relative; display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 1.25rem; margin: 0; padding-bottom: 1.6rem; }
+.game-timeline li:last-child { padding-bottom: 0; }
+.game-timeline-turn { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: start; min-height: 3.6rem; padding: .25rem 0; background: var(--color-background, #f6f2ea); color: var(--color-accent); font-family: var(--font-sans); font-variant-numeric: tabular-nums; }
+.game-timeline-turn > span { font-size: .75rem; line-height: 1.5; }
+.game-timeline-turn strong { font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+.game-timeline-moment { padding-top: .25rem; }
+.game-timeline .game-timeline-moment h3 { margin: 0 0 .35rem; font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
+.game-timeline .game-timeline-moment p { margin: 0; font-family: var(--font-sans); font-size: var(--font-support); line-height: 1.6; color: var(--color-text-secondary); }
+.game-timeline-playable .game-timeline-turn { color: var(--color-surface); background: var(--color-accent); border-radius: 3px; }
+.game-timeline-link { display: inline-block; margin-top: .65rem; font-family: var(--font-sans); font-size: var(--font-support); font-weight: 600; }
+.game-timeline-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+@media (max-width: 600px) {
+  .game-timeline li { grid-template-columns: 3rem minmax(0, 1fr); gap: .85rem; }
+  .game-timeline ol::before { left: 1.5rem; }
+  .game-timeline .game-timeline-moment h3 { font-size: 1.125rem; }
+}

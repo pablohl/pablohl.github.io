@@ -28,6 +28,7 @@
 	<link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 	<script src="/js/post-actions.js" defer></script>
 	<link rel="stylesheet" href="/css/toolbox.css?v=20261027comfort">
+<link rel="stylesheet" href="/posts/from-playing-with-ai-to-building-with-it/style.css?v=20261104playlink">
 <link rel="canonical" href="https://pablohl.github.io/posts/from-playing-with-ai-to-building-with-it/">
 <!-- social-preview:start -->
 <meta property="og:image" content="https://pablohl.github.io/img/posts/social/from-playing-with-ai-to-building-with-it.jpg">
@@ -58,20 +59,23 @@
 </header>
 	<main class="site-main section-inner animated fadeIn faster" id="main-content" tabindex="-1">
 		<article class="thin">
-			<header class="post-header"><div class="post-meta"><time datetime="2026-11-04">November 4, 2026</time><span> · 6 min read</span></div><h1>From Playing with AI to Building with It</h1></header>
+			<header class="post-header"><div class="post-meta"><time datetime="2026-11-04">November 4, 2026</time><span> · 8 min read · optional session summary</span></div><h1>From Playing with AI to Building with It</h1></header>
 			<div class="content">
-<p>My son had seen me using ChatGPT and some of the experiments on my website. One day, he said he had an idea for a game. Maybe we could use ChatGPT to make it.</p>
+<p>My son had seen me using ChatGPT and some of the experiments on my website. One day, he said he had an idea for a game. “Maybe we could use ChatGPT to make it.”</p>
 <p>He already knew ChatGPT. We’d used it to invent and play games together, and he was comfortable challenging its rules, finding loopholes, and changing the direction of the game. But this time he wanted to build something he could play outside the conversation: a game about choosing healthy and unhealthy foods.</p>
 <p>I didn’t know all the rules he had in mind, but I thought it would be interesting to try.</p>
 <p>I wanted him to explore his idea and get to something playable before the process became frustrating. As an engineer, I was already thinking about how to make that possible.</p>
 <h2 id="getting-started">Getting started</h2>
-<p>My first instruction was to build a simple game locally, in HTML. I wasn’t sure how difficult the implementation would be, but I wanted something we could run and change quickly.</p>
+<p>For this session, I used Astra 6 (High). My initial prompt was:</p>
+<blockquote><p>“We are going to design a game locally probably in html, my son is going to help design the rules, you will divide the story/idea/concept from the mechanics/code, so we can iterate on both separately, if you need to create files locally do it.”</p></blockquote>
+<p>I wasn’t sure how difficult the implementation would be, but I wanted something we could run and change quickly.</p>
 <p>I’d seen impressive examples of AI generating more elaborate games and videos. But those can take considerable time to produce and iterate on. I didn’t want him to describe an idea and then spend a long time waiting to see whether it worked.</p>
 <p>I also asked the agent to keep the story and rules separate from the game mechanics. We barely knew what the game would be, so I expected things to change.</p>
 <p>We were mostly talking, not typing.</p>
 <p>My son described what he wanted: players taking turns, choosing foods, different difficulty levels, and surprise snacks. The description wasn’t always precise, but I was impressed by how well the agent understood what he meant.</p>
 <p>It asked questions, made suggestions, and kept track of the decisions.</p>
 <p>Every so often, I asked it to summarize what it understood and identify what was still missing.</p>
+<blockquote><p>“Summarize or describe the game, the actions, the goal, and also what is missing, what decisions, what key decisions are missing from our side.”</p></blockquote>
 <p>I wasn’t worried about whether the model could produce functional software. I was more concerned about the decisions it might make when the rules were incomplete.</p>
 <p>Some assumptions could significantly change the game. For example, what happens when a player makes a mistake? Does the player lose a turn, lose points, or get eliminated?</p>
 <p>I wanted my son to make those decisions.</p>
@@ -117,6 +121,51 @@
 <p>The first playable version wasn’t just the result of our earlier conversation. It gave us another way to continue that conversation.</p>
 <p>I don’t know how much of this would have happened differently if he had worked with the agent alone. And I don’t think this experience tells us how children should learn programming or use AI.</p>
 <p>It was simply an afternoon spent making a game together.</p>
+<section class="game-timeline" id="conversation-timeline" aria-labelledby="conversation-timeline-title">
+<p class="game-timeline-eyebrow">The conversation</p>
+<h2 id="conversation-timeline-title">From an idea to a game we could play</h2>
+<p class="game-timeline-intro">My son brought the ideas, examples, and corrections. The agent recorded the rules, asked questions, produced visual mockups, and built a local prototype. The game took shape through those exchanges.</p>
+<p class="game-timeline-note">Selected moments from our 25-exchange conversation. The numbers refer to the original turns in the chat.</p>
+<ol aria-label="Selected conversation turns">
+<li value="1"><span class="game-timeline-turn"><span>Turn</span><strong>1</strong></span><div class="game-timeline-moment"><h3>Set up the collaboration</h3><p>My son would help design the game, while the agent turned the ideas into code. Rules and visuals would stay separately editable.</p></div></li>
+<li value="2"><span class="game-timeline-turn"><span>Turn</span><strong>2</strong></span><div class="game-timeline-moment"><h3>“I want a food game.”</h3><p>He established the central theme.</p></div></li>
+<li value="3"><span class="game-timeline-turn"><span>Turn</span><strong>3</strong></span><div class="game-timeline-moment"><h3>Give the idea its first structure</h3><p>Three players, daily food allowances, and difficulty modes defined the basic game.</p></div></li>
+<li value="5"><span class="game-timeline-turn"><span>Turn</span><strong>5</strong></span><div class="game-timeline-moment"><h3>Add stakes and a goal</h3><p>Points, surprise snacks, elimination, and a chosen game length gave players a way to win.</p></div></li>
+<li value="14"><span class="game-timeline-turn"><span>Turn</span><strong>14</strong></span><div class="game-timeline-moment"><h3>Classify, then Eat or Skip</h3><p>The agent offered three alternatives. My son chose to classify the food first, then decide whether to Eat or Skip.</p></div></li>
+<li value="15"><span class="game-timeline-turn"><span>Turn</span><strong>15</strong></span><div class="game-timeline-moment"><h3>Make the mistake limits precise</h3><p>Mistakes would accumulate within a day and reset the next day.</p></div></li>
+<li value="18"><span class="game-timeline-turn"><span>Turn</span><strong>18</strong></span><div class="game-timeline-moment"><h3>Choose the restaurant setting</h3><p>Pixel art and numbered cartoon characters gave the game its visual direction.</p></div></li>
+<li value="19"><span class="game-timeline-turn"><span>Turn</span><strong>19</strong></span><div class="game-timeline-moment"><h3>See the idea for the first time</h3><p>One food, with buttons beneath it: the first mockup made the design visible.</p></div></li>
+<li value="21" class="game-timeline-playable"><span class="game-timeline-turn"><span>Turn</span><strong>21</strong></span><div class="game-timeline-moment"><h3>Build the first playable version</h3><p>The mockup helped establish the visual direction. The first playable version used simple artwork so we could test the rules.</p><a class="game-timeline-link" href="/playground/food-game/">Play the food game →</a></div></li>
+<li value="23"><span class="game-timeline-turn"><span>Turn</span><strong>23</strong></span><div class="game-timeline-moment"><h3>Revise after playing</h3><p>Playing exposed rules that needed changing. My son clarified that identifying an unhealthy snack should not eliminate a player and requested CPU opponents so losing players couldn’t simply take over another slot.</p></div></li>
+</ol>
+</section>
+<details class="chat-summary" id="chat-summary">
+<summary>Agent’s summary of the session</summary>
+<div class="chat-summary-body">
+<p>The agent summarized our chat as follows:</p>
+<p><strong>Turn count:</strong> 25 completed exchanges.</p>
+<p>We developed:</p>
+<ul>
+<li>Food classification with Healthy/Unhealthy buttons, followed by Eat/Skip.</li>
+<li>Three difficulty levels, daily mistake limits, points, meals, and surprise snacks.</li>
+<li>Baby, Child, and Adult categories; up to three Human or CPU players.</li>
+<li>A restaurant design with numbered characters and a compact day/round/turn sign.</li>
+<li>Separate files for design, food content, mechanics, and styling.</li>
+</ul>
+<table>
+<caption>12 project files</caption>
+<thead><tr><th scope="col">Area</th><th scope="col">Files</th><th scope="col">Count</th></tr></thead>
+<tbody>
+<tr><th scope="row">Game logic</th><td><code>mechanics.js</code>, <code>cpu.js</code>, <code>config.js</code></td><td>3</td></tr>
+<tr><th scope="row">Food content</th><td><code>content.js</code></td><td>1</td></tr>
+<tr><th scope="row">Interface and styling</th><td><code>index.html</code>, <code>app.js</code>, <code>styles.css</code></td><td>3</td></tr>
+<tr><th scope="row">Design documents</th><td><code>concept.md</code>, <code>rules.md</code>, <code>decisions.md</code></td><td>3</td></tr>
+<tr><th scope="row">Tests</th><td><code>mechanics.test.cjs</code></td><td>1</td></tr>
+<tr><th scope="row">Instructions</th><td><code>README.md</code></td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+</details>
 </div>
 
 			
