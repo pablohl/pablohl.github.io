@@ -34,6 +34,7 @@ These documents have different roles: guidelines state intended standards; guide
 
 | Area | Source files |
 | --- | --- |
+| Playground | [Collection](../playground/index.html), [game](../playground/food-game/index.html), and [maintenance notes](playground.md) |
 | Homepage | [index.html](../index.html), [home.css](../css/home.css) |
 | Experiment invitations and opening hints | [Experiments index](../experiments/index.html), homepage experiment cards, [interactive-previews.css](../css/interactive-previews.css), activity diagrams under [img/experiments](../img/experiments/), and each experiment's page/interaction script |
 | Shared presentation | [editorial.css](../css/editorial.css), with collection/experiment-specific sheets where needed |
