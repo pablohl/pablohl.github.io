@@ -34,6 +34,6 @@ Timeline follow-up: the author clarified that the agent offered three alternativ
 
 ## Playable game link
 
-Reviewed merged main at `3168fc8`: the game is published at `/playground/food-game/`, with setup, classification, Eat/Skip, CPU players, and a Playground return link. The merged link beneath the article screenshot is retained. Turn 21 also links directly to the game, connecting the first-playable milestone to the actual activity. Pending prompt, model, timeline, and summary additions are reconciled with the latest shared navigation.
+Reviewed merged main at `3168fc8`: the game is published at `/playground/food-game/`, with setup, classification, Eat/Skip, CPU players, and a Playground return link. The simple invitation “You can play the game here” appears in a supporting aside after the narrative conclusion, before the timeline, so it no longer interrupts the story. Turn 21 also links directly to the game, connecting the first-playable milestone to the actual activity. Pending prompt, model, timeline, and summary additions are reconciled with the latest shared navigation.
 
 Follow-up verification: timeline link → game setup → start → Lunch → Healthy (apple slices) → Eat awarded a point; Playground return worked. Game rule checks, nine Python checks, social-preview and related-reading checks passed. This verifies one local play path, not all game combinations or public-host deployment.
