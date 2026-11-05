@@ -155,7 +155,7 @@ def site_head(title: str, description: str, url: str) -> str:
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">
-  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>
+  <script src="/js/editorial-nav.js?v=20261104playground" defer></script>
 </head>"""
 
 

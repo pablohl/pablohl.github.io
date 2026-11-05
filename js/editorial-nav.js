@@ -9,6 +9,7 @@
     const section = path.startsWith('/posts/') ? '/posts/'
       : path.startsWith('/experiments/') ? '/experiments/'
       : path.startsWith('/toolbox/') ? '/toolbox/'
+      : path.startsWith('/playground/') ? '/playground/'
       : path.startsWith('/about') && window.location.hash === '#research' ? '/about/#research'
       : path.startsWith('/about') ? '/about/' : null;
     if (section) navigation.querySelector(`a[href="${section}"]`)?.setAttribute('aria-current', path === section || (path + window.location.hash) === section ? 'page' : 'location');

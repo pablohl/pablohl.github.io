@@ -23,6 +23,7 @@ HEADER = """<header class="editorial-header">
       <a href="/experiments/">Experiments</a>
       <a href="/about/#research">Research</a>
       <a href="/toolbox/">Toolbox</a>
+      <a href="/playground/">Playground</a>
     </nav>
   </div>
 </header>"""
@@ -101,7 +102,7 @@ def add_post_actions(path: Path, source: str) -> str:
 def apply(path: Path) -> bool:
     original = path.read_text()
     source = original
-    if "style.min." not in source:
+    if "style.min." not in source and "editorial-header__nav" not in source:
         return False
 
     if OLD_HEADER.search(source):
@@ -136,11 +137,11 @@ def apply(path: Path) -> bool:
         source = source.replace(
             "</head>",
             '  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">\n'
-            '  <script src="/js/editorial-nav.js?v=20261027comfort" defer></script>\n</head>',
+            '  <script src="/js/editorial-nav.js?v=20261104playground" defer></script>\n</head>',
             1,
         )
     source = re.sub(r'/css/editorial\.css\?v=[a-zA-Z0-9-]+', '/css/editorial.css?v=20261027comfort', source)
-    source = re.sub(r'/js/editorial-nav\.js(?:\?v=[a-zA-Z0-9-]+)?', '/js/editorial-nav.js?v=20261027comfort', source)
+    source = re.sub(r'/js/editorial-nav\.js(?:\?v=[a-zA-Z0-9-]+)?', '/js/editorial-nav.js?v=20261104playground', source)
     source = source.replace('content="#494f5c"', 'content="#F6F2EA"')
     source = add_post_actions(path, source)
     if source != original:

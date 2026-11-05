@@ -2,7 +2,7 @@
 
 The homepage Playground section introduces small games and creative projects. Its collection route is `/playground/`; the first game is at `/playground/food-game/`. The related essay also links to the game. The game has a visible return to Playground and explains that leaving resets progress.
 
-The collection uses the shared editorial shell and existing collection styles. The game retains its own restaurant styling, scoped through its separate page. There is no new global header item or change to the decision-focused Experiments collection.
+The collection uses the shared editorial shell and existing collection styles. The game retains its own restaurant styling, scoped through its separate page. Playground is included in the shared primary navigation on editorial pages, including the mobile menu. Its collection link is marked current on `/playground/`. The game retains its explicit return link rather than adopting the editorial page shell. The decision-focused Experiments collection is unchanged.
 
 ## Game source
 
@@ -20,3 +20,5 @@ The invitation describes a game rather than an explanatory simulation. The openi
 - Browser: homepage → Playground → game → classify/eat → Playground, and collection → story → game paths worked. Collection fits a 390px viewport without horizontal overflow; the game's return link is keyboard-focusable.
 - Editorial perspectives considered by one reviewer: a visitor can distinguish playing from reading the story; a new player can identify setup and the one-screen controls; maintenance keeps the game isolated from shared site styles. These are editorial checks, not independent reviewers or a reader study.
 - Not checked: unfamiliar-reader comprehension, full screen-reader journey, and all combinations of game modes on the public host.
+
+Navigation update checks: all 80 pages with the shared header include exactly one Playground link and the current navigation script. Reapplying the shell makes no further changes. Browser checks passed for desktop essay → Playground navigation, current-page highlighting, the 390px mobile menu, Escape returning focus to Menu, and link activation closing the menu. Existing nine Python checks and navigation JavaScript syntax checks passed.

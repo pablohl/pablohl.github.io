@@ -22,7 +22,7 @@ The hiring/story comparison tables use the wider engineering frame. Long cells s
 
 ## Global navigation and keyboard behavior
 
-The same primary header serves the site. With JavaScript, its current link uses `aria-current="page"` for the matching destination and `aria-current="location"` for a containing section on detail pages. Toolbox collection navigation is a separate local level, with roles defined in its [owning reference](toolbox-navigation.md).
+The same primary header serves the site, with About, Writing, Experiments, Research, Toolbox, and Playground links. Playground opens `/playground/` and is marked current there or as the containing section on its detail pages. With JavaScript, its current link uses `aria-current="page"` for the matching destination and `aria-current="location"` for a containing section on detail pages. Toolbox collection navigation is a separate local level, with roles defined in its [owning reference](toolbox-navigation.md).
 
 Each shared shell has a **Skip to content** link targeting its focusable main element. At 820px and below, the enhanced header offers a collapsible Menu button. Without JavaScript the navigation remains visible. Escape dismisses an open menu and returns focus to its button; it does not move focus when the menu is already closed. Link activation and a switch to desktop close the enhanced menu.
 
