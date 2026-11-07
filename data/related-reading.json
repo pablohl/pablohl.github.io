@@ -1,4 +1,14 @@
 {
+  "when-does-adding-agents-help": [
+    {
+      "post": "the-executive-summary-is-not-a-summary",
+      "reason": "Why interpreting research should explain what changes because of a finding."
+    },
+    {
+      "post": "a-result-is-not-the-decision",
+      "reason": "What a measured improvement still needs before it can support a product decision."
+    }
+  ],
   "which-game-are-we-playing": [
     {"post": "the-right-level-of-reasoning", "reason": "How much strategic reasoning about others is actually useful?"},
     {"post": "problems-at-the-boundary", "reason": "Why a mismatch between perspectives can hide a larger problem."}
