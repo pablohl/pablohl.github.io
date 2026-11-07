@@ -23,3 +23,7 @@ Writing: http://127.0.0.1:8894/posts/
 Verified the new and existing essay prose both compute to Source Serif 4 at 18px with 29.7px line height. Desktop and mobile renderings were inspected. Local browser checks covered widths 320/390/768/1040/1280, 200% text, mobile Menu/Escape, all four architecture comparisons, the Writing Research filter, entry and return routes, and absence of page errors. The new post's assets load locally, with no dependency on the public origin for its shell, fonts or interactions.
 
 The nine existing Python checks, related-reading check, social-preview check, XML parsing, asset-link resolution and whitespace check passed. Reader comprehension, full assistive-technology behavior and social-platform cache/rendering remain untested.
+
+## Editorial refinement
+
+Added a compact definition key before the architecture overview and clarified that model averages can hide individual-model differences. Nested the checking-outcomes table within the reviewer-versus-self-check test. Trimmed repeated introductory, budget and closing framing. Rechecked five viewport widths, 200% text, mobile Menu/Escape, all architecture buttons and Writing entry/return; the shared prose treatment is unchanged. The related-reading, social-preview and whitespace checks pass.
