@@ -4,13 +4,13 @@
 
 The promise is: **understand the finding, see what it changes, and know what evidence is still missing.**
 
-This document owns the editorial standard. It guides judgment; it does not prescribe a page sequence, a set of visual components or a publication checklist that can replace an interesting idea.
+This document owns the core editorial standard. It guides judgment; it does not prescribe a page sequence, a set of visual components or a publication checklist that can replace an interesting idea.
 
 ## 1. Editorial principles
 
 ### Start with the change in understanding
 
-Before planning the article, state what the reader should understand, question or do differently afterward. What does this evidence help them see that they could not see before? If that difference is unclear, more explanation or better figures will not establish the piece’s purpose.
+In the editorial brief, answer explicitly: **What should the reader understand differently after reading this piece?** State the starting intuition and the intended change in understanding; an action recommendation alone does not answer that question. What does this evidence help them see that they could not see before? If that difference is unclear, more explanation or better figures will not establish the piece’s purpose.
 
 Begin with a consequential question and a reason to care. Let the structure follow the evolution of the reader’s understanding, rather than the paper’s order or the latest article’s structure. An anomaly, a single experiment, a misleading metric or an unresolved question can each organize a strong piece.
 
@@ -38,9 +38,9 @@ Interaction must reveal a relationship or support a useful investigation. A stat
 
 Completeness means enough for the chosen question, not coverage of every contribution. The reader should leave able to explain the consequential distinction, the supporting evidence, what remains unknown and what follows from it. Retaining a baseline, changing an interpretation or withholding judgment can be a complete outcome.
 
-## 2. Craft and methods — consult as needed
+## 2. Research communication techniques — consult as needed
 
-Use the [craft reference](research-in-practice-craft.md) for audience depth, evidence selection, task descriptions, comparisons and aggregation, uncertainty, experimental design, narrative patterns, figures and interaction techniques. Choose only the methods relevant to the piece. Their availability is not a reason to add material.
+Use the [research communication techniques](research-in-practice-craft.md) for audience depth, evidence selection, task descriptions, comparisons and aggregation, uncertainty, experimental design, narrative patterns, figures and interaction techniques. Choose only the methods relevant to the piece. Their availability is not a reason to add material. The [worked examples](research-in-practice-examples.md) record article-specific editorial choices, including the agent-collaboration essay; they do not establish a default structure for future pieces.
 
 Use the [reader journey](reader-journey.md) for entry and transitions, [shared presentation](reading-comfort-navigation.md) for reading comfort and access, and [experiment guidance](../experiments/README.md) for an embedded interactive model. A research essay does not have to become a playground or decision tool. [The Executive Summary Is Not a Summary](../posts/the-executive-summary-is-not-a-summary/index.html) explains the distinction between reporting analysis and interpreting what changes.
 
@@ -58,10 +58,6 @@ Use the [multi-perspective review](multi-perspective-review.md) at a scope propo
 
 Record **Pass / Needs work / Not checked / Not applicable** with scope and evidence. Editorial perspectives considered by one reviewer are not independent reviews or reader observations. Technical checks establish behavior, not comprehension; unavailable reader evidence is not an automatic publication gate.
 
-Stop when:
+**Editorial stopping rule.** An article is ready when the central insight is understandable, the important claims are supported, the relevant limits are clear, and the intended reader can identify what the finding changes. Remaining improvements should address demonstrated confusion, unsupported reasoning, or a meaningful deficiency in the experience—not merely opportunities for additional polish.
 
-1. The central insight is understandable and supported: the intended reader could explain the consequential distinction without reading the whole paper.
-2. The experience is sufficient for its chosen question: the important evidence, implications and limits are addressed without pretending to be exhaustive.
-3. No further section, qualification, comparison or interaction would materially improve that understanding or its support.
-
-An actual gap warrants another revision. The possibility of adding something correct does not. The guideline should make editorial judgment more effective, not replace it or prolong revision indefinitely.
+A piece need not exhaust the paper, implement every possible interaction, or satisfy every stylistic preference to be complete. The guideline should make editorial judgment more effective, not replace it or prolong revision indefinitely.

@@ -17,7 +17,7 @@ Use this index to find the current guidance before proposing, reviewing, or impl
 | [Results to decisions](results-to-decisions.md) | The current two-story guide, condition changes, baselines, and evidence limits |
 | [Architectural consequences](system-selection-guide.md) | The current static three-context guide and its evidence limits |
 | [Experiment guidelines](../experiments/README.md) | Experiment design, meaningful interactions, model honesty, accessibility, and experience verification |
-| [Research in Practice](research-in-practice.md) | Editorial principles, reader understanding and stopping criteria; linked craft reference for methods |
+| [Research in Practice](research-in-practice.md) | Core editorial standard, reader transformation and stopping criteria; linked [techniques](research-in-practice-craft.md) and [worked examples](research-in-practice-examples.md) |
 | [Multi-perspective review](multi-perspective-review.md) | Perspective selection, separate assessments, synthesis, and review limitations |
 
 These documents have different roles: guidelines state intended standards; guide references describe current content and behavior; [history](history/README.md) preserves past designs and checks. A current implementation description is not a certification that all applicable standards have been met.
