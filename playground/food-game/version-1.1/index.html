@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eric’s Restaurant · Version 1.1 — Playground</title>
+<meta name="description" content="Play Eric’s Restaurant version 1.1 in English, Spanish, or French. Classify foods, choose Eat or Skip, and enjoy the restaurant table and kitchen scenery.">
+<link rel="canonical" href="https://pablohl.github.io/playground/food-game/version-1.1/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ctext y=%2732%27 font-size=%2732%27%3E🍽️%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="game/styles.css">
+<script defer src="game/config.js"></script><script defer src="game/content.js"></script>
+<script defer src="game/i18n.js"></script>
+<script defer src="game/mechanics.js"></script><script defer src="game/cpu.js"></script><script defer src="game/app.js"></script>
+</head>
+<body>
+<nav class="site-return" aria-label="Return navigation"><a href="/playground/">← Playground</a><span>Leaving or refreshing starts a new game.</span></nav>
+<div class="restaurant" aria-hidden="true"><div class="window"></div></div>
+<header><h1>Eric’s <span>Restaurant</span></h1><div id="players" aria-label="Player scores"></div></header>
+<div class="ambience" aria-hidden="true">
+ <div class="pantry"><div class="food-shelf"><span>🍎</span><span>🍬</span><span>🥕</span><span>🍞</span></div><div class="food-shelf"><span>🍩</span><span>🍌</span><span>🥦</span><span>🍪</span></div></div>
+ <img class="kitchen" src="game/assets/kitchen.svg" alt="" width="540" height="190">
+</div>
+<main>
+<section id="setup" class="paper">
+<p class="eyebrow">The table is ready</p><h2>Who’s coming to dinner?</h2>
+<form id="setup-form">
+<div class="settings"><label>Players <select id="count"><option value="1">1 player</option><option value="2" selected>2 players</option><option value="3">3 players</option></select></label>
+<label>Game length <select id="days"><option value="1">1 day · quick taste</option><option value="3" selected>3 days</option><option value="7">1 week · 7 days</option><option value="30">1 month · 30 days</option><option value="365">1 year · 365 days</option></select></label></div>
+<div id="player-settings"></div>
+<button class="primary" type="submit">Open the restaurant →</button>
+</form>
+<p class="small">Assign each slot to a Human or CPU before starting. CPU turns play automatically; their answer buttons are locked. Humans share this screen and take turns. Classify one food, then choose Eat or Skip.</p>
+<details><summary>How to play version 1.1</summary><p>Four meal rounds per day, plus a surprise snack. Eat a correctly identified healthy food for 1 point (up to three per day, plus the snack). One optional treat earns 0 points; eating a second eliminates you.</p><p>Daily wrong-answer limits: Easy 3, Medium 2, Hard 1. Mistakes reset each new day. Wrong answers and ordinary skips end your turn. Snack time has no timer. Correctly label an unhealthy snack and get another food. Once you correctly label a healthy snack, Eat it to stay in; Skip eliminates you. Daily mistake limits still apply.</p><p>Baby, Child, and Adult change the food questions. Every difficulty lets you choose your meal. Highest surviving score wins; ties share the win.</p><p>These are simplified game categories for specific foods and portions. Foods are not moral choices, and this game is not a real-life meal plan.</p></details>
+</section>
+<section id="play" hidden>
+<div id="status" class="status"></div>
+<div class="dining-table" id="dining-table">
+<div id="stage" class="paper stage"></div>
+<p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+<div id="actions" class="actions"></div>
+</div>
+<div class="utilities"><button id="end" class="quiet">Finish game now</button><button id="restart" class="quiet">New game</button></div>
+</section>
+<section id="results" class="paper" hidden></section>
+</main>
+<footer><div class="language-picker"><label for="language">What is your language?</label><select id="language"><option value="en" lang="en">English</option><option value="es" lang="es">Español</option><option value="fr" lang="fr">Français</option></select></div><p>Made with Eric · Version 1.1</p></footer>
+</body></html>
