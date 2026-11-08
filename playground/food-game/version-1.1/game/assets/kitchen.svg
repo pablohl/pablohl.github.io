@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 190">
+<g stroke="#583522" stroke-width="4" stroke-linejoin="round">
+<!-- Warm tiled kitchen, cookware and hood. -->
+<path fill="#f1d7b2" d="M4 25h532v161H4z"/>
+<path d="M4 65h532M4 105h532M70 25v40m80 0v40m80-80v40m80 0v40m80-80v40m80 0v40" stroke="#d9b58c" stroke-width="2"/>
+<path fill="#b7b8b0" d="M397 4h68v30l45 24H355l42-24z"/>
+<path d="M26 45h104"/><path d="M42 45v30m32-30v30m32-30v30"/>
+<ellipse cx="42" cy="81" rx="9" ry="13" fill="#e6bc75"/><path fill="#b7b8b0" d="M66 74h16v24H66zM98 74h16v24H98z"/>
+<!-- Two background cooks above the counter. -->
+<path fill="#3d83a5" d="M165 116q-6-38 23-40h24q29 2 29 40v25h-76z"/>
+<path fill="#fff6df" d="m182 79 5 18h29l4-18 7 8v54h-52V87z"/>
+<ellipse fill="#dca475" cx="201" cy="58" rx="25" ry="27"/>
+<path fill="#643b26" d="M177 59q-10-29 9-34 11-16 25-3 26-1 17 32l-12-17q-12 12-31 8z"/>
+<path d="M190 57v3m20-3v3m-18 10q9 8 17-1" fill="none" stroke-width="3" stroke-linecap="round"/>
+<path d="m169 102 18 16 36-3m13-14-10 17" fill="none" stroke="#dca475" stroke-width="13" stroke-linecap="round"/>
+<path fill="#9cc272" d="M185 121q-6-21 4-21l8 8q0-23 10-18l6 18q16-18 20-5l-9 19z"/>
+<path fill="#a5c9c2" d="M176 119h59q-3 26-29 26t-30-26z"/>
+<path fill="#c96045" d="M296 116q-6-38 24-40h23q29 2 29 40v25h-76z"/>
+<path fill="#fff6df" d="m313 79 5 18h29l4-18 7 8v54h-52V87z"/>
+<path fill="#75492e" d="M306 57q-14-29 7-36 33-24 47 14l-1 58-19-13z"/>
+<ellipse fill="#efbf98" cx="331" cy="57" rx="24" ry="27"/>
+<path fill="#fff6df" d="M306 35v-9q-15-15 1-23 10-8 18 1 14-11 22 1 18-1 14 16l-8 14z"/>
+<path d="M321 56v3m19-3v3m-18 10q8 7 16-1" fill="none" stroke-width="3" stroke-linecap="round"/>
+<path d="m302 105 29 18m34-21 32 12" fill="none" stroke="#efbf98" stroke-width="12" stroke-linecap="round"/>
+<path d="m394 112 18 15" stroke="#8c5936" stroke-width="6" stroke-linecap="round"/>
+<!-- Counter, saucepan and oven. -->
+<path fill="#e8b774" d="M5 143h530v13H5z"/>
+<path fill="#9c5d3c" d="M10 156h520v30H10z"/>
+<path d="M140 157v29m135-29v29m135-29v29M65 168h19m115 0h19m116 0h19"/>
+<path fill="#45453e" d="M388 143h129v10H388z"/>
+<path fill="#c45c44" d="M411 117h72v15q0 13-36 13t-36-13z"/>
+<path fill="none" d="M410 123h-12m85 0h12"/>
+<path d="M430 107q-10-11 0-21m23 21q-10-11 0-21m22 21q-10-11 0-21" fill="none" stroke="#fff6df" stroke-linecap="round"/>
+<path fill="#b7b8b0" d="M390 156h125v30H390z"/><path fill="#4b4c47" d="M410 169h85v17h-85z"/>
+</g></svg>
