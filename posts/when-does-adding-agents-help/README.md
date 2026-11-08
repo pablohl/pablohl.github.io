@@ -41,3 +41,8 @@ Editorial assessment by one reviewer, using two lenses: builder — the opening 
 Clarified PlanCraft’s changing inventory and separated the possible handoff explanation from the observation; named the additional coordination, model calls and time in the cost transition; explained the approximate 45% rule before its validation result; and identified the system as combining independent agents’ answers in both the static key and chart note. No aggregation procedure such as voting or synthesis is asserted. Statistical qualifications remain accessible in a native disclosure, with the limited validation scope visible in the main paragraph. The article’s overall structure is unchanged.
 
 Checked the source claims against the Nature article, inspected the revised PlanCraft path and cost transition locally, confirmed the statistical disclosure opens with Enter, and selected Independent to inspect the updated chart note. JavaScript syntax and whitespace checks pass. Reader comprehension was not tested.
+
+
+## Four terminology corrections — November 8, 2026
+
+Simplified the existing shared reasoning-token allowance, replaced “state is visible” with direct inventory and recipe checks, explained representative evaluation tasks and repeated-run variation in the conclusion, and replaced “execution step” with the paper’s definition of reasoning turns as reasoning–response exchanges. The overhead explanation continues to distinguish turn counts from token usage, elapsed time and financial cost. The optional manipulation and configuration wording refinements were left unchanged. The turn definition was checked against the paper’s agent-count analysis.
