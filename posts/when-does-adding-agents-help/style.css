@@ -477,3 +477,21 @@ body#page .site-main{padding-bottom:0}
 .research-essay .editorial-item .checking-outcomes .small-label{font-size:var(--font-meta);margin:0}
 .research-essay .editorial-item .checking-outcomes p{max-width:none}
 @media(max-width:760px){.research-essay .architecture-key{grid-template-columns:1fr;padding:18px 0;gap:16px}.research-essay .editorial-item .checking-outcomes{padding:0 0 0 12px}.research-essay .editorial-item .checking-outcomes td{overflow-wrap:anywhere}}
+
+/* Decision-led reading: one contrast, then evidence for a selected problem. */
+.research-essay .interpretation{border-left:3px solid var(--accent-color,#496348);padding-left:1.2rem}
+.research-essay .dependency-delta{font-size:clamp(1.6rem,3vw,2.4rem);margin:.75rem 0 .15rem}
+.research-essay .dependency-card>p:not(.small-label):not(.dependency-delta){line-height:1.65}
+.research-essay .workflow-explorer{border:1px solid #cbd2bf;background:#f6f6ec;padding:clamp(1rem,3vw,2rem);box-sizing:border-box}
+.research-essay .workflow-buttons{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.research-essay .workflow-buttons[hidden],.research-essay .workflow-path[hidden]{display:none}
+.research-essay .workflow-buttons button{font:inherit;font-size:1rem;line-height:1.4;text-align:left;padding:.7rem .9rem;border:1px solid #85957b;border-radius:4px;color:#30482e;background:transparent;cursor:pointer;flex:1 1 12rem}
+.research-essay .workflow-buttons button[aria-pressed=true]{color:#fff;background:#344d34;border-color:#344d34}
+.research-essay .workflow-buttons button:focus-visible{outline:3px solid #a65e23;outline-offset:3px}
+.research-essay .workflow-path{max-width:68ch}
+.research-essay .workflow-path h3{margin-top:.4rem}
+.research-essay .workflow-path p{line-height:1.65}
+.research-essay .baseline-question{margin-top:2.5rem}
+.research-essay .research-depth{border-top:1px solid #cbd2bf;padding-top:2rem}
+.research-essay .dependency-figure .dependency-card h3{min-height:0;margin-bottom:.75rem}
+.research-essay .dependency-figure .dependency-card>.dependency-delta{font-size:clamp(1.5rem,2.8vw,2.2rem);margin-top:.75rem!important;line-height:1.2}

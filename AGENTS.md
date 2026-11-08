@@ -15,6 +15,7 @@ For reader-facing changes, also apply the [full reader journey](docs/reader-jour
 | Engineering-guide content, examples, or controls | [Engineering guides](docs/engineering-toolbox.md) and the relevant guide reference linked there |
 | Experiments or changes to explanatory interactions | [Experiment guidelines](experiments/README.md); apply the interaction requirements relevant to the format |
 | Substantive explanatory or experience review | [Multi-perspective review](docs/multi-perspective-review.md), alongside the relevant content/interaction guidance |
+| Research in Practice essays | [Research in Practice](docs/research-in-practice.md), plus shared presentation and reader journey |
 | Essay or other page changes | Shared presentation guidance; add the relevant collection guidance if changing its links or relationships |
 | Documentation only | [Documentation ownership and maintenance](docs/README.md#documentation-ownership-and-maintenance), plus the documents being revised |
 
