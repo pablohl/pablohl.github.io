@@ -62,6 +62,17 @@ Headings should orient readers to the question or evidence in the section. Avoid
 Define unfamiliar metrics before relying on them. Explain a statistical qualification in terms of what it changes about the inference. Keep the assumption that changes the conclusion in the main path; reserve derivations and secondary details for optional depth.
 
 
+### Check sentence clarity
+
+[Zonder Labs’ clarity analysis](https://zonderlabs.com/slop) distinguishes hidden actors and actions, vague wording, and empty statements or misplaced emphasis. Use these as editing questions, not an AI-detection checklist:
+
+- Who acts, and what do they do? Put the relevant actor in the subject and the action in the verb when that clarifies the sentence.
+- Can the reader identify what each phrase refers to? Replace vague references and stacked nouns with the actual object or procedure.
+- What is the point? State it directly; remove announcements and recaps that add no meaning.
+
+Keep technical terms and qualifications when they carry necessary meaning. Sentence structure, punctuation or a fashionable word alone does not establish a clarity problem.
+
+
 ## Make comparisons understandable at a glance
 
 Before a figure, identify the comparison: which tasks, baseline, alternatives and measurement are involved. Readers should not have to infer the experiment from the controls or legend.

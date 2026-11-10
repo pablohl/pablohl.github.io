@@ -29,6 +29,8 @@ For this article, the reading order moves from the decision through the contrast
 | “Outputs are combined” omits the actor. | State that the system combines independent agents’ answers without peer review or discussion. | Readers can distinguish independence from having no aggregation. Do not invent voting or synthesis details. |
 | “Held-out evaluation” assumes methodological familiarity. | Describe representative tasks not used to develop the workflow, and repeated runs to inspect variation. | Readers can distinguish evaluation from improvement on familiar examples. |
 
+The later sentence-clarity pass also replaced “verification and error propagation” with agents catching each other’s mistakes or passing them into the final answer. It replaced “vary the division” with keeping the model and tasks fixed while changing which searches agents do separately, and removed a sentence that merely announced a connection to real workflows.
+
 These examples illustrate the concrete-language test, not a requirement to explain every technical term. Explain a term when its meaning affects the finding, implication or limit.
 
 ## Evaluation choices for this article

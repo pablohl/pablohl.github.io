@@ -46,3 +46,9 @@ Checked the source claims against the Nature article, inspected the revised Plan
 ## Four terminology corrections — November 8, 2026
 
 Simplified the existing shared reasoning-token allowance, replaced “state is visible” with direct inventory and recipe checks, explained representative evaluation tasks and repeated-run variation in the conclusion, and replaced “execution step” with the paper’s definition of reasoning turns as reasoning–response exchanges. The overhead explanation continues to distinguish turn counts from token usage, elapsed time and financial cost. The optional manipulation and configuration wording refinements were left unchanged. The turn definition was checked against the paper’s agent-count analysis.
+
+## Sentence-clarity pass — November 10, 2026
+
+Applied the actor/action, wording and emphasis questions from the linked Zonder Labs analysis in the craft reference. Named the evaluator and coordinator, made the search manipulation and inventory failures concrete, explained checking as agents catching or passing on mistakes, removed empty connecting sentences, and rewrote the four architecture readings to state average task success directly. Updated the static centralized reading to match its script-rendered version. Published data, numerical comparisons, controls and evidence limits are retained.
+
+Fresh local browser checks covered all three reading paths, all four architecture descriptions with six comparison rows, and the checking path at 390px without horizontal page overflow. JavaScript syntax, nine existing Python checks, related-reading and social-preview checks, local documentation/fragment link checks and whitespace checks pass. This was an editorial and browser inspection; reader comprehension was not tested.
