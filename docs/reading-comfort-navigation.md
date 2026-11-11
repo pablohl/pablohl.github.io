@@ -34,6 +34,12 @@ Primary navigation, the homepage reader index and selected writing titles, and W
 
 This CSS-only treatment is owned by [editorial.css](../css/editorial.css). It does not add motion to inline prose links, social icons, or experiment controls. With reduced motion enabled, labels stay still and the dot appears without an animated transition. Touch users can follow the existing links directly; hovering is never required to access content.
 
+## Personal page illustrations
+
+About’s Research heading has a small Pommerman-inspired board referring to the author’s 2018 competition experience, with an adjacent link to the existing reflection. Playground’s heading has a pear doodle on a plate. The pear is an initial site illustration, not artwork attributed to the author’s son; it can later be replaced with a drawing he creates or chooses.
+
+Only these two pages load [page-motifs.css](../css/page-motifs.css) and [page-motifs.js](../js/page-motifs.js). The illustrations respond to hover or keyboard focus; pressing their native toggle buttons keeps or releases the alternate pose. Hover/focus feedback remains while the pointer/focus is present. These are decorative interactions, not playable games. Reduced motion keeps the artwork still and shows a dotted outline for a toggled illustration. Without JavaScript the illustrations remain static and their controls disabled. Existing text, links, and focus styles remain available.
+
 ## Evidence limits
 
 Check actual rendered text, background, and state combinations when changing colors or type; do not assume the palette or a token alone guarantees accessibility. Preserve keyboard focus and readable reflow. Follow the relevant [experiment verification guidance](../experiments/README.md#11-review-and-verification) for interactive experiences and [multi-perspective review](multi-perspective-review.md) for explanatory judgments. Old measurements, a passing build, or a fitting viewport do not establish reader comprehension, zoom support, or an assistive-technology journey.

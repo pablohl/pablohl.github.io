@@ -4,6 +4,8 @@ The homepage Playground section introduces small games and creative projects. It
 
 The collection uses the shared editorial shell and existing collection styles. The game retains its own restaurant styling, scoped through its separate page. Playground is included in the shared primary navigation on editorial pages, including the mobile menu. Its collection link is marked current on `/playground/`. The game retains its explicit return link rather than adopting the editorial page shell. The decision-focused Experiments collection is unchanged.
 
+The collection heading includes a small pear illustration with optional pose feedback. Its ownership and interaction behavior are documented in [Personal page illustrations](reading-comfort-navigation.md#personal-page-illustrations). The game artwork and mechanics are unchanged.
+
 ## Game source
 
 This is a static copy of the tested local game. `game/config.js` owns rule settings; `game/content.js` the food bank; `game/mechanics.js` the state transitions; `game/cpu.js` CPU decisions; `game/app.js` browser controls; and `game/styles.css` presentation. Keep those responsibilities separate. Run `node playground/food-game/tests/mechanics.test.cjs` for the rule checks.
