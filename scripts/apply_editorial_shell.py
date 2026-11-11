@@ -18,12 +18,12 @@ HEADER = """<header class="editorial-header">
     <a class="editorial-header__brand" href="/">Pablo Hernandez Leal</a>
     <button class="editorial-header__menu" type="button" aria-controls="editorial-navigation" aria-expanded="false">Menu</button>
     <nav class="editorial-header__nav" id="editorial-navigation" aria-label="Primary navigation">
-      <a href="/about/">About</a>
-      <a href="/posts/">Writing</a>
-      <a href="/experiments/">Experiments</a>
-      <a href="/about/#research">Research</a>
-      <a href="/toolbox/">Toolbox</a>
-      <a href="/playground/">Playground</a>
+      <a href="/about/"><span class="nav-label">About</span></a>
+      <a href="/posts/"><span class="nav-label">Writing</span></a>
+      <a href="/experiments/"><span class="nav-label">Experiments</span></a>
+      <a href="/about/#research"><span class="nav-label">Research</span></a>
+      <a href="/toolbox/"><span class="nav-label">Toolbox</span></a>
+      <a href="/playground/"><span class="nav-label">Playground</span></a>
     </nav>
   </div>
 </header>"""
@@ -136,11 +136,11 @@ def apply(path: Path) -> bool:
     if '/css/editorial.css' not in source:
         source = source.replace(
             "</head>",
-            '  <link rel="stylesheet" href="/css/editorial.css?v=20261027comfort">\n'
+            '  <link rel="stylesheet" href="/css/editorial.css?v=20261111dotnudge">\n'
             '  <script src="/js/editorial-nav.js?v=20261104playground" defer></script>\n</head>',
             1,
         )
-    source = re.sub(r'/css/editorial\.css\?v=[a-zA-Z0-9-]+', '/css/editorial.css?v=20261027comfort', source)
+    source = re.sub(r'/css/editorial\.css\?v=[a-zA-Z0-9-]+', '/css/editorial.css?v=20261111dotnudge', source)
     source = re.sub(r'/js/editorial-nav\.js(?:\?v=[a-zA-Z0-9-]+)?', '/js/editorial-nav.js?v=20261104playground', source)
     source = source.replace('content="#494f5c"', 'content="#F6F2EA"')
     source = add_post_actions(path, source)

@@ -28,6 +28,12 @@ Each shared shell has a **Skip to content** link targeting its focusable main el
 
 The shared shell is maintained by [apply_editorial_shell.py](../scripts/apply_editorial_shell.py); [editorial-nav.js](../js/editorial-nav.js) owns menu and current-state enhancement. Asset versions must stay consistent between generators, the shell applicator, and published pages. See the [source map and commands](README.md#source-files-and-commands).
 
+## Quiet link feedback
+
+Primary navigation, the homepage reader index and selected writing titles, and Writing index titles use a small green dot and a `.65rem` label nudge on hover or keyboard focus. Link boxes, dates, summaries, and thumbnails stay still. Current-section navigation retains its underline, and keyboard focus retains the shared outline. The homepage reader index keeps its resting underlines so the paths remain recognizable as links.
+
+This CSS-only treatment is owned by [editorial.css](../css/editorial.css). It does not add motion to inline prose links, social icons, or experiment controls. With reduced motion enabled, labels stay still and the dot appears without an animated transition. Touch users can follow the existing links directly; hovering is never required to access content.
+
 ## Evidence limits
 
 Check actual rendered text, background, and state combinations when changing colors or type; do not assume the palette or a token alone guarantees accessibility. Preserve keyboard focus and readable reflow. Follow the relevant [experiment verification guidance](../experiments/README.md#11-review-and-verification) for interactive experiences and [multi-perspective review](multi-perspective-review.md) for explanatory judgments. Old measurements, a passing build, or a fitting viewport do not establish reader comprehension, zoom support, or an assistive-technology journey.
