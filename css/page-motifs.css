@@ -2,8 +2,8 @@
 .page-motif-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1rem; }
 .page-motif-heading > h1, .page-motif-heading > h2 { margin: 0; }
 .page-motif-heading > h1 { font-size: clamp(2.25rem, 4vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -.025em; }
-.page-motif { appearance: none; position: relative; display: block; flex: 0 0 auto; padding: 0; border: 0; background: transparent; color: var(--color-accent); }
-.page-motif:disabled { opacity: 1; cursor: default; }
+.page-motif { appearance: none; position: relative; display: block; flex: 0 0 auto; padding: 0; border: 0; background: transparent; color: var(--color-accent); cursor: inherit; }
+.page-motif:disabled { opacity: 1; }
 .page-motif span { pointer-events: none; }
 .page-motif-board { width: 98px; height: 98px; display: grid; grid-template: repeat(7, 1fr) / repeat(7, 1fr); gap: 2px; rotate: -3deg; }
 .page-motif-cell { background: color-mix(in srgb, var(--color-accent) 12%, var(--color-background)); border-radius: 1px; }
