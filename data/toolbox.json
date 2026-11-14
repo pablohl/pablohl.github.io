@@ -445,9 +445,7 @@
         "research"
       ],
       "tools": [
-        "what-did-the-metric-throw-away",
-        "start-simple",
-        "solve-the-constrained-problem"
+        "what-did-the-metric-throw-away"
       ]
     },
     {
@@ -489,9 +487,7 @@
       ],
       "tools": [
         "decision-complete",
-        "preserve-the-option",
-        "explore-then-exploit",
-        "look-before-you-model"
+        "preserve-the-option"
       ]
     },
     {
@@ -507,7 +503,6 @@
       ],
       "tools": [
         "shape-of-the-evidence",
-        "start-simple",
         "start-with-a-hypothesis"
       ]
     },
@@ -535,10 +530,7 @@
         "mentoring",
         "leadership"
       ],
-      "tools": [
-        "productive-struggle",
-        "raise-the-resolution-of-feedback"
-      ]
+      "tools": []
     },
     {
       "id": "how-to-be-a-great-intern",
@@ -551,9 +543,7 @@
         "mentoring",
         "careers"
       ],
-      "tools": [
-        "raise-the-resolution-of-feedback"
-      ]
+      "tools": []
     },
     {
       "id": "hello-world",
@@ -809,10 +799,6 @@
         {
           "id": "right-level-of-reasoning",
           "relationship": "complements"
-        },
-        {
-          "id": "raise-the-resolution-of-feedback",
-          "relationship": "complements"
         }
       ],
       "lineage": null,
@@ -1032,10 +1018,6 @@
         {
           "id": "two-clocks",
           "relationship": "complements"
-        },
-        {
-          "id": "explore-then-exploit",
-          "relationship": "complements"
         }
       ],
       "lineage": null,
@@ -1101,168 +1083,6 @@
       },
       "expected_outcome": "Identify a useful preparation you can make before the next development becomes clear.",
       "catalogue_context": "You can prepare now, even if you can’t commit yet."
-    },
-    {
-      "id": "explore-then-exploit",
-      "name": "Explore, Then Exploit",
-      "question": "Do I know where the gains are likely to be, or am I already optimizing one path?",
-      "situation": "A problem has many possible places to intervene and no obvious starting point.",
-      "observation": "Early experiments should sometimes maximize diversity of learning rather than incremental performance. Once a promising region appears, deeper optimization becomes more useful.",
-      "problems": [
-        "learning",
-        "strategy",
-        "decisions"
-      ],
-      "sources": [
-        "applied-machine-learning",
-        "research"
-      ],
-      "use_when": [
-        "Investigating an unclear problem",
-        "Trying new approaches",
-        "Planning small experiments",
-        "Deciding where to concentrate effort"
-      ],
-      "watch_for": "Exploration can become endless experimentation. Concentrate effort when evidence identifies a promising direction, but reconsider it if the situation changes.",
-      "example": null,
-      "posts": {
-        "primary": "six-years-of-applied-ml",
-        "supporting": []
-      },
-      "related_tools": [
-        {
-          "id": "what-is-worth-learning",
-          "relationship": "complements"
-        },
-        {
-          "id": "start-simple",
-          "relationship": "complements"
-        },
-        {
-          "id": "start-with-a-hypothesis",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Finding exercise you’ll keep doing",
-        "situation": "You want to exercise more regularly. You’ve made a running plan and keep adjusting the distance and pace, but you rarely get out for a run.",
-        "tempting_conclusion": "Maybe a better running plan would help me stick with it.",
-        "evidence": "Running might not be the best fit for you right now. Trying a few walks, swims, or group classes could tell you more than another change to the plan. You might find that you enjoy a class with other people, or that a walk at lunchtime is easier to fit into your day.",
-        "conclusion": "Once you find something you enjoy and can make time for, it may be worth building a routine around it. Then details like when to go or how much to do have a clearer purpose. You don’t have to keep trying everything, though a change in your schedule or interests might be a reason to try something else later."
-      },
-      "expected_outcome": "Choose where to try a small intervention and what would justify concentrating effort there.",
-      "catalogue_context": "You’re unsure where to focus your effort."
-    },
-    {
-      "id": "look-before-you-model",
-      "name": "Look Before You Model",
-      "question": "What can I learn about the problem before choosing the solution?",
-      "situation": "You are tempted to begin with a technique, architecture or tool.",
-      "observation": "Understanding the raw problem can reveal structure, noise, constraints and opportunities that determine what kind of solution is appropriate.",
-      "problems": [
-        "learning",
-        "evidence",
-        "strategy"
-      ],
-      "sources": [
-        "applied-machine-learning"
-      ],
-      "use_when": [
-        "Choosing a tool or service",
-        "Investigating a recurring difficulty",
-        "Planning improvements",
-        "Understanding a routine before changing it"
-      ],
-      "watch_for": "Inspection can itself become analysis paralysis. The objective is better hypotheses, not perfect understanding.",
-      "example": null,
-      "posts": {
-        "primary": "six-years-of-applied-ml",
-        "supporting": []
-      },
-      "related_tools": [
-        {
-          "id": "start-simple",
-          "relationship": "complements"
-        },
-        {
-          "id": "solve-the-constrained-problem",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Buying storage before looking at the clutter",
-        "situation": "You want to make the hallway easier to use and begin comparing shoe cabinets. Before ordering, you spend a week noticing what blocks the space and when.",
-        "tempting_conclusion": "A larger cabinet will solve the clutter problem.",
-        "evidence": "The main obstruction turns out to be bags and wet coats dropped near the door. Most shoes already fit in the existing storage. Observing the actual items and household routine changes the problem from insufficient shoe capacity to a lack of convenient places for arriving home with full hands.",
-        "conclusion": "Try hooks and a reachable bag shelf before buying a larger cabinet. This does not prove that more storage will never help; it gives you a better starting hypothesis. Stop inspecting once you understand enough to try a proportionate change and learn from its use."
-      },
-      "expected_outcome": "Describe the problem, observations, and constraints before choosing a technique.",
-      "catalogue_context": "You’re choosing a solution before understanding the problem."
-    },
-    {
-      "id": "start-simple",
-      "name": "Start Simple",
-      "question": "What is the simplest approach that would teach me whether the core idea works?",
-      "situation": "Sophisticated approaches are available before the basic problem is understood.",
-      "observation": "Technical sophistication and problem-solving value are different. A simple model can isolate assumptions, create a baseline and expose where complexity is actually needed.",
-      "problems": [
-        "learning",
-        "strategy",
-        "decisions"
-      ],
-      "sources": [
-        "quantitative-research",
-        "machine-learning"
-      ],
-      "use_when": [
-        "Trying a new routine",
-        "Testing an idea",
-        "Planning a pilot",
-        "Deciding whether added complexity is needed"
-      ],
-      "watch_for": "Simplicity is a starting strategy, not a belief that simple solutions are always sufficient.",
-      "example": null,
-      "posts": {
-        "primary": "quantitative-research-and-machine-learning",
-        "supporting": [
-          "pommerman"
-        ]
-      },
-      "related_tools": [
-        {
-          "id": "explore-then-exploit",
-          "relationship": "complements"
-        },
-        {
-          "id": "look-before-you-model",
-          "relationship": "complements"
-        },
-        {
-          "id": "solve-the-constrained-problem",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Trying a meal plan before paying for an app",
-        "situation": "You keep throwing away groceries that never get used. You’re thinking about paying for an app that tracks what’s in the kitchen and plans your meals, but you’re not sure why so much food is going to waste.",
-        "tempting_conclusion": "An app that organizes everything should help us waste less.",
-        "evidence": "You could try planning three dinners on paper and checking the fridge before shopping for a couple of weeks. If less food ends up in the bin, planning meals around what you buy seems to help. If plans keep falling apart because everyone gets home at different times, tracking more ingredients might not be what you need.",
-        "conclusion": "The app might still be useful, but you’d have a better idea of what you want it to help with. Maybe the paper plan is enough, or maybe it’s hard to keep everyone’s plans in one place. A couple of weeks won’t tell you how this works through every busy spell, but it could give you a useful start before paying for more features."
-      },
-      "expected_outcome": "Choose a simple baseline that reveals whether added complexity earns its place.",
-      "catalogue_context": "You’re making a solution complicated before trying the basics."
     },
     {
       "id": "which-game-are-we-playing",
@@ -1400,10 +1220,6 @@
         {
           "id": "shape-of-the-evidence",
           "relationship": "complements"
-        },
-        {
-          "id": "explore-then-exploit",
-          "relationship": "complements"
         }
       ],
       "lineage": null,
@@ -1419,165 +1235,6 @@
       },
       "expected_outcome": "State a prediction and a check that could challenge it before running another experiment.",
       "catalogue_context": "You keep trying things until the results look good."
-    },
-    {
-      "id": "solve-the-constrained-problem",
-      "name": "Solve the Constrained Problem",
-      "question": "What solution works under the constraints that actually exist?",
-      "situation": "The theoretically correct solution is expensive, slow or incompatible with real constraints.",
-      "observation": "Real problems are defined partly by deadlines, latency, resources, incomplete data and other constraints. A theoretically imperfect approximation may solve the actual problem better.",
-      "problems": [
-        "strategy",
-        "decisions"
-      ],
-      "sources": [
-        "pommerman",
-        "competitions",
-        "applied-machine-learning"
-      ],
-      "use_when": [
-        "Planning under a deadline",
-        "Working with limited resources",
-        "Balancing requirements",
-        "Choosing a feasible first version"
-      ],
-      "watch_for": "“Pragmatic” shouldn't become an excuse for ignoring requirements that genuinely determine success. Sometimes complexity really is necessary.",
-      "example": null,
-      "posts": {
-        "primary": "pommerman",
-        "supporting": []
-      },
-      "related_tools": [
-        {
-          "id": "look-before-you-model",
-          "relationship": "complements"
-        },
-        {
-          "id": "start-simple",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Moving out by Sunday",
-        "situation": "You need to leave your flat empty on Sunday. The moving van arrives that morning, and you have two evenings left to pack. You’d like to sell the furniture you’re not taking and get a good price for each piece.",
-        "tempting_conclusion": "I’ll list everything separately and wait for decent offers. There’s no point giving away things I could sell.",
-        "evidence": "Taking photos, answering messages, and arranging collections all take time—and a buyer might not turn up. Selling every piece for a good price could leave you with furniture still in the flat on Sunday. You might have time to sell the most valuable items and arrange a confirmed donation collection for the rest, if one is available before you leave.",
-        "conclusion": "Getting less money for some things may be worth it if it means the flat is empty on time. A sale only helps if the buyer can collect before you leave. If you can get a few extra days or have somewhere to store things, you may have more room to wait for better offers."
-      },
-      "expected_outcome": "State the real constraints and compare approaches that can work within them.",
-      "catalogue_context": "Your preferred solution won’t fit the time, money, or rules."
-    },
-    {
-      "id": "productive-struggle",
-      "name": "Productive Struggle",
-      "question": "Will helping now improve the immediate outcome but reduce the learning?",
-      "situation": "Someone you're mentoring is stuck and you know how to solve the problem.",
-      "observation": "Optimizing the work product and optimizing someone's development are not always the same objective. Sometimes temporarily withholding the answer creates useful learning.",
-      "problems": [
-        "people",
-        "learning"
-      ],
-      "sources": [
-        "mentoring",
-        "supervision"
-      ],
-      "use_when": [
-        "Mentoring",
-        "parenting",
-        "delegation",
-        "onboarding",
-        "teaching"
-      ],
-      "watch_for": "Struggle is useful only while the learner has a reasonable path forward. Adjust support to their skills, frustration, time, and the consequences of failure; withholding help indefinitely is not development.",
-      "example": null,
-      "posts": {
-        "primary": "how-to-be-a-great-supervisor",
-        "supporting": []
-      },
-      "related_tools": [
-        {
-          "id": "raise-the-resolution-of-feedback",
-          "relationship": "complements"
-        },
-        {
-          "id": "connect-work-to-consequences",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Helping without taking over the puzzle",
-        "situation": "A child is stuck on a puzzle and asks you to finish a difficult section. You can quickly see where several pieces belong. There is time to continue, and the child still wants to solve it.",
-        "tempting_conclusion": "Putting the pieces in for them is the most helpful response because it removes the frustration.",
-        "evidence": "You ask them to sort the edge pieces and look for matching colors, then let them try. This reduces the obstacle while leaving the useful reasoning to them. If they become exhausted or lack a basic strategy, continued withholding would stop serving learning.",
-        "conclusion": "Offer the smallest amount of help that restores a reasonable path forward, and check whether it actually helps. Completing the puzzle and learning how to approach it are different goals. When time or distress makes completion the priority, more direct help can be appropriate; struggle is not valuable simply because it is difficult."
-      },
-      "expected_outcome": "Choose a hint or intervention that helps someone progress while keeping the reasoning theirs.",
-      "catalogue_context": "You could help someone now, but they also need to learn."
-    },
-    {
-      "id": "raise-the-resolution-of-feedback",
-      "name": "Raise the Resolution of Feedback",
-      "question": "Have I made the work concrete enough for someone to give me the kind of feedback I want?",
-      "situation": "Feedback remains vague or high-level.",
-      "observation": "The quality of feedback is partly constrained by the resolution of the artifact being reviewed. Rough work often permits only structural feedback; clearer work exposes deeper issues.",
-      "problems": [
-        "communication",
-        "learning"
-      ],
-      "sources": [
-        "phd-supervision",
-        "internships",
-        "writing"
-      ],
-      "use_when": [
-        "Requesting feedback on a draft",
-        "Planning a workshop",
-        "Reviewing a proposal",
-        "Asking for help with a specific concern"
-      ],
-      "watch_for": "Make the part relevant to the requested feedback concrete. Premature polish can waste effort or make tentative choices appear settled; identify what remains open.",
-      "example": null,
-      "posts": {
-        "primary": "how-to-be-a-great-supervisor",
-        "supporting": [
-          "how-to-be-a-great-intern"
-        ]
-      },
-      "related_tools": [
-        {
-          "id": "from-intuition-to-argument",
-          "relationship": "complements"
-        },
-        {
-          "id": "productive-struggle",
-          "relationship": "complements"
-        },
-        {
-          "id": "surface-the-hidden-decisions",
-          "relationship": "complements"
-        }
-      ],
-      "lineage": null,
-      "status": "published",
-      "featured": false,
-      "random_enabled": true,
-      "worked_example": {
-        "title": "Getting useful feedback on a workshop",
-        "situation": "You tell a colleague about a workshop you’re planning and ask what they think. “Sounds useful,” they say. That’s encouraging, but you were hoping to find out whether people would understand the main idea.",
-        "tempting_conclusion": "I wish they’d give me something more useful than “sounds good.”",
-        "evidence": "So far, they’ve only heard the topic. You send them the explanation you plan to open with and one activity you’d like people to try. This time, they point out a term people might not know and a step in the activity that’s hard to follow. Having something to read and try gives them more to respond to.",
-        "conclusion": "You didn’t need a finished slide deck to get those comments. A short explanation and a sample activity were enough to start talking about where people might get stuck. If you wanted feedback on the workshop’s overall direction, a rough outline might have been more useful. What you share can match the question you’re asking."
-      },
-      "expected_outcome": "Give feedback about a specific moment, action, and possible improvement.",
-      "catalogue_context": "You want useful feedback, but only get vague reactions."
     },
     {
       "id": "connect-work-to-consequences",
@@ -1612,10 +1269,6 @@
       "related_tools": [
         {
           "id": "decision-complete",
-          "relationship": "complements"
-        },
-        {
-          "id": "productive-struggle",
           "relationship": "complements"
         }
       ],
@@ -1664,10 +1317,6 @@
       "related_tools": [
         {
           "id": "look-at-the-boundary",
-          "relationship": "complements"
-        },
-        {
-          "id": "raise-the-resolution-of-feedback",
           "relationship": "complements"
         }
       ],
