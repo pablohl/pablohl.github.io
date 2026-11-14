@@ -70,27 +70,6 @@ window.toolboxLenses = [
     "url": "/toolbox/position-before-you-know/"
   },
   {
-    "id": "explore-then-exploit",
-    "name": "Explore, Then Exploit",
-    "question": "Do I know where the gains are likely to be, or am I already optimizing one path?",
-    "source": "Applied machine learning, Research",
-    "url": "/toolbox/explore-then-exploit/"
-  },
-  {
-    "id": "look-before-you-model",
-    "name": "Look Before You Model",
-    "question": "What can I learn about the problem before choosing the solution?",
-    "source": "Applied machine learning",
-    "url": "/toolbox/look-before-you-model/"
-  },
-  {
-    "id": "start-simple",
-    "name": "Start Simple",
-    "question": "What is the simplest approach that would teach me whether the core idea works?",
-    "source": "Quantitative research, Machine learning",
-    "url": "/toolbox/start-simple/"
-  },
-  {
     "id": "which-game-are-we-playing",
     "name": "Which Game Are We Playing?",
     "question": "What am I assuming the other person is trying to achieve?",
@@ -110,27 +89,6 @@ window.toolboxLenses = [
     "question": "What did I expect to observe before I saw the result?",
     "source": "Quantitative research, Finance, Machine learning",
     "url": "/toolbox/start-with-a-hypothesis/"
-  },
-  {
-    "id": "solve-the-constrained-problem",
-    "name": "Solve the Constrained Problem",
-    "question": "What solution works under the constraints that actually exist?",
-    "source": "Pommerman, Competitions, Applied machine learning",
-    "url": "/toolbox/solve-the-constrained-problem/"
-  },
-  {
-    "id": "productive-struggle",
-    "name": "Productive Struggle",
-    "question": "Will helping now improve the immediate outcome but reduce the learning?",
-    "source": "Mentoring, Supervision",
-    "url": "/toolbox/productive-struggle/"
-  },
-  {
-    "id": "raise-the-resolution-of-feedback",
-    "name": "Raise the Resolution of Feedback",
-    "question": "Have I made the work concrete enough for someone to give me the kind of feedback I want?",
-    "source": "PhD supervision, Internships, Writing",
-    "url": "/toolbox/raise-the-resolution-of-feedback/"
   },
   {
     "id": "connect-work-to-consequences",

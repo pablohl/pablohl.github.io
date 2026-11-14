@@ -53,6 +53,10 @@ Aim for roughly 100–180 words when that is sufficient. Clarity and completenes
 
 The collection’s primary entry uses recognizable situations and a recommended tool, with an optional alternative. [Toolbox navigation](toolbox-navigation.md#situation-led-entry-design) owns the current layout, disclosures, and preserved fragments. Edit the primary/alternative relationships and descriptions in `data/toolbox-starting-points.json`; keep both recommendations relevant and distinct. The catalogue and individual tools retain their canonical questions.
 
+## Retiring a tool
+
+Remove the entry and its relationships from the toolbox data, and check the situation recommendations for references to it. Rebuild the catalogue, lens picker, related links, essay callouts, and sitemap. Remove the retired tool page and any generated essay callout whose last tool was retired. The source essays remain available.
+
 ## Existing data structure
 
 Edit `data/toolbox.json`, not generated tool pages. See the [source map and commands](README.md#source-files-and-commands) for regeneration. The builder in `scripts/build_toolbox.py` already supports this object:
