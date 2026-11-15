@@ -196,33 +196,40 @@ def tool_card(tool: dict, problems: dict[str, dict], sources: dict[str, dict]) -
 def render_starting_points(published: list[dict]) -> str:
     tools = {tool["id"]: tool for tool in published}
     entries = json.loads((ROOT / "data" / "toolbox-starting-points.json").read_text())
-    rows = []
+    initial, more = [], []
     for entry in entries:
-        if not entry.get("situation", "").strip():
-            raise ValueError("Starting point must have a situation")
-        for role in ("primary", "alternative"):
-            choice = entry[role]
-            if choice["tool"] not in tools or not choice.get("description", "").strip():
-                raise ValueError(f"Invalid {role} in starting point: {entry['situation']}")
-        if entry["primary"]["tool"] == entry["alternative"]["tool"]:
-            raise ValueError("Starting point alternatives must be distinct")
-        primary, alternative = entry["primary"], entry["alternative"]
-        primary_tool, alternative_tool = tools[primary["tool"]], tools[alternative["tool"]]
-        rows.append(
-            f'<li class="starting-point"><h3>{esc(entry["situation"])}</h3>'
-            f'<p class="starting-point-primary"><a href="/toolbox/{esc(primary_tool["id"])}/">'
-            f'{esc(primary_tool["name"])} →</a>'
-            f'<span class="starting-point-description">{esc(primary["description"])}</span></p>'
-            f'<details class="starting-point-alternative"><summary>Another angle'
-            f'<span class="visually-hidden"> for {esc(entry["situation"])}</span></summary>'
-            f'<p><a href="/toolbox/{esc(alternative_tool["id"])}/">{esc(alternative_tool["name"])} →</a>'
-            f'<span class="starting-point-description">{esc(alternative["description"])}</span></p></details></li>'
+        situation = entry["situation"]
+        primary, secondary = entry["primary"], entry["secondary"]
+        choices = [primary, *secondary]
+        ids = [choice["tool"] for choice in choices]
+        if (not situation.strip() or len(secondary) > 2 or len(ids) != len(set(ids))
+                or any(choice["tool"] not in tools or not choice["description"].strip() for choice in choices)):
+            raise ValueError(f"Invalid starting point: {situation}")
+
+        def recommendation(choice: dict) -> str:
+            tool = tools[choice["tool"]]
+            return (
+                f'<a href="/toolbox/{esc(tool["id"])}/">{esc(tool["name"])} →</a>'
+                f'<span class="starting-point-description">{esc(choice["description"])}</span>'
+            )
+
+        label = '<span class="starting-point-label">Start here</span>' if secondary else ''
+        alternatives = ''
+        if secondary:
+            alternatives = (
+                '<div class="starting-point-secondary"><span class="starting-point-label">Also consider</span>'
+                '<ul>' + ''.join(f'<li>{recommendation(choice)}</li>' for choice in secondary) + '</ul></div>'
+            )
+        bucket = initial if entry["initial"] else more
+        bucket.append(
+            f'<li class="starting-point"><h3>{esc(situation)}</h3>'
+            f'<p class="starting-point-primary">{label}{recommendation(primary)}</p>{alternatives}</li>'
         )
-    initial = '<ol class="starting-points-list">' + "".join(rows[:4]) + '</ol>'
-    if len(rows) > 4:
-        initial += (f'<details class="starting-points-more"><summary>More situations ({len(rows) - 4})</summary>'
-                    '<ol class="starting-points-list">' + "".join(rows[4:]) + '</ol></details>')
-    return initial
+    markup = '<ol class="starting-points-list">' + ''.join(initial) + '</ol>'
+    if more:
+        markup += (f'<details class="starting-points-more"><summary>More situations ({len(more)})</summary>'
+                   '<ol class="starting-points-list">' + ''.join(more) + '</ol></details>')
+    return markup
 
 
 def render_catalogue(data: dict, published: list[dict], problems: dict, sources: dict) -> None:
@@ -245,7 +252,7 @@ def render_catalogue(data: dict, published: list[dict], problems: dict, sources:
     description = "Portable questions for reasoning about unclear decisions, evidence, timing, people, communication, strategy, and learning."
     output = f"""<!DOCTYPE html>
 <html lang="en-us">
-{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261101catalogue"></head>')}
+{site_head('Toolbox', description, f'{SITE_URL}/toolbox/').replace('</head>', '<link rel="stylesheet" href="/css/engineering-toolbox.css?v=20261027comfort"><link rel="stylesheet" href="/css/toolbox-starting-points.css?v=20261114situations"></head>')}
 <body id="page">
 {site_header()}
 <main id="main-content" tabindex="-1" class="site-main section-inner toolbox-page animated fadeIn faster">

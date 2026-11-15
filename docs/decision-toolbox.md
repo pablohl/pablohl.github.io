@@ -51,7 +51,7 @@ Aim for roughly 100–180 words when that is sufficient. Clarity and completenes
 
 ## Situation recommendations
 
-The collection’s primary entry uses recognizable situations and a recommended tool, with an optional alternative. [Toolbox navigation](toolbox-navigation.md#situation-led-entry-design) owns the current layout, disclosures, and preserved fragments. Edit the primary/alternative relationships and descriptions in `data/toolbox-starting-points.json`; keep both recommendations relevant and distinct. The catalogue and individual tools retain their canonical questions.
+The collection’s primary entry uses recognizable situations and a recommended tool, with up to two secondary recommendations. [Toolbox navigation](toolbox-navigation.md#situation-led-entry-design) owns the current layout, disclosures, and preserved fragments. Edit the primary and secondary recommendations and descriptions in `data/toolbox-starting-points.json`; keep the recommendations relevant and distinct. The catalogue and individual tools retain their canonical questions.
 
 ## Retiring a tool
 

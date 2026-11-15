@@ -1,68 +1,107 @@
 [
   {
-    "situation": "A result looks impressive, but I’m unsure whether to trust it.",
+    "situation": "A result looks impressive, but I’m not sure what it proves.",
+    "initial": true,
     "primary": {
       "tool": "shape-of-the-evidence",
-      "description": "Check whether the surrounding observations fit the explanation."
+      "description": "Does the broader pattern support the explanation?"
     },
-    "alternative": {
-      "tool": "what-did-the-metric-throw-away",
-      "description": "The headline number may hide differences that matter."
-    }
+    "secondary": [
+      {
+        "tool": "what-did-the-metric-throw-away",
+        "description": "Is the summary hiding important differences?"
+      },
+      {
+        "tool": "start-with-a-hypothesis",
+        "description": "Were expectations defined before seeing the results?"
+      }
+    ]
   },
   {
-    "situation": "I understand the findings, but I’m unsure what we should do.",
+    "situation": "I understand the findings, but I’m unsure what to do.",
+    "initial": false,
     "primary": {
       "tool": "decision-complete",
-      "description": "Examine the reasoning connecting the findings to a practical choice."
+      "description": "Connect the evidence to a defensible recommendation."
     },
-    "alternative": {
-      "tool": "what-is-worth-learning",
-      "description": "That reasoning reveals an unanswered question, and you need to decide what to investigate."
-    }
+    "secondary": []
   },
   {
     "situation": "We keep gathering information without getting closer to a decision.",
+    "initial": true,
     "primary": {
       "tool": "what-is-worth-learning",
-      "description": "Identify which uncertainty could actually change the choice."
+      "description": "Identify which unanswered question could actually change the choice."
     },
-    "alternative": {
-      "tool": "two-clocks",
-      "description": "Further learning may help, but you need to consider what waiting could cost."
-    }
+    "secondary": []
   },
   {
     "situation": "I’m unsure whether to act now or wait.",
+    "initial": true,
     "primary": {
       "tool": "two-clocks",
-      "description": "Consider how information and available options change during the delay."
+      "description": "Understand what waiting gains and costs."
     },
-    "alternative": {
-      "tool": "position-before-you-know",
-      "description": "You cannot commit yet, but could prepare in ways that help across plausible outcomes."
-    }
+    "secondary": [
+      {
+        "tool": "preserve-the-option",
+        "description": "See which future choices a commitment would close."
+      },
+      {
+        "tool": "position-before-you-know",
+        "description": "Find useful preparations that don't require committing yet."
+      }
+    ]
   },
   {
     "situation": "Something feels wrong, but I can’t explain why.",
+    "initial": false,
     "primary": {
       "tool": "from-intuition-to-argument",
-      "description": "Identify what your concern is noticing and make the reasoning inspectable."
+      "description": "Turn the concern into something you can examine."
     },
-    "alternative": {
-      "tool": "look-at-the-boundary",
-      "description": "The concern involves different areas of expertise, and understanding their connection may reveal the problem."
-    }
+    "secondary": [
+      {
+        "tool": "look-at-the-boundary",
+        "description": "Check whether the problem lies between different areas of expertise."
+      }
+    ]
   },
   {
-    "situation": "A detailed plan includes things we haven’t actually agreed on.",
+    "situation": "A plan looks settled, but we may not agree on what it means.",
+    "initial": true,
     "primary": {
       "tool": "surface-the-hidden-decisions",
-      "description": "Separate agreed commitments from assumptions and suggestions."
+      "description": "Identify assumptions being mistaken for commitments."
     },
-    "alternative": {
-      "tool": "change-the-representation",
-      "description": "People agree on the wording but understand its scope or consequences differently."
-    }
+    "secondary": [
+      {
+        "tool": "change-the-representation",
+        "description": "Reveal differences concealed by a shared description."
+      }
+    ]
+  },
+  {
+    "situation": "Someone’s behavior doesn’t make sense to me.",
+    "initial": false,
+    "primary": {
+      "tool": "which-game-are-we-playing",
+      "description": "Question what you assume they are trying to achieve."
+    },
+    "secondary": [
+      {
+        "tool": "right-level-of-reasoning",
+        "description": "Avoid assuming more strategic intent than the evidence supports."
+      }
+    ]
+  },
+  {
+    "situation": "The work looks good, but I don’t know whether it helped.",
+    "initial": false,
+    "primary": {
+      "tool": "connect-work-to-consequences",
+      "description": "Look beyond the quality of the work to its effects."
+    },
+    "secondary": []
   }
 ]
