@@ -21,9 +21,9 @@ Both collections belong to Toolbox. Their distinction is the reading task and fo
 
 The opening prioritizes recognizable decisions over collection explanations. It uses a short Toolbox label, one headline, a brief orientation, and inline links to all questions and Engineering guides. The two large introductory cards and repeated Decision tools introduction are removed. Existing `#decision-tools`, `#starting-points`, and `#all-tools` fragments remain stable.
 
-The first four situations appear immediately in source order. Each has a serif situation heading, a recommended tool link, and one short explanation. A native **Another angle** disclosure holds the alternative tool and its explanation; its accessible name includes the situation. **More situations** reveals the remaining entries, with a count derived from the data. Native disclosures work without JavaScript and can be opened and closed with the keyboard. The full catalogue follows, with its presentation described below.
+Four situations appear initially: evidence, investigation, timing, and agreement. Each starts with a primary tool and a short explanation. Where another tool addresses a different question, one or two links appear under **Also consider**. The native **More situations** disclosure reveals the other four entries, works without JavaScript, and can be opened and closed with the keyboard. The full catalogue follows.
 
-This responds to owner-supplied review items 1 and 2: reach the practical entry sooner and reduce repeated explanatory formatting. Keep the palette, fonts, canonical questions, and recommendation relationships unchanged. Shared typography provides continuity; fewer visible layers and optional alternative detail improve scanning without shrinking body text. Avoid adding a card, badge, or repeated label to every recommendation. The current six situations and their primary/alternative descriptions are owned by `data/toolbox-starting-points.json`; the builder controls the initial four and disclosure structure.
+The wording, recommendation order, and initial visibility are owned by `data/toolbox-starting-points.json`. Together, the situations offer an entry to each published decision tool. The catalogue, filters, random question, and collection routes remain available.
 
 ## Catalogue and collection relationship
 

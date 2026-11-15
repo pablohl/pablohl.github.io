@@ -8,8 +8,10 @@
 .starting-point h3 { margin: 0 0 .9rem; font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.4; }
 .starting-point p { max-width: 48rem; margin: .6rem 0; line-height: 1.6; }
 .starting-point-primary a { font-weight: 650; }
-.starting-point-label { font-weight: 600; }
-.starting-point-alternative { color: var(--toolbox-muted); font-size: .95rem; }
+.starting-point-label { display: block; font-size: var(--font-meta); font-weight: 600; color: var(--color-text-secondary); }
+.starting-point-secondary { margin-top: .75rem; }
+.starting-point-secondary ul { list-style: none; margin: .25rem 0 0; padding: 0; }
+.starting-point-secondary li + li { margin-top: .5rem; }
 .starting-point-description { display: block; margin-top: .15rem; }
 .starting-points a:focus-visible { outline: 2px solid var(--toolbox-accent); outline-offset: 4px; border-radius: 2px; }
 #starting-points, #all-tools, #random-lens { scroll-margin-top: 6rem; }
@@ -37,12 +39,11 @@ body#page .toolbox-page.site-main { padding-top: var(--page-top); }
 .starting-point { padding: 1.25rem 0; }
 .starting-point-primary { margin-bottom: .5rem; }
 .starting-point-description { font-size: var(--font-support); color: var(--color-text-secondary); }
-.starting-point-alternative summary, .starting-points-more > summary { width: fit-content; cursor: pointer; color: var(--color-accent); font-size: var(--font-meta); line-height: 1.6; padding: .35rem 0; text-decoration: underline; text-underline-offset: .18em; }
-.starting-point-alternative p { margin: .4rem 0 0; }
+.starting-points-more > summary { width: fit-content; cursor: pointer; color: var(--color-accent); font-size: var(--font-meta); line-height: 1.6; padding: .35rem 0; text-decoration: underline; text-underline-offset: .18em; }
 .starting-points-more { border-top: 1px solid var(--color-border); padding-top: .6rem; }
 .starting-points-more > summary { font-size: var(--font-support); font-weight: 600; }
 .starting-points-more .starting-points-list { margin-top: .75rem; }
-.starting-point-alternative summary:focus-visible, .starting-points-more > summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.starting-points-more > summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 
 /* Compact collection identities, without introductory panels. */
 .toolbox-collection-routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; max-width: 50rem; margin-top: 1.25rem; }
