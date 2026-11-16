@@ -1126,13 +1126,13 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Choosing flights for a family holiday",
-        "situation": "You’re planning a holiday with your partner and two young children. You find cheaper flights with a connection, but your partner keeps coming back to a more expensive direct flight.",
-        "tempting_conclusion": "Maybe if I find an even cheaper fare, they’ll see why the connection is worth it.",
-        "evidence": "When you talk about it, your partner says they’re worried about getting two tired children through another airport and possibly missing the next flight. You’ve been looking for a good price; they’ve been thinking about how the journey will feel. A bigger saving might matter, but it doesn’t make the transfer any easier.",
-        "conclusion": "The conversation can now include both the price and the journey. You might pay more to fly direct, or find a connection with enough time and a manageable departure hour. Neither choice has to win automatically. You have a better chance of finding a flight you’re both happy with once you understand what each of you is weighing up."
+        "title": "The pilot that never becomes a decision",
+        "situation": "A software company is discussing a pilot with a prospective customer. The customer seems interested, but every meeting produces another feature request. The team keeps improving the product, expecting the next demonstration to secure a commitment.",
+        "tempting_conclusion": "We haven't demonstrated enough value yet. If we build the requested features, they'll be ready to proceed.",
+        "evidence": "The team asks what decision the next demonstration would enable, and who would make it. The customer explains that they're exploring possibilities for next year's budget. They want to understand what the technology could do, but there's no approved project or purchasing decision underway. The company has been trying to close a sale. The customer has been trying to learn what's possible. Both have been acting reasonably, but their objectives are different.",
+        "conclusion": "More development may help the customer explore, but it won't necessarily bring a purchase closer. The company can propose a bounded evaluation with explicit next steps, or defer additional work until there's a clearer decision process. The right response depends on whether the exploratory relationship is worth the investment—not on how many more features the team can demonstrate."
       },
-      "expected_outcome": "Check what the other person is trying to achieve before choosing your response.",
+      "expected_outcome": "Recognize when your strategy assumes an objective the other person may not share—and reconsider what action makes sense.",
       "catalogue_context": "You haven’t checked what matters to the other person."
     },
     {
