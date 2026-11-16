@@ -1180,13 +1180,13 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "Is there really another buyer?",
-        "situation": "You’re looking at a secondhand car and make an offer below the asking price. The seller says someone else is coming to see it tomorrow. You wonder whether they’re trying to get you to pay more.",
-        "tempting_conclusion": "They’re bluffing. I’ll hold my offer and wait for them to come back.",
-        "evidence": "Another viewing is quite possible. The seller could also be using it to put pressure on you—or both could be true. Asking whether they’d accept your offer today gives you something more to go on, though their answer won’t prove whether another buyer exists. If they later come back with a lower price, that changes what you can negotiate, even if you still don’t know why.",
-        "conclusion": "You can take the possibility of another buyer seriously without raising your offer just because the seller mentions one. What you’re willing to pay, and whether you’d be happy to keep looking, still matter. Their next response may help you judge how much room there is to bargain; you don’t need to be certain they’re bluffing to decide what to offer."
+        "title": "Why is the competitor lowering prices?",
+        "situation": "A software company discovers that a competitor is offering large discounts. The sales team worries about losing customers and suggests lowering prices too.",
+        "tempting_conclusion": "The competitor is trying to take our customers. We need to match their prices.",
+        "evidence": "There are several possible explanations. Perhaps the competitor has lowered prices for everyone. Perhaps they're struggling to win new business. Or perhaps they're specifically targeting deals where both companies are competing.\n\nThe team looks at recent sales conversations. Customers report receiving discounts when they're considering both products, but the competitor's advertised prices haven't changed.\n\nThis suggests the competitor is offering discounts selectively, rather than lowering prices for everyone.\n\nThe team could go further. Maybe the competitor expects them to respond by lowering their own prices. Maybe that's part of a larger strategy. But there's no evidence of that yet.",
+        "conclusion": "The company shouldn't ignore the discounts, but it shouldn't assume a price war is starting either. It can focus on deals where customers are considering both products and find out whether price is actually driving their decisions.\n\nThe important distinction is between what the competitor is doing, what the evidence suggests about why, and what remains speculation.\n\nThe tool is not about avoiding strategic reasoning; it's about knowing how far the evidence allows you to go."
       },
-      "expected_outcome": "Choose an explanation to investigate without assuming more strategic intent than the evidence supports.",
+      "expected_outcome": "Distinguish when someone's behavior calls for a strategic explanation, and when a simpler explanation is enough.",
       "catalogue_context": "You may be reading too much strategy into someone’s behavior."
     },
     {

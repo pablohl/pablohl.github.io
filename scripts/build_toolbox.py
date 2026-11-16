@@ -375,11 +375,16 @@ def render_tool_page(tool: dict, problems: dict, sources: dict, posts: dict, too
             not isinstance(example.get(key), str) or not example[key].strip() for key, _ in fields
         ):
             raise ValueError(f"Incomplete worked example for {tool['id']}")
-        paragraphs = ''.join(f'<p><strong>{label}.</strong> {esc(example[key])}</p>' for key, label in fields)
+        paragraphs = []
+        for key, label in fields:
+            first, *rest = example[key].split("\n\n")
+            paragraphs.append(f'<p><strong>{label}.</strong> {esc(first)}</p>')
+            paragraphs.extend(f'<p>{esc(paragraph)}</p>' for paragraph in rest)
+        paragraphs_html = ''.join(paragraphs)
         worked_example = (
             '    <section class="tool-section tool-worked-example" aria-labelledby="worked-example-title">'
             '<h2>Worked example · illustrative</h2>'
-            f'<h3 id="worked-example-title">{esc(example["title"])}</h3>{paragraphs}</section>\n'
+            f'<h3 id="worked-example-title">{esc(example["title"])}</h3>{paragraphs_html}</section>\n'
         )
         head = head.replace('</head>', '<link rel="stylesheet" href="/css/worked-examples.css?v=20261024">\n</head>')
 
