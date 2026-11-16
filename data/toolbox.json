@@ -806,13 +806,13 @@
       "featured": false,
       "random_enabled": true,
       "worked_example": {
-        "title": "A trip plan that feels too tight",
-        "situation": "A friend proposes an itinerary with a short connection between a train and the last ferry to an island. You have made similar trips and feel uneasy, but cannot initially explain why.",
-        "tempting_conclusion": "I have traveled more, so we should reject this itinerary.",
-        "evidence": "Looking more closely, you notice there’s a bus ride between the station and the ferry. If the train is even a little late, you might miss the last boat. That’s what was bothering you. Your friend can now look at the connection with you: how much time is there, and is there another way to reach the island if you miss it?",
-        "conclusion": "You now have something more useful to discuss than a feeling that the plan is risky. An earlier train might be worth it if missing the ferry would leave you stuck for the night. But if there’s plenty of time for the bus ride, or a reasonable backup, you might feel comfortable with the original plan after all."
+        "title": "A shortcut that feels risky",
+        "situation": "A small software company needs to deliver a feature for a new customer. One founder suggests building a separate version for that customer because it would be faster.\n\nThe engineer feels uneasy but struggles to explain why. The proposed approach would work, and the customer would get the feature sooner.",
+        "tempting_conclusion": "This is bad architecture. We shouldn't do it.",
+        "evidence": "The engineer examines what would happen after delivery. A separate version wouldn't just mean extra code. Every future bug fix or change to shared functionality might have to be made and tested separately for that customer.\n\nThere are several technical concerns, but one matters most for the decision: as more customers get separate versions, maintaining the product becomes increasingly difficult.\n\nInstead of explaining all the technical details, the engineer says: “We can deliver faster now, but every future change could require separate work for each customer. The time we save today may turn into repeated work later.”\n\nNow both founders can discuss the tradeoff. The other founder explains that this customer only needs a short pilot, not a permanent separate product.\n\nThat changes the assessment. The shortcut may be reasonable for a limited pilot, provided they agree when and how to bring the feature into the main product.",
+        "conclusion": "The engineer's initial concern wasn't entirely wrong, but it wasn't enough to reject the proposal. Making the reasoning explicit revealed the real risk, allowed the other founder to contribute information, and helped them agree on a more limited approach."
       },
-      "expected_outcome": "Turn a concern into an explicit claim, supporting reasons, and a check others can examine.",
+      "expected_outcome": "Turn an unclear concern into a specific argument that others can examine, challenge, and use to make a decision.",
       "catalogue_context": "Something feels wrong, but you can’t yet explain it."
     },
     {
