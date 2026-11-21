@@ -4,7 +4,7 @@ New essay added for local review on November 4, 2026. The supplied prose is pres
 
 The page is directly maintained in `index.html`. Writing, both RSS feeds, and the sitemap include the new route, ready for publication after review. Related reading is owned by `data/related-reading.json` and rendered with `scripts/build_related_reading.py`.
 
-Reading estimate: 1516 words in the essay, prompts, image caption, and timeline, rounded up at 200 words per minute to 8 minutes. The optional agent summary is additional. This is a reading estimate, not an observed completion time.
+Reading estimate: 1823 words in the essay, prompts, image caption, timeline, and Eric’s closing note, rounded up at 200 words per minute to 10 minutes. The optional agent summary is additional. This is a reading estimate, not an observed completion time.
 
 Preview: http://127.0.0.1:8891/posts/from-playing-with-ai-to-building-with-it/
 
@@ -37,3 +37,11 @@ Timeline follow-up: the author clarified that the agent offered three alternativ
 Reviewed merged main at `3168fc8`: the game is published at `/playground/food-game/`, with setup, classification, Eat/Skip, CPU players, and a Playground return link. The simple invitation “You can play the game here” appears in a supporting aside after the narrative conclusion, before the timeline, so it no longer interrupts the story. Turn 21 also links directly to the game, connecting the first-playable milestone to the actual activity. Pending prompt, model, timeline, and summary additions are reconciled with the latest shared navigation.
 
 Follow-up verification: timeline link → game setup → start → Lunch → Healthy (apple slices) → Eat awarded a point; Playground return worked. Game rule checks, nine Python checks, social-preview and related-reading checks passed. This verifies one local play path, not all game combinations or public-host deployment.
+
+## Eric’s point of view
+
+Added for local review on November 21, 2026. The author supplied Eric’s note, “My first game: my point of view.” Its eight paragraphs are preserved verbatim in a visible section attributed to Eric at the end of the article content, after the optional agent summary and before related reading. The original narrative, timeline, and summary are unchanged. Direct local preview: http://127.0.0.1:8766/posts/from-playing-with-ai-to-building-with-it/#erics-point-of-view
+
+Local review confirmed the eight supplied paragraphs are intact, the section sits outside the optional disclosure and before related reading, and page IDs remain unique. The desktop rendering was visually inspected. No new phone, zoom, screen-reader, or reader-comprehension checks were performed for this text addition.
+
+Eric’s contribution uses italic paragraphs, a green left border, and a prominent byline to distinguish his voice from the main essay. The heading stays upright for readability. This treatment is scoped to `.erics-note`; the supplied wording remains unchanged.

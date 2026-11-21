@@ -35,3 +35,10 @@
   .game-timeline ol::before { left: 1.5rem; }
   .game-timeline .game-timeline-moment h3 { font-size: 1.125rem; }
 }
+
+/* Eric’s closing contribution keeps the essay type, with a distinct voice. */
+.erics-note { margin: 3rem 0 2rem; padding: 1.5rem 0 0 1.5rem; border-top: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); }
+.erics-note h2 { margin-top: 0; }
+.erics-note p { font-style: italic; }
+.erics-note h2 + p { font-family: var(--font-sans); font-size: var(--font-support); color: var(--color-accent); font-weight: 600; }
+@media (max-width: 600px) { .erics-note { padding-left: 1rem; } }
