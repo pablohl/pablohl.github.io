@@ -1,0 +1,7 @@
+/* Preserve the game screenshots' original proportions at every card width. */
+.experiment-entry .experiment-preview {
+  display: block;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}

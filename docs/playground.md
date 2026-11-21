@@ -51,3 +51,7 @@ The source is the local ericgame project's `mini-games/` directory. Copy its fil
 Version 1 includes keyboard and touch controls, Monkey Tag control reminders, the Loop Run infield barrier, Soccer mascot-based cheers and slower CPUs, and Soccer actions 1 to take the ball and 2 to shoot or pass. The illustrated planning page remains available from the menu.
 
 Release verification on November 21, 2026 covered the HTTP journey from Playground through all four games and back, keyboard input and scoring for Pass the Code, Monkey Tag sprint and control reminder, Soccer mascot naming and switching players, and the menu at 390px width. All nine existing website Python checks passed. Physical devices, game controllers, and full assistive-technology playthroughs were not checked.
+
+## Collection preview images
+
+The Playground collection loads `css/playground.css` after the shared activity-preview stylesheet. Preview images use their intrinsic proportions and responsive card widths. The restaurant screenshot and mini-game artwork retain their full image bounds on desktop and mobile.
