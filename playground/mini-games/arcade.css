@@ -1,0 +1,29 @@
+.arcade { min-height: 100dvh; background: #e8f4ff; padding: clamp(10px, 2vw, 24px); }
+.arcade header, .arcade footer, .arcade form, .arcade section { max-width: 1120px; margin-inline: auto; }
+.arcade header { display: flex; align-items: center; gap: 14px; color: white; padding: 12px 20px; border-radius: 18px; }
+.arcade header.yellow { color: #392207; }
+.arcade header h1 { margin: 0; font-size: clamp(1.7rem, 5vw, 3rem); }
+.arcade form { border-radius: 16px; background: white; padding: 20px; margin-top: 12px; }
+.settings { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.settings input, .settings select { font: inherit; width: auto; max-width: 100%; padding: 5px; letter-spacing: normal; }
+.settings input[type="color"] { min-height: 35px; }
+.arena { position: relative; }
+#field { display: block; width: 100%; border-radius: 16px; background: #84c946; touch-action: none; }
+#map { position: absolute; top: 10px; left: 10px; width: clamp(65px, 14vw, 132px); border: 3px solid white; border-radius: 10px; }
+.readout, .game-controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 10px 2px; }
+.game-controls button { border: 0; border-radius: 10px; color: white; background: #164f99; padding: 10px; min-height: 44px; font: inherit; font-weight: 700; }
+.game-controls button[aria-pressed="true"] { background: #923970; }
+.arcade footer { align-items: center; gap: 12px; justify-content: space-between; }
+.arcade a.secondary { text-decoration: none; display: inline-flex; align-items: center; }
+@media (pointer: coarse), (hover: none) { #map { left: auto; right: 10px; } }
+
+.control-reminder {
+  margin: 10px 0 0;
+  padding: 12px 16px;
+  border: 2px solid #9b2938;
+  border-radius: 12px;
+  background: #fff2d2;
+  color: #542232;
+  font-weight: 700;
+  line-height: 1.6;
+}

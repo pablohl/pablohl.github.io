@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e9ecee">
+<title>Eric’s Mini-Games</title>
+<link rel="stylesheet" href="style.css">
+<script src="game.js" defer></script>
+</head>
+<body>
+<main>
+<section id="menu" class="panel" aria-labelledby="choose">
+<p class="eyebrow">Eric’s Mini-Games</p>
+<h1 id="choose" tabindex="-1">Choose</h1>
+<div class="games">
+<a class="choice red" href="red.html"><span aria-hidden="true">🐵</span><strong>Monkey Tag</strong><small>Play</small></a>
+<button id="open" class="choice green" type="button"><span aria-hidden="true">📦</span><strong>Pass the Code</strong><small>Play</small></button>
+<a class="choice blue" href="blue.html"><span aria-hidden="true">👟</span><strong>Loop Run</strong><small>Play</small></a>
+<a class="choice yellow" href="yellow.html"><span aria-hidden="true">⚽</span><strong>Soccer</strong><small>Play</small></a>
+</div>
+<p>Leaving a game resets its session. Loop Run records stay on this device when browser storage is available.</p>
+<p class="plan-link"><a href="../">Back to Playground</a> · <a href="plan.html">See the full plan and pictures</a></p>
+<p class="release-credit">Version 1 · Made by Eric</p>
+</section>
+<section id="game" class="panel game" aria-labelledby="title" hidden>
+<p class="game-motto">This is just for fun.</p>
+<header>
+<span class="parcel" aria-hidden="true">📦</span>
+<h1 id="title" tabindex="-1">Pass the Code</h1>
+<span class="parcel" aria-hidden="true">🏠</span>
+</header>
+<img class="qr" src="art/pass-code.png" alt="" width="64" height="64">
+<div id="start-screen" class="board">
+<p>Send a package to the right four-digit address. Get five points to win!</p>
+<button id="start" class="action" type="button">Start game</button>
+<details id="help"><summary>How to play</summary><p>Copy the four digits shown under To and choose <b>Pass it</b> within 50 seconds. Use your keyboard on a computer or open the number pad on a touch device.</p></details>
+</div>
+<div id="round-screen" class="board" hidden>
+<div class="round-top">
+<div class="origin"><span>📦 From</span><strong id="origin"></strong></div>
+<span class="route-arrow" aria-hidden="true">➜</span>
+<div class="destination"><span>🏠 To</span><strong id="destination"></strong></div>
+<div class="clock"><span>Time left</span><strong id="clock">0:50</strong></div>
+</div>
+<p id="instructions"></p>
+<form id="form">
+<label for="code">Enter 4 digits</label>
+<div class="entry">
+<input id="code" type="text" inputmode="numeric" autocomplete="off" maxlength="4" spellcheck="false" required pattern="[0-9]{4}" aria-describedby="instructions">
+<button class="action" id="pass" type="submit">Pass it</button>
+</div>
+</form>
+<button id="key-toggle" class="secondary" type="button" aria-expanded="false" aria-controls="keypad" hidden>Number pad</button>
+<div id="keypad" aria-label="Number pad" hidden></div>
+<p id="feedback" role="status"></p>
+<button id="next" class="action" type="button" hidden>Next delivery</button>
+</div>
+<footer class="game-footer"><div class="score-card"><strong id="points">Points: 0 / 5</strong><div class="score-stamps" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div><p>Correct: 1 point · Incorrect: 0 points<br>Five points to win. This is just for fun!</p><button id="end" class="secondary" type="button">End game</button></footer>
+<p class="release-credit game-credit">Made by Eric</p>
+</section>
+</main>
+</body>
+</html>

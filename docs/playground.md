@@ -41,3 +41,13 @@ node playground/food-game/version-1.1/tests/i18n.test.cjs
 Development browser checks covered six viewport widths (320–1280px) and all three languages, including full games at five widths. This is simulated phone sizing, not physical-device testing or unfamiliar-reader evidence.
 
 Publication checks for version 1.1: the collection’s main link opened the new canonical route; the artwork loaded; Spanish setup and question controls worked at 390px with 52px answer buttons and no horizontal overflow; the translated leaving/reset notice appeared; returning to Playground and following Version 1 opened the original game. Both versions’ rule checks, version 1.1 translation checks, and all nine website Python checks passed. Keyboard and assistive-technology journeys were not rechecked for this addition.
+
+## Eric’s Mini-Games Version 1
+
+The Playground collection links to `/playground/mini-games/`, a four-game menu credited to Eric. Each choice opens a separate play screen. The menu has a Back to Playground link. The game pages return to the menu. Each session resets on leaving or reloading. Loop Run personal records are stored locally per lap count when browser storage is available.
+
+The source is the local ericgame project's `mini-games/` directory. Copy its files into `playground/mini-games/` when updating, retaining the website return link. Pages use relative asset references and run as static files. `game.js` handles Pass the Code. `arcade.js` handles Monkey Tag, Loop Run, and Soccer. The artwork and draft previews are in `art/`.
+
+Version 1 includes keyboard and touch controls, Monkey Tag control reminders, the Loop Run infield barrier, Soccer mascot-based cheers and slower CPUs, and Soccer actions 1 to take the ball and 2 to shoot or pass. The illustrated planning page remains available from the menu.
+
+Release verification on November 21, 2026 covered the HTTP journey from Playground through all four games and back, keyboard input and scoring for Pass the Code, Monkey Tag sprint and control reminder, Soccer mascot naming and switching players, and the menu at 390px width. All nine existing website Python checks passed. Physical devices, game controllers, and full assistive-technology playthroughs were not checked.

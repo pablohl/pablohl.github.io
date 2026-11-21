@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Monkey Tag · Eric’s Mini-Games</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="arcade.css"><script defer src="arcade.js"></script></head>
+<body data-game="red">
+<div class="arcade">
+<header class="red"><h1>Monkey Tag</h1></header>
+<form id="setup"><p>Move with your pointer or drag on the field. Press 1 to tag nearby, 2 to duck, and 3 to toggle sprint. The tagger is marked. Outlined grass patches hide traps. You have five lives. This is just for fun.</p><div class="settings"></div><button class="action">Start game</button></form>
+<section id="play" hidden>
+<div class="readout"><strong id="score"></strong><span id="notice" role="status"></span></div>
+<div class="arena"><canvas id="field" width="960" height="540" aria-label="Monkey Tag playfield"></canvas><canvas id="map" width="132" height="92" aria-label="Track mini-map" hidden></canvas></div>
+<p id="tag-reminder" class="control-reminder"></p>
+<div class="game-controls"><div id="tag-controls"><button data-action="tag">1 Tag</button> <button data-action="duck">2 Duck</button> <button data-action="speed" aria-pressed="false">3 Sprint</button></div><button id="again" hidden>Play again</button></div>
+</section>
+<footer><a class="secondary" href="index.html">End game</a><a href="index.html">Choose a game</a></footer>
+<p class="release-credit">Made by Eric</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Loop Run · Eric’s Mini-Games</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="arcade.css"><script defer src="arcade.js"></script></head>
+<body data-game="blue">
+<div class="arcade">
+<header class="blue"><h1>Loop Run</h1></header>
+<form id="setup"><p>Follow the arrows around the loop. A fence keeps the middle of the track closed. Move your pointer or drag steadily. Grass is slower and sudden jumps do not count. There is no time limit.</p><div class="settings"><label>Laps <select id="laps"><option>1</option><option>2</option><option>3</option><option>5</option></select></label><label>Mode <select id="mode"><option value="race">Race CPUs</option><option value="solo">Run solo</option><option value="practice">Practice</option><option value="record">Beat your record</option></select></label></div><button class="action">Start game</button></form>
+<section id="play" hidden>
+<div class="readout"><strong id="score"></strong><span id="notice" role="status"></span></div>
+<div class="arena"><canvas id="field" width="960" height="540" aria-label="Loop Run playfield"></canvas><canvas id="map" width="132" height="92" aria-label="Track mini-map" hidden></canvas></div>
+<div class="game-controls"><button id="again" hidden>Play again</button></div>
+</section>
+<footer><a class="secondary" href="index.html">End game</a><a href="index.html">Choose a game</a></footer>
+<p class="release-credit">Made by Eric</p>
+</div></body></html>

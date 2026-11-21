@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Soccer · Eric’s Mini-Games</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="arcade.css"><script defer src="arcade.js"></script></head>
+<body data-game="yellow">
+<div class="arcade">
+<header class="yellow"><a class="secondary" href="index.html">End Game</a><h1>Soccer</h1></header>
+<form id="setup"><p>Move to the ball to pick it up. Press 1 nearby to take the ball. To shoot or pass, press 2. Your striker shoots at goal and your goalie passes to your striker. On touch devices, tap the matching buttons below the field. Switch changes your player. A ball in your own net gives the other team a point.</p><div class="settings"><label>Club name <input id="club" maxlength="20" value="Eagles"></label><label>Mascot <select id="mascot"></select></label><label>Club color <input id="color" type="color" value="#3056d3"></label><label>Flag stripe <input id="stripe" type="color" value="#ffffff"></label><label>Logo shape <select id="shape"><option>Circle</option><option>Square</option><option>C</option><option>Q</option></select></label><label>Mascot eyes <select id="eyes"><option>Open</option><option>Closed</option></select></label><label>Logo size <select id="size"><option>Large</option><option>Small</option></select></label><label>First half (minutes) <input id="first" type="number" min="0.25" max="20" step="0.25" value="2" required></label><label>Second half (minutes) <input id="second" type="number" min="0.25" max="20" step="0.25" value="2" required></label></div><button class="action">Start game</button></form>
+<section id="play" hidden>
+<div class="readout"><strong id="score"></strong><span id="notice" role="status"></span></div>
+<div class="arena"><canvas id="field" width="960" height="540" aria-label="Soccer playfield"></canvas><canvas id="map" width="132" height="92" aria-label="Track mini-map" hidden></canvas></div>
+<p id="steal-help"></p>
+<div class="game-controls"><button id="steal" type="button" aria-label="1 — Take the ball">1</button><button id="kick" type="button" aria-label="2 — Shoot or pass">2</button><button id="switch">Switch</button><button id="again" hidden>Play again</button></div>
+</section>
+<footer><a href="index.html">Choose a game</a></footer>
+<p class="release-credit">Made by Eric</p>
+</div></body></html>
