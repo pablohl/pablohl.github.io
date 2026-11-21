@@ -1,0 +1,267 @@
+:root{font-family:system-ui,sans-serif;color:#19282a;background:#e9ecee;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+main{min-height:100dvh;display:grid;place-items:center;padding:clamp(12px,4vw,44px)}
+body.playing{background:#eaf6ec}
+.panel{width:min(100%,760px);background:white;border:1px solid #d4dedb;border-radius:26px;padding:clamp(18px,5vw,46px);box-shadow:0 16px 48px #1c3d3220}
+h1{font-size:clamp(2.25rem,7vw,4rem);line-height:1;margin:.15em 0 .5em;letter-spacing:-.045em}
+p{line-height:1.5}
+.eyebrow{font-weight:750;margin:0;color:#43545a}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+button,summary{cursor:pointer}
+button,input{font:inherit}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #143fc0;outline-offset:3px}
+.choice{display:grid;gap:6px;justify-items:start;text-align:left;border-radius:18px;border:0;padding:clamp(12px,3vw,23px);color:inherit}
+.choice span{font-size:2rem}.choice strong{font-size:clamp(1rem,3vw,1.4rem)}.choice small{font-weight:700}
+.red{background:#ffd9d6}.green{background:#166338;color:#fff}.green:hover,.action:hover{background:#104b2b}.blue{background:#dceaff}.yellow{background:#ffe89b}
+details{margin-top:24px}summary{font-weight:750}
+.game{width:min(100%,900px);min-height:calc(100dvh - 2 * clamp(12px,4vw,44px));display:flex;flex-direction:column}
+.board{width:min(100%,520px);margin:auto;padding-block:12px}
+#instructions{color:#405349;margin:.8rem 0}
+label{display:block;font-weight:750;margin-bottom:6px}.entry{display:flex;gap:8px}
+input{width:100%;min-width:0;border:2px solid #567662;border-radius:12px;padding:8px 12px;font-size:1.4rem;font-variant-numeric:tabular-nums;letter-spacing:.12em}
+.action,.secondary,#keypad button{border:0;border-radius:12px;min-height:44px;padding:10px 15px;font-weight:750}
+.action{background:#166338;color:white;white-space:nowrap}.action:disabled{opacity:.55;cursor:default}
+.secondary,#keypad button{background:#e5ece8;color:#1b3727}
+#key-toggle{margin-top:10px}#keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+#feedback{min-height:1.5em;margin:10px 0}footer{display:flex;justify-content:flex-end;margin-top:12px}
+
+/* Color themes for the four choices and the delivery scene. */
+.choice {
+  min-height: 130px;
+  border: 2px solid #0002;
+  color: white;
+  box-shadow: inset 0 2px #ffffff44, 0 5px 0 #0002;
+}
+.red { background: linear-gradient(145deg, #df3441, #a91c35); }
+.green { background: linear-gradient(145deg, #18864d, #0b6735); }
+.blue { background: linear-gradient(145deg, #247dcc, #204aa7); }
+.yellow { background: linear-gradient(145deg, #ffe56f, #ffbc25); color: #392207; }
+.choice small { background: #0005; border-radius: 12px; padding: 3px 9px; }
+.yellow small { background: #fff9; }
+.green:hover { background: #07572f; }
+
+body.playing { background: #72bfdc; }
+body.playing main { padding: 0; }
+.game {
+  width: 100%;
+  min-height: 100dvh;
+  border: 0;
+  border-radius: 0;
+  padding: clamp(14px, 4vw, 40px);
+  background: #8bce48 url("art/delivery-field.jpg") center / cover no-repeat;
+}
+.game header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px clamp(12px, 3vw, 24px);
+  border-radius: 18px;
+  color: white;
+  background: linear-gradient(110deg, #085c36, #187541);
+  box-shadow: 0 4px 0 #064625;
+}
+.game header h1 { margin: 0; }
+.qr { flex: none; width: clamp(44px, 9vw, 64px); height: auto; padding: 6px; background: white; border-radius: 8px; image-rendering: pixelated; }
+.board {
+  margin-block: auto;
+  padding: clamp(12px, 3vw, 23px);
+  border: 2px solid #fff;
+  border-radius: 22px;
+  background: #fff9e5;
+  box-shadow: 0 6px 0 #214d4055, 0 12px 36px #18382044;
+}
+#key-toggle { background: #cfefad; }
+#keypad button { background: #e4f4ff; }
+#end { background: #a8213c; color: #fff; box-shadow: 0 3px 0 #661427; }
+
+.plan-link { margin-bottom: 0; }
+a { color: #0b5a30; }
+.game footer { justify-content: space-between; flex-wrap: wrap; gap: 10px; align-items: center; }
+.game footer a { display: inline-flex; align-items: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.plan { width: min(100%, 960px); }
+.plan section + section { border-top: 1px solid #d4dedb; margin-top: 28px; padding-top: 8px; }
+.plan figure { margin: 16px 0; }
+.plan img { display: block; max-width: 100%; height: auto; border-radius: 12px; }
+.plan figcaption { margin-top: 6px; }
+.plan li { margin-block: 5px; line-height: 1.5; }
+.plan a:focus-visible { outline: 3px solid #143fc0; outline-offset: 3px; }
+
+/* Playable layout based on the Pass the Code concept. */
+/* The intro and timed round share the same delivery scene. */
+.game {
+  position: relative;
+  background-image: linear-gradient(#6ddcfa00 60%, #245b1355), url("art/delivery-field.jpg");
+  background-position: center;
+}
+.game header {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 3vw, 24px);
+  margin: 0 0 20px;
+  border: 2px solid #064625;
+  background: linear-gradient(#269414, #096515);
+}
+.game header h1 {
+  text-align: center;
+  font-size: clamp(1.4rem, 5vw, 3.8rem);
+  text-shadow: 0 3px #063e1b;
+}
+.parcel { font-size: clamp(1.15rem, 4vw, 2.8rem); }
+.game-motto {
+  align-self: center;
+  margin: 0 42px 12px;
+  text-align: center;
+  padding: 6px 12px;
+  border: 2px solid #367b16;
+  border-radius: 999px;
+  background: #f4ffce;
+  color: #225219;
+  font-weight: 800;
+}
+.qr { position: absolute; top: clamp(8px, 2vw, 24px); right: clamp(8px, 2vw, 24px); width: clamp(38px, 8vw, 64px); }
+.board {
+  width: min(100%, 640px);
+  border: 3px solid #368320;
+  background: #f7ffeb;
+}
+#start-screen { width: min(100%, 400px); text-align: center; }
+#start { font-size: 1.3rem; }
+#help { margin-top: 16px; }
+.round-top {
+  display: grid;
+  grid-template-columns: 1fr minmax(105px, .55fr);
+  gap: 10px;
+}
+.destination, .clock {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 2px solid #367d2c;
+  border-radius: 15px;
+  background: #cef6a7;
+  color: #21491e;
+  font-weight: 750;
+}
+.clock { background: #d0ebff; color: #193c63; border-color: #29628c; }
+.round-top strong { font-size: clamp(1.9rem, 6vw, 3rem); font-variant-numeric: tabular-nums; }
+.game .game-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 16px;
+  background: #f4ffce;
+}
+.game-footer p { grid-column: 2; margin: 0; text-align: center; font-size: .9rem; }
+.game-footer #end { grid-column: 3; }
+#points { padding: 8px 12px; border-radius: 10px; background: #ffe186; color: #513000; }
+@media (max-width: 520px) {
+  .game .game-footer { grid-template-columns: 1fr auto; }
+  .game-footer p { grid-column: 1 / -1; grid-row: 1; }
+  .game-footer #end { grid-column: 2; grid-row: 2; justify-self: end; }
+}
+.entry input {
+  min-height: 64px;
+  border-color: #377c2b;
+  text-align: center;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 800;
+}
+.entry .action {
+  padding-inline: clamp(12px, 3vw, 32px);
+  background: #147516;
+  box-shadow: inset 0 2px #ffffff55, 0 3px #084803;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.game {
+  background-image: url("art/delivery-village.jpg"), url("art/delivery-field.jpg");
+}
+.game header {
+  background: linear-gradient(#2b9c57, #096942);
+  box-shadow: 0 5px #064625, 0 8px 0 #ffffffaa;
+}
+#start-screen > p {
+  margin: 0 0 16px;
+  font-weight: 750;
+}
+.round-top {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) minmax(88px, .75fr);
+  align-items: stretch;
+}
+.origin {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 2px solid #ae4660;
+  border-radius: 15px;
+  background: #ffe1e9;
+  color: #7d2443;
+  font-weight: 750;
+}
+.route-arrow {
+  align-self: center;
+  color: #26682c;
+  font-size: 1.4rem;
+}
+.destination { background: #d0f6a8; }
+.clock { background: #d0ebff; }
+.score-card {
+  padding: 8px 12px;
+  border: 2px solid #925718;
+  border-radius: 13px;
+  background: #ffe186;
+  color: #513000;
+  box-shadow: 0 3px #925718;
+}
+#points { padding: 0; background: none; }
+.score-stamps { display: flex; gap: 4px; }
+.score-stamps span {
+  color: #79623a;
+  line-height: 1.2;
+}
+.score-stamps .earned {
+  color: #d24e18;
+  text-shadow: 0 1px #81300e;
+}
+@media (max-width: 520px) {
+  .round-top { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 6px; }
+  .round-top strong { font-size: clamp(1.5rem, 7vw, 2.1rem); }
+  .clock { grid-column: 1 / -1; grid-template-columns: auto auto; justify-content: center; gap: 8px; padding: 2px 8px; }
+}
+
+.release-credit { margin: 16px auto 0; text-align: center; color: #43545a; font-size: .875rem; font-weight: 700; }
+.game-credit { padding: 3px 12px; border-radius: 999px; background: #f4ffce; }
+
+/* Christmas park connecting the four game worlds. */
+body:has(#menu):not(.playing) {
+  background: #b4dff8 url("art/christmas-menu.jpg") center / cover fixed no-repeat;
+}
+#menu {
+  width: min(100%, 620px);
+  background: #f4fbffed;
+  border: 3px solid #fff;
+  box-shadow: 0 12px 36px #163e6940, inset 0 0 0 2px #c0e2ed;
+  backdrop-filter: blur(3px);
+}
+#menu h1 { color: #174f42; }
+#menu .eyebrow { color: #a52c3b; }
+#menu .choice {
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+#menu .choice:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 2px #ffffff66, 0 8px 0 #0002;
+}
+#menu .choice:active { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) {
+  #menu .choice { transition: none; }
+}
