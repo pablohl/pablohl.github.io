@@ -11,7 +11,7 @@ Research in Practice essay prepared for publication on November 22, 2026. The re
 - The paper is Yang et al., [Characterizing and Detecting Unfaithful Work Reports by Coding Agents](https://arxiv.org/html/2611.25760). Reported sample proportions and detector scores are distinct measurements. Constructed records are explanatory examples, not study data. Skill use is the author’s statement; effectiveness remains unmeasured.
 - The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a crop of that existing photo.
 
-Reading estimate: 1740 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 9 minutes. This is an estimate, not observed reading time.
+Reading estimate: 1737 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 9 minutes. This is an estimate, not observed reading time.
 
 The [editorial review](../../docs/history/work-report-post-review-2026-11-22.txt) records local draft review before integration. Browser checks do not establish comprehension or skill effectiveness. Publication-branch verification is recorded below when complete.
 
@@ -46,3 +46,7 @@ Added a short comparison between the authors’ runner-based audit of saved reco
 Section 5 is labeled “My practice” and uses a pale green background with a green left border to distinguish the author’s adaptation from reported research. Existing heading/prose typography and the skill panel remain. Navigation uses the same label. Article-specific styling only; shared assets and skill text are unchanged.
 
 Inspected the new panel at 1280px and 390px, with reflow checks at 320px and 200% text at 390px. Long words wrap within the narrower panel. No horizontal page overflow in the final enlarged-text check; whitespace check passes.
+
+## Practice-section flow — November 22, 2026
+
+Reordered the section around purpose, implementation choice, four review questions, the startup example, and proposed assessment. Consolidated repeated caveats and made the distinction between correcting the report and completing the fix concrete. Embedded/downloadable skill instructions and behavior are unchanged.
