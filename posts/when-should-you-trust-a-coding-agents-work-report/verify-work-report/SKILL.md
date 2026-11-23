@@ -48,8 +48,3 @@ End with two distinct statements:
 - **Work status:** what behavior is demonstrated, known to fail, or still unknown. Distinguish a component change from fulfillment of the accepted outcome. Do not soften a known bypass, missing path, or observed failure into merely 'unverified'; preserve honest uncertainty where the outcome is unknown. Correcting prose does not complete missing implementation or validation.
 
 Offer corrected report wording when useful; preserve genuine progress and honest limitations. Do not edit or publish the original report unless requested. This is advisory by default: no new mandatory checklist, approval, or merge gate. Existing project requirements remain in force. Flag concrete defects encountered, but do not infer merge readiness from report fidelity.
-
-## Optional references
-
-- Read [evaluation examples](references/evaluation-examples.md) when testing or calibrating this skill.
-- Read [research and design notes](references/research-and-design.md) when explaining the evidence behind it or planning a pilot. This skill is a practical adaptation, not a reproduction of the research detector.
