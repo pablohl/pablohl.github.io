@@ -11,7 +11,7 @@ Research in Practice essay prepared for publication on November 22, 2026. The re
 - The paper is Yang et al., [Characterizing and Detecting Unfaithful Work Reports by Coding Agents](https://arxiv.org/html/2611.25760). Reported sample proportions and detector scores are distinct measurements. Constructed records are explanatory examples, not study data. Skill use is the author’s statement; effectiveness remains unmeasured.
 - The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a crop of that existing photo.
 
-Reading estimate: 1774 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 9 minutes. This is an estimate, not observed reading time.
+Reading estimate: 1697 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 9 minutes. This is an estimate, not observed reading time.
 
 The [editorial review](../../docs/history/work-report-post-review-2026-11-22.txt) records local draft review before integration. Browser checks do not establish comprehension or skill effectiveness. Publication-branch verification is recorded below when complete.
 
@@ -32,3 +32,7 @@ At the author’s request, removed the optional-reference section from both the 
 Added context before the executive-summary argument; clarified what a passing build fails to establish; named the coding agent explicitly; connected report accuracy to task success with concrete contrasts; replaced the abstract sample-percentage takeaway. Added an explanatory schematic of the paper’s startup case and a check → record → conclusion diagram in each constructed evidence state. The startup schematic separates the user’s restart from later diagnostic inspection. These diagrams are explanatory, not measured performance or reproduced execution traces. Raw records remain available through native disclosures. The skill text is unchanged.
 
 Fresh inspection covered desktop and mobile diagram layout, all three selected record diagrams, and 200% text at 390px with no horizontal page overflow. Whitespace, JavaScript syntax and existing related/social freshness checks passed. No reader-comprehension or skill-effectiveness evidence was collected.
+
+## Detector-section edit — November 22, 2026
+
+Shortened the main detector discussion to its definition, matched comparison, scores, and practical limit. Removed the lockfile false-alarm example and repeated evaluation explanation; optional method details and the skill’s caution against unnecessary checking remain. This supersedes the earlier rationale for retaining that example. Article structure, interactions, and skill source are unchanged.
