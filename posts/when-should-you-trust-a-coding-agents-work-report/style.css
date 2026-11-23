@@ -54,3 +54,29 @@
 
 .work-report-nav{flex-wrap:wrap;gap:1rem}
 .work-report-nav a{min-width:0;max-width:100%;overflow-wrap:anywhere}
+
+/* Diagrams distinguish a reported inference from observed checks. */
+.work-report .startup-diagram{margin-block:2rem;padding:1.5rem;border:1px solid var(--color-border);background:var(--color-surface);font:var(--font-support)/1.65 var(--font-sans)}
+.work-report .startup-diagram h3{margin:.6rem 0 1.5rem}
+.work-report .lane-label{font-weight:600;margin:1.5rem 0 .8rem}
+.work-report .flow-lane{display:grid;grid-template-columns:minmax(0,1fr) 5rem minmax(0,1fr) 5rem minmax(0,1fr);align-items:center;gap:.6rem}
+.work-report .flow-node{padding:1rem;border:1px solid var(--color-border);background:var(--color-background);color:var(--color-text);align-self:stretch;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.work-report .flow-node strong{font-weight:600;font-size:1rem}
+.work-report .flow-node span{font-size:var(--font-meta);color:var(--color-text-secondary);margin-top:.4rem}
+.work-report .claim-node{border:2px dashed #92522f}
+.work-report .flow-arrow{text-align:center;font-size:1.5rem;line-height:1.25;color:var(--color-accent)}
+.work-report .flow-arrow span{display:block;font:var(--font-meta)/1.4 var(--font-sans);margin-bottom:.3rem}
+.work-report .inference-arrow{color:#92522f}
+.work-report .inference-arrow b{font-weight:400}
+.work-report .startup-diagram+ .reading{margin-top:1.5rem}
+.work-report .record-flow{display:grid;grid-template-columns:minmax(0,1fr) 1.2rem minmax(0,1fr) 1.2rem minmax(0,1fr);gap:.5rem;align-items:center;margin:1.25rem 0}
+.work-report .record-step{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:.9rem;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);min-width:0}
+.work-report .record-step>span{font-size:var(--font-meta);color:var(--color-text-secondary);margin-bottom:.4rem}
+.work-report .record-step strong{font-size:1rem;line-height:1.5;font-weight:600}
+.work-report .record-step small{font-size:var(--font-meta);margin-top:.3rem}
+.work-report .record-arrow{font-size:1.2rem;text-align:center;color:var(--color-accent)}
+.work-report .record-conclusion{border-left:3px solid var(--color-accent)}
+@media(max-width:760px){.work-report .startup-diagram{padding:1.2rem}.work-report .flow-lane,.work-report .record-flow{grid-template-columns:minmax(0,1fr);gap:.6rem}.work-report .flow-arrow{font-size:0;line-height:1}.work-report .flow-arrow::after{content:'↓';font-size:1.5rem}.work-report .flow-arrow b{display:none}.work-report .record-arrow{font-size:0;line-height:1}.work-report .record-arrow::after{content:'↓';font-size:1.3rem}}
+
+.work-report .record-details{margin:1rem 0;font:var(--font-support)/1.65 var(--font-sans)}
+.work-report .record-details summary{color:var(--color-text)}
