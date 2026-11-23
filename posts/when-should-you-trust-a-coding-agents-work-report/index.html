@@ -96,6 +96,7 @@ Upgrade of existing database: not exercised</pre></details><p class="verdict"><s
 </div></section>
 <section id="practice" class="section"><div class="reading"><p class="eyebrow">05 / The skill in practice</p><h2 id="comparison">The verification skill I’m using</h2>
 <p>I’m using a verification skill to check the completion report after code review. It is a practical adaptation of the paper, not a reproduction of FaithDetector. I have not measured its detection quality or whether it reduces review effort.</p>
+<p>The authors’ <a href="https://ndownloader.figshare.com/files/71632468">detector implementation</a> works with a separate runner that audits a saved report against earlier work records, using a custom evidence reader and citation checks. My skill gives an agent reusable instructions within an existing review; it does not reproduce their setup.</p>
 <p>The skill uses the task request, report, relevant artifacts, and available work records. For each claim about the work, it asks:</p>
 <ol class="skill-checks">
 <li><strong>What supports this claim?</strong> Find the relevant code, command output, test result, or delivery record.</li>
