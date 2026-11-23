@@ -1,8 +1,18 @@
 {
+  "when-should-you-trust-a-coding-agents-work-report": [
+    {
+      "post": "when-does-adding-agents-help",
+      "reason": "When another agent improves the work enough to justify the extra checking and coordination."
+    },
+    {
+      "post": "the-friction-ai-removes",
+      "reason": "Why a complete-looking account can leave important questions unresolved."
+    }
+  ],
   "when-does-adding-agents-help": [
     {
-      "post": "the-executive-summary-is-not-a-summary",
-      "reason": "Why interpreting research should explain what changes because of a finding."
+      "post": "when-should-you-trust-a-coding-agents-work-report",
+      "reason": "Check whether an agent’s completion report is supported by what it actually did."
     },
     {
       "post": "a-result-is-not-the-decision",

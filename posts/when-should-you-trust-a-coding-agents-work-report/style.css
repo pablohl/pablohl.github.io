@@ -1,0 +1,56 @@
+/* Reuse the previous Research in Practice article for the essay scale,
+   reading alignment, header, summary, labels, and evidence controls.
+   Only the evidence-record presentation is specific to this article. */
+.work-report .inspection{margin-block:3rem;font-family:var(--font-sans);font-size:var(--font-support);line-height:1.65}
+.work-report .inspection-intro{max-width:var(--reading-width)}
+.work-report .inspection-intro h2{margin-top:.6rem}
+.work-report .fixed-claim{max-width:var(--reading-width);margin:1.75rem 0;padding-left:1.2rem;border-left:3px solid #6c825d;font:1.35rem/1.5 var(--font-serif)}
+.work-report .fixed-claim span{display:block;margin-bottom:.6rem;font:var(--font-meta)/1.5 var(--font-sans);color:var(--color-text-secondary)}
+.work-report .case-buttons{margin-top:1.5rem}
+.work-report .case-buttons button{min-height:44px}
+.work-report .case pre{color:var(--color-text);font:var(--font-support)/1.7 var(--font-sans);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--color-surface);border:1px solid var(--color-border);padding:1.1rem;margin:1.25rem 0}
+.work-report .case p+p{margin-top:1.15em}
+.work-report .verdict strong{display:block;margin-bottom:.4rem}
+.work-report .rewrite{margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--color-border)}
+.work-report .rewrite h4{font:600 var(--font-meta)/1.5 var(--font-sans);margin:0 0 .6rem}
+.work-report .rewrite p{font:var(--font-body)/1.65 var(--font-serif)}
+.work-report .inspection-note{color:var(--color-text-secondary);font-size:var(--font-meta);margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--color-border)}
+.work-report .essay-footer{font:var(--font-support)/1.65 var(--font-sans);margin-top:3rem;padding:1.5rem 0 3rem;border-top:1px solid var(--color-border)}
+.work-report .essay-footer p+p{margin-top:1rem}
+@media(max-width:760px){.work-report .inspection{margin-block:2rem 0}}
+
+.work-report .taxonomy,.work-report .skill-checks{margin:1.25rem 0;padding-left:1.5rem}
+.work-report .taxonomy li,.work-report .skill-checks li{margin:.75rem 0}
+.work-report .detector-details{margin-top:1.5rem;font-family:var(--font-sans);font-size:var(--font-support)}
+.work-report .detector-details summary{color:var(--color-text)}
+
+.work-report .inspection{margin-bottom:0}
+.work-report #gap{margin:2rem 0 1rem}
+.work-report .taxonomy+p,.work-report .skill-checks+p{margin-top:1.25rem}
+.work-report .contents a:focus-visible{outline:3px solid #a65734;outline-offset:4px}
+
+/* Reusable skill: native disclosure and download work without JavaScript. */
+.work-report .skill-source{margin-block:2rem;background:var(--color-surface);border:1px solid var(--color-border);font:var(--font-support)/1.65 var(--font-sans)}
+.work-report .skill-source-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;padding:1.5rem}
+.work-report .skill-source-header h3{margin:.5rem 0;font-size:1.5rem}
+.work-report .skill-source-description{color:var(--color-text-secondary)}
+.work-report .skill-source-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.work-report .skill-source-actions button,.work-report .skill-source-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.6rem .9rem;border:1px solid var(--color-control-border);border-radius:4px;font:inherit;font-size:1rem;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer}
+.work-report .skill-source-actions button{color:#fff;background:#344d34;border-color:#344d34}
+.work-report .skill-source-actions button[hidden]{display:none}
+.work-report .skill-source-actions a{color:var(--color-accent);background:transparent}
+.work-report .skill-source-actions button:focus-visible,.work-report .skill-source-details pre:focus-visible{outline:3px solid #a65734;outline-offset:4px}
+.work-report .copy-status{padding:0 1.5rem;font-size:var(--font-meta);color:var(--color-text)}
+.work-report .copy-status:empty{display:none}
+.work-report .skill-source-details{padding:0;border:0;border-top:1px solid var(--color-border);font-size:var(--font-support)}
+.work-report .skill-source-details summary{padding:1rem 1.5rem;color:var(--color-text);font-family:var(--font-sans)}
+.work-report .skill-source-details summary span{margin-left:.6rem;font-size:var(--font-meta);font-weight:400;color:var(--color-text-secondary)}
+.work-report .skill-source-details pre{max-height:34rem;overflow:auto;margin:0;padding:1.5rem;border-top:1px solid var(--color-border);border-radius:0;background:var(--color-background);color:var(--color-text);white-space:pre-wrap;overflow-wrap:anywhere;tab-size:2;font: .875rem/1.75 ui-monospace,SFMono-Regular,Consolas,monospace}
+.work-report .skill-source-details code{padding:0;border:0;background:transparent;color:inherit;font:inherit;white-space:inherit}
+.work-report .skill-source-note{padding:1rem 1.5rem;border-top:1px solid var(--color-border);font-size:var(--font-meta);color:var(--color-text-secondary)}
+@media(max-width:760px){.work-report .skill-source-header{flex-direction:column;padding:1.2rem}.work-report .skill-source-actions{width:100%}.work-report .skill-source-details pre{padding:1.2rem}.work-report .skill-source-details summary{padding:1rem 1.2rem}}
+
+.work-report .skill-source-actions button,.work-report .skill-source-actions a{max-width:100%;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box}
+
+.work-report-nav{flex-wrap:wrap;gap:1rem}
+.work-report-nav a{min-width:0;max-width:100%;overflow-wrap:anywhere}

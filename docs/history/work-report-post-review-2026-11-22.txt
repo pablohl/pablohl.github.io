@@ -1,0 +1,77 @@
+RESEARCH IN PRACTICE — FULL EDITORIAL REVIEW
+November 22, 2026
+
+Scope: complete local article, all three authored evidence states, detector-method disclosure, supplied skill and copy/download panel. References: current Research in Practice principles, craft, shared presentation, reader journey and multi-perspective review guidance. Selected research claims checked against Yang et al., arxiv.org/html/2611.25760, especially sections 3–4, 6–7 and 9.
+Method: one reviewer considering four editorial perspectives. These are not independent reviews or reader-study results.
+
+INTENDED CHANGE IN UNDERSTANDING
+Starting intuition: real edits and passing checks make a completion report credible.
+Intended understanding: those actions can be accurately reported while the completion claim exceeds their scope. Inspect both the evidence and its applicability. A verifier must also avoid treating missing evidence as proof of a false claim.
+Practical consequence: use the author's supplied report-verification skill after review, with no claim that the skill reproduces FaithDetector or improves outcomes yet.
+
+PERSPECTIVES
+
+1. Practitioner
+Criterion: understand what to do differently without adopting a new mandatory gate.
+Questions: Which claim changes the next decision? What evidence supports it? Is the skill already in use or merely proposed?
+Strength: the fixed claim and revised wording connect evidence to a concrete handoff. Skill is available verbatim.
+Gap: future-tense summary and trial wording conflicted with the author's statement that the skill is in use.
+Change: summary and introduction now describe current use; evaluation remains proposed and can justify changing or stopping use.
+Limit: no observation of the author's real tasks or effectiveness of this skill.
+
+2. Research-oriented reader
+Criterion: reconstruct the selected findings and their boundaries.
+Questions: Where did reports come from? What was labeled? What does the score measure?
+Strength: separate denominators for reports and classified claims; disclosure preserves detailed evaluation scope and limits.
+Gaps: sample provenance and taxonomy-selection context were missing; metric followed its score; checker criticism was only hypothetical.
+Changes: identified SWE-chat/public-repository conversations and challenged/admitted taxonomy cases; explained annotation target and macro-F1 before scores; added the paper's lockfile false alarm.
+Limit: checked the reported study, not replication data or a reproduction of its detector. Annotations are reference judgments, not universal truth.
+
+3. Less experienced technical reader
+Criterion: follow the argument without reconstructing the paper or knowing its vocabulary first.
+Questions: Why did startup still fail? What changes between example states? What is FaithDetector checking?
+Strength: concrete SQL-filter explanation; approved actions/evidence/claims passage; contrasting reports for each record.
+Gap: undefined dataset and generic references to class scores could obscure what was evaluated.
+Change: added local context and concrete questions about alarms against annotations. Kept the optional method depth separate from the main argument.
+Limit: this is editorial inspection; no unfamiliar-reader comprehension check.
+
+4. Presentation and interaction
+Criterion: the previous essay's visual system supports reading and copying at multiple text sizes.
+Questions: Do section links reach their targets? Can keyboard users inspect alternatives and copy? Does enlarged text reflow?
+Strength: reused previous article's real stylesheet; numbered sections; native disclosures and download; full source remains readable without JavaScript.
+Gap: download action overflowed at 200% text on a narrow viewport.
+Change: allowed action text to wrap within its available width; linked evidence buttons to their controlled panels.
+Limit: no full screen-reader journey; copy handler tested with a clipboard double rather than the operating-system clipboard.
+
+SYNTHESIS AND CHANGES
+Convergence: missing study context weakened both accessibility and evidence integrity. Fixing it required a few local sentences rather than a longer research-method section.
+Complementarity: the observed checker false alarm supports the practical skill's distinction between overclaim and unavailable evidence.
+Tension: more methodological detail improves auditability but costs reading time. Kept the task/metric definition visible and the full denominator and intervention limits in the existing disclosure.
+Unique finding: enlarged-text overflow was a rendered layout defect, not an editorial concern.
+Priorities addressed: research context; metric ordering and meaning; present-use/evaluation boundary; observed counterevidence; enlarged-text reflow.
+Rejected/deferred: larger experiment, extra charts, mandatory reviewer gate, invented usage results, changes to the supplied skill, or a new site-wide style. No added interaction was needed for the argument.
+
+FINAL ASSESSMENT
+Understanding — PASS by editorial inspection: same claim, contrasting evidence, revision/condition boundary and corrected report.
+Interpretation — PASS by editorial inspection: checking truthful actions alone can miss an unsupported conclusion; verification can itself overreach.
+Integrity — PASS for selected claims: attribution, sample context, annotation target, denominators, authored-example label, and unmeasured skill benefits are distinguishable.
+Consequence — PASS: copyable skill and a small proposed record of accepted/rejected findings, evidence and review effort; can revise or stop using it.
+Economy/coherence — PASS for chosen scope: one continuing example; five sections; full skill and method depth remain optional. Preserved the passage explicitly approved by the author.
+Reader comprehension — NOT CHECKED: no two-minute CTO or research-reader study.
+Full assistive-technology behavior — NOT CHECKED.
+Editorial conclusion: meets the guideline's stopping criteria by this review. No further expansion is justified without specific confusion or new evidence. This is not empirical validation of reader understanding or skill effectiveness.
+
+OBSERVED LOCAL VERIFICATION
+Direct article entry and contents navigation; keyboard selection of build/failure/success and recovery; keyboard method disclosure; Writing return and browser Back.
+All local article links returned successful responses. No page errors observed.
+Reflow checked at 1280, 390 and 320px; no page overflow. Initial enlarged-text failure fixed and rechecked at 390px with 200% text (page width 382px within 390px viewport).
+Without JavaScript: all three evidence cases visible, copy button hidden, native source disclosure/download retained.
+Embedded skill equals the downloaded file; source and download remain identical to supplied text. Copy handler forwards the full text using a test double. Missing optional references remain explicitly noted.
+Desktop full article, mobile detector and enlarged-text skill-panel screenshots inspected.
+Not performed: publishing, production verification, detector reproduction, skill installation/execution, independent review or reader study.
+
+LOCAL PREVIEW
+http://127.0.0.1:8911/posts/when-should-you-trust-a-coding-agents-work-report/?v=20261122-reviewed
+
+PUBLICATION INTEGRATION
+This review originated in the local draft. The article was subsequently integrated on codex/verify-work-report-post from origin/main c68da87. Fresh publication-branch checks and their limits are recorded in posts/when-should-you-trust-a-coding-agents-work-report/README.md. No earlier local result should be read as a production verification.
