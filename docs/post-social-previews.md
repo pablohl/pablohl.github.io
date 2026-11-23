@@ -17,7 +17,7 @@ Add a manifest entry whenever adding a post; the inventory must match all post d
 
 Source artwork is fitted in full on a cream canvas, preserving screenshot controls and diagram labels. The agent-collaboration essay has a dedicated AI-generated editorial illustration for social sharing; its article diagrams and Writing thumbnail remain independent. Embedded color profiles are converted to sRGB. The new game essay uses its supplied screenshot. The delegation essay currently has only its existing small thumbnail available, so that source limits the detail in its social image. Replace its manifest source when higher-resolution artwork becomes available.
 
-The four posts without dedicated artwork (`great_intern`, `great_supervisor`, `thoughts`, `hello_world`) use a simple author layout: the existing profile photo, article title, author, and domain. No new artwork is generated. The author layout uses Georgia when available, DejaVu Serif otherwise, then Pillow's default; rebuilding on a different system can change that layout. The check regenerates expected JPEG bytes and flags stale images or metadata.
+The posts without dedicated artwork (`great_intern`, `great_supervisor`, `thoughts`, `hello_world`, `when-should-you-trust-a-coding-agents-work-report`) use a simple author layout: the existing profile photo, article title, author, and domain. No new artwork is generated. The author layout uses Georgia when available, DejaVu Serif otherwise, then Pillow's default; rebuilding on a different system can change that layout. The check regenerates expected JPEG bytes and flags stale images or metadata.
 
 ## Verification and limits
 
