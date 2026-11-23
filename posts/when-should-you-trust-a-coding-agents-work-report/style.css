@@ -80,3 +80,7 @@
 
 .work-report .record-details{margin:1rem 0;font:var(--font-support)/1.65 var(--font-sans)}
 .work-report .record-details summary{color:var(--color-text)}
+
+/* Author practice is visually distinct from the reported study findings. */
+.work-report .author-practice{box-sizing:border-box;margin-top:2rem;padding:clamp(1.125rem,3vw,2rem);overflow-wrap:anywhere;background:#e9ede2;border-left:3px solid var(--color-accent);border-bottom:0;color:var(--color-text)}
+.work-report .author-practice>.reading>.eyebrow{color:var(--color-accent)}

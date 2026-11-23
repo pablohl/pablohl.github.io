@@ -40,3 +40,9 @@ Shortened the main detector discussion to its definition, matched comparison, sc
 ## Implementation comparison — November 22, 2026
 
 Added a short comparison between the authors’ runner-based audit of saved records and the reusable review skill, with a direct link to their published detector implementation. Based on inspection of the replication package; no detector run or equivalence claim.
+
+## Author-practice treatment — November 22, 2026
+
+Section 5 is labeled “My practice” and uses a pale green background with a green left border to distinguish the author’s adaptation from reported research. Existing heading/prose typography and the skill panel remain. Navigation uses the same label. Article-specific styling only; shared assets and skill text are unchanged.
+
+Inspected the new panel at 1280px and 390px, with reflow checks at 320px and 200% text at 390px. Long words wrap within the narrower panel. No horizontal page overflow in the final enlarged-text check; whitespace check passes.
