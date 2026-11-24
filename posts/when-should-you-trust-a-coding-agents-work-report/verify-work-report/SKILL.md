@@ -1,6 +1,6 @@
 ---
 name: verify-work-report
-description: Check coding-agent work reports against task requirements, artifacts, and execution evidence after implementation and normal checks, before final PR approval. Keep report verification separate from code review and functional testing.
+description: Check coding-agent work reports against task requirements, artifacts, and execution evidence after implementation and testing, before accepting the final work report. Complements code review without replacing it or functional testing.
 ---
 
 # Verify work report
