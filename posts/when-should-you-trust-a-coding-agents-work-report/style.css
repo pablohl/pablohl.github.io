@@ -84,3 +84,20 @@
 /* Author practice is visually distinct from the reported study findings. */
 .work-report .author-practice{box-sizing:border-box;margin-top:2rem;padding:clamp(1.125rem,3vw,2rem);overflow-wrap:anywhere;background:#e9ede2;border-left:3px solid var(--color-accent);border-bottom:0;color:var(--color-text)}
 .work-report .author-practice>.reading>.eyebrow{color:var(--color-accent)}
+
+/* Judgment comes before the authored reading; no score or required completion. */
+.work-report .judgment-controls[hidden],.work-report .record-assessment[hidden]{display:none}
+.work-report .available-record{margin:1.25rem 0;padding:1rem 1.2rem;background:var(--color-surface);border:1px solid var(--color-border)}
+.work-report .available-record p+p{margin-top:.5rem}
+.work-report .judgment-question{font-weight:600}
+.work-report .judgment-buttons{display:flex;flex-wrap:wrap;gap:.6rem;margin:.75rem 0 1.25rem}
+.work-report .judgment-buttons button{font:inherit;min-height:44px;padding:.65rem .9rem;border:1px solid var(--color-control-border);border-radius:4px;color:var(--color-accent);background:var(--color-surface);cursor:pointer}
+.work-report .judgment-buttons button[aria-pressed=true]{color:#fff;background:var(--color-accent);border-color:var(--color-accent)}
+.work-report .judgment-buttons button:focus-visible{outline:3px solid #a65734;outline-offset:4px}
+.work-report .judgment-feedback{margin-top:1rem;font-weight:600}
+.work-report .judgment-feedback:empty{display:none}
+.work-report .record-assessment{margin-top:1.25rem;font:var(--font-support)/1.65 var(--font-sans)}
+.work-report .record-assessment>summary{color:var(--color-text)}
+.work-report .verdicts-title{margin:2rem 0 1rem}
+.work-report .skill-verdicts{padding-left:1.5rem;margin:1.25rem 0}
+.work-report .skill-verdicts li+li{margin-top:.75rem}

@@ -11,7 +11,7 @@ Research in Practice essay prepared for publication on November 22, 2026. The re
 - The paper is Yang et al., [Characterizing and Detecting Unfaithful Work Reports by Coding Agents](https://arxiv.org/html/2611.25760). Reported sample proportions and detector scores are distinct measurements. Constructed records are explanatory examples, not study data. Skill use is the author’s statement; effectiveness remains unmeasured.
 - The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a crop of that existing photo.
 
-Reading estimate: 1737 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 9 minutes. This is an estimate, not observed reading time.
+Reading estimate: 1993 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 10 minutes. This is an estimate, not observed reading time.
 
 The [editorial review](../../docs/history/work-report-post-review-2026-11-22.txt) records local draft review before integration. Browser checks do not establish comprehension or skill effectiveness. Publication-branch verification is recorded below when complete.
 
@@ -50,3 +50,9 @@ Inspected the new panel at 1280px and 390px, with reflow checks at 320px and 200
 ## Practice-section flow — November 22, 2026
 
 Reordered the section around purpose, implementation choice, four review questions, the startup example, and proposed assessment. Consolidated repeated caveats and made the distinction between correcting the report and completing the fix concrete. Embedded/downloadable skill instructions and behavior are unchanged.
+
+## Reader judgment and four verdicts — November 23, 2026
+
+The authored evidence exercise now presents evidence before asking for Supported / Not established / Contradicted. Choosing reveals feedback, the existing explanatory diagram, detailed record, and suggested report. Choices persist per record in the current page only and can be changed; reloading resets them. No score or model calls. The correction case explicitly concerns fresh-database startup on B; it does not validate A. Without JavaScript, evidence and all interpretations are accessible through native disclosures. Section 5 explains why the skill splits an identifiable overclaim from unavailable evidence. The skill definition/download remain unchanged.
+
+Observed checks: interpretations hidden before a choice; keyboard selection reveals feedback; alternate choice updates it; each new record initially hides its answer; prior answers persist when switching back; reload resets. The successful case explicitly limits support to fresh-database startup on B. All records and native interpretation disclosures are accessible without JavaScript. Reflow passed at 390/320px and at 200% text on 390px. Article script syntax, generated related/social freshness, skill-source equality and whitespace checks passed. No unfamiliar-reader study was performed.
