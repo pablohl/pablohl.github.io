@@ -60,3 +60,7 @@ Observed checks: interpretations hidden before a choice; keyboard selection reve
 ## Workflow clarification — November 23, 2026
 
 Aligned the article opening, practice section, and embedded/downloadable skill description: after implementation and normal checks, before final PR approval. Code review and report verification remain separate activities. Skill validation, source equality, workflow consistency, and whitespace checks passed; the revised practice paragraph and matching download were checked in the local rendered page. No new reader-comprehension or skill-effectiveness assessment.
+
+## Report acceptance wording — November 24, 2026
+
+Replaced the PR-approval timing in the summary, practice section, and both skill copies with after implementation and testing, before accepting the final work report. This supersedes the earlier workflow wording. Skill validation and embedded/download equality passed. Checked the revised wording locally. Also verified on the live article that all three records hide interpretations before a verdict and reveal them afterward; no interaction change was needed.
