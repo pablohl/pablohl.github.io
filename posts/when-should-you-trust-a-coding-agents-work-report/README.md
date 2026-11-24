@@ -9,7 +9,7 @@ Research in Practice essay prepared for publication on November 22, 2026. The re
 - `app.js` owns the evidence selector and skill-copy enhancement. All evidence cases remain readable without JavaScript; native skill disclosure and download remain available.
 - `verify-work-report/SKILL.md` is the author-supplied skill with its optional-reference section removed for this standalone download. Its text must match the escaped `skill-source-text` element when edited.
 - The paper is Yang et al., [Characterizing and Detecting Unfaithful Work Reports by Coding Agents](https://arxiv.org/html/2611.25760). Reported sample proportions and detector scores are distinct measurements. Constructed records are explanatory examples, not study data. Skill use is the author’s statement; effectiveness remains unmeasured.
-- The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a crop of that existing photo.
+- The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a separate evidence diagram: a passing build beside an unresolved startup result. Its editable source is `img/posts/sources/work-report-evidence.svg`.
 
 Reading estimate: 1993 words across article text, all evidence alternatives, controls, and navigation, excluding the optional full skill text; rounded up at 200 words/minute to 10 minutes. This is an estimate, not observed reading time.
 
