@@ -1,6 +1,6 @@
 ---
 name: verify-work-report
-description: Check coding-agent work reports against task requirements, artifacts, and execution evidence before handoff or PR review. Use for report fidelity checks, not as a replacement for functional testing or general code review.
+description: Check coding-agent work reports against task requirements, artifacts, and execution evidence after implementation and normal checks, before final PR approval. Keep report verification separate from code review and functional testing.
 ---
 
 # Verify work report
