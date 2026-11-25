@@ -41,6 +41,6 @@ copySkillButton.addEventListener('click', async () => {
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
-    copyStatus.textContent = 'Automatic copy is unavailable. The full skill is selected; use your device’s Copy command, or download SKILL.md.';
+    copyStatus.textContent = 'Automatic copy is unavailable. The full skill is selected; use your device’s Copy command, or download the skill ZIP.';
   }
 });
