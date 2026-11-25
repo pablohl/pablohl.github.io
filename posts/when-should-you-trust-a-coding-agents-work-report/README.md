@@ -64,3 +64,7 @@ Aligned the article opening, practice section, and embedded/downloadable skill d
 ## Report acceptance wording — November 24, 2026
 
 Replaced the PR-approval timing in the summary, practice section, and both skill copies with after implementation and testing, before accepting the final work report. This supersedes the earlier workflow wording. Skill validation and embedded/download equality passed. Checked the revised wording locally. Also verified on the live article that all three records hide interpretations before a verdict and reveal them afterward; no interaction change was needed.
+
+## Approved prose edits — November 24, 2026
+
+Applied the nine approved before/after proposals (the workflow sentence appears twice). Simplified the startup explanation, diagram caption, exercise instruction and build record, revision limit, taxonomy example, and missing-evidence distinction. Rendered wording and embedded/downloaded skill equality were checked locally; whitespace check passed. No interaction or skill behavior changed.
