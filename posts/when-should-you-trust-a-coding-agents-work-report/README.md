@@ -7,7 +7,7 @@ Research in Practice essay prepared for publication on November 22, 2026. The re
 - `index.html` owns the article, authored evidence records, and embedded skill source.
 - `style.css` owns article-specific evidence and skill panels; the prior Research in Practice article’s stylesheet supplies the consistent essay typography and controls. No shared styles were changed.
 - `app.js` owns the evidence selector and skill-copy enhancement. All evidence cases remain readable without JavaScript; native skill disclosure and download remain available.
-- `verify-work-report/SKILL.md` is the author-supplied skill with its optional-reference section removed for this standalone download. Its text must match the escaped `skill-source-text` element when edited.
+- `verify-work-report/SKILL.md` is the author-supplied skill with its optional-reference section removed for this standalone download. Its text must match both the `verify-work-report/SKILL.md` member in `verify-work-report.zip` and the escaped `skill-source-text` element when edited. The download uses a ZIP so GitHub Pages cannot convert the skill’s YAML frontmatter or Markdown into a page.
 - The paper is Yang et al., [Characterizing and Detecting Unfaithful Work Reports by Coding Agents](https://arxiv.org/html/2611.25760). Reported sample proportions and detector scores are distinct measurements. Constructed records are explanatory examples, not study data. Skill use is the author’s statement; effectiveness remains unmeasured.
 - The social preview uses the existing author-photo layout; its manifest entry is in `data/post-social-images.json`. The Writing thumbnail is a separate evidence diagram: a passing build beside an unresolved startup result. Its editable source is `img/posts/sources/work-report-evidence.svg`.
 
@@ -68,3 +68,7 @@ Replaced the PR-approval timing in the summary, practice section, and both skill
 ## Approved prose edits — November 24, 2026
 
 Applied the nine approved before/after proposals (the workflow sentence appears twice). Simplified the startup explanation, diagram caption, exercise instruction and build record, revision limit, taxonomy example, and missing-evidence distinction. Rendered wording and embedded/downloaded skill equality were checked locally; whitespace check passed. No interaction or skill behavior changed.
+
+## Download repair — November 25, 2026
+
+The live Markdown URL returned 404 while SKILL.html returned 200: Pages was converting the skill into a page. The download now uses `verify-work-report.zip`, containing the complete `verify-work-report/SKILL.md`. Browser downloads succeeded locally with and without JavaScript. The downloaded member matched the source and embedded text byte for byte, including frontmatter. Production delivery of the new ZIP remains to be checked after deployment.
